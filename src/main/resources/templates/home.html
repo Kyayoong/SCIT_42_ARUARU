@@ -21,9 +21,10 @@ $(document).ready(function() {
 <title>Insert title here</title>
 </head>
 <body>
-
-	<section id="section1">
-			<nav class="navbar navbar-expand-sm bg-*">
+	<!-- 스크롤 후 첫번째 화면 -->
+	<section id="section1"> 
+		<!-- 상단 네비게이션 바 -->
+		<nav class="navbar navbar-expand-sm bg-*">
 		<ul class="navbar-nav">
 			<li class="nav-item">
 				<a id="home-link" class="nav-link" th:href="@{/}">HOME</a>
@@ -54,11 +55,17 @@ $(document).ready(function() {
 			
 			</ul>
 	</nav>
+	
+		
+		<!-- 첫번째 화면 왼쪽 애니메이션-->
 		<h1 id="font1">BOOK YOUR RESERVATION</h1>
-		<p id="font1content">원하시는 식당을 선택하세요.</p>
+		<p id="font1content">원하시는 식당을 선택하세요</p>
 		<a id="btsection2" href="#section2" class="btn btn-primary">식당 예약하기</a>
+		
+		<!-- 첫번째 화면 오른쪽 그림-->
 		<img class="photo" th:src="@{/images/2022_NewYear.png}">
 		
+		<!-- 사이드바 -->
 		<div class="sidenav">
 		<a data-toggle="tooltip" title="홈"  th:href="@{/}"><img th:src="@{/images/home_icon.png}" style="padding-top:65px; padding-left : 25px; padding-bottom : 10px;"></a><br>
 		<a data-toggle="tooltip" data-placement="bottom" title="예약" href="#section2"><img th:src="@{/images/reservation_icon.png}" style="padding-left: 25px; padding-bottom : 10px;"></a><br>
@@ -66,10 +73,12 @@ $(document).ready(function() {
 		<a data-toggle="tooltip" data-placement="bottom" title="로그인" href="#"><img th:src="@{images/login_icon.png}" style="padding-top:25px; padding-left: 25px;  padding-bottom : 10px;"></a>
 		</div>
 	</section>
+	
+	<!-- 두번째 화면  -->
 	<section id="section2">
 		<div id="container2"></div>
 		<div id="container1" class="container">
-			
+			<!-- 회전화면 화살표 -->	
 			<div id="demo" class="carousel slide" data-ride="carousel">
 			<a id="carousel-prev-icon" class="carousel-control-prev" href="#demo" data-slide="prev">
 				<span class="carousel-control-prev-icon"></span>
@@ -77,14 +86,20 @@ $(document).ready(function() {
 			<a id="carousel-next-icon" class="carousel-control-next" href="#demo" data-slide="next">
 				<span class="carousel-control-next-icon"></span>
 			</a>
+			
+			<!-- 회전화면 하단 인디케이터 -->
 				<ul id="carousel-indicators" class="carousel-indicators">
 					<li data-target="#demo" data-slide-to="0" class="active"></li>
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 				</ul>
 
+			
+			<!-- 회전화면 안쪽 부분 -->
 				<div class="carousel-inner">
 				<div class="carousel-item active">
+					
+					<!-- 분류 화면 나열 -->
 					<div id="row1" class="row">
 					<div class="col">
 						<div class="card" style="width: 300px; margin: 0 auto;">
@@ -237,11 +252,15 @@ $(document).ready(function() {
 				
 			</div>
 	</section>
+	<!-- 세번째 화면 -->
 	<section id="section3">
+		<!-- 왼쪽 글씨 -->
 		<img id="profile" th:src="@{/images/profile4.png}">
+		<!-- 오른쪽 글씨 -->
 		<img id="r1" th:src="@{/images/RR.png}">
 		<img id="r2" th:src="@{/images/RR.png}">
 	</section>
+	<!-- 푸터 -->
 	<footer id="footer" style="background-color:#000000; color:#ffffff;">
 		<div class="container">
 			<br>

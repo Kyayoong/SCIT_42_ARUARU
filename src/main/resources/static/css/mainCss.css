@@ -214,12 +214,13 @@ footer {
 /*
 * slide 애니메이션 설정 (왼쪽 -100px 위치에서 225px 위치까지, 투명도 0에서 1로 점점 나타남)
 */
-@
-keyframes slide {from { left:-100px;
+@keyframes slide {
+	from { 
+	left:-100px;
 	opacity: 0;
-}
-
-to {
+	}
+	TO
+ {
 	left: 225px;
 	opacity: 1;
 }
@@ -229,42 +230,47 @@ to {
 /*
 * disappear 애니메이션 설정 (왼쪽 225px 위치에서 -100px  위치까지, 투명도 0에서 1로 점점 사라짐)
 */
-@
-keyframes disappear {from { left:225px;
+@keyframes disappear {
+	from { 
+	left:225px;
 	opacity: 1;
-}
-
-to {
+	}
+	to
+ 	{
 	left: -100px;
 	opacity: 0;
-}
+	}
 
 }
 
 /*
 * slide 애니메이션 설정 (위쪽 -100px 위치에서 위쪽 0px 위치까지, 투명도 0에서 1로 점점 나타남)
 */
-@
-keyframes slide2 {from { top:-100px;
+@keyframes slide2 {
+	from 
+ 	{ 
+ 	top:-100px;
 	opacity: 0;
-}
-
-to {
+	}
+	to
+ 	{
 	top: 0px;
 	opacity: 1;
-}
+	}
 
 }
 
 /*
 * disappear 애니메이션 설정 (위쪽 0px 위치에서 -100px 위치까지, 투명도 1에서 0으로 점점 나타남)
 */
-@
-keyframes disappear2 {from { top:0px;
+@keyframes disappear2 {
+	from
+	{ 	
+ 	top:0px;
 	opacity: 1;
-}
-
-to {
+	}
+	to
+ 	{
 	top: -100px;
 	opacity: 0;
 }
@@ -274,28 +280,30 @@ to {
 /*
 * slide_profile 애니메이션 설정 (왼쪽 -100px 위치에서 왼쪽 300px 위치까지, 투명도 0에서 1로 점점 나타남)
 */
-@
-keyframes slide_profile {from { left:-100px;
+@keyframes slide_profile {
+	from { 
+	left:-100px;
 	opacity: 0;
-}
-
-to {
+	}
+	to
+    {
 	left: 300px;
 	opacity: 1;
-}
+    }
 
 }
 
 /*
 * disappear_profile 애니메이션 설정 (왼쪽 300px 위치에서 왼쪽 -100px 위치까지, 투명도 1에서 0으로로 점점 사라짐)
 */
-@
-keyframes disappear_profile {from { left:300px;
+@keyframes disappear_profile {
+	from { 
+	left:300px;
 	opacity: 1;
-}
-
-to {
+	}
+	to
+ 	{
 	left: -100px;
 	opacity: 0;
-}
+	}
 }

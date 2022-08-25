@@ -27,11 +27,11 @@
 		<nav class="navbar navbar-expand-sm bg-*">
 			<!-- 네비게이션 바 왼쪽 -->
 			<ul class="navbar-nav">
-			<!-- HOME버튼(메인 화면으로 가기) -->
+				<!-- HOME버튼(메인 화면으로 가기) -->
 				<li class="nav-item"><a id="home-link" class="nav-link"
 					th:href="@{/}">HOME</a></li>
 			</ul>
-			
+
 			<!-- 네비게이션 바 오른쪽 -->
 			<ul class="navbar-nav ml-auto">
 				<!-- ABOUT US (서비스 소개) -->
@@ -47,7 +47,7 @@
 				<li class="nav-item"><a class="nav-link" th:href="@{/login}">LOGIN</a>
 				</li>
 				<!-- 로그인 글자와 검색창 띄우기 위한 빈 링크 -->
-				<li class="nav-item"><a class="nav-link" href="#">  </a></li>
+				<li class="nav-item"><a class="nav-link" href="#"> </a></li>
 				<!-- Search(검색창) -->
 				<li class="nav-item">
 					<form class="form-inline" action="#">
@@ -89,62 +89,60 @@
 
 	<!-- 두번째 화면  -->
 	<section id="section2">
-		<div id="container4">
-		</div>
+		<div id="container4"></div>
 		<div id="container2">
 			<table class="table table-hover">
-			<tr>
-				<th></th>
-				<th style="font-family : IBM Plex Sans KR; color:white;">예약일자</th>
-				<th style="font-family : IBM Plex Sans KR; color:white;" >예약시간</th>
-				<th style="font-family : IBM Plex Sans KR; color:white;">예약인원</th>
-				<th></th>
-				<th></th>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input style="width : 150px;" class="form-control" type="date" id="calendar" name="calendar"></td>
-				<td><select style="width : 100px;" class="form-control" id="reservationtime" name="reservationtime">
-					<option value="0900">09:00</option>
-					<option value="0930">09:30</option>
-					<option value="1000">10:00</option>
-					<option value="1030">10:30</option>
-					<option value="1100">11:00</option>
-					<option value="1130">11:30</option>
-					<option value="1200">12:00</option>
-					<option value="1230">12:30</option>
-					<option value="1300">13:00</option>
-					<option value="1330">13:30</option>
-					<option value="1400">14:00</option>
-					<option value="1430">14:30</option>
-					<option value="1500">15:00</option>
-					<option value="1530">15:30</option>
-					<option value="1600">16:00</option>
-					<option value="1630">16:30</option>
-					<option value="1700">17:00</option>
-					<option value="1730">17:30</option>
-					<option value="1800">18:00</option>
-					<option value="1830">18:30</option>
-					<option value="1900">19:00</option>
-					<option value="1930">19:30</option>
-					<option value="2000">20:00</option>
-					<option value="2030">20:30</option>
-					<option value="2100">21:00</option>
-					<option value="2130">21:30</option>
-					<option value="2200">22:00</option>
-				</select></td>
-				<td>
-			<input type="text" class="form-control mr-sm-2" id="persons" name="persons" style="width:50px;">
-			</td>
-			<td>
-			</td>
-			<td>
-			<input  type="submit" class="btn btn-primary" id="rsearch" name="rsearch" value="검색" style="font-family : IBM Plex Sans KR;">
-			</td>
+				<tr>
+					<th></th>
+					<th style="font-family: IBM Plex Sans KR; color: white;">예약일자</th>
+					<th style="font-family: IBM Plex Sans KR; color: white;">예약시간</th>
+					<th style="font-family: IBM Plex Sans KR; color: white;">예약인원</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input style="width: 150px;" class="form-control"
+						type="date" id="calendar" name="calendar"></td>
+					<td><select style="width: 100px;" class="form-control"
+						id="reservationtime" name="reservationtime">
+							<option value="0900">09:00</option>
+							<option value="0930">09:30</option>
+							<option value="1000">10:00</option>
+							<option value="1030">10:30</option>
+							<option value="1100">11:00</option>
+							<option value="1130">11:30</option>
+							<option value="1200">12:00</option>
+							<option value="1230">12:30</option>
+							<option value="1300">13:00</option>
+							<option value="1330">13:30</option>
+							<option value="1400">14:00</option>
+							<option value="1430">14:30</option>
+							<option value="1500">15:00</option>
+							<option value="1530">15:30</option>
+							<option value="1600">16:00</option>
+							<option value="1630">16:30</option>
+							<option value="1700">17:00</option>
+							<option value="1730">17:30</option>
+							<option value="1800">18:00</option>
+							<option value="1830">18:30</option>
+							<option value="1900">19:00</option>
+							<option value="1930">19:30</option>
+							<option value="2000">20:00</option>
+							<option value="2030">20:30</option>
+							<option value="2100">21:00</option>
+							<option value="2130">21:30</option>
+							<option value="2200">22:00</option>
+					</select></td>
+					<td><input type="text" class="form-control mr-sm-2"
+						id="persons" name="persons" style="width: 50px;"></td>
+					<td></td>
+					<td><input type="submit" class="btn btn-primary" id="rsearch"
+						name="rsearch" value="검색" style="font-family: IBM Plex Sans KR;">
+					</td>
 			</table>
 		</div>
-		<div id="container3">
-		</div>
+		<div id="container3"></div>
 		<div id="container1" class="container">
 			<!-- 회전화면 화살표 -->
 			<div id="demo" class="carousel slide" data-ride="carousel">

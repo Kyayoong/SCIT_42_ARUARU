@@ -14,280 +14,297 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-$(document).ready(function() {
-	$('[data-toggle="tooltip"]').tooltip();
-});
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 	<!-- 스크롤 후 첫번째 화면 -->
-	<section id="section1"> 
+	<section id="section1">
 		<!-- 상단 네비게이션 바 -->
 		<nav class="navbar navbar-expand-sm bg-*">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a id="home-link" class="nav-link" th:href="@{/}">HOME</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="#section3">ABOUT US</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" th:href="@{/contactus}">CONTACT US</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section2">BOOK</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" th:href="@{/login}">LOGIN</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">  </a>
-			</li>
-			<li class="nav-item">
-				<form class="form-inline" action="#">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search">
-				<input class="btn btn-primary" type="submit" value="Search">
-				</form>
-			</li>
-			
+			<!-- 네비게이션 바 왼쪽 -->
+			<ul class="navbar-nav">
+			<!-- HOME버튼(메인 화면으로 가기) -->
+				<li class="nav-item"><a id="home-link" class="nav-link"
+					th:href="@{/}">HOME</a></li>
 			</ul>
-	</nav>
-	
-		
+			
+			<!-- 네비게이션 바 오른쪽 -->
+			<ul class="navbar-nav ml-auto">
+				<!-- ABOUT US (서비스 소개) -->
+				<li class="nav-item"><a class="nav-link" href="#section3">ABOUT
+						US</a></li>
+				<!-- CONTACT US (고객문의) -->
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/contactus}">CONTACT US</a></li>
+				<!-- BOOK(예약하기) -->
+				<li class="nav-item"><a class="nav-link" href="#section2">BOOK</a>
+				</li>
+				<!-- LOGIN(로그인하기) -->
+				<li class="nav-item"><a class="nav-link" th:href="@{/login}">LOGIN</a>
+				</li>
+				<!-- 로그인 글자와 검색창 띄우기 위한 빈 링크 -->
+				<li class="nav-item"><a class="nav-link" href="#"> </a></li>
+				<!-- Search(검색창) -->
+				<li class="nav-item">
+					<form class="form-inline" action="#">
+						<input class="form-control mr-sm-2" type="text"
+							placeholder="Search"> <input class="btn btn-primary"
+							type="submit" value="Search">
+					</form>
+				</li>
+
+			</ul>
+		</nav>
+
+
 		<!-- 첫번째 화면 왼쪽 애니메이션-->
 		<h1 id="font1">BOOK YOUR RESERVATION</h1>
 		<p id="font1content">원하시는 식당을 선택하세요</p>
-		<a id="btsection2" href="#section2" class="btn btn-primary">식당 예약하기</a>
-		
+		<a id="btsection2" href="#section2" class="btn btn-primary">식당
+			예약하기</a>
+
 		<!-- 첫번째 화면 오른쪽 그림-->
 		<img class="photo" th:src="@{/images/2022_NewYear.png}">
-		
+
 		<!-- 사이드바 -->
 		<div class="sidenav">
-		<a data-toggle="tooltip" title="홈"  th:href="@{/}"><img th:src="@{/images/home_icon.png}" style="padding-top:65px; padding-left : 25px; padding-bottom : 10px;"></a><br>
-		<a data-toggle="tooltip" data-placement="bottom" title="예약" href="#section2"><img th:src="@{/images/reservation_icon.png}" style="padding-left: 25px; padding-bottom : 10px;"></a><br>
-		<a data-toggle="tooltip" data-placement="bottom" title="문의" href="#"><img th:src="@{images/letter_mail_icon.png}" style="padding-left: 25px;  padding-bottom : 10px;"></a>
-		<a data-toggle="tooltip" data-placement="bottom" title="로그인" href="#"><img th:src="@{images/login_icon.png}" style="padding-top:25px; padding-left: 25px;  padding-bottom : 10px;"></a>
+			<a data-toggle="tooltip" title="홈" th:href="@{/}"><img
+				th:src="@{/images/home_icon.png}"
+				style="padding-top: 65px; padding-left: 25px; padding-bottom: 10px;"></a><br>
+			<a data-toggle="tooltip" data-placement="bottom" title="예약"
+				href="#section2"><img th:src="@{/images/reservation_icon.png}"
+				style="padding-left: 25px; padding-bottom: 10px;"></a><br> <a
+				data-toggle="tooltip" data-placement="bottom" title="문의" href="#"><img
+				th:src="@{images/letter_mail_icon.png}"
+				style="padding-left: 25px; padding-bottom: 10px;"></a> <a
+				data-toggle="tooltip" data-placement="bottom" title="로그인" href="#"><img
+				th:src="@{images/login_icon.png}"
+				style="padding-top: 25px; padding-left: 25px; padding-bottom: 10px;"></a>
 		</div>
 	</section>
-	
+
 	<!-- 두번째 화면  -->
 	<section id="section2">
 		<div id="container2"></div>
 		<div id="container1" class="container">
-			<!-- 회전화면 화살표 -->	
+			<!-- 회전화면 화살표 -->
 			<div id="demo" class="carousel slide" data-ride="carousel">
-			<a id="carousel-prev-icon" class="carousel-control-prev" href="#demo" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a id="carousel-next-icon" class="carousel-control-next" href="#demo" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-			
-			<!-- 회전화면 하단 인디케이터 -->
+				<a id="carousel-prev-icon" class="carousel-control-prev"
+					href="#demo" data-slide="prev"> <span
+					class="carousel-control-prev-icon"></span>
+				</a> <a id="carousel-next-icon" class="carousel-control-next"
+					href="#demo" data-slide="next"> <span
+					class="carousel-control-next-icon"></span>
+				</a>
+
+				<!-- 회전화면 하단 인디케이터 -->
 				<ul id="carousel-indicators" class="carousel-indicators">
 					<li data-target="#demo" data-slide-to="0" class="active"></li>
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 				</ul>
 
-			
-			<!-- 회전화면 안쪽 부분 -->
+
+				<!-- 회전화면 안쪽 부분 -->
 				<div class="carousel-inner">
-				<div class="carousel-item active">
-					
-					<!-- 분류 화면 나열 -->
-					<div id="row1" class="row">
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
+					<div class="carousel-item active">
+
+						<!-- 분류 화면 나열 -->
+						<div id="row1" class="row">
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
 							</div>
+
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
 						</div>
+
+					</div>
+					<div class="carousel-item">
+						<div id="row2" class="row">
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="carousel-item">
+						<div id="row3" class="row">
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col">
+								<div class="card" style="width: 300px; margin: 0 auto;">
+									<img class="card-img-top"
+										th:src="@{/images/samgyopsal-removebg-preview.png}"
+										alt="Card Image">
+									<div class="card-body">
+										<h4 class="card-title">한식</h4>
+										<p class="card-text">맛있는 한국의 맛</p>
+										<a style="text-align: center" href="#" class="btn btn-primary">식당
+											예약하기</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
 					</div>
 
 
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-				</div>						
-			
-		</div>		
-		<div class="carousel-item">
-					<div id="row2" class="row">
-					<div class="col">
-						<div class="card" style="width:300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-				</div>						
-			
-		</div>		
-		<div class="carousel-item">
-					<div id="row3" class="row">
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col">
-						<div class="card" style="width: 300px; margin: 0 auto;">
-							<img class="card-img-top"
-								th:src="@{/images/samgyopsal-removebg-preview.png}"
-								alt="Card Image">
-							<div class="card-body">
-								<h4 class="card-title">한식</h4>
-								<p class="card-text">맛있는 한국의 맛</p>
-								<a style="text-align: center" href="#" class="btn btn-primary">식당
-									예약하기</a>
-							</div>
-						</div>
-					</div>
-
-				</div>						
-			
-		</div>		
-				
-					
 				</div>
-				
-			</div>	
-				
-				
+
 			</div>
+
+
+		</div>
 	</section>
 	<!-- 세번째 화면 -->
 	<section id="section3">
 		<!-- 왼쪽 글씨 -->
 		<img id="profile" th:src="@{/images/profile4.png}">
 		<!-- 오른쪽 글씨 -->
-		<img id="r1" th:src="@{/images/RR.png}">
-		<img id="r2" th:src="@{/images/RR.png}">
+		<img id="r1" th:src="@{/images/RR.png}"> <img id="r2"
+			th:src="@{/images/RR.png}">
 	</section>
 	<!-- 푸터 -->
-	<footer id="footer" style="background-color:#000000; color:#ffffff;">
+	<footer id="footer" style="background-color: #000000; color: #ffffff;">
 		<div class="container">
 			<br>
 			<div class="row">
-				<div class="col-sm-2" style="text-align:center;">
-					<h5>Copyright &copy; 2022</h5><h5>Restaurant Reservation</h5>
+				<div class="col-sm-2" style="text-align: center;">
+					<h5>Copyright &copy; 2022</h5>
+					<h5>Restaurant Reservation</h5>
 				</div>
-				
+
 				<div class="col-sm-4">
 					<h4>조원 소개</h4>
-					<p>저희는 한국무역협회 SCIT MASTER 과정 <br>42기 A반 조성준, 황경환, 류기원, 안예현입니다. </p>
+					<p>
+						저희는 한국무역협회 SCIT MASTER 과정 <br>42기 A반 조성준, 황경환, 류기원, 안예현입니다.
+					</p>
 				</div>
-				
-				<div class="col-sm-2" >
-					<h4 style="text-align:center;">내비게이션</h4>
+
+				<div class="col-sm-2">
+					<h4 style="text-align: center;">내비게이션</h4>
 					<div class="list-group">
-						<a th:href="@{/}" style="color : white; padding-bottom:5px;" >홈</a>
-						<a href="#section2" style="color : white; padding-bottom:5px;"  >예약</a>
-						<a href="#section3" style="color : white; padding-bottom:5px;" >서비스 소개</a>
-						<a href="#" style="color : white; padding-bottom:5px;" >문의</a>
-						<a href="#" style="color : white; padding-bottom:5px;" >로그인</a>
+						<a th:href="@{/}" style="color: white; padding-bottom: 5px;">홈</a>
+						<a href="#section2" style="color: white; padding-bottom: 5px;">예약</a>
+						<a href="#section3" style="color: white; padding-bottom: 5px;">서비스
+							소개</a> <a href="#" style="color: white; padding-bottom: 5px;">문의</a>
+						<a href="#" style="color: white; padding-bottom: 5px;">로그인</a>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<h4 style="text-align:center;">by RR（あるある）</h4>
+					<h4 style="text-align: center;">by RR（あるある）</h4>
 				</div>
-				
+
 			</div>
 		</div>
 	</footer>

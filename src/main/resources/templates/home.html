@@ -72,17 +72,15 @@
 
 		<!-- 사이드바 -->
 		<div class="sidenav">
-			<a style="padding-top: 65px; padding-left: 25px; padding-bottom: 10px;" data-toggle="tooltip" title="홈" th:href="@{/}"><img
-				th:src="@{/images/home_icon.png}"
-				></a><br>
-			<a style="padding-top: 25px; padding-left: 25px; padding-bottom: 10px;" data-toggle="tooltip" data-placement="bottom" title="예약"
+			<a style="position:absolute; top:65px; left:25px; width:48px;" data-toggle="tooltip" data-placement="bottom" title="홈" th:href="@{/}">
+			<img th:src="@{/images/home_icon.png}"></a>
+			<a  style="position:absolute; top:150px;left:25px; width:48px;" data-toggle="tooltip" data-placement="bottom" title="예약"
 				href="#section2"><img th:src="@{/images/reservation_icon.png}"
-				></a><br> <a style="padding-top : 25px; padding-left: 25px; padding-bottom: 10px;"
-				data-toggle="tooltip" data-placement="bottom" title="문의" href="#"><img
-				th:src="@{images/letter_mail_icon.png}"
-				></a> <a style="padding-top: 25px; padding-left: 25px; padding-bottom: 10px;"
+				></a> <a style="position:absolute; top:225px; left:25px; width:48px;" 
+				data-toggle="tooltip" data-placement="bottom" title="문의" href="#">
+				<img  th:src="@{images/letter_mail_icon.png}"></a> <a style="position:absolute; top:300px; left:25px; width:48px;"
 				data-toggle="tooltip" data-placement="bottom" title="로그인" href="#"><img
-				th:src="@{images/login_icon.png}"
+				 th:src="@{images/login_icon.png}"
 				></a>
 		</div>
 	</section>

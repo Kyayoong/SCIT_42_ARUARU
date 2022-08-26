@@ -15,21 +15,6 @@
 	url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap')
 	;
 
-#section1 {
-	height: 100vh;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background: url("/aruaru/images/restaurant_3.jpg") fixed;
-}
-
-#carousel-next-icon {
-	top: 500px;
-}
-
-#carousel-prev-icon {
-	top: 500px;
-}
-
 #home-link {
 	font-family: "Black Han Sans";
 	font-size: 24px;
@@ -42,10 +27,20 @@
 	color: white;
 }
 
-#container1 {
-	top: 400px;
+#section1 {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background: url("/aruaru/images/restaurant_3.jpg") fixed;
 }
+/*
+* 상기 사항까지 mainCss.css 부분과 동일
+*/
 
+
+/*
+* 로그인 영역 위치,크기,그림자,배경 및 애니메이션 설정
+*/
 #loginform {
 	top: 170px;
 	height: 435px;
@@ -54,32 +49,48 @@
 	right: 500px;
 	box-shadow: 5px 5px 20px grey;
 	background-color: rgba(255, 255, 255, 0.5);
-	animation: slide2 2s;
+	animation: slideloginarea 2s;
 }
 
+
+
+
+/*
+*	LOGIN 글자 글씨체, 글씨색, 글씨위치 설정
+*/
 h1 {
 	font-family: "Black Han Sans";
 	color: white;
 	padding-left: 190px;
 	padding-top: 50px;
-	box-shadow: 5px 5px 20px grey;
 }
+
+/*
+* login하는 table 위치 조정
+*/
 
 #logintable {
 	padding-left: 120px;
 }
 
-#logininput {
-	padding-left: 160px;
-}
+
+/*
+* ID/Password를 잊으셨나요? 영역 위치 조정
+*/
 
 #loginforgetdiv {
 	padding-left: 20px;
 }
 
+/*
+*  ID/Password를 잊으셨나요 부분에 마우스 위치시킬 때 색깔
+*/
+
 #loginforget:hover {
 	color: black;
 }
+
+
 
 @keyframes slide {
 	from 
@@ -107,7 +118,11 @@ to {
 }
 
 }
-@keyframes slide2 {
+
+/*
+* 로그인 영역 애니메이션 (화면상단부터 아래로 100px 위치에서 화면상단부터 아래 170px 위치, 투명도 0에서 1로)
+*/
+@keyframes slideloginarea {
 	from { 
 	top: 100px;
 	opacity: 0;
@@ -116,44 +131,4 @@ to {
 to {
 	top: 170px;
 	opacity: 1;
-}
-
-}
-@keyframes disappear2 {
-	from 
-	{ 
-	top:0px;
-	opacity: 1;
-	}
-	to
- 	{
-	top: -100px;
-	opacity: 0;
-	}
-
-}
-@keyframes slide_profile {
-	from 
-	{ 
-	left:-100px;
-	opacity: 0;
-	}
-	to
- 	{
-	left: 300px;
-	opacity: 1;
-}
-
-}
-@keyframes disappear_profile 
-	{
-	from { 
-	left:300px;
-	opacity: 1;
-	}
-	to
- 	{
-	left: -100px;
-	opacity: 0;
-	}
 }

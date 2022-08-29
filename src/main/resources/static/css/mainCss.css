@@ -90,8 +90,8 @@
     */
     #carousel-inner {
         width: 750px;
-        left : 385px;
-        top:5.5vh;
+        left : 33%;
+        top : 5.5vh;
     }
     /*
     * 캐러샐 인디케이터(밑에 누르면 화면 바뀌는 부분) 위치 조정

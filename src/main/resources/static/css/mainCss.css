@@ -1,0 +1,278 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    /*
+    * 네비게이션 바 높이 조정
+    */
+
+    #navbar {
+        height : 40px;
+    }
+    
+    /*
+    * 알파벳 CI 크기 및 위치 조정
+    */
+
+    #RR {
+        position :relative;
+        width : 48px;
+        top : 10px;
+        left : 220px;
+    }
+
+    /*
+    * 일본어 CI 크기 및 위치 조정
+    */
+
+    #aruaru {
+        position : relative;
+        height : 48px;
+        top : 10px;
+        left : 220px;
+    }
+
+    /*
+    * 지역 검색 창 위치 조정
+    */
+    #area-input {
+        position : absolute;
+        top : 60px;
+        left : 420px;
+        width : 200px;
+    }
+    /*
+    * 검색창 키워드 인풋 위치 및 크기 조정
+    */
+    #keyword-input {
+        position : absolute;
+        top : 60px;
+        left : 622px;
+        width : 275px;
+    }
+    /*
+    * 날짜 설정 인풋 위치 및 크기 조정
+    */
+    #day-input {
+        position : absolute;
+        top : 60px;
+        left : 899px;
+        width : 150px;
+    }
+    /*
+    * 시간 설정 인풋 위치 및 크기 조정
+    */
+    #select-time {
+        position :absolute;
+        top:60px;
+        left:1051px;
+        width : 100px;
+    }
+    /*
+    * 인원수 인풋 위치 및 크기 조정
+    */
+    #person-input {
+        position: absolute;
+        top:60px;
+        left:1153px;
+        width: 100px;
+    }
+    /*
+    * 검색버튼 위치 조정
+    */
+    #search-submit {
+    	position : absolute;
+    	top : 60px;
+    	left : 1255px;
+    }
+    
+    /*
+    * 캐러샐(회전화면) 위치 및 크기 조정
+    */
+    #carousel-inner {
+        width: 750px;
+        left : 385px;
+        top:50px;
+    }
+    /*
+    * 캐러샐 인디케이터(밑에 누르면 화면 바뀌는 부분) 위치 조정
+    */
+    .carousel-indicators
+    {
+    	top: 500px;
+   	}
+   	/*
+    * 캐러셀 첫번째 자막 글씨체 설정 및 위치 조정
+    */
+   	#c-caption1 {
+   		font-family : Jua;
+   		left : 50px;
+   	}
+   	
+   	/*
+    * 그림 첫째줄 위치 설정
+    */
+   	#tags1 {
+   		position : relative;
+   		top : 100px;
+   		margin : 0 auto;
+   		padding-left : 80px;
+   	}
+   	/*
+    * 첫째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags1 {
+   		position : absolute;
+   		top: 65px;
+   		left : 45px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 첫째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags2 {
+   		position : absolute;
+   		top: 65px;
+   		left : 60px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 첫째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags3 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 첫째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags4 {
+   		position : absolute;
+   		top: 65px;
+   		left : 60px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 첫째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags5 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 첫째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags6 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	
+   	/*
+   	* 그림 두번째 줄 위치 설정
+   	*/
+
+   	#tags2 {
+   		position : relative;
+   		padding-top : 150px;
+   		margin : 0 auto;
+   		padding-left : 80px;
+   	}
+   	
+   	/*
+    * 두번째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags7 {
+   		position : absolute;
+   		top: 65px;
+   		left : 45px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 두번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags8 {
+   		position : absolute;
+   		top: 65px;
+   		left : 31px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 두번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags9 {
+   		position : absolute;
+   		top: 65px;
+   		left : 60px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 두번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags10 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 두번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags11 {
+   		position : absolute;
+   		top: 65px;
+   		left : 33px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 두번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags12 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+	
+	#ranking-caption {
+		font-family : Jua;
+		position : relative;
+		padding-left : 60px;
+	}
+	
+	#ranking1 {
+		position : relative;
+		padding-left : 60px;
+		margin : 0 auto;
+	}
+	
+	#new-restaurants-intro {
+		padding-top : 50px;
+		font-family : Jua;
+		position : relative;
+		padding-left : 60px;
+	}
+	
+	#new-restaurants-images {
+		position : relative;
+		padding-left : 60px;
+		margin : 0 auto;
+	}
+ 	
+   	

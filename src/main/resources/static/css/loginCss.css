@@ -1,0 +1,138 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+#section1 {
+	height : 100vh;
+	background-repeat: no-repeat;
+	background-size:contain;
+	background : url("/spring7/images/restaurant_3.jpg") fixed;
+}
+
+#carousel-next-icon {
+	top : 500px;
+}
+#carousel-prev-icon {
+	top : 500px;
+}
+#home-link {
+	font-family : "Black Han Sans";
+	font-size : 24px;
+	color : white;
+}
+
+.nav-link {
+	font-family : "Black Han Sans";
+	font-size : 18px;
+	color : white;
+}
+
+#container1 {
+	top : 400px;
+}
+
+
+#loginform {
+	top: 170px;
+	height : 435px;
+	width : 500px;
+	position : fixed;
+	right: 500px;
+	box-shadow : 5px 5px 20px grey; 
+	background-color : rgba(255,255,255, 0.5);
+	animation : slide2 2s;
+}
+
+h1 {
+	font-family : "Black Han Sans";
+	color : white;
+	padding-left : 190px;
+	padding-top : 50px;
+	box-shadow : 5px 5px 20px grey;
+}
+
+#logintable {
+	padding-left : 120px;
+}
+
+#logininput {
+	padding-left : 160px;
+}
+
+#loginforgetdiv {
+	padding-left : 20px;
+}
+
+#loginforget:hover {
+	color : black;
+}
+
+
+@keyframes slide {
+	from {
+		left:-100px;
+		opacity : 0;
+	}
+	to {
+		left:225px;
+		opacity : 1;
+	}
+}
+
+@keyframes disappear {
+	from {
+		left:225px;
+				opacity : 1;
+	}
+	to {
+		left:-100px;
+		opacity : 0;
+	}
+}
+
+@keyframes slide2 {
+	from {
+		top:100px;
+		opacity : 0;
+	}
+	to {
+		top: 170px;
+		opacity : 1;
+	}
+}
+
+@keyframes disappear2 {
+	from {
+		top: 0px;
+		opacity : 1;
+	}
+	to {
+		top:-100px;
+		opacity : 0;
+	}
+}
+
+@keyframes slide_profile {
+	from {
+		left:-100px;
+		opacity : 0;
+	}
+	to {
+		left:300px;
+		opacity : 1;
+	}
+}
+
+
+@keyframes disappear_profile {
+	from {
+		left:300px;
+		opacity : 1;
+
+	}
+	to {
+		left:-100px;
+		opacity : 0;
+	}
+}

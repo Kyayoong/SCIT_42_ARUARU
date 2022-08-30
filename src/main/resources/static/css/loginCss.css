@@ -43,29 +43,6 @@ h1 {
 	color : black;
 }
 
-
-@keyframes slide {
-	from {
-		left:-100px;
-		opacity : 0;
-	}
-	to {
-		left:225px;
-		opacity : 1;
-	}
-}
-
-@keyframes disappear {
-	from {
-		left:225px;
-				opacity : 1;
-	}
-	to {
-		left:-100px;
-		opacity : 0;
-	}
-}
-
 @keyframes slide2 {
 	from {
 		top:100px;
@@ -77,37 +54,3 @@ h1 {
 	}
 }
 
-@keyframes disappear2 {
-	from {
-		top: 0px;
-		opacity : 1;
-	}
-	to {
-		top:-100px;
-		opacity : 0;
-	}
-}
-
-@keyframes slide_profile {
-	from {
-		left:-100px;
-		opacity : 0;
-	}
-	to {
-		left:300px;
-		opacity : 1;
-	}
-}
-
-
-@keyframes disappear_profile {
-	from {
-		left:300px;
-		opacity : 1;
-
-	}
-	to {
-		left:-100px;
-		opacity : 0;
-	}
-}

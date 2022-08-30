@@ -108,6 +108,13 @@
    		left : 5.5vh;
    	}
    	
+   	#menu-introduce {
+   		font-family : Jua;
+   		position: relative;
+   		padding-left : 6vw;
+   		top: 10.6vh;
+   	}
+   	
    	/*
     * 그림 첫째줄 위치 설정
     */
@@ -122,60 +129,74 @@
     */
    	#caption-tags1 {
    		position : absolute;
-   		top: 65px;
-   		left : 45px;
+   		top: 55px;
+   		left : 20px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 첫째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags2 {
    		position : absolute;
-   		top: 65px;
-   		left : 60px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 첫째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags3 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 30.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 첫째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags4 {
    		position : absolute;
-   		top: 65px;
-   		left : 60px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 첫째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags5 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 30.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 첫째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags6 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 30.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
+   	}
+   	
+   	
+   		#atmo-introduce {
+   		font-family : Jua;
+   		position: relative;
+   		padding-left : 6vw;
+   		top: 15vh;
    	}
    	
    	/*
@@ -184,7 +205,7 @@
 
    	#tags2 {
    		position : relative;
-   		padding-top : 18.6vh;
+   		padding-top : 14.6vh;
    		margin : 0 auto;
    		padding-left : 5.4vw;
    	}
@@ -194,70 +215,82 @@
     */
    	#caption-tags7 {
    		position : absolute;
-   		top: 65px;
-   		left : 45px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 두번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags8 {
    		position : absolute;
-   		top: 65px;
-   		left : 31px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 두번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags9 {
    		position : absolute;
-   		top: 65px;
-   		left : 60px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 두번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags10 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 20px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 두번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags11 {
    		position : absolute;
-   		top: 65px;
-   		left : 33px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 두번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags12 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
   
-  
+  	
+  	#location-introduce {	
+   		position: absolute;
+   		padding-left : 6vw;
+   		top: 1005px;
+   		font-family : Jua;
+   	}
   	   	/*
    	* 그림 두번째 줄 위치 설정
    	*/
 
    	#tags3 {
    		position : relative;
-   		padding-top : 1.1vh;
+   		padding-top : 2.5vh;
    		margin : 0 auto;
    		padding-left : 80px;
    	}
@@ -267,60 +300,66 @@
     */
    	#caption-tags13 {
    		position : absolute;
-   		top: 65px;
-   		left : 45px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 세번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags14 {
    		position : absolute;
-   		top: 65px;
-   		left : 31px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 세번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags15 {
    		position : absolute;
-   		top: 65px;
-   		left : 60px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 세번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags16 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 세번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags17 {
    		position : absolute;
-   		top: 65px;
-   		left : 33px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
    	/*
     * 세번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
     */
    	#caption-tags18 {
    		position : absolute;
-   		top: 65px;
-   		left : 55px;
+   		top: 55px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
+   		font-size : 28px;
    	}
   
   

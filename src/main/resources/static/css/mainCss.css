@@ -98,7 +98,7 @@
     */
     .carousel-indicators
     {
-    	top: 52vh;
+    	top: 60vh;
    	}
    	/*
     * 캐러셀 첫번째 자막 글씨체 설정 및 위치 조정
@@ -281,7 +281,7 @@
   	#location-introduce {	
    		position: absolute;
    		padding-left : 6vw;
-   		top: 1005px;
+   		top: 147vh;
    		font-family : Jua;
    	}
   	   	/*
@@ -292,7 +292,7 @@
    		position : relative;
    		padding-top : 2.5vh;
    		margin : 0 auto;
-   		padding-left : 80px;
+   		padding-left : 5.4vw;
    	}
    	
    	/*

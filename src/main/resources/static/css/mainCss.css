@@ -89,8 +89,8 @@
     * 캐러샐(회전화면) 위치 및 크기 조정
     */
     #carousel-inner {
-        width: 750px;
-        left : 33%;
+        width: 70vw;
+        left : 15vw;
         top : 5.5vh;
     }
     /*
@@ -98,14 +98,14 @@
     */
     .carousel-indicators
     {
-    	top: 500px;
+    	top: 52vh;
    	}
    	/*
     * 캐러셀 첫번째 자막 글씨체 설정 및 위치 조정
     */
    	#c-caption1 {
    		font-family : Jua;
-   		left : 50px;
+   		left : 5.5vh;
    	}
    	
    	/*
@@ -113,9 +113,9 @@
     */
    	#tags1 {
    		position : relative;
-   		top : 100px;
+   		top : 11vh;
    		margin : 0 auto;
-   		padding-left : 80px;
+   		padding-left : 5.4vw;
    	}
    	/*
     * 첫째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
@@ -184,9 +184,9 @@
 
    	#tags2 {
    		position : relative;
-   		padding-top : 150px;
+   		padding-top : 18.6vh;
    		margin : 0 auto;
-   		padding-left : 80px;
+   		padding-left : 5.4vw;
    	}
    	
    	/*
@@ -249,7 +249,82 @@
    		color : white;
    		font-family : Jua;
    	}
-	
+  
+  
+  	   	/*
+   	* 그림 두번째 줄 위치 설정
+   	*/
+
+   	#tags3 {
+   		position : relative;
+   		padding-top : 1.1vh;
+   		margin : 0 auto;
+   		padding-left : 80px;
+   	}
+   	
+   	/*
+    * 세번째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags13 {
+   		position : absolute;
+   		top: 65px;
+   		left : 45px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 세번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags14 {
+   		position : absolute;
+   		top: 65px;
+   		left : 31px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 세번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags15 {
+   		position : absolute;
+   		top: 65px;
+   		left : 60px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 세번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags16 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 세번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags17 {
+   		position : absolute;
+   		top: 65px;
+   		left : 33px;
+   		color : white;
+   		font-family : Jua;
+   	}
+   	/*
+    * 세번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
+    */
+   	#caption-tags18 {
+   		position : absolute;
+   		top: 65px;
+   		left : 55px;
+   		color : white;
+   		font-family : Jua;
+   	}
+  
+  
+  
 	#ranking-caption {
 		font-family : Jua;
 		position : relative;
@@ -258,7 +333,7 @@
 	
 	#ranking1 {
 		position : relative;
-		padding-left : 60px;
+		padding-left : 50px;
 		margin : 0 auto;
 	}
 	
@@ -271,7 +346,7 @@
 	
 	#new-restaurants-images {
 		position : relative;
-		padding-left : 60px;
+		padding-left : 50px;
 		margin : 0 auto;
 	}
  	

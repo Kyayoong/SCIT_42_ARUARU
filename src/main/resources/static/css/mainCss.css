@@ -17,7 +17,7 @@
         position :relative;
         width : 2.5vw;
         top : 1.3vh;
-        left :	15vw;
+        left :	14.5vw;
     }
 
     /*
@@ -28,7 +28,7 @@
         position : relative;
         height : 3vw;
         top : 1.3vh;
-        left : 14.9vw;
+        left : 14.4vw;
     }
 
     /*
@@ -37,7 +37,7 @@
     #area-input {
         position : absolute;
         top : 6.3vh;
-        left : 27.4vw;
+        left : 26.9vw;
         width : 13vw;
     }
     /*
@@ -46,8 +46,8 @@
     #keyword-input {
         position : absolute;
         top : 6.3vh;
-        left : 40.5vw;
-        width : 17.9vw;
+        left : 40.1vw;
+        width : 16.4vw;
     }
     /*
     * 날짜 설정 인풋 위치 및 크기 조정
@@ -55,7 +55,7 @@
     #day-input {
         position : absolute;
         top : 6.3vh;
-        left : 58.5vw;
+        left : 56.7vw;
         width : 9.8vw; /*150px;*/
     }
     /*
@@ -64,7 +64,7 @@
     #select-time {
         position :absolute;
         top:6.3vh;
-        left:68.4vw;
+        left:66.7vw;
         width : 6.5vw;
     }
     /*
@@ -73,7 +73,7 @@
     #person-input {
         position: absolute;
         top:6.3vh;
-        left:75vw;
+        left:73.4vw;
         width: 6.5vw;
     }
     /*
@@ -82,15 +82,15 @@
     #search-submit {
     	position : absolute;
     	top : 6.3vh;
-    	left : 81.7vw;
+    	left : 80.2vw;
     }
     
     /*
     * 캐러샐(회전화면) 위치 및 크기 조정
     */
     #carousel-inner {
-        width: 70vw;
-        left : 15vw;
+        width: 91vw;
+        padding-left : 8.5vw;
         top : 5.5vh;
     }
     /*
@@ -98,7 +98,7 @@
     */
     .carousel-indicators
     {
-    	top: 60vh;
+    	top: 65vh;
    	}
    	/*
     * 캐러셀 첫번째 자막 글씨체 설정 및 위치 조정
@@ -112,7 +112,7 @@
    		font-family : Jua;
    		position: relative;
    		padding-left : 6vw;
-   		top: 10.6vh;
+   		top: 11vh;
    	}
    	
    	/*
@@ -121,8 +121,9 @@
    	#tags1 {
    		position : relative;
    		top : 11vh;
+   		width : 1400px;
    		margin : 0 auto;
-   		padding-left : 5.4vw;
+   		padding-left : 4vw;
    	}
    	/*
     * 첫째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
@@ -204,10 +205,11 @@
    	*/
 
    	#tags2 {
+   		width : 1400px;
    		position : relative;
    		padding-top : 14.6vh;
    		margin : 0 auto;
-   		padding-left : 5.4vw;
+   		padding-left : 4vw;
    	}
    	
    	/*
@@ -281,7 +283,7 @@
   	#location-introduce {	
    		position: absolute;
    		padding-left : 6vw;
-   		top: 147vh;
+   		margin-top: -2.5vh;
    		font-family : Jua;
    	}
   	   	/*
@@ -290,9 +292,10 @@
 
    	#tags3 {
    		position : relative;
+   		width : 1400px;
    		padding-top : 2.5vh;
    		margin : 0 auto;
-   		padding-left : 5.4vw;
+   		padding-left : 4vw;
    	}
    	
    	/*
@@ -367,6 +370,7 @@
 	#ranking-caption {
 		font-family : Jua;
 		position : relative;
+		margin-top : -2vh;
 		padding-left : 60px;
 	}
 	
@@ -377,7 +381,7 @@
 	}
 	
 	#new-restaurants-intro {
-		padding-top : 50px;
+		padding-top : 4vh;
 		font-family : Jua;
 		position : relative;
 		padding-left : 60px;

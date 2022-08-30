@@ -16,25 +16,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<section id="section1">
-		<nav class="navbar navbar-expand-sm bg-*">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a id="home-link" class="nav-link"
-					th:href="@{/}">HOME</a></li>
-			</ul>
+	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="#section3">ABOUT
-						US</a></li>
-				<li class="nav-item"><a class="nav-link"
-					th:href="@{/contactus}">CONTACT US</a></li>
-				<li class="nav-item"><a class="nav-link" href="#section2">BOOK</a>
+				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/login}">LOGIN</a>
-				</li>
-
+				<li class="nav-item"><a class="nav-link" href="#">LOG IN</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
 			</ul>
 		</nav>
+	
 
 		<div id="loginform">
 			<div id="logintext">
@@ -45,7 +35,7 @@
 					<table>
 						<tr>
 							<td><label for="logintext"
-								style="color: white; font-family: IBM Plex Sans KR;">ID</label><br>
+								style=" font-family: IBM Plex Sans KR;">ID</label><br>
 								<input type="text" id="logintext" name="memberid"
 								style="width: 250px;"></td>
 						</tr>
@@ -56,7 +46,7 @@
 						</tr>
 						<tr>
 							<td><label for="loginpassword"
-								style="color: white; font-family: IBM Plex Sans KR;">PASSWORD</label><br>
+								style=" font-family: IBM Plex Sans KR;">PASSWORD</label><br>
 								<input type="text" id="loginpassword" name="memberpw"
 								style="width: 250px;"></td>
 						</tr>

@@ -10,24 +10,16 @@
 	background : url("/spring7/images/restaurant_3.jpg") fixed;
 }
 
-#carousel-next-icon {
-	top : 500px;
+nav {
+	height: 4.1vh;	
 }
-#carousel-prev-icon {
-	top : 500px;
-}
+
+
 #home-link {
 	font-family : "Black Han Sans";
 	font-size : 24px;
 	color : white;
 }
-
-.nav-link {
-	font-family : "Black Han Sans";
-	font-size : 18px;
-	color : white;
-}
-
 #container1 {
 	top : 400px;
 }
@@ -46,10 +38,9 @@
 
 h1 {
 	font-family : "Black Han Sans";
-	color : white;
+	color : black;
 	padding-left : 190px;
 	padding-top : 50px;
-	box-shadow : 5px 5px 20px grey;
 }
 
 #logintable {

@@ -3,25 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-#section1 {
-	height : 100vh;
-	background-repeat: no-repeat;
-	background-size:contain;
-	background : url("/spring7/images/restaurant_3.jpg") fixed;
-}
 
 nav {
 	height: 4.1vh;	
-}
-
-
-#home-link {
-	font-family : "Black Han Sans";
-	font-size : 24px;
-	color : white;
-}
-#container1 {
-	top : 400px;
 }
 
 

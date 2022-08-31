@@ -17,10 +17,10 @@ nav {
 
 #loginform {
 	top: 22.5vh;
-	height : 50vh;
+	height : 52vh;
 	width : 32vw;
 	position : fixed;
-	right: 32vw;
+	left : 32vw;
 	box-shadow : 5px 5px 20px grey; 
 	background-color : rgba(255,255,255, 0.5);
 	animation : slide2 2s;
@@ -52,7 +52,7 @@ nav {
 }
 
 /*
-* 로그인 전체(라벨, 입력부분, 로그인버튼 위치 조정
+* 로그인 전체(라벨, 입력부분, 로그인버튼) 위치 조정
 */
 
 #logintable {
@@ -62,17 +62,40 @@ nav {
 	
 }
 
-#logininput {
-	padding-left : 10.1vw;
+/*
+* id기억하기 체크부분 위치설정
+*/
+#id-remember-check {
+	position:relative;
+	margin-top : -2.5vh;
+	padding-left : 1.5vw;
 }
 
-#loginforgetdiv {
-	padding-left : 1.6px;
+/*
+* 로그인버튼 부분 위치설정
+*/
+#loginbuttondiv {
+	position:relative;
+	top : 3vh;
 }
+
+/*
+*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 위치 설정
+*/
+#loginforgetdiv {
+	padding-top : 3vh;
+	padding-left : 1.9vw;
+}
+
+/*
+*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 hover(마우스 위치했을 때) 색깔 설정
+*/
 
 #loginforget:hover {
 	color : black;
 }
+
+
 
 @keyframes slide2 {
 	from {

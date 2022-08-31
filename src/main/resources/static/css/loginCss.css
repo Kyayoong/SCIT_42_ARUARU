@@ -3,39 +3,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+/*
+*	navbar 사이즈 조정
+*/
 nav {
 	height: 4.1vh;	
 }
 
+/*
+* login 영역 전체 위치, 크기, 투명도 및 그림자 조정
+*/
+
 
 #loginform {
-	top: 170px;
-	height : 435px;
-	width : 500px;
+	top: 22.5vh;
+	height : 50vh;
+	width : 32vw;
 	position : fixed;
-	right: 500px;
+	right: 32vw;
 	box-shadow : 5px 5px 20px grey; 
 	background-color : rgba(255,255,255, 0.5);
 	animation : slide2 2s;
 }
 
-h1 {
-	font-family : "Jua";
-	color : black;
-	padding-left : 190px;
-	padding-top : 50px;
+/*
+* 마크부분 조정
+*/
+
+#rrmarkarea {
+	position : relative;
+	left : 10vw;
+	top : 3vh;
+}
+/*
+* 영어마크 부분 위치 조정
+*/
+
+#rrmark {
+	width : 2.5vw;
 }
 
+/*
+* 일어마크 부분 위치 조정
+*/
+
+#rrjapanesemark {
+	height : 3vw;
+}
+
+/*
+* 로그인 전체(라벨, 입력부분, 로그인버튼 위치 조정
+*/
+
 #logintable {
-	padding-left : 120px;
+	position : relative;
+	top : 5vh;
+	padding-left : 8vw;
+	
 }
 
 #logininput {
-	padding-left : 160px;
+	padding-left : 10.1vw;
 }
 
 #loginforgetdiv {
-	padding-left : 20px;
+	padding-left : 1.6px;
 }
 
 #loginforget:hover {
@@ -44,11 +76,11 @@ h1 {
 
 @keyframes slide2 {
 	from {
-		top:100px;
+		top: 10vh;
 		opacity : 0;
 	}
 	to {
-		top: 170px;
+		top: 22vh;
 		opacity : 1;
 	}
 }

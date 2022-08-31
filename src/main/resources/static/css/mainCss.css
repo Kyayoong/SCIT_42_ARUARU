@@ -131,7 +131,7 @@
    	#caption-tags1 {
    		position : absolute;
    		top: 55px;
-   		left : 20px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -142,7 +142,7 @@
    	#caption-tags2 {
    		position : absolute;
    		top: 55px;
-   		left : 40.5px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -153,7 +153,7 @@
    	#caption-tags3 {
    		position : absolute;
    		top: 55px;
-   		left : 30.5px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -164,7 +164,7 @@
    	#caption-tags4 {
    		position : absolute;
    		top: 55px;
-   		left : 40.5px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -175,7 +175,7 @@
    	#caption-tags5 {
    		position : absolute;
    		top: 55px;
-   		left : 30.5px;
+   		left : 20px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -186,7 +186,7 @@
    	#caption-tags6 {
    		position : absolute;
    		top: 55px;
-   		left : 30.5px;
+   		left : 47.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
@@ -374,10 +374,47 @@
 		padding-left : 60px;
 	}
 	
-	#ranking1 {
+	#ranking {
 		position : relative;
 		padding-left : 50px;
 		margin : 0 auto;
+	}
+	
+	#name-ranking1 {
+		position :absolute;
+		top: 27vh;
+   		left : 2vw;
+   		color : white;
+   		font-family : Jua;
+   		font-size : 28px;
+	}
+	#star-ranking1 {
+		position : absolute;
+		top:27.2vh;
+		left : 6.5vw;
+	}
+	#rate-ranking1 {
+		position : absolute;
+		top:27.5vh;
+		left:8vw;
+		font-family : Jua;
+		color : white;
+	}
+	#location-ranking1 {
+		position : absolute;
+		top: 24vh;
+		left:2vw;
+		font-family : Jua;
+		color : white;
+		font-size:18px;
+	}
+	#comment-ranking1 {
+		position : absolute;
+		top: 31.5vh;
+		left:2vw;
+		font-family : Jua;
+		color : white;
+		font-size:16px;
 	}
 	
 	#new-restaurants-intro {

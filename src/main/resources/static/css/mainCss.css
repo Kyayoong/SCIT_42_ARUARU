@@ -108,6 +108,10 @@
    		left : 5.5vh;
    	}
    	
+   	
+   	/*
+   	* '메뉴별대로' 태그 소개 글자
+   	*/
    	#menu-introduce {
    		font-family : Jua;
    		position: relative;
@@ -125,74 +129,10 @@
    		margin : 0 auto;
    		padding-left : 4vw;
    	}
-   	/*
-    * 첫째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags1 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 첫째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags2 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 첫째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags3 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 첫째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags4 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 첫째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags5 {
-   		position : absolute;
-   		top: 55px;
-   		left : 20px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 첫째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags6 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
    	
-   	
+   	/*
+   	* '분위기대로' 글자 크기 및 위치 설정
+   	*/
    		#atmo-introduce {
    		font-family : Jua;
    		position: relative;
@@ -213,73 +153,8 @@
    	}
    	
    	/*
-    * 두번째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags7 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 두번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags8 {
-   		position : absolute;
-   		top: 55px;
-   		left : 40.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 두번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags9 {
-   		position : absolute;
-   		top: 55px;
-   		left : 40.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 두번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags10 {
-   		position : absolute;
-   		top: 55px;
-   		left : 20px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 두번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags11 {
-   		position : absolute;
-   		top: 55px;
-   		left : 40.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 두번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags12 {
-   		position : absolute;
-   		top: 55px;
-   		left : 40.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-  
-  	
+   	* '내 위치에서 가까운대로' 크기 및 위치 설정
+   	*/
   	#location-introduce {	
    		position: absolute;
    		padding-left : 6vw;
@@ -298,10 +173,11 @@
    		padding-left : 4vw;
    	}
    	
+   	
    	/*
-    * 세번째줄 첫번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags13 {
+   	* 태그 두글짜 짜리 위치 및 크기 설정
+   	*/
+   	.caption-tag-2 {
    		position : absolute;
    		top: 55px;
    		left : 47.5px;
@@ -309,64 +185,36 @@
    		font-family : Jua;
    		font-size : 28px;
    	}
+   	
+   	
    	/*
-    * 세번째줄 두번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags14 {
+   	* 태그 세글자 짜리 위치 및 크기 설정
+   	*/
+   	.caption-tag-3 {
    		position : absolute;
    		top: 55px;
-   		left : 47.5px;
+   		left : 40.5px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
    	}
+   	
    	/*
-    * 세번째줄 세번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags15 {
+   	* 태그 다섯글자 짜리 위치 및 크기 설정
+   	*/
+   	.caption-tag-5 {
    		position : absolute;
    		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 세번째줄 네번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags16 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 세번째줄 다섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags17 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-   	}
-   	/*
-    * 세번째줄 여섯번째 태그 글씨체, 글씨색 및 위치 설정
-    */
-   	#caption-tags18 {
-   		position : absolute;
-   		top: 55px;
-   		left : 47.5px;
+   		left : 20px;
    		color : white;
    		font-family : Jua;
    		font-size : 28px;
    	}
   
-  
-  
+  	
+  	/*
+  	* '랭킹' 글자 위치 설정
+  	*/
 	#ranking-caption {
 		font-family : Jua;
 		position : relative;
@@ -374,20 +222,29 @@
 		padding-left : 60px;
 	}
 	
+	
+	/*
+	*  랭킹 그림 위치 조정
+	*/
+	
 	#ranking {
 		position : relative;
 		padding-left : 50px;
 		margin : 0 auto;
 	}
 	
+	/*
+	* 랭킹 깃발 부분 위치 설정
+	*/
 	.map-pin-ranking {
 		position : absolute;
 		top: 26.6vh;
 		left:2vw;
-		font-family : Jua;
-		color : white;
-		font-size:18px;
 	}
+	
+	/*
+	* 랭킹 주소정보 글씨체 크기, 색깔 및 위치 조정 
+	*/
 	
 	.location-ranking {
 		position : absolute;
@@ -398,6 +255,10 @@
 		font-size:18px;
 	}
 	
+	/*
+	* 랭킹 이름정보 글씨체 크기, 색깔 및 위치 조정 
+	*/
+	
 	
 	.name-ranking {
 		position :absolute;
@@ -407,11 +268,20 @@
    		font-family : Jua;
    		font-size : 28px;
 	}
+	
+	/*
+	* 랭킹 별 부분 크기, 색깔 및 위치 조정 
+	*/
 	.star-ranking {
 		position : absolute;
 		top:30.2vh;
 		left : 6.5vw;
 	}
+	
+	
+	/*
+	* 랭킹 평점숫자부분 글씨체 색깔 및 위치 조정 
+	*/
 	.rate-ranking {
 		position : absolute;
 		top:30.5vh;
@@ -420,6 +290,9 @@
 		color : white;
 	}
 	
+	/*
+	* 랭킹 코멘트 부분 글씨체 크기, 색깔 및 위치 조정 
+	*/
 	.comment-ranking {
 		position : absolute;
 		top: 31.5vh;
@@ -427,6 +300,18 @@
 		font-family : Jua;
 		color : white;
 		font-size:16px;
+	}
+	/*
+	* 랭킹, 신상맛집 더 보기 글씨 위치 및 크기 설정 
+	*/
+	.see-more {
+		position : absolute;
+		top: 17.5vh;
+		left : 8vw;
+		text-align :center;
+		font-family : Jua;
+		color : white;
+		font-size:20px;
 	}
 	
 	#new-restaurants-intro {

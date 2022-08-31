@@ -231,10 +231,32 @@
 		position : relative;
 		padding-left : 50px;
 		margin : 0 auto;
+	}	
+	
+	
+	/*
+	* '신상맛집' 글자 위치 조정
+	*/
+	
+	#new-restaurants-intro {
+		padding-top : 4vh;
+		font-family : Jua;
+		position : relative;
+		padding-left : 60px;
+	}
+
+	/*
+	* '신상맛집' 이미지 위치 조정
+	*/
+	
+	#new-restaurants-images {
+		position : relative;
+		padding-left : 50px;
+		margin : 0 auto;
 	}
 	
 	/*
-	* 랭킹 깃발 부분 위치 설정
+	* 랭킹, 신상맛집 깃발 부분 위치 설정
 	*/
 	.map-pin-ranking {
 		position : absolute;
@@ -243,7 +265,7 @@
 	}
 	
 	/*
-	* 랭킹 주소정보 글씨체 크기, 색깔 및 위치 조정 
+	* 랭킹,신상맛집 주소정보 글씨체 크기, 색깔 및 위치 조정 
 	*/
 	
 	.location-ranking {
@@ -256,7 +278,7 @@
 	}
 	
 	/*
-	* 랭킹 이름정보 글씨체 크기, 색깔 및 위치 조정 
+	* 랭킹, 신상맛집 이름정보 글씨체 크기, 색깔 및 위치 조정 
 	*/
 	
 	
@@ -270,7 +292,7 @@
 	}
 	
 	/*
-	* 랭킹 별 부분 크기, 색깔 및 위치 조정 
+	* 랭킹, 신상맛집 별 부분 크기, 색깔 및 위치 조정 
 	*/
 	.star-ranking {
 		position : absolute;
@@ -280,7 +302,7 @@
 	
 	
 	/*
-	* 랭킹 평점숫자부분 글씨체 색깔 및 위치 조정 
+	* 랭킹, 신상맛집 평점숫자부분 글씨체 색깔 및 위치 조정 
 	*/
 	.rate-ranking {
 		position : absolute;
@@ -291,7 +313,7 @@
 	}
 	
 	/*
-	* 랭킹 코멘트 부분 글씨체 크기, 색깔 및 위치 조정 
+	* 랭킹,신상맛집 코멘트 부분 글씨체 크기, 색깔 및 위치 조정 
 	*/
 	.comment-ranking {
 		position : absolute;
@@ -312,19 +334,6 @@
 		font-family : Jua;
 		color : white;
 		font-size:20px;
-	}
-	
-	#new-restaurants-intro {
-		padding-top : 4vh;
-		font-family : Jua;
-		position : relative;
-		padding-left : 60px;
-	}
-	
-	#new-restaurants-images {
-		position : relative;
-		padding-left : 50px;
-		margin : 0 auto;
 	}
  	
    	

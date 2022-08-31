@@ -380,35 +380,47 @@
 		margin : 0 auto;
 	}
 	
-	#name-ranking1 {
-		position :absolute;
-		top: 27vh;
-   		left : 2vw;
-   		color : white;
-   		font-family : Jua;
-   		font-size : 28px;
-	}
-	#star-ranking1 {
+	.map-pin-ranking {
 		position : absolute;
-		top:27.2vh;
-		left : 6.5vw;
-	}
-	#rate-ranking1 {
-		position : absolute;
-		top:27.5vh;
-		left:8vw;
-		font-family : Jua;
-		color : white;
-	}
-	#location-ranking1 {
-		position : absolute;
-		top: 24vh;
+		top: 26.6vh;
 		left:2vw;
 		font-family : Jua;
 		color : white;
 		font-size:18px;
 	}
-	#comment-ranking1 {
+	
+	.location-ranking {
+		position : absolute;
+		top: 26.8vh;
+		left:3.2vw;
+		font-family : Jua;
+		color : white;
+		font-size:18px;
+	}
+	
+	
+	.name-ranking {
+		position :absolute;
+		top: 30vh;
+   		left : 2vw;
+   		color : white;
+   		font-family : Jua;
+   		font-size : 28px;
+	}
+	.star-ranking {
+		position : absolute;
+		top:30.2vh;
+		left : 6.5vw;
+	}
+	.rate-ranking {
+		position : absolute;
+		top:30.5vh;
+		left:8vw;
+		font-family : Jua;
+		color : white;
+	}
+	
+	.comment-ranking {
 		position : absolute;
 		top: 31.5vh;
 		left:2vw;

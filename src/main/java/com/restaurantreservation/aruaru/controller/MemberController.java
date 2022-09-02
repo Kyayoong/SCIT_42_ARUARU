@@ -9,4 +9,9 @@ public class MemberController {
 	public String login() {
 		return "login";
 	}
+	
+	@GetMapping("joinselect")
+	public String joinselect() {
+		return "joinselect";
+	}
 }

@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/*
+*	navbar 사이즈 조정
+*/
+nav {
+	height: 4.1vh;	
+}
+
+/*
+* login 영역 전체 위치, 크기, 투명도 및 그림자 조정
+*/
+
+
+#registform {
+	top: 5vh;
+	height : 100vh;
+	width : 40vw;
+	position : fixed;
+	left : 30vw;
+	box-shadow : 5px 5px 20px grey; 
+	background-color : rgba(255,255,255, 0.5);
+	animation : slide2 2s;
+}
+
+/*
+* 마크부분 조정
+*/
+
+#rrmarkarea {
+	position : relative;
+	left : 15vw;
+	top : 3vh;
+}
+/*
+* 영어마크 부분 위치 조정
+*/
+
+#rrmark {
+	width : 2.5vw;
+}
+
+/*
+* 일어마크 부분 위치 조정
+*/
+
+#rrjapanesemark {
+	height : 3vw;
+}
+
+/*
+* 로그인 전체(라벨, 입력부분, 로그인버튼) 위치 조정
+*/
+
+#registtable {
+	position : relative;
+	top : 5vh;
+	padding-left : 4vw;
+	font-size: 15px;
+	
+}
+
+/*
+* id기억하기 체크부분 위치설정
+*/
+#id-remember-check {
+	position:relative;
+	margin-top : -2.5vh;
+	padding-left : 1.5vw;
+}
+
+/*
+* 로그인버튼 부분 위치설정
+*/
+#loginbuttondiv {
+	position:relative;
+	top : 3vh;
+}
+
+/*
+*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 위치 설정
+*/
+#loginforgetdiv {
+	padding-top : 3vh;
+	padding-left : 1.9vw;
+}
+
+/*
+*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 hover(마우스 위치했을 때) 색깔 설정
+*/
+
+#loginforget:hover {
+	color : black;
+}
+
+
+
+@keyframes slide2 {
+	from {
+		top: 10vh;
+		opacity : 0;
+	}
+	to {
+		top: 22vh;
+		opacity : 1;
+	}
+}
+

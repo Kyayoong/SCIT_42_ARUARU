@@ -425,7 +425,36 @@
 		<!-- js폴더 내, home.html용 js파일 -->
 		<script type="text/javascript" th:src="@{/js/kakaoMap.js}"></script>
 	</section>
-
+	<footer id="footer" style="background-color:#000000; color:#ffffff;">
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col-sm-2" style="text-align:center;">
+					<h5>Copyright &copy; 2022</h5><h5>Restaurant Reservation</h5>
+				</div>
+				
+				<div class="col-sm-4">
+					<h4>조원 소개</h4>
+					<p>저희는 한국무역협회 SCIT MASTER 과정 <br>42기 A반 조성준, 황경환, 류기원, 안예현입니다. </p>
+				</div>
+				
+				<div class="col-sm-2" >
+					<h4 style="text-align:center;">내비게이션</h4>
+					<div class="list-group">
+						<a th:href="@{/}" style="color : white; padding-bottom:5px;" >홈</a>
+						<a href="#section2" style="color : white; padding-bottom:5px;"  >예약</a>
+						<a href="#section3" style="color : white; padding-bottom:5px;" >서비스 소개</a>
+						<a href="#" style="color : white; padding-bottom:5px;" >문의</a>
+						<a href="#" style="color : white; padding-bottom:5px;" >로그인</a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<h4 style="text-align:center;">by RR</h4>
+				</div>
+				
+			</div>
+		</div>
+	</footer>
 
 </body>
 </html>

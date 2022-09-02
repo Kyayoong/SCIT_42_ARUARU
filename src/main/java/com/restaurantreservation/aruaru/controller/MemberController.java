@@ -10,3 +10,4 @@ public class MemberController {
 		return "login";
 	}
 }
+

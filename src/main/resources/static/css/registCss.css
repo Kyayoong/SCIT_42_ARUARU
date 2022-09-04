@@ -11,13 +11,21 @@ nav {
 }
 
 /*
-* login 영역 전체 위치, 크기, 투명도 및 그림자 조정
+* 마크 밑 안내 자막 부분
 */
 
+#inform-restaurant-register {
+	padding-left : 1.3vw;
+}
+
+
+/*
+* restaurant 영역 전체 위치, 크기, 투명도 및 그림자 조정
+*/
 
 #registform {
-	top: 5vh;
-	height : 100vh;
+	top: 10vh;
+	height : 75vh;
 	width : 40vw;
 	position : fixed;
 	left : 30vw;
@@ -52,7 +60,7 @@ nav {
 }
 
 /*
-* 로그인 전체(라벨, 입력부분, 로그인버튼) 위치 조정
+* 식당등록 전체(라벨, 입력부분, 등록버튼) 위치 조정
 */
 
 #registtable {
@@ -63,48 +71,24 @@ nav {
 	
 }
 
+
+
 /*
-* id기억하기 체크부분 위치설정
+* 등록버튼 부분 위치설정
 */
-#id-remember-check {
+#registerbuttondiv {
 	position:relative;
-	margin-top : -2.5vh;
-	padding-left : 1.5vw;
+	margin-top : -1vh;
 }
-
-/*
-* 로그인버튼 부분 위치설정
-*/
-#loginbuttondiv {
-	position:relative;
-	top : 3vh;
-}
-
-/*
-*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 위치 설정
-*/
-#loginforgetdiv {
-	padding-top : 3vh;
-	padding-left : 1.9vw;
-}
-
-/*
-*	'ID, 비밀번호를 잊어버리셨습니까?' 부분 hover(마우스 위치했을 때) 색깔 설정
-*/
-
-#loginforget:hover {
-	color : black;
-}
-
 
 
 @keyframes slide2 {
 	from {
-		top: 10vh;
+		top: 0vh;
 		opacity : 0;
 	}
 	to {
-		top: 22vh;
+		top: 10vh;
 		opacity : 1;
 	}
 }

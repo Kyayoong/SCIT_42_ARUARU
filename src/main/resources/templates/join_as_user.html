@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <script>
-window.onload = function () {
-	
+function ynCheck(this) {
+	let clicked = this.checked
 }
 </script>
 <link th:href="@{/css/join_as_userCss.css}" rel="stylesheet">
@@ -36,8 +36,8 @@ window.onload = function () {
 		<div id="rrmarkarea">
 			<img id="rrmark" th:src="@{/images/rrmark.png}">
 			<img id="rrjapanesemark" th:src="@{/images/rrjapanesemark.png}">
-			<div id="inform-restaurant-register">
-			<p style="font-family: IBM Plex Sans KR;">회원 등록 화면입니다.</p>
+			<div id="inform-user-register">
+			<h6 style="font-family: IBM Plex Sans KR;">회원 등록 화면입니다.</h6>
 			</div>
 		</div>
 		<div id="registtable">
@@ -119,18 +119,30 @@ window.onload = function () {
 								</label><br>
 						<input type="file" name="upload"></td>
 					</tr>
-					<!-- <tr>
-						<td id="tags">
-							<label for="tags">태그</label><br>
-							<button class="btn btn-outline-secondary" id="tag1" value="tag1">한식</button>
-							<button class="btn btn-outline-secondary" id="tag2" value="tag2">중식</button>
-							<button class="btn btn-outline-secondary" id="tag3" value="tag3">양식</button>
-							<button class="btn btn-outline-secondary" id="tag4" value="tag4">동남아요리</button>
-							<button class="btn btn-outline-secondary" id="tag5" value="tag5">일식</button>
-							<button class="btn btn-outline-secondary" id="tag6" value="tag6">뷔페</button>
-							<button class="btn btn-outline-secondary" id="tag7" value="tag7">술집</button>
-							<button class="btn btn-outline-secondary" id="tag8" value="tag8">구미를 당기는</button>
-						</td> -->
+
+					<tr>
+						<td style="width : 600px;">
+							<label for="tag1">태그</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag1"><input type="checkbox" id="tag1">한식</label>
+							</div>
+							<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag2"><input type="checkbox" id="tag2">양식</label>
+							</div>
+							<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag3"><input type="checkbox" id="tag3">일식</label>
+							</div>
+							<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag4"><input type="checkbox" id="tag4">중식</label>
+							</div>
+							<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag5"><input type="checkbox" id="tag5">동남아요리</label>
+							</div>
+							<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" for="tag6"><input type="checkbox" id="tag6">뷔페</label>
+							</div>
+						</td>
+
 					</tr>
 					<tr>
 						

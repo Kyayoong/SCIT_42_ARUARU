@@ -1,0 +1,140 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    /*
+    * 네비게이션 바 높이 조정
+    */
+
+    #navbar {
+        height : 4.1vh;
+    }
+    
+    /*
+    * 알파벳 CI 크기 및 위치 조정
+    */
+
+    #RR {
+        position :relative;
+        width : 2.5vw;
+        top : 1.3vh;
+        left :	14.5vw;
+    }
+
+    /*
+    * 일본어 CI 크기 및 위치 조정
+    */
+
+    #aruaru {
+        position : relative;
+        height : 3vw;
+        top : 1.3vh;
+        left : 14.4vw;
+    }
+
+    /*
+    * 지역 검색 창 위치 조정
+    */
+    #area-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 26.9vw;
+        width : 13vw;
+    }
+    /*
+    * 검색창 키워드 인풋 위치 및 크기 조정
+    */
+    #keyword-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 40.1vw;
+        width : 16.4vw;
+    }
+    /*
+    * 날짜 설정 인풋 위치 및 크기 조정
+    */
+    #day-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 56.7vw;
+        width : 9.8vw; /*150px;*/
+    }
+    /*
+    * 시간 설정 인풋 위치 및 크기 조정
+    */
+    #select-time {
+        position :absolute;
+        top:6.3vh;
+        left:66.7vw;
+        width : 6.5vw;
+    }
+    /*
+    * 인원수 인풋 위치 및 크기 조정
+    */
+    #person-input {
+        position: absolute;
+        top:6.3vh;
+        left:73.4vw;
+        width: 6.5vw;
+    }
+    /*
+    * 검색버튼 위치 조정
+    */
+    #search-submit {
+    	position : absolute;
+    	top : 6.3vh;
+    	left : 80.2vw;
+    }
+    
+    /*
+    * 캐러샐(회전화면) 위치 및 크기 조정
+    */
+    #carousel-inner {
+    	
+        width: 91vw;
+        padding-left : 8.5vw;
+        top : 5.5vh;
+    }
+    /*
+    * 캐러샐 인디케이터(밑에 누르면 화면 바뀌는 부분) 위치 조정
+    */
+    .carousel-indicators
+    {
+    	top: 65vh;
+   	}
+   	
+   	#introduce-area
+   	{
+   		position : relative;
+   		top : 6vh;
+   		font-family : Jua;
+   	}
+   	
+   	#flag-icon
+   	
+   	{	
+   		margin-left : 8vw;
+   		width : 4.5vh;
+   		height : 4.5vh;
+   	}
+   	
+   	#location-area {
+   		margin-left : 10.5vw;
+   		margin-top : -4.5vh;
+   	}
+   	
+   	#store-name {
+   		margin-left : 8vw;
+   	}
+   	
+   	#store-contents
+   	
+   	{
+   		width: 83.4vw;
+   		margin-left:8vw;
+   	}
+   	
+   	#menu-area {
+   		margin-left:8vw;
+   		width: 83.4vw;
+   	}
+   	

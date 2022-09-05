@@ -25,7 +25,7 @@ nav {
 
 #registuserform {
 	top: 5vh;
-	height : 135vh;
+	height : 148vh;
 	width : 40vw;
 	position : relative;
 	left : 30vw;
@@ -71,6 +71,35 @@ nav {
 	
 }
 
+#idtag2 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 4vw;
+}
+
+#idtag3 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 8vw;
+}
+
+#idtag4 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 12vw;
+}
+
+#idtag5 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 16vw;
+}
+
+#idtag6 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 23vw;
+}
 
 
 /*

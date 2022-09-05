@@ -24,9 +24,9 @@ nav {
 * restaurant 영역 전체 위치, 크기, 투명도 및 그림자 조정
 */
 
-#registform {
+#registCheck {
 	top: 10vh;
-	height : 150vh;
+	height : 70vh;
 	width : 40vw;
 	position : relative;
 	left : 30vw;

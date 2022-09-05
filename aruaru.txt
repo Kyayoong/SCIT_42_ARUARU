@@ -36,12 +36,12 @@ CREATE TABLE user_member(
     member_grade NUMBER(1) DEFAULT 0,                           	--회원등급
     member_role VARCHAR2(50) DEFAULT 'ROLE_USER' CHECK( member_role IN ('ROLE_USER','ROLE_ADMIN','ROLE_MEMBER')), --회원역할
     member_email VARCHAR2(50) NOT NULL,								--이메일 
-    email_auth NUMBER(1) DEFAULT 0,									--이메일 인증여부    				
+    enabled NUMBER(1) DEFAULT 1,									--이메일 인증여부    				
     email_key VARCHAR2(50),											--이메일 인증번호
     registration_date DATE DEFAULT SYSDATE,                    		--등록일  
     member_address VARCHAR2(500) NOT NULL,                      	--회원주소
     member_score NUMBER(5) DEFAULT 0,								--회원점수
-    member_tags VARCHAR2(50) NOT NULL,								-태그번호
+    member_tags VARCHAR2(50) NOT NULL,								--태그번호
     member_gender VARCHAR2(30) CHECK(member_gender IN ('male','female'))	--회원 성별
 );
 

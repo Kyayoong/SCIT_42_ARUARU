@@ -24,8 +24,8 @@ nav {
 */
 
 #registuserform {
-	top: 10vh;
-	height : 200vh;
+	top: 5vh;
+	height : 135vh;
 	width : 40vw;
 	position : relative;
 	left : 30vw;
@@ -88,7 +88,7 @@ nav {
 		opacity : 0;
 	}
 	to {
-		top: 10vh;
+		top: 5vh;
 		opacity : 1;
 	}
 }

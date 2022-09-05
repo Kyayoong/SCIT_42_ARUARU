@@ -132,7 +132,7 @@ let callback = function(result, status) {
 	 let customOverlay = new kakao.maps.CustomOverlay({
 		position: position,
 		content: content,
-		xAnchor: 0.37,
+		xAnchor: 0.28,
 		yAnchor: 1.1
 	});
 		kakao.maps.event.addListener(marker, 'click', function() {

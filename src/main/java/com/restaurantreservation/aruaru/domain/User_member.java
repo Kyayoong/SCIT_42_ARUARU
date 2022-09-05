@@ -27,4 +27,5 @@ public class User_member {
 	int member_score;			//회원점수
 	String member_tags;			//태그번호
 	String member_gender; 		//회원 성별
+	String member_nickname;		//닉네임
 }

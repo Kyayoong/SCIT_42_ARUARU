@@ -26,7 +26,7 @@ window.onload = function () {
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">LOG IN</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">LOGIN</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
 		</ul>
 	</nav>
@@ -41,7 +41,7 @@ window.onload = function () {
 			</div>
 		</div>
 		<div id="registtable">
-			<form action="" method="post">
+			<form action="insert_user" method="post">
 				<table>
 					<tr>
 						<td><label for="member_id"
@@ -79,10 +79,22 @@ window.onload = function () {
 						<label for="member-gender-male">남</label>
 						<input type="radio" id="member-gender-male" name="member_gender"
 						 value="male">
-						<label for="member-gender-female">녀</label>
+						<label for="member-gender-female">여</label>
 						<input  type="radio" id="member-gender-female" name="member_gender"
 						 value="female">
 						</td>
+					</tr>
+					<tr>
+						<td><label for="member_address"
+							style="font-family: IBM Plex Sans KR;">주소</label><br>
+						<input class="form-control" type="text" id="member_address" name="member_address"
+							style="width: 250px;" placeholder="주소를 입력해주세요"></td>
+					</tr>
+					<tr>
+						<td><label for="member_tags"
+							style="font-family: IBM Plex Sans KR;">태그</label><br>
+						<input class="form-control" type="text" id="member_tags" name="member_tags"
+							style="width: 250px;" placeholder="태그를 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td><label for="member_email"
@@ -91,7 +103,7 @@ window.onload = function () {
 							style="width: 250px;" placeholder="이메일을 입력해주세요(ex)email@email.com)"></td>
 					</tr>
 					<tr>
-						<td><label for="member_email"
+						<td><label for="member_phone"
 							style="font-family: IBM Plex Sans KR;">휴대전화</label><br>
 						<input class="form-control" type="text" id="member_phone" name="member_phone"
 							style="width: 250px;" placeholder="-없이 입력해주세요('ex)010XXXXXXXX')"></td>

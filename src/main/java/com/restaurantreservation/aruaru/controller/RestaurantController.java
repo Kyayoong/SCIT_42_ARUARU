@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RestaurantController {
 	
+	
+	//식당 등록 폼으로 이동 회원가입창에서 회원가입이 완료되면 넘어갑니다.
 	@GetMapping("regist")
 	public String regist() {
 		

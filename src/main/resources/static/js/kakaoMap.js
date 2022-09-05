@@ -91,8 +91,52 @@ let callback = function(result, status) {
 		/**---------------------
          * 4. 마커에 이벤트 걸기
          *---------------------*/
-		kakao.maps.event.addListener(marker, 'mouseover', function() {
-		    console.log('marker hover!');
+		//마커에 표시할 컨텐츠
+		 let content = '<div class="overlaybox">' +
+		 '    <div class="main">' +
+		 '        <div class="restaurant text">모코코</div>' +
+		 '    </div>' +
+		 '    <ul>' +
+		 '        <li class="tags">' +
+		 '            <span class="tagname">종류</span>' +
+		 '            <span class="title">#양식</span>' +
+		 '            <span class="title">#한식</span>' +
+		 '            <span class="title">#일식</span>' +
+		 '        </li>' +
+		 '        <li>' +
+		 '            <span class="tagname">분위기</span>' +
+		 '            <span class="title">#따듯한</span>' +
+		 '            <span class="title">#은은한</span>' +
+		 '            <span class="title">#차분한</span>' +
+		 '        </li>' +
+		 '        <li>' +
+		 '            <span class="tagname">맛</span>' +
+		 '            <span class="title">#맛집</span>' +
+		 '            <span class="title">#매운</span>' +
+		 '            <span class="title">#단짠단짠</span>' +
+		 '        </li>' +
+		 '        <li>' +
+		 '            <span class="star">별점</span>' +
+		 '            <span class="stars">★★★★★</span>' +
+		 '        </li>' +
+		 '    </ul>' +
+		 '    <div class="reservation">' +
+		 '	  	  <span class="reservation">예약하기</span>'
+		 '    </div>' +
+		 '</div>';
+	 
+	 // 커스텀 오버레이가 표시될 위치입니다 
+	 let position = new kakao.maps.LatLng(result[0].y, result[0].x);
+	
+	 //오버레이 생성
+	 let customOverlay = new kakao.maps.CustomOverlay({
+		position: position,
+		content: content,
+		xAnchor: 0.37,
+		yAnchor: 1.1
+	});
+		kakao.maps.event.addListener(marker, 'click', function() {
+		    customOverlay.setMap(map);
 		});
 	}
 }

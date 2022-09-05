@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+
+.overlaybox {
+	position:relative;
+	width:395px;
+	height:350px;
+	background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png') no-repeat;
+	padding:15px 10px;
+}
+
+.overlaybox div, ul {
+	overflow:hidden
+	;margin:0;
+	padding:0;
+}
+
+.overlaybox li {
+	list-style: none;
+}
+
+.overlaybox .main {
+	position:relative;
+	width:247px;
+	height:136px;
+	background: url('../kakaoMapImages/mokoko01.png') no-repeat;
+	margin-bottom:8px;
+}
+
+.main .text {
+	color:#fff;
+	font-weight:bold;
+}
+
+.main .restaurant {
+	position:absolute;
+	width:100%;
+	bottom:0;
+	background:rgba(0,0,0,0.4);
+	padding:7px 15px;
+	font-size:14px;
+}
+
+.overlaybox ul {
+	width:247px;
+}
+
+.overlaybox li {
+	position:relative;
+	margin-bottom:2px;
+	background:#2b2d36;
+	padding:5px 10px;
+	color:#aaabaf;
+	line-height: 1;
+}
+
+.overlaybox li span {
+	display:inline-block;
+}
+
+.overlaybox li .number {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.overlaybox li .title {
+	font-size:13px;
+}
+
+
+.overlaybox li .tags {
+	background-position:0 -40px;
+}
+
+.overlaybox li .tagname{
+	width: 50px;
+}
+
+.overlaybox li .star{
+	width: 50px;
+}
+
+.overlaybox li:hover {
+	color:#fff;
+	background:#d24545;
+}
+
+.overlaybox li:hover .tags {
+	background-position:0 0px;
+}
+
+.reservation {
+	color: #ffffff;
+	margin: 100px 88px;
+}

@@ -34,18 +34,18 @@
 				<img id="rrmark" th:src="@{images/rrmark.png}" ><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}">
 			</div>
 			<div id="logintable">
-				<form action="" method="post">
+			<form th:action="@{/login}" method="post">
 					<table>
 						<tr>
 							<td><label for="logintext"
 								style=" font-family: IBM Plex Sans KR;">ID</label><br>
-								<input type="text" id="logintext" name="memberid"
+								<input type="text" id="logintext" name="member_id"
 								style="width: 250px;"></td>
 						</tr>
 						<tr>
 							<td><label for="loginpassword"
 								style=" font-family: IBM Plex Sans KR;">PASSWORD</label><br>
-								<input type="text" id="loginpassword" name="memberpw"
+								<input type="text" id="loginpassword" name="member_pw"
 								style="width: 250px;">
 						</tr>
 						<tr>

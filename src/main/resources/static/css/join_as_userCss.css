@@ -14,7 +14,7 @@ nav {
 * 마크 밑 안내 자막 부분
 */
 
-#inform-restaurant-register {
+#inform-user-register {
 	padding-left : 1.3vw;
 }
 
@@ -23,12 +23,12 @@ nav {
 * restaurant 영역 전체 위치, 크기, 투명도 및 그림자 조정
 */
 
-#registform {
-	position : relative;
-	top : 5vh;
-	left : 30vw;
+#registuserform {
+	top: 10vh;
+	height : 200vh;
 	width : 40vw;
-	height : 80vh;
+	position : relative;
+	left : 30vw;
 	box-shadow : 5px 5px 20px grey; 
 	background-color : rgba(255,255,255, 0.5);
 	animation : slide2 2s;
@@ -88,7 +88,7 @@ nav {
 		opacity : 0;
 	}
 	to {
-		top: 5vh;
+		top: 10vh;
 		opacity : 1;
 	}
 }

@@ -32,7 +32,7 @@
 		<div id="rrmarkarea">
 			<img id="rrmark" th:src="@{../images/rrmark.png}">
 			<img id="rrjapanesemark" th:src="@{../images/rrjapanesemark.png}">
-			<div id="inform-restaurant-register">
+			<div id="inform-user-register">
 			<p style="font-family: IBM Plex Sans KR;">식당 등록 화면입니다.</p>
 			</div>
 		</div>
@@ -42,19 +42,19 @@
 					<tr>
 						<td><label for="nametext"
 							style="font-family: IBM Plex Sans KR;">업체명을 입력해주세요.</label><br>
-						<input type="text" id="nametext" name="restaurant_name"
+						<input class="form-control"  type="text" id="nametext" name="restaurant_name"
 							style="width: 250px;" placeholder="식당 이름을 입력하세요"></td>
 					</tr>
 					<tr>
 						<td><label for="enametext"
 							style="font-family: IBM Plex Sans KR;">식당 이름(영어)</label><br>
 						<input type="text" id="enametext" name="memberpw"
-							style="width: 250px;" placeholder="식당 영문명을 입력하세요"></td>
+							class="form-control" style="width: 250px;" placeholder="식당 영문명을 입력하세요"></td>
 					</tr>
 					<tr>
 						<td><label for="sectors"
 							style="font-family: IBM Plex Sans KR;">업종선택</label><br>
-						<select id="sectors" name="sectors">
+						<select class="form-control" id="sectors" name="sectors">
 								<option value="koreanfood">한식(韓食)</option>
 								<option value="chinesefood">중식(中食)</option>
 								<option value="Japanesefood">일식(和食)</option>
@@ -78,7 +78,7 @@
 					<tr>
 						<td><label for="context" style="font-family: IBM Plex Sans KR;">업체 설명</label>
 						<br>
-						<textarea rows="3" cols="50" name="contents"
+						<textarea class="form-control" rows="3" cols="50" name="contents"
 								id="contents"></textarea></td>
 					</tr>
 					<tr>

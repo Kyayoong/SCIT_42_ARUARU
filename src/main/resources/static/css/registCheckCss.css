@@ -25,13 +25,11 @@ nav {
 */
 
 #registform {
+	top: 10vh;
 	height : 150vh;
 	width : 40vw;
 	position : relative;
-	top : 5vh;
 	left : 30vw;
-	width : 40vw;
-	height : 80vh;
 	box-shadow : 5px 5px 20px grey; 
 	background-color : rgba(255,255,255, 0.5);
 	animation : slide2 2s;
@@ -91,7 +89,7 @@ nav {
 		opacity : 0;
 	}
 	to {
-		top: 5vh;
+		top: 10vh;
 		opacity : 1;
 	}
 }

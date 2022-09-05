@@ -26,21 +26,22 @@ DROP TABLE user_member;
 
 --회원테이블
 CREATE TABLE user_member(
-    member_num NUMBER(10) PRIMARY KEY,                          		--회원번호
+    member_num NUMBER(10) PRIMARY KEY,                          	--회원번호
     member_id VARCHAR2(100) UNIQUE NOT NULL,                 		--회원아이디
-    member_pw VARCHAR2(100) NOT NULL,                 			--회원비밀번호
-    member_birth VARCHAR2(100) NOT NULL,				--회원 생년월일
+    member_pw VARCHAR2(100) NOT NULL,                 				--회원비밀번호
+    member_nickname VARCHAR2(100) NOT NULL,							--회원 닉네임
+    member_birth VARCHAR2(100) NOT NULL,							--회원 생년월일
     member_name VARCHAR2(30) NOT NULL,                        		--회원이름
-    member_phone VARCHAR2(50) NOT NULL,                         		--회원폰번호
-    member_grade NUMBER(1) DEFAULT 0,                           		--회원등급
+    member_phone VARCHAR2(50) NOT NULL,                         	--회원폰번호
+    member_grade NUMBER(1) DEFAULT 0,                           	--회원등급
     member_role VARCHAR2(50) DEFAULT 'ROLE_USER' CHECK( member_role IN ('ROLE_USER','ROLE_ADMIN','ROLE_MEMBER')), --회원역할
-    member_email VARCHAR2(50) NOT NULL,				--이메일 
-    email_auth NUMBER(1) DEFAULT 0,					--이메일 인증여부    				
-    email_key VARCHAR2(50),						--이메일 인증번호
+    member_email VARCHAR2(50) NOT NULL,								--이메일 
+    email_auth NUMBER(1) DEFAULT 0,									--이메일 인증여부    				
+    email_key VARCHAR2(50),											--이메일 인증번호
     registration_date DATE DEFAULT SYSDATE,                    		--등록일  
-    member_address VARCHAR2(500) NOT NULL,                      		--회원주소
-    member_score NUMBER(5) DEFAULT 0,				--회원점수
-    member_tags VARCHAR2(50) NOT NULL,			--태그번호
+    member_address VARCHAR2(500) NOT NULL,                      	--회원주소
+    member_score NUMBER(5) DEFAULT 0,								--회원점수
+    member_tags VARCHAR2(50) NOT NULL,								-태그번호
     member_gender VARCHAR2(30) CHECK(member_gender IN ('male','female'))	--회원 성별
 );
 

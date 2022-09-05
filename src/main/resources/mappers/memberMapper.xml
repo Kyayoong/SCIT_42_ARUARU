@@ -6,7 +6,7 @@
     <mapper namespace="com.restaurantreservation.aruaru.dao.MemberDao">
     <!-- 회원가입 -->
     <insert id="insertUser" parameterType="User_member">
-    INSERT INTO admin.user_member
+    INSERT INTO user_member
 	    (member_num
 	    , member_id
 	    , member_pw

@@ -75,11 +75,17 @@ nav {
 	font-family : Jua;
 	padding-left: 9vw;
 }
-
+/*
+* 일반사용자 선택 배경화면 위치 조정
+*/
 #select-user {
 	position : absolute;
 	margin-left : -8vw;
 }
+
+/*
+* 일반사용자 선택 아이콘 위치 조정
+*/
 
 #user-icon {
 	position : absolute;
@@ -87,6 +93,9 @@ nav {
 	margin-left : 1vw;
 }
 
+/* 
+* 일반사용자 선택 글자부분 위치 조정
+*/
 #caption-join-for-user {
 	position : absolute;
 	margin-top : 22vh;
@@ -94,17 +103,29 @@ nav {
 	
 }
 
+
+/*
+* 레스토랑 등록 부분 배경 위치 조정
+*/
 #select-restaurant {
 	position : absolute;
 	margin-left : 17.5vw;
 }
 
+
+/*
+* 레스토랑 등록 아이콘 위치 조정
+*/
 #store-icon {
 	position : absolute;
 	margin-left : 26.5vw;
 	margin-top : 13vh;
 }
 
+
+/*
+* 레스토랑 등록 글자 부분 위치 조정
+*/
 #caption-join-for-store {
 	position : absolute;
 	margin-left : 24.5vw;
@@ -112,7 +133,7 @@ nav {
 }
 
 /*
-* user 선택부분 애니메이션 설정
+* 화면 나올 때 애니메이션 효과 및 위치 설정
 */
 
 @keyframes slide2 {

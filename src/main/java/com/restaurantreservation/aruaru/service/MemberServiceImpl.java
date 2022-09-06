@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.restaurantreservation.aruaru.dao.MemberDao;
+import com.restaurantreservation.aruaru.domain.Test;
 import com.restaurantreservation.aruaru.domain.User_member;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +26,12 @@ public class MemberServiceImpl implements MemberService {
 //		String encodePassword = passwordEncoder.encode(member.getMember_pw());
 //		member.setMember_pw(encodePassword);
 		int result = dao.insertUser(member);
+		return result;
+	}
+
+	@Override
+	public int insertTest(Test test) {
+		int result = dao.insertTest(test);
 		return result;
 	}
 }

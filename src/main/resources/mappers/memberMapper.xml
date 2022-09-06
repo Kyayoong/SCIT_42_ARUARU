@@ -33,4 +33,12 @@
 	    , #{member_nickname}
     )
     </insert>
+    
+    <insert id="insertTest" parameterType="Test">
+    INSERT INTO TEST_TABLE
+	    (TABLEID, TEXT)
+    VALUES
+	    (#{tableid}, #{text}
+    )
+    </insert>
     </mapper>

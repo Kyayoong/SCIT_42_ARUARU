@@ -17,22 +17,26 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 	@Autowired
 	MemberService service;
-	
+
+	// 로그인 페이지
 	@GetMapping("loginForm")
 	public String login() {
 		return "loginForm";
 	}
-	
+
+	// 회원가입시 일반사용자, 식당 구분
 	@GetMapping("joinselect")
 	public String joinselect() {
 		return "joinselect";
 	}
-	
-	@GetMapping("join_as_user") 
+
+	// 일반 사용자로 회원가입
+	@GetMapping("join_as_user")
 	public String join_as_user() {
 		return "join_as_user";
 	}
-	
+
+	// 회원가입
 	@PostMapping("insert_user")
 	public String insertUser(User_member member) {
 		log.debug("회원정보 : {}", member);
@@ -40,10 +44,9 @@ public class MemberController {
 		log.debug("회원정보 : {}", result);
 		return "redirect:/";
 	}
-	
-	@GetMapping("join_as_restaurant") 
+
+	@GetMapping("join_as_restaurant")
 	public String join_as_restaurant() {
 		return "join_as_restaurant";
 	}
 }
-

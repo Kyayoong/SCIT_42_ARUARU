@@ -11,7 +11,7 @@ nav {
 }
 
 /*
-* login 영역 전체 위치, 크기, 투명도 및 그림자 조정
+* join 영역 전체 위치, 크기, 투명도 및 그림자 조정
 */
 
 
@@ -54,39 +54,18 @@ nav {
 	height : 3vw;
 }
 
-
+/*
+* '회원가입유형을~'부분 위치 설정
+*/
 #select {
 	position : relative;
 	left : 17vw;
 	top : 3.5vh;
 }
 
-#user-icon-area {
-	position : absolute;
-	margin-top : -8vh;
-	left : 3.5vw;
-	
-}
-#caption-select-user {
-	position : absolute;
-	font-family : Jua;
-	top : 23vh;
-	left : 6.8vw;
-}
-
-#restaurant-icon-area {
-	position : absolute;
-	margin-top : -8vh;
-	left : 0vw;
-}
-
-#caption-select-restaurant {
-	position : absolute;
-	font-family : Jua;
-	top : 23vh;
-	left :10vw;
-}
-
+/*
+*	버튼 부분 전체 (2개) 위치 설정 및 크기 설정
+*/
 #select_role {
 	position : relative;
 	top: 3vh;
@@ -95,6 +74,50 @@ nav {
 }
 
 
+/*
+* 일반 유저 선택 위치 설정
+*/
+#user-icon-area {
+	position : absolute;
+	margin-top : -8vh;
+	left : 3.5vw;
+	
+}
+
+/*
+* 일반 유저 선택 글자 부분 위치 및 글자 크기 설정
+*/
+#caption-select-user {
+	position : absolute;
+	font-family : Jua;
+	top : 23vh;
+	left : 6.8vw;
+}
+
+/*
+* 일반 유저 선택 위치 설정
+*/
+#restaurant-icon-area {
+	position : absolute;
+	margin-top : -8vh;
+	left : 0vw;
+}
+
+/*
+* 일반 유저 선택 글자 부분 위치 및 글자 크기 설정
+*/
+
+#caption-select-restaurant {
+	position : absolute;
+	font-family : Jua;
+	top : 23vh;
+	left :10vw;
+}
+
+
+/*
+* user 선택부분 애니메이션 설정
+*/
 
 @keyframes slide2 {
 	from {

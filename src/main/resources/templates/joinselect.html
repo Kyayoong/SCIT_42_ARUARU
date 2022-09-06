@@ -22,15 +22,16 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">LOGIN</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
 			</ul>
 		</nav>
 	
 
 		<div id="joinSelect">
 			<div id="rrmarkarea">
-				<img id="rrmark" th:src="@{images/rrmark.png}" ><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}">
+				<a th:href = "@{/}"><img id="rrmark" th:src="@{images/rrmark.png}" ></a>
+				<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}"></a>
 			</div>
 			<div id="select">
 			<p>회원가입유형을 선택해주세요</p>

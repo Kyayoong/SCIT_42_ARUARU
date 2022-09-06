@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://thymeleaf.org">
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <style>
 </style>
@@ -32,7 +33,7 @@
 		<!-- navbar 부분-->
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="@{/}">HOME</a>
+				<li sec:authorize="isAuthenticated()" class="nav-item">#님 로그인되었습니다</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다. -->
@@ -40,21 +41,19 @@
 
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
+				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
+				<li class="nav-item"><a sec:authorize="isAuthenticated()" class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
+				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
+				<li class="nav-item"><a sec:authorize="isAuthenticated()" class="nav-link" href="#">MYPAGE</a></li>
 			</ul>
 		</nav>
-
-		<div id="logged_in_text">
-			여기에 로그인 안내 텍스트 넣어주세여
-		</div>
 
 		<div id="container1">
 		
 			<!--알파벳 CI-->
-			<img id="RR" th:src="@{/images/rrmark.png}">
+			<a th:href = "@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
 			<!--일본어 CI-->
-			<img id="aruaru" th:src="@{/images/rrjapanesemark.png}">
+			<a th:href = "@{/}"><img id="aruaru" th:src="@{/images/rrjapanesemark.png}"></a>
 			<!--검색 부분-->
 			
 			<table>

@@ -31,7 +31,8 @@
 
 		<div id="loginform">
 			<div id="rrmarkarea">
-				<img id="rrmark" th:src="@{images/rrmark.png}" ><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}">
+				<a th:href="@{/}"><img id="rrmark" th:src="@{images/rrmark.png}" ></a>
+				<a th:href="@{/}"><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}"></a>
 			</div>
 			<div id="logintable">
 			<form th:action="@{/login}" method="post">

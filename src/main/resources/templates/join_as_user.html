@@ -2,11 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<script>
-function ynCheck(this) {
-	let clicked = this.checked
-}
-</script>
+
 <link th:href="@{/css/join_as_userCss.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,22 +120,22 @@ function ynCheck(this) {
 						<td style="width : 600px;">
 							<label for="tag1">태그</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag1"><input type="checkbox" id="tag1">한식</label>
+							<label class="btn btn-outline-secondary" for="tag1"><input name="member_tags" type="checkbox" id="tag1">한식</label>
 							</div>
 							<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag2"><input type="checkbox" id="tag2">양식</label>
+							<label class="btn btn-outline-secondary" for="tag2"><input name="member_tags" type="checkbox" id="tag2">양식</label>
 							</div>
 							<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag3"><input type="checkbox" id="tag3">일식</label>
+							<label class="btn btn-outline-secondary" for="tag3"><input name="member_tags" type="checkbox" id="tag3">일식</label>
 							</div>
 							<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag4"><input type="checkbox" id="tag4">중식</label>
+							<label class="btn btn-outline-secondary" for="tag4"><input name="member_tags" type="checkbox" id="tag4">중식</label>
 							</div>
 							<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag5"><input type="checkbox" id="tag5">동남아요리</label>
+							<label class="btn btn-outline-secondary" for="tag5"><input name="member_tags" type="checkbox" id="tag5">동남아요리</label>
 							</div>
 							<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" for="tag6"><input type="checkbox" id="tag6">뷔페</label>
+							<label class="btn btn-outline-secondary" for="tag6"><input name="member_tags" type="checkbox" id="tag6">뷔페</label>
 							</div>
 						</td>
 

@@ -18,9 +18,8 @@ nav {
 	padding-left : 1.3vw;
 }
 
-
 /*
-* restaurant 영역 전체 위치, 크기, 투명도 및 그림자 조정
+* registerform 전체부분 크기, 위치, 투명도 및 애니메이션 설정
 */
 
 #registuserform {
@@ -60,7 +59,7 @@ nav {
 }
 
 /*
-* 식당등록 전체(라벨, 입력부분, 등록버튼) 위치 조정
+* 가입등록테이블(라벨, 입력부분, 등록버튼) 위치 조정
 */
 
 #registtable {
@@ -71,30 +70,46 @@ nav {
 	
 }
 
+/*
+* 두번째 체크박스 위치 설정
+*/
+
 #idtag2 {
 	position : absolute;
 	margin-top : -5vh;
 	margin-left : 4vw;
 }
 
+/*
+* 세번째 체크박스 위치 설정
+*/
 #idtag3 {
 	position : absolute;
 	margin-top : -5vh;
 	margin-left : 8vw;
 }
 
+/*
+* 네번째 체크박스 위치 설정
+*/
 #idtag4 {
 	position :absolute;
 	margin-top : -5vh;
 	margin-left : 12vw;
 }
 
+/*
+* 다섯번째 체크박스 위치 설정
+*/
 #idtag5 {
 	position :absolute;
 	margin-top : -5vh;
 	margin-left : 16vw;
 }
 
+/*
+* 여섯번째 체크박스 위치 설정
+*/
 #idtag6 {
 	position :absolute;
 	margin-top : -5vh;
@@ -110,7 +125,9 @@ nav {
 	margin-top : -1vh;
 }
 
-
+/*
+* 창 뜰 때 시작위치 및 끝 위치 설정
+*/
 @keyframes slide2 {
 	from {
 		top: 0vh;

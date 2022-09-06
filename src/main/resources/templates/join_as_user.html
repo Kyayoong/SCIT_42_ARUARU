@@ -22,16 +22,16 @@
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">LOGIN</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
 		</ul>
 	</nav>
 
 	<!-- 회원 등록 폼 -->
 	<div id="registuserform" style="margin-bottom : 10vh;">
 		<div id="rrmarkarea">
-			<img id="rrmark" th:src="@{/images/rrmark.png}">
-			<img id="rrjapanesemark" th:src="@{/images/rrjapanesemark.png}">
+			<a th:href = "@{/}"><img id="rrmark" th:src="@{/images/rrmark.png}"></a>
+			<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{/images/rrjapanesemark.png}"></a>
 			<div id="inform-user-register">
 			<h6 style="font-family: IBM Plex Sans KR;">회원 등록 화면입니다.</h6>
 			</div>

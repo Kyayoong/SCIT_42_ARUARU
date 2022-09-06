@@ -33,7 +33,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<!-- navbar 부분-->
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
+
 				<li sec:authorize="isAuthenticated()" class="nav-item">#님 로그인되었습니다</li>
+
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다. -->
@@ -51,6 +53,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<div id="container1">
 		
 			<!--알파벳 CI-->
+
 			<a th:href = "@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
 			<!--일본어 CI-->
 			<a th:href = "@{/}"><img id="aruaru" th:src="@{/images/rrjapanesemark.png}"></a>

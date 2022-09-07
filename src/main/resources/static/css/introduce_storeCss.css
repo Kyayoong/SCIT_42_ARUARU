@@ -138,3 +138,72 @@
    		width: 83.4vw;
    	}
    	
+   	#graph-area {
+   		margin-left:8vw;
+   		width: 83.4vw;
+   	}
+   	
+   	#store-information {
+   		margin-left:8vw;
+   		width: 83.4vw;
+   	}
+   	
+   	#store-tags {
+   		margin-left:8vw;
+   		width: 83.4vw;
+   	}
+   	
+   	#store-commentary {
+   		margin-left:8vw;
+   		width: 83.4vw;
+   	}
+   	
+   	.profile-nickname {
+   		position : absolute;
+   		top : 0.5vh;
+   		left : 9vw;
+   	}
+   	
+   	.reviews-followers {
+   		position : absolute;
+   		top : 4.3vh;
+   		left : 9vw;
+   	}
+   	
+   	.score-star {
+   		position : absolute;
+   		top: 6.9vh;
+   		left : 9vw;
+   	}
+   	
+   	.score-number {
+   		position : absolute;
+   		top : 7.5vh;
+   		left : 10.7vw;
+   	}
+   	
+   	.comment {
+   		position : absolute;
+   		top : 3.5vh;
+   		width : 25vw;
+   		left : -1.5vw;
+   	}
+   	#bottom-bar {
+   		height :10vh;
+   		width : 50vw;
+   		left : 24vw;
+   		margin : 0 auto;
+   		position : fixed;
+   		bottom : 0vh;
+   		background-color :  rgba(255,71,26, 1);
+   		border-radius : 0.5vw;
+   	}
+   	
+   	#input-book-bottom {
+   		position : relative;
+   		bottom : -2vh;
+   		margin : 0 auto;
+   	}
+   	
+   	
+   	

@@ -186,7 +186,13 @@
    		position : absolute;
    		top : 3.5vh;
    		width : 25vw;
-   		left : -1.5vw;
+   		left : -1.8vw;
+   	}
+   	
+   	.upload-date {
+   		position : absolute;
+   		margin-left:8.1vw;
+   		
    	}
    	#bottom-bar {
    		height :10vh;

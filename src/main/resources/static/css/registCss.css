@@ -26,10 +26,10 @@ nav {
 
 #registform {
 	height : 150vh;
-	width : 40vw;
+	width : 50vw;
 	position : relative;
 	top : 5vh;
-	left : 30vw;
+	left : 25vw;
 	box-shadow : 5px 5px 20px grey; 
 	background-color : rgba(255,255,255, 0.5);
 	animation : slide2 2s;
@@ -41,7 +41,7 @@ nav {
 
 #rrmarkarea {
 	position : relative;
-	left : 15vw;
+	left : 19vw;
 	top : 3vh;
 }
 /*
@@ -70,6 +70,53 @@ nav {
 	padding-left : 4vw;
 	font-size: 15px;
 	
+}
+
+
+/*
+* 두번째 체크박스 위치 설정
+*/
+
+#idtag2 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 4vw;
+}
+
+/*
+* 세번째 체크박스 위치 설정
+*/
+#idtag3 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 8vw;
+}
+
+/*
+* 네번째 체크박스 위치 설정
+*/
+#idtag4 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 12vw;
+}
+
+/*
+* 다섯번째 체크박스 위치 설정
+*/
+#idtag5 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 16vw;
+}
+
+/*
+* 여섯번째 체크박스 위치 설정
+*/
+#idtag6 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 23vw;
 }
 
 

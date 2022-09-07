@@ -1,3 +1,4 @@
+DROP SEQUENCE restaurant_file_seq;
 DROP SEQUENCE holidays_seq;
 DROP SEQUENCE usage_history_seq;
 DROP SEQUENCE review_seq;
@@ -10,6 +11,7 @@ DROP SEQUENCE menu_seq;
 DROP SEQUENCE user_member_seq;
 DROP SEQUENCE restaurant_member_seq;
 
+DROP TABLE restaurant_file;
 DROP TABLE declaration;
 DROP TABLE reservation_select;
 DROP TABLE restaurant_time;
@@ -57,8 +59,6 @@ CREATE TABLE restaurant_member(
     restaurant_ename VARCHAR2(100) NOT NULL,			--가게영어 이름
     restaurant_sectors VARCHAR2(40) NOT NULL,			--업종선택
     restaurant_comment VARCHAR2(1000) NOT NULL,			--상세설명
-    restaurant_originalfile VARCHAR2(300), 				--가게 사진파일(오리지날)
-    restaurant_savedfile VARCHAR2(300),                         		--가게 사진파일(저장)
     restaurant_phone VARCHAR2(50) NOT NULL,				--가게번호
     restaurant_grade NUMBER(1) DEFAULT 0,				--평점
     registration_date DATE DEFAULT SYSDATE,				--등록일
@@ -215,4 +215,16 @@ CREATE TABLE declaration(
 
 --신고 번호 시퀀스
 CREATE SEQUENCE declaration_seq;
+
+--식당 파일 테이블
+CREATE TABLE restaurant_file(
+    restaurant_file_num NUMBER(10) PRIMARY KEY,				--파일번호
+	restaurant_originalfile VARCHAR2(300), 				--가게 사진파일(오리지날)
+    restaurant_savedfile VARCHAR2(300),                         		--가게 사진파일(저장)
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
+);
+
+--식당 파일 시퀀스
+CREATE SEQUENCE restaurant_file_seq;
+
 

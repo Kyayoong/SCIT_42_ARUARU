@@ -6,7 +6,7 @@ import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 @Mapper
-public interface MemberDao {
+public interface UserDao {
 	// 회원가입
 	int insertUser(User_member member);
 	

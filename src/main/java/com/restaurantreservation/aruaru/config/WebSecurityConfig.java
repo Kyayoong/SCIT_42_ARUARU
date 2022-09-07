@@ -25,12 +25,14 @@ public class WebSecurityConfig {
         http.csrf().disable()
         .authorizeRequests()
         .antMatchers("/",
-        		"/joinselect",
-        		"/join_as_user",
-        		"/insert_user",
+        		"/user/loginForm",
+        		"/user/joinselect",
+        		"/user/join_as_user",
+        		"/user/insert_user",
         		"/introduce_store",
                 "/css/**",
                 "/images/**",
+                "/js/jquery-3.6.0.min.js",
                 "/kakaoMapImages/**",
                 //관리자페이지 임시로 풀어놨습니다. - 성준
                 "/admin/**",
@@ -40,7 +42,7 @@ public class WebSecurityConfig {
         .anyRequest().authenticated()   	//위의 경로 외에는 모두 로그인을 해야 함
         .and()
         .formLogin()						//일반적인 폼을 이용한 로그인 처리/실패 방법을 사용
-        .loginPage("/loginForm")		//시큐리티에서 제공하는 기본 폼이 아닌 사용자가 만든 폼 사용
+        .loginPage("/user/loginForm")		//시큐리티에서 제공하는 기본 폼이 아닌 사용자가 만든 폼 사용
         .loginProcessingUrl("/login").permitAll()	//인증 처리를 하는 URL을 설정. 로그인 폼의 action으로 지정
         .usernameParameter("member_id")		//로그인폼의 아이디 입력란의 name
         .passwordParameter("member_pw")		//로그인폼의 비밀번호 입력란의 name

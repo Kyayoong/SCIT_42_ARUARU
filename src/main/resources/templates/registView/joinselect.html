@@ -2,12 +2,12 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <link th:href="@{/css/joinSelect.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script th:src="@{js/jquery-3.6.0.min.js}"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -23,16 +23,16 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/loginForm}">LOGIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			</ul>
 		</nav>
 	
 		<!-- 가입회원  -->
 		<div id="joinSelect">
 			<div id="rrmarkarea">
-				<a th:href = "@{/}"><img id="rrmark" th:src="@{images/rrmark.png}" ></a>
-				<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}"></a>
+				<a th:href = "@{/}"><img id="rrmark" th:src="@{/images/rrmark.png}" ></a>
+				<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{/images/rrjapanesemark.png}"></a>
 			</div>
 			<!-- 설명부분 div -->
 			<div id="select">
@@ -41,7 +41,7 @@
 			<!-- 선택하는 그림 2개 영역 전체 -->
 			<div id="select_role" >
 				<!-- 왼쪽 그림 -->
-				<a th:href="@{/join_as_user}"><img id="select-user" style="border-radius:0.5vw;" 
+				<a th:href="@{/user/join_as_user}"><img id="select-user" style="border-radius:0.5vw;" 
 				th:src="@{/images/color_select_user.png}" width=350 height=350 alt="유저로 가입"></a>
 				
 					<img id="user-icon" th:src="@{/images/user_icon.png}" width=64 height=64>

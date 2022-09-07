@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.restaurantreservation.aruaru.domain.tabletest;
-import com.restaurantreservation.aruaru.service.MemberService;
+import com.restaurantreservation.aruaru.service.UserService;
 
 @Controller
 public class HomeController {
 	//오라클 연결 테스트용
-	@Autowired MemberService service;
+	@Autowired UserService service;
 	
 	@GetMapping({"","/"})
 	public String home() {

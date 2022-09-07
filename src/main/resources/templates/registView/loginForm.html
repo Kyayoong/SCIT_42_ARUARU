@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <script th:src="@{/js/mainJs.js}"></script>
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <link th:href="@{/css/loginCss.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script th:src="@{js/jquery-3.6.0.min.js}"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -23,8 +23,8 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/loginForm}">LOGIN</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/joinselect}">JOIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/loginForm}">LOGIN</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			</ul>
 		</nav>
 	
@@ -32,8 +32,8 @@
 		<div id="loginform">
 			<div id="rrmarkarea">
 
-				<a th:href = "@{/}"><img id="rrmark" th:src="@{images/rrmark.png}" ></a>
-				<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{images/rrjapanesemark.png}"></a>
+				<a th:href = "@{/}"><img id="rrmark" th:src="@{/images/rrmark.png}" ></a>
+				<a th:href = "@{/}"><img id="rrjapanesemark" th:src="@{/images/rrjapanesemark.png}"></a>
 			</div>
 			<div id="logintable">
 			<form th:action="@{/login}" method="post">
@@ -47,7 +47,7 @@
 						<tr>
 							<td><label for="loginpassword"
 								style=" font-family: IBM Plex Sans KR;">PASSWORD</label><br>
-								<input type="text" id="loginpassword" name="member_pw"
+								<input type="password" id="loginpassword" name="member_pw"
 								style="width: 250px;">
 						</tr>
 						<tr>

@@ -8,36 +8,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.restaurantreservation.aruaru.domain.User_member;
-import com.restaurantreservation.aruaru.service.MemberService;
+import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class MemberController {
+@RequestMapping("user")
+public class UserController {
 	@Autowired
-	MemberService service;
+	UserService service;
 
 	// 로그인 페이지
-	@GetMapping("loginForm")
+	@GetMapping("/loginForm")
 	public String login() {
-		return "loginForm";
+		return "/registView/loginForm";
 	}
 
 	// 회원가입시 일반사용자, 식당 구분
-	@GetMapping("joinselect")
+	@GetMapping("/joinselect")
 	public String joinselect() {
-		return "joinselect";
+		return "/registView/joinselect";
 	}
 
 	// 일반 사용자로 회원가입
-	@GetMapping("join_as_user")
+	@GetMapping("/join_as_user")
 	public String join_as_user() {
-		return "join_as_user";
+		return "/registView/join_as_user";
 	}
 
 	// 회원가입
-	@PostMapping("insert_user")
+	@PostMapping("/insert_user")
 	public String insertUser(User_member member) {
 		log.debug("회원정보 : {}", member);
 		int result = service.insertUser(member);
@@ -45,8 +46,8 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	@GetMapping("join_as_restaurant")
+	@GetMapping("/join_as_restaurant")
 	public String join_as_restaurant() {
-		return "join_as_restaurant";
+		return "/registView/join_as_restaurant";
 	}
 }

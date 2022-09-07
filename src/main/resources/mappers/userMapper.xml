@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-    <mapper namespace="com.restaurantreservation.aruaru.dao.MemberDao">
+    <mapper namespace="com.restaurantreservation.aruaru.dao.UserDao">
     <!-- 회원가입 -->
     <insert id="insertUser" parameterType="User_member">
     INSERT INTO user_member

@@ -28,6 +28,7 @@ public class WebSecurityConfig {
         		"/user/loginForm",
         		"/user/joinselect",
         		"/user/join_as_user",
+        		"/restaurant/join_as_restaurant",
         		"/user/insert_user",
         		"/introduce_store",
                 "/css/**",

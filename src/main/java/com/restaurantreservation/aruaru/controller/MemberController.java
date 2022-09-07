@@ -19,7 +19,7 @@ public class MemberController {
 	MemberService service;
 
 	// 로그인 페이지
-	@GetMapping("loginForm")
+	@GetMapping("login")
 	public String login() {
 		return "loginForm";
 	}

@@ -101,7 +101,9 @@
     {
     	top: 65vh;
    	}
-   	
+   	/*
+   	*	소개 부분 전체 위치 설정
+   	*/
    	#introduce-area
    	{
    		position : relative;
@@ -109,6 +111,9 @@
    		font-family : Jua;
    	}
    	
+   	/*
+   	*	위치 소개 깃발 부분 전체 위치 설정
+   	*/
    	#flag-icon
    	
    	{	
@@ -117,15 +122,24 @@
    		height : 4.5vh;
    	}
    	
+   	/*
+   	*	위치 글씨 부분 위치 설정
+   	*/
    	#location-area {
    		margin-left : 10.5vw;
    		margin-top : -4.5vh;
    	}
    	
+   	/*
+   	*  음식점 이름 위치 설정
+   	*/
    	#store-name {
    		margin-left : 8vw;
    	}
    	
+   	/*
+   	* 음식점 소개글 위치 및 크기 설정
+   	*/
    	#store-contents
    	
    	{
@@ -133,30 +147,49 @@
    		margin-left:8vw;
    	}
    	
+   	/*
+   	* 메뉴 안내 부분 위치 및 크기 설정
+   	*/
    	#menu-area {
    		margin-left:8vw;
    		width: 83.4vw;
    	}
+   	
+   	/*
+   	* 그래프 위치 및 크기 설정
+   	*/
    	
    	#graph-area {
    		margin-left:8vw;
    		width: 83.4vw;
    	}
    	
+   	/*
+   	* 음식점 각종 안내 사항 위치 및 크기 설정
+   	*/
    	#store-information {
    		margin-left:8vw;
    		width: 83.4vw;
    	}
    	
+   	/*
+   	* 스토어 태그란 위치 및 크기 설정
+   	*/
    	#store-tags {
    		margin-left:8vw;
    		width: 83.4vw;
    	}
-   	
+   	/*
+   	* 스토어 한줄평 위치 및 크기 설정
+   	*/
    	#store-commentary {
    		margin-left:8vw;
    		width: 83.4vw;
    	}
+   	
+   	/*
+   	* 닉네임 위치 설정
+   	*/
    	
    	.profile-nickname {
    		position : absolute;
@@ -164,11 +197,19 @@
    		left : 9vw;
    	}
    	
+   	/*
+   	* 리뷰 팔로워 표시란 위치 설정 
+   	*/
+   	
    	.reviews-followers {
    		position : absolute;
    		top : 4.3vh;
    		left : 9vw;
    	}
+   	
+   	/*
+   	*  별 위치 설정
+   	*/
    	
    	.score-star {
    		position : absolute;
@@ -176,24 +217,37 @@
    		left : 9vw;
    	}
    	
+   	/*
+   	*  점수 표시 부분 위치 설정
+   	*/
+   	
    	.score-number {
    		position : absolute;
    		top : 7.5vh;
    		left : 10.7vw;
    	}
    	
+   	/*
+   	* 코멘트 부분 위치 및 크기 설정
+   	*/
    	.comment {
    		position : absolute;
    		top : 3.5vh;
    		width : 25vw;
    		left : -1.8vw;
    	}
-   	
+   	/*
+   	* 작성일 및 방문일 위치 설정
+   	*/
    	.upload-date {
    		position : absolute;
    		margin-left:8.1vw;
    		
    	}
+   	
+   	/*
+   	* bottom 검색 bar 크기 설정
+   	*/
    	#bottom-bar {
    		height :10vh;
    		width : 50vw;
@@ -204,7 +258,9 @@
    		background-color :  rgba(255,71,26, 1);
    		border-radius : 0.5vw;
    	}
-   	
+   	/*
+   	* 검색창 부분 위치 설정
+   	*/
    	#input-book-bottom {
    		position : relative;
    		bottom : -2vh;

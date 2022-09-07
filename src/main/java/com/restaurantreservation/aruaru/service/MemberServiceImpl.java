@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.MemberDao;
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.domain.tabletest;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,6 +28,13 @@ public class MemberServiceImpl implements MemberService {
 		String encodePassword = passwordEncoder.encode(member.getMember_pw());
 		member.setMember_pw(encodePassword);
 		int result = dao.insertUser(member);
+		return result;
+	}
+
+	//오라클 연결 테스트용입니다.
+	public int insertTable(tabletest test) {
+		int result = dao.insertTest(test);
+		
 		return result;
 	}
 }

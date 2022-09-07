@@ -23,6 +23,8 @@ public class RestaurantController {
 		
 		return "/registView/regist";
 	}
+	
+	
 
 }
  

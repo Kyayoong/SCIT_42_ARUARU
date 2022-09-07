@@ -28,6 +28,7 @@ public class WebSecurityConfig {
         		"/joinselect",
         		"/join_as_user",
         		"/insert_user",
+        		"/introduce_store",
                 "/css/**",
                 "/images/**",
                 "/kakaoMapImages/**",

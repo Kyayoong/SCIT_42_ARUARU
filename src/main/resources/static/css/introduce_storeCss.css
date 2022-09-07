@@ -249,6 +249,7 @@
    	* bottom 검색 bar 크기 설정
    	*/
    	#bottom-bar {
+ 		position : sticky;
    		height :10vh;
    		width : 50vw;
    		left : 24vw;
@@ -266,6 +267,11 @@
    		bottom : -2vh;
    		margin : 0 auto;
    	}
-   	
+   	/*
+   	*	div empty 구역 크기 설정
+   	*/
+   	#empty {
+   		height:10vh;
+   	}
    	
    	

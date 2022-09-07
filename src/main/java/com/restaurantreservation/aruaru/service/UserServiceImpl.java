@@ -6,7 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.restaurantreservation.aruaru.dao.MemberDao;
+import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
@@ -15,9 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 @Transactional
-public class MemberServiceImpl implements MemberService {
+public class UserServiceImpl implements UserService {
 	@Autowired
-	MemberDao dao;
+	UserDao dao;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;

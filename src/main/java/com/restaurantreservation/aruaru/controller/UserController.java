@@ -20,7 +20,11 @@ public class UserController {
 	UserService service;
 
 	// 로그인 페이지
+<<<<<<< HEAD:src/main/java/com/restaurantreservation/aruaru/controller/MemberController.java
+	@GetMapping("login")
+=======
 	@GetMapping("/loginForm")
+>>>>>>> 1eb12a1f6a4d1955ccc4bb6918044a3918834cc5:src/main/java/com/restaurantreservation/aruaru/controller/UserController.java
 	public String login() {
 		return "/registView/loginForm";
 	}

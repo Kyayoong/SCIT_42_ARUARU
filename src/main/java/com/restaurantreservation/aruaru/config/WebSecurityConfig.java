@@ -34,6 +34,8 @@ public class WebSecurityConfig {
                 "/kakaoMapImages/**",
                 //관리자페이지 임시로 풀어놨습니다. - 성준
                 "/admin/**",
+                //오라클 연결 테스트용입니다.
+                "/insertTest",
                 "/js/**").permitAll()		//설정한 리소스의 접근을 인증절차 없이 허용
         .anyRequest().authenticated()   	//위의 경로 외에는 모두 로그인을 해야 함
         .and()

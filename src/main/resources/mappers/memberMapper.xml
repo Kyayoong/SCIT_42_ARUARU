@@ -33,4 +33,13 @@
 	    , #{member_nickname}
     )
     </insert>
+    
+    <!-- 오라클 연결 테스트용입니다. -->
+    <insert id="insertTest" parameterType="tabletest">
+    	INSERT INTO TEST_TABLE(
+    		tableid, text
+    	) VALUES (
+    		#{tableid}, #{text}
+    	)
+    </insert>
     </mapper>

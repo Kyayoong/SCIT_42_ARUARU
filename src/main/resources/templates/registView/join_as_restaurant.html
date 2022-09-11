@@ -236,24 +236,24 @@ function fileDelete(fileNum){
 					<tr>
 						<td><label for="restaurant_phone"
 							style="font-family: IBM Plex Sans KR;">전화번호를 입력해주세요.</label><br>
-							<select id="restaurant_phone1" name="restaurant_phone1"
+							<select class="form-control" id="restaurant_phone1" name="restaurant_phone1"
 							style="width: 100px;">
 								<option value="02">02</option>
 								<option value="031">031</option>
 								<option value="070">070</option>
-						</select> <input style="width: 10vw;" type="text" id="restaurant_phone2"
-							name="restaurant_phone2" placeholder="식당 번호 입력(-포함)"></td>
+						</select> <div id="form-phone2"> <input class="form-control" style="width: 10vw;" type="text" id="restaurant_phone2"
+							name="restaurant_phone2" placeholder="식당 번호 입력(-포함)"></div></td>
 					</tr>
 					<tr>
 						<td><label for="restaurant_address1"
 							style="font-family: IBM Plex Sans KR;">주소를 입력해주세요</label><br>
 							<input class="form-control" type="text" id="restaurant_address1"
-							name="restaurant_address1" placeholder="주소" style="width: 400px;"
-							readonly="readonly"> <input type="button"
-							onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+							name="restaurant_address1" placeholder="주소" style="width: 32vw;"
+							readonly="readonly"><div id="b-search-address"><input style="width:7vw;" class="form-control" type="button"
+							onclick="sample5_execDaumPostcode()" value="주소 검색"></div>
 							<input class="form-control" type="text" id="restaurant_address2"
 							name="restaurant_address2" placeholder="상세주소"
-							style="width: 400px;">
+							style="width: 32vw;">
 							<div id="map"
 								style="width: 500px; height: 300px; margin-top: 10px; display: none"></div>
 
@@ -334,6 +334,10 @@ function fileDelete(fileNum){
 				<br>
 			</form>
 		</div>
+	</div>
+	<!-- 공백용 -->
+	<div id="empty">
+	<p>      </p>
 	</div>
 </body>
 </html>

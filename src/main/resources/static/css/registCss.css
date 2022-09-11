@@ -25,7 +25,7 @@ nav {
 */
 
 #registform {
-	height : 150vh;
+	height : 130vh;
 	width : 50vw;
 	position : relative;
 	top : 5vh;
@@ -72,6 +72,25 @@ nav {
 	
 }
 
+/*
+* div form-phone2 위치 조정
+*/
+
+#form-phone2 {
+	position : absolute;
+	margin-top : -5.1vh;
+	margin-left : 6.7vw;
+	
+}
+
+/*
+* 주소검색 버튼 위치 조정
+*/
+#b-search-address {
+	position : absolute;
+	margin-top : -5.1vh;
+	margin-left : 32vw;
+}
 
 /*
 * 두번째 체크박스 위치 설정
@@ -127,6 +146,14 @@ nav {
 #registerbuttondiv {
 	position:relative;
 	margin-top : -1vh;
+}
+
+/*
+*
+*/
+
+#empty {
+	height : 6vh;
 }
 
 

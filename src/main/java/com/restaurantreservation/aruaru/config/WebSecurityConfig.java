@@ -30,6 +30,7 @@ public class WebSecurityConfig {
         		"/user/join_as_user",
         		"/restaurant/join_as_restaurant",
         		"/user/insert_user",
+        		"/login/mailConfirm",
         		"/introduce_store",
                 "/css/**",
                 "/images/**",

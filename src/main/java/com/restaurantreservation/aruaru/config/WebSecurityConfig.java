@@ -31,6 +31,7 @@ public class WebSecurityConfig {
         		"/restaurant/join_as_restaurant",
         		"/user/insert_user",
         		"/introduce_store",
+        		"/chat",
                 "/css/**",
                 "/images/**",
                 "/js/jquery-3.6.0.min.js",

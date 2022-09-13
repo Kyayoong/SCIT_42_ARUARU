@@ -13,4 +13,6 @@ public interface UserDao {
 	// 오라클 연결 테스트용입니다.
 	int insertTest(tabletest test);
 
+	 //ID 개수 확인
+    public int countMemberid(String member_id);
 }

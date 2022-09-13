@@ -30,7 +30,7 @@ public class MailSenderService  {
       h.setFrom(from);
       h.setTo(mailTo);
       h.setSubject(domain +" 프로젝트에 초대합니다.");
-      h.setText("http://10.10.6.171:11008/"+ domain);
+      h.setText("http://10.10.9.88:11008/"+ domain);
       mailSender.send(m);
    }
 

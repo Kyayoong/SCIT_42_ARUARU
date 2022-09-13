@@ -1,52 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script th:src="@{js/jquery-3.6.0.min.js}"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+</script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+</script>
 <meta charset="UTF-8">
-	<title>Chating</title>
+	<title>Chatting</title>
 	<style>
-		*{
-			margin:0;
-			padding:0;
-		}
-		.container{
-			width: 500px;
-			margin: 0 auto;
-			padding: 25px
-		}
-		.container h1{
-			text-align: left;
-			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
-			border-left: 3px solid #FFBB00;
-			margin-bottom: 20px;
-		}
-		.chating{
-			background-color: #000;
-			width: 500px;
-			height: 500px;
-			overflow: auto;
-		}
-		.chating p{
-			color: #fff;
-			text-align: left;
-		}
-		input{
-			width: 330px;
-			height: 25px;
-		}
-		#yourMsg{
-			display: none;
-		}
+		
 	</style>
 </head>
-
+<link rel="stylesheet" th:href="@{/css/inquiryChatCss.css}">
 <script type="text/javascript">
 	var ws;
 
 	function wsOpen(){
 		alert(location.host);
-		ws = new WebSocket("ws://" + location.host + "/chatting");
+		ws = new WebSocket("ws://" + location.host + "/aruaru" + "/chatting");
 		wsEvt();
 	}
 		
@@ -89,8 +66,18 @@
 	}
 </script>
 <body>
+	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{/}">HOME</a>
+		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">LOG IN</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
+		</ul>
+	</nav>
 	<div id="container" class="container">
-		<h1>채팅</h1>
+		<h1>실시간 문의</h1>
 		<div id="chating" class="chating">
 		</div>
 		
@@ -99,7 +86,7 @@
 				<tr>
 					<th>사용자명</th>
 					<th><input type="text" name="userName" id="userName"></th>
-					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+					<th><button class="btn btn-primary" onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>
 		</div>
@@ -108,7 +95,7 @@
 				<tr>
 					<th>메시지</th>
 					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
+					<th><button class="btn btn-primary" onclick="send()" id="sendBtn">보내기</button></th>
 				</tr>
 			</table>
 		</div>

@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -19,6 +21,9 @@ public class UserController {
 	@Autowired
 	UserService service;
 
+	@Autowired
+	UserDao dao;
+	
 	// 로그인 페이지
 	@GetMapping("login")
 	public String login() {
@@ -44,6 +49,15 @@ public class UserController {
 		int result = service.insertUser(member);
 		log.debug("회원정보 : {}", result);
 		return "redirect:/";
+	}
+	
+	// 아이디 중복체크
+	@ResponseBody
+	@PostMapping("idcheck")
+	public int check(String member_id) {
+		int cnt = 0;
+		cnt = dao.countMemberid(member_id);
+		return cnt;
 	}
 
 	@GetMapping("/join_as_restaurant")

@@ -42,4 +42,8 @@
     		#{tableid}, #{text}
     	)
     </insert>
+    
+    <select id="countMemberid" parameterType="String" resultType="int">
+	select count(*) from user_member where member_id = #{member_id}
+</select>
     </mapper>

@@ -32,6 +32,7 @@ public class WebSecurityConfig {
         		"/user/insert_user",
         		"/introduce_store",
         		"/chat",
+        		"/chatting",
                 "/css/**",
                 "/images/**",
                 "/js/jquery-3.6.0.min.js",

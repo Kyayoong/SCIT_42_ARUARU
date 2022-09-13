@@ -43,7 +43,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
-				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/user/loginForm}">LOGIN</a></li>
+				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/user/login}">LOGIN</a></li>
 				<li class="nav-item"><a class="nav-link" th:href="@{/login/mailConfirm}">메일</a></li>
 				<li class="nav-item"><a sec:authorize="isAuthenticated()" class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
 				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>

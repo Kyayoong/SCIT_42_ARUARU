@@ -42,9 +42,15 @@ public class RestaurantController {
 		return "/registView/join_as_restaurant";
 	}
 	
-	@ResponseBody
+	
+	@GetMapping("/join_as_restaurant_menu")
+	public String join_as_restaurant_menu() {
+		return "/registView/join_as_restaurant_menu";
+	}
+	
+	
 	@PostMapping("regist1")
-	public int idCheck(List<MultipartFile> upload,Restaurant_member member,
+	public String idCheck(List<MultipartFile> upload,Restaurant_member member,
 			Tags tag, Restaurant_file file
 			) {
 		log.debug("{}",member);
@@ -52,7 +58,8 @@ public class RestaurantController {
 		log.debug("{}",tag);
 		log.debug("{}",file);
 		log.debug("파일 정보: {}", upload);
-		return 0;
+		
+		return "redirect:/restaurant/join_as_restaurant_menu";
 	}
 	
 }

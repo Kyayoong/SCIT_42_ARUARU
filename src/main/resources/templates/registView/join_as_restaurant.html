@@ -29,87 +29,10 @@
 	$(function() {
 		$('#btn-upload').click(function(e) {
 			e.preventDefault();
-			$('#input_file').click();
+			$('#btnAtt').click();
 		});
 	});
 
-	// 파일 현재 필드 숫자 totalCount랑 비교값
-	var fileCount = 0;
-	// 해당 숫자를 수정하여 전체 업로드 갯수를 정한다.
-	var totalCount = 10;
-	// 파일 고유넘버
-	var fileNum = 0;
-	// 첨부파일 배열
-	var content_files = new Array();
-
-	function fileCheck(e) {
-		var files = e.target.files;
-
-		// 파일 배열 담기
-		var filesArr = Array.prototype.slice.call(files);
-
-		// 파일 개수 확인 및 제한
-		if (fileCount + filesArr.length > totalCount) {
-			$.alert('파일은 최대 ' + totalCount + '개까지 업로드 할 수 있습니다.');
-			return;
-		} else {
-			fileCount = fileCount + filesArr.length;
-		}
-
-		// 각각의 파일 배열담기 및 기타
-		filesArr
-				.forEach(function(f) {
-					var reader = new FileReader();
-					reader.onload = function(e) {
-						content_files.push(f);
-						$('#articlefileChange')
-								.append(
-										'<div id="file'
-												+ fileNum
-												+ '" onclick="fileDelete(\'file'
-												+ fileNum
-												+ '\')">'
-												+ '<font style="font-size:12px">'
-												+ f.name
-												+ '</font>'
-												+ '<img src="../images/xxxxx.png" style="width:20px; height:auto; vertical-align: middle; cursor: pointer;"/>'
-												+ '<div/>');
-						fileNum++;
-					};
-					reader.readAsDataURL(f);
-				});
-		console.log(content_files);
-		//초기화 한다.
-		$("#input_file").val("");
-	}
-
-	// 파일 부분 삭제 함수
-	function fileDelete(fileNum) {
-		var no = fileNum.replace(/[^0-4]/g, "");
-		content_files[no].is_delete = true;
-		$('#' + fileNum).remove();
-		fileCount--;
-		console.log(content_files);
-	}
-
-	/*
-	 * 폼 submit 로직
-	 */
-	function registerAction() {
-
-		var form = $("form")[0];
-		var formData = new FormData(form);
-		for (var x = 0; x < content_files.length; x++) {
-			// 삭제 안한것만 담아 준다. 
-			if (!content_files[x].is_delete) {
-				formData.append("article_file", content_files[x]);
-			}
-		}
-		/*
-		 * 파일업로드 multiple ajax처리
-		 */
-		return false;
-	}
 	function check() {
 		let restaurant_name = document.getElementById('restaurant_name');
 		let restaurant_ename = document.getElementById('restaurant_ename');
@@ -250,24 +173,127 @@
 					<tr>
 						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">업체
 								사진</label><br>
-							<button class="btn btn-primary" id="btn-upload" type="button">파일
-								추가</button> <input id="input_file" multiple="multiple" type="file"
-							name="upload" style="display: none;"> <span
-							style="font-family: IBM Plex Sans KR;">※첨부파일은 최대 5개까지 등록이
-								가능합니다.</span>
-							<div class="data_file_txt" id="data_file_txt"
-								style="margin: 40px;">
-								<span>첨부 파일을 등록해주세요.(image파일만 가능)</span> <br>
-								<div id="articlefileChange"></div>
-							</div>
+							<div id='image_preview'>
+								<button class="btn btn-primary" id="btn-upload" type="button">
+									파일추가</button>
+								<input id="btnAtt" multiple="multiple" type="file"
+									accept="image/*" name="upload" style="display: none;">
+								<span style="font-family: IBM Plex Sans KR;">※첨부파일은 최대
+									5개까지 등록이 가능합니다.</span>
+								<div id='att_zone'
+									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+							</div> <script type="text/javascript">
+
+							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
+							imageView = function imageView(att_zone, btn){
+
+							var attZone = document.getElementById(att_zone);
+							var btnAtt = document.getElementById(btn)
+							var sel_files = [];
+									    
+									    // 이미지와 체크 박스를 감싸고 있는 div 속성
+									    var div_style = 'display:inline-block;position:relative;'
+									                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
+									    // 미리보기 이미지 속성
+									    var img_style = 'width:100%;height:100%;z-index:none';
+									    // 이미지안에 표시되는 체크박스의 속성
+									    var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
+									                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
+									  
+									    btnAtt.onchange = function(e){
+									      var files = e.target.files;
+									      var fileArr = Array.prototype.slice.call(files)
+									      for(f of fileArr){
+									        imageLoader(f);
+									      }
+									    }  
+									    
+									  
+									    // 탐색기에서 드래그앤 드롭 사용
+									    attZone.addEventListener('dragenter', function(e){
+									      e.preventDefault();
+									      e.stopPropagation();
+									    }, false)
+									    
+									    attZone.addEventListener('dragover', function(e){
+									      e.preventDefault();
+									      e.stopPropagation();
+									      
+									    }, false)
+									  
+									    attZone.addEventListener('drop', function(e){
+									      var files = {};
+									      e.preventDefault();
+									      e.stopPropagation();
+									      var dt = e.dataTransfer;
+									      files = dt.files;
+									      for(f of files){
+									        imageLoader(f);
+									      }
+									      
+									    }, false)
+									    
+
+									    
+									    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
+									    imageLoader = function(file){
+									      sel_files.push(file);
+									      var reader = new FileReader();
+									      reader.onload = function(ee){
+									        let img = document.createElement('img')
+									        img.setAttribute('style', img_style)
+									        img.src = ee.target.result;
+									        attZone.appendChild(makeDiv(img, file));
+									      }
+									      
+									      reader.readAsDataURL(file);
+									    }
+									    
+									    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
+									    makeDiv = function(img, file){
+									      var div = document.createElement('div')
+									      div.setAttribute('style', div_style)
+									      
+									      var btn = document.createElement('input')
+									      btn.setAttribute('type', 'button')
+									      btn.setAttribute('value', 'x')
+									      btn.setAttribute('delFile', file.name);
+									      btn.setAttribute('style', chk_style);
+									      btn.onclick = function(ev){
+									        var ele = ev.srcElement;
+									        var delFile = ele.getAttribute('delFile');
+									        for(var i=0 ;i<sel_files.length; i++){
+									          if(delFile== sel_files[i].name){
+									            sel_files.splice(i, 1);      
+									          }
+									        }
+									        
+									        dt = new DataTransfer();
+									        for(f in sel_files) {
+									          var file = sel_files[f];
+									          dt.items.add(file);
+									        }
+									        btnAtt.files = dt.files;
+									        var p = ele.parentNode;
+									        attZone.removeChild(p)
+									      }
+									      div.appendChild(img)
+									      div.appendChild(btn)
+									      return div
+									    }
+									  }
+									)('att_zone', 'btnAtt')
+
+							</script>
 						<td>
 					</tr>
 
 					<tr>
 						<td class="contents"><label for="contents"
 							style="font-family: IBM Plex Sans KR;">업체 설명</label> <br> <textarea
-								class="form-control" rows="3" cols="50"
-								name="restaurant_comment" id="restaurant_comment">우리 업체를 고객들에게 상세히 설명해주세요.</textarea></td>
+								placeholder="우리 업체를 고객들에게 상세히 설명해주세요." class="form-control"
+								rows="3" cols="50" name="restaurant_comment"
+								id="restaurant_comment"></textarea></td>
 					</tr>
 					<tr>
 						<td style="width: 600px;"><label for="tag1">태그</label><br>

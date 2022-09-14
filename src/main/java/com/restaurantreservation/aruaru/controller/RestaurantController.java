@@ -23,32 +23,43 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class RestaurantController {
 	
-	//게시판 첨부파일 업로드 경로
+	/**
+	 * 게시판 첨부파일 업로드 경로
+	 */
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
 	
 	@Autowired
 	RestaurantService service;
 	
-	//식당이 등록되어있는지 확인하는 창
+	
+	/**
+	 * 식당이 등록되어있는지 확인하는 창
+	 */
 	@GetMapping("/join_as_restaurantCheck")
 	public String join_as_restaurantCheck() {
 		return "/registView/join_as_restaurantCheck";
 	}
 	
-	//식당 등록 폼으로 이동 회원가입창에서 회원가입이 완료되면 넘어갑니다.	
+	/**
+	 * 식당 등록 폼으로 이동 회원가입창에서 회원가입이 완료되면 넘어갑니다.
+	 */
 	@GetMapping("/join_as_restaurant")
 	public String join_as_restaurant() {
 		return "/registView/join_as_restaurant";
 	}
 	
-	
+	/**
+	 * 평균가격이랑 메뉴판 및 메뉴추가화면입니다.
+	 */
 	@GetMapping("/join_as_restaurant_menu")
 	public String join_as_restaurant_menu() {
 		return "/registView/join_as_restaurant_menu";
 	}
 	
-	
+	/**
+	 * 등록창입니다. ajax는 아직고민중입니다.
+	 */
 	@PostMapping("regist1")
 	public String idCheck(List<MultipartFile> upload,Restaurant_member member,
 			Tags tag, Restaurant_file file
@@ -60,6 +71,14 @@ public class RestaurantController {
 		log.debug("파일 정보: {}", upload);
 		
 		return "redirect:/restaurant/join_as_restaurant_menu";
+	}
+	
+	/**
+	 * 메뉴 등록화면으로 이동합니다~
+	 */
+	@GetMapping("/join_as_restaurant_menu_add")
+	public String idcheck() {
+		return "/registView/join_as_restaurant_menu_add";
 	}
 	
 }

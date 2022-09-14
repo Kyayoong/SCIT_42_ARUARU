@@ -25,11 +25,13 @@ public class WebSecurityConfig {
         http.csrf().disable()
         .authorizeRequests()
         .antMatchers("/",
-        		"/user/loginForm",
+        		"/user/login",
         		"/user/joinselect",
         		"/user/join_as_user",
         		"/restaurant/join_as_restaurant",
+        		"/restaurant/regist1",
         		"/user/insert_user",
+        		"/login/mailConfirm",
         		"/introduce_store",
         		"/chat",
         		"/chatting",

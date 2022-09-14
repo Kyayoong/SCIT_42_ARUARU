@@ -3,7 +3,7 @@
  * @author: SoungJun Cho
  * @since: 2022.08.31
  */
-/**-----------------------------------------------
+/**--------------------------------------------------------------
  * 카카오 맵 테스트용
  * div id="map"을 불러올 때, HTML DOM 형식으로 불러와야한다.
  * 때문에 배열형식의 맨 앞 index를 참조하여 가져온다.
@@ -11,8 +11,8 @@
  * 1. 지도에 표시할 위치의 주소를 좌표로 변환
  * 2. 해당 좌표를 중심으로 지도를 호출
  * 3. 해당 좌표에 마커 올리기
- * 4. 해당 마커에 이벤트 걸기
- *------------------------------------------------*/
+ * 4. 해당 마커에 이벤트 걸기 (클릭 이벤트를 걸어, 클릭 시, 커스텀 오버레이 호출)
+ *--------------------------------------------------------------*/
   
 //맵 구현할 HTML상의 위치
 let container = document.getElementById('map');
@@ -92,49 +92,51 @@ let callback = function(result, status) {
          * 4. 마커에 이벤트 걸기
          *---------------------*/
 		//마커에 표시할 컨텐츠
-		 let content = '<div class="overlaybox">' +
-		 '    <div class="main">' +
-		 '        <div class="restaurant text">모코코</div>' +
-		 '    </div>' +
-		 '    <ul>' +
-		 '        <li class="tags">' +
-		 '            <span class="tagname">종류</span>' +
-		 '            <span class="title">#양식</span>' +
-		 '            <span class="title">#한식</span>' +
-		 '            <span class="title">#일식</span>' +
-		 '        </li>' +
-		 '        <li>' +
-		 '            <span class="tagname">분위기</span>' +
-		 '            <span class="title">#따듯한</span>' +
-		 '            <span class="title">#은은한</span>' +
-		 '            <span class="title">#차분한</span>' +
-		 '        </li>' +
-		 '        <li>' +
-		 '            <span class="tagname">맛</span>' +
-		 '            <span class="title">#맛집</span>' +
-		 '            <span class="title">#매운</span>' +
-		 '            <span class="title">#단짠단짠</span>' +
-		 '        </li>' +
-		 '        <li>' +
-		 '            <span class="star">별점</span>' +
-		 '            <span class="stars">★★★★★</span>' +
-		 '        </li>' +
-		 '    </ul>' +
-		 '    <div class="reservation">' +
-		 '	  	  <span class="reservation">예약하기</span>'
-		 '    </div>' +
-		 '</div>';
+		let content = '<div class="overlaybox">' +
+		'    <div class="main">' +
+		'        <div class="restaurant text">모코코</div>' +
+		'    </div>' +
+		'    <ul>' +
+		'        <li class="tags">' +
+		'            <span class="tagname">종류</span>' +
+		'            <span class="title">#양식</span>' +
+		'            <span class="title">#한식</span>' +
+		'            <span class="title">#일식</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="tagname">분위기</span>' +
+		'            <span class="title">#따듯한</span>' +
+		'            <span class="title">#은은한</span>' +
+		'            <span class="title">#차분한</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="tagname">맛</span>' +
+		'            <span class="title">#맛집</span>' +
+		'            <span class="title">#매운</span>' +
+		'            <span class="title">#단짠단짠</span>' +
+		'        </li>' +
+		'        <li>' +
+		'            <span class="star">별점</span>' +
+		'            <span class="stars">★★★★★</span>' +
+		'        </li>' +
+		'    </ul>' +
+		'    <div class="reservation">' +
+		'	  	  <span class="reservation">예약하기</span>'
+		'    </div>' +
+		'</div>';
 	 
-	 // 커스텀 오버레이가 표시될 위치입니다 
-	 let position = new kakao.maps.LatLng(result[0].y, result[0].x);
+	 	// 커스텀 오버레이가 표시될 위치입니다 
+	 	let position = new kakao.maps.LatLng(result[0].y, result[0].x);
 	
-	 //오버레이 생성
-	 let customOverlay = new kakao.maps.CustomOverlay({
-		position: position,
-		content: content,
-		xAnchor: 0.28,
-		yAnchor: 1.1
-	});
+	 	//오버레이 생성
+	 	let customOverlay = new kakao.maps.CustomOverlay({
+			position: position,
+			content: content,
+			xAnchor: 0.28,
+			yAnchor: 1.1
+		});
+		
+		//마커 이벤트 리스너
 		kakao.maps.event.addListener(marker, 'click', function() {
 		    customOverlay.setMap(map);
 		});

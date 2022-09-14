@@ -1,31 +1,36 @@
 package com.restaurantreservation.aruaru.controller;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.restaurantreservation.aruaru.common.BaseException;
-import com.restaurantreservation.aruaru.service.MailService;
+import com.restaurantreservation.aruaru.service.MailSenderService;
 
-import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-@AllArgsConstructor
+@Controller
+@Slf4j
 public class MailController {
-
-	MailService mailService;
-
-	@ResponseBody
-	@PostMapping("/api/skdjf")
-	public ResponseEntity<Long> sendEmail(@RequestBody String data) throws BaseException {
-		JSONObject parser = new JSONObject(data);
-		String email = parser.getString("email");
-
-		mailService.sendCertificationMail(email);
-		long verifyCodeId = mailService.sendCertificationMail(email);
-		return ResponseEntity.ok(verifyCodeId);
-
-	}
+   
+   @Autowired
+   MailSenderService mailSenderService;
+   
+   @GetMapping("login/mailConfirm")
+   public String mailConfirm() {
+      return "registView/mailConfirm";
+   }
+   
+   
+   @PostMapping("login/mailConfirm")
+   @ResponseBody
+   public String mailSend(String email,String domain) throws Exception{
+      
+      mailSenderService.mailSend(email, domain);
+      
+      log.debug(email,domain);
+      
+      return "mailConfirm";
+   }
 }

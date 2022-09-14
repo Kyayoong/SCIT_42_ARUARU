@@ -10,15 +10,101 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 	nav {
 	height : 4.1vh;
 	}
-	
+	#container1 {
+		width : 96vw;
+		margin : 0 auto;
+		left : 10vw;
+	}
 	#mypage-left {
+	position : absolute;
     font-family : Jua; 	
+    top : 20vh;
 	} 
+	#profile-photo {
+		position : absolute;
+		left : 12vw;
+		top : 11vh;
+		
+	}
+	#p-photo {
+		width : 3.5vw;
+		height : 3.5vw;
+	}
+	#profile-name {
+		margin-left : 16vw;
+		margin-top : 11vh;
+		font-family : Jua;
+	}
+	#profile-modify {
+		position : absolute;
+		color : grey;
+		font-family : IBM Plex Sans KR;
+		left : 26vw;
+		top : 11.5vh;
+	}
+	#grade-benefit {
+		position : absolute;
+		color : grey;
+		font-family : IBM Plex Sans KR;
+		left : 33vw;
+		top : 15.5vh;
+		
+	}
+	#coupon-icon {
+		position : absolute;
+		left : 55vw;
+		top: 9vh;
+	}
+	#coupon-caption {
+		position : absolute;
+		left : 55.45vw;
+		top : 15.1vh;
+		font-family : IBM Plex Sans KR;
+	}
+	#coupon-numbers {
+		position : absolute;
+		left : 55.5vw;
+		top : 18.1vh;
+		font-family : Jua;
+		
+	}
+	#review-icon {
+	 position : absolute;
+	 top : 10.5vh;
+	 left : 65vw;
+	}
 	
+	#review-caption {
+		position : absolute;
+		top:18vh;
+		left : 64vw;
+		font-family : Jua;
+	}
+	#table-area1-caption {
+		font-family : Jua;
+	}
+	
+	#table-area1-all {
+		text-align : right;
+	}
+	#table-area1 {
+		position : absolute;
+		top : 27vh;
+		margin-left : 11vw;
+		width : 58vw;
+	}
+	#table1 {
+		text-align : center;
+		font-family : IBM Plex Sans KR;
+	}
 </style>
+<script>
+
+</script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -74,7 +160,65 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 			</div>
 			</div>
 			<div class="col-sm-9">
+			<div id="profile-photo">
+			<img id="p-photo"th:src="@{/images/user_icon.png}" class="rounded-circle" alt="프로필 이미지">
+			</div> 
+			<div id="profile-name">
+			<h4>LV4. 호에에엥</h4>
+			<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
+			</div>
+			<div id="profile-modify">
+			<h6>회원정보변경</h6>
+			</div>
+			<div id="grade-benefit">
+			<h6>등급혜택></h6>
+			</div>
+			<div id="coupon-icon">
+			<a><img th:src="@{images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
+			</div>
+			<div id="coupon-caption">
+			<h6>쿠폰></h6>
+			</div>
+			<div id="coupon-numbers">
+			<h5>2개</h5>
+			</div>
+			<div id="review-icon">
+			<img th:src="@{images/review_icon.png}" alt="리뷰 아이콘">
+			</div>
+			<div id="review-caption">
+			<h5>리뷰작성></h5>
+			</div>
 			
+			<div id="table-area1">
+			<h4 id="table-area1-caption">예약 내역 조회</h4>
+			<h6 id="table-area1-all">전체 보기</h6>
+			<table class="table" id="table1">
+			<tr>
+				<th>예약가게명</th>
+				<th>예약일시</th>
+				<th>인원수</th>
+				<th>예약확정여부</th>
+			</tr>
+			<tr>
+				<td>성준식당</td>
+				<td>2022.09.15</td>
+				<td>5</td>
+				<th>N</th>
+			</tr>
+			<tr>
+				<td>예현식당</td>
+				<td>2022.09.20</td>
+				<td>4</td>
+				<th>Y</th>
+			</tr>
+			<tr>
+				<td>기원식당</td>
+				<td>2022.09.22</td>
+				<td>3</td>
+				<th>N</th>
+			</tr>
+			</table>
+			</div>
 			</div>
 		</div>
 		</div>

@@ -1,4 +1,4 @@
-package com.restaurantreservation.aruaru.config;
+package com.restaurantreservation.aruaru.util;
 
 import java.util.HashMap;
 import java.util.Map;

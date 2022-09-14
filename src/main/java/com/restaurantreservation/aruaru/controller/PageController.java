@@ -9,4 +9,9 @@ public class PageController {
 	public String introduceStore() {
 		return "introduce_store";
 	}
+	
+	@GetMapping("mypage")
+	public String mypage() {
+		return "mypage";
+	}
 }

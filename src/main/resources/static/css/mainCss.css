@@ -257,11 +257,20 @@
 	}
 	
 	/*
+	*	랭킹, 신상맛집 이미지
+	*/
+	.ranking-img {
+		width : 20vw;
+		height : 27.5vh;
+	
+	}
+	
+	/*
 	* 랭킹, 신상맛집 깃발 부분 위치 설정
 	*/
 	.map-pin-ranking {
 		position : absolute;
-		top: 26.6vh;
+		top: 28.6vh;
 		left:2vw;
 	}
 	
@@ -271,10 +280,9 @@
 	
 	.location-ranking {
 		position : absolute;
-		top: 26.8vh;
+		top: 28.8vh;
 		left:3.2vw;
 		font-family : Jua;
-		color : white;
 		font-size:18px;
 	}
 	
@@ -285,9 +293,8 @@
 	
 	.name-ranking {
 		position :absolute;
-		top: 30vh;
+		top: 32vh;
    		left : 2vw;
-   		color : white;
    		font-family : Jua;
    		font-size : 28px;
 	}
@@ -297,7 +304,7 @@
 	*/
 	.star-ranking {
 		position : absolute;
-		top:30.2vh;
+		top:32.2vh;
 		left : 6.5vw;
 	}
 	
@@ -307,10 +314,9 @@
 	*/
 	.rate-ranking {
 		position : absolute;
-		top:30.5vh;
+		top:32.5vh;
 		left:8vw;
 		font-family : Jua;
-		color : white;
 	}
 	
 	/*
@@ -318,10 +324,9 @@
 	*/
 	.comment-ranking {
 		position : absolute;
-		top: 31.5vh;
+		top: 33.5vh;
 		left:2vw;
 		font-family : Jua;
-		color : white;
 		font-size:16px;
 	}
 	/*

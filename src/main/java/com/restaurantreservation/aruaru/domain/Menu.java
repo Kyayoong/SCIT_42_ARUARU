@@ -19,4 +19,5 @@ public class Menu {
 	   String menu_savedfile;			//음식사진(저장)
 	   String menu_content;				//음식상세설명
 	   int menu_select;					//음식종류
+	   int menu_suggestion;				//추천음식
 }

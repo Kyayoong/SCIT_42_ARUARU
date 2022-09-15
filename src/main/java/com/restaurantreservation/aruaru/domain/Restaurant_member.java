@@ -19,7 +19,6 @@ public class Restaurant_member {
 	String restaurant_phone; 		// 가게번호
 	int restaurant_grade; 			// 평점
 	String registration_date;		// 등록일
-	String restaurant_location; 	// 가게 위치(gps적 요소)
 	String restaurant_address; 		// 가게 실제주소
 	int certification; 				// 허가 여부
 }

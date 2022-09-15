@@ -104,16 +104,18 @@ CREATE SEQUENCE web_reply_seq;
 --메뉴테이블
 CREATE TABLE menu(
     menu_num NUMBER(10) PRIMARY KEY,				--메뉴번호
-    menu_priceavr VARCHAR2(200) NOT NULL,				--1인당 평균 가격
+    menu_priceavr VARCHAR2(200) NOT NULL,			--1인당 평균 가격
     menu_name VARCHAR2(200) NOT NULL,				--메뉴이름
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),	--식당번호						
-    menu_price NUMBER(10) NOT NULL,				--메뉴가격
-    menu_originalfile VARCHAR2(300),					--음식사진(오리지널)
+    menu_price NUMBER(10) NOT NULL,					--메뉴가격
+    menu_originalfile VARCHAR2(300),				--음식사진(오리지널)
     menu_savedfile VARCHAR2(300),					--음식사진(저장)
-    menu_content VARCHAR2(800),					--음식상세설명
+    menu_content VARCHAR2(800),						--음식상세설명
     menu_select number(2) NOT NULL,					--음식종류
-    menu_suggestion NUMBER(1) DEFAULT 0			--음식추천여부
+    menu_suggestion NUMBER(1) DEFAULT 0				--음식추천여부
 );
+
+--메뉴
 
 --메뉴 번호 시퀀스
 CREATE SEQUENCE menu_seq;

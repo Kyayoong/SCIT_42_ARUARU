@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
-<link rel="stylesheet" th:href="@{/css/mypageCss.css}">
+<link rel="stylesheet" th:href="@{/css/couponandinquiryCss.css}">
 <link rel="stylesheet"
 	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
@@ -109,64 +109,72 @@
 				</div>
 
 				<div id="table-area1">
-					<h4 id="table-area1-caption">예약 내역 조회</h4>
+					<h4 id="table-area1-caption">쿠폰내역</h4>
 					<h6 id="table-area1-all">전체 보기</h6>
 					<table class="table" id="table1">
 						<tr>
-							<th>예약가게명</th>
-							<th>예약일시</th>
-							<th>인원수</th>
-							<th>예약확정여부</th>
+							<th>쿠폰번호</th>
+							<th>쿠폰명</th>
+							<th>할인금액</th>
+							<th>적용범위</th>
+							<th>유효기한</th>
 						</tr>
 						<tr>
-							<td>성준식당</td>
-							<td>2022.09.15</td>
-							<td>5</td>
-							<th>N</th>
+							<td>327524</td>
+							<td>우수회원쿠폰</td>
+							<td>20%</td>
+							<td>모든식당</td>
+							<td>2022.09.30</td>
 						</tr>
 						<tr>
-							<td>예현식당</td>
-							<td>2022.09.20</td>
-							<td>4</td>
-							<th>Y</th>
+							<td>327524</td>
+							<td>우수회원쿠폰</td>
+							<td>20%</td>
+							<td>모든식당</td>
+							<td>2022.09.30</td>
 						</tr>
 						<tr>
-							<td>기원식당</td>
-							<td>2022.09.22</td>
-							<td>3</td>
-							<th>N</th>
+							<td>327524</td>
+							<td>우수회원쿠폰</td>
+							<td>20%</td>
+							<td>모든식당</td>
+							<td>2022.09.30</td>
 						</tr>
-					</table>
+							</table>
 				</div>
 				
 				<div id="table-area2">
-					<h4 id="table-area2-caption">찜</h4>
+					<h4 id="table-area2-caption">문의사항</h4>
 					<h6 id="table-area2-all">전체 보기</h6>
-					<table class="table" id="table1">
+					<table class="table" id="table2">
 						<tr>
-							<th>예약가게명</th>
-							<th>예약일시</th>
-							<th>인원수</th>
-							<th>예약확정여부</th>
+							<th>문의번호</th>
+							<th>제목</th>
+							<th>작성일</th>
+							<th>답변여부</th>
+							
 						</tr>
 						<tr>
-							<td>성준식당</td>
+							<td>1</td>
+							<td>문의드립니다.</td>
 							<td>2022.09.15</td>
-							<td>5</td>
-							<th>N</th>
+							<td>N</td>
 						</tr>
+	
 						<tr>
-							<td>예현식당</td>
-							<td>2022.09.20</td>
-							<td>4</td>
-							<th>Y</th>
+							<td>1</td>
+							<td>문의드립니다.</td>
+							<td>2022.09.15</td>
+							<td>N</td>
 						</tr>
+	
 						<tr>
-							<td>기원식당</td>
-							<td>2022.09.22</td>
-							<td>3</td>
-							<th>N</th>
+							<td>1</td>
+							<td>문의드립니다.</td>
+							<td>2022.09.15</td>
+							<td>N</td>
 						</tr>
+	
 					</table>
 				</div>
 			</div>

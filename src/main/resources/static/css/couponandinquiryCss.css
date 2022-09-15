@@ -95,6 +95,8 @@ nav {
 	font-family: Jua;
 }
 
+
+
 #table-area1-caption {
 	font-family: Jua;
 }
@@ -106,11 +108,19 @@ nav {
 	left : 53.5vw;
 }
 
+#table1 {
+	text-align : center;
+}
+
 #table-area1 {
 	position: absolute;
 	top: 27vh;
 	margin-left: 11vw;
 	width: 58vw;
+}
+
+#table2 {
+	text-align : center;
 }
 
 #table-area2-caption {

@@ -24,4 +24,10 @@ public class PageController {
 	public String seeresevation() {
 		return "seereservation";
 	}
+	
+	@GetMapping("notice")
+	public String notice() {
+		return "notice";
+	}
+
 }

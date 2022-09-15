@@ -117,25 +117,3 @@ nav {
 	margin-left: 11vw;
 	width: 58vw;
 }
-
-#table-area2-caption {
-	font-family: Jua;
-}
-
-#table-area2-all {
-	position : absolute;
-	text-align: right;
-	margin-top : -3.5vh;
-	left : 53.5vw;
-}
-
-#table-area2 {
-	position: absolute;
-	top: 60vh;
-	margin-left: 11vw;
-	width: 58vw;
-}
-
-#table2 {
-	text-align : center;
-}

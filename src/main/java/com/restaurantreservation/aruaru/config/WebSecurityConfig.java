@@ -37,6 +37,7 @@ public class WebSecurityConfig {
         		"/introduce_store",
         		"/couponandinquiry",
         		"/seereservation",
+        		"/notice",
         		"/chat",
         		"/chatting",
         		"/mypage",

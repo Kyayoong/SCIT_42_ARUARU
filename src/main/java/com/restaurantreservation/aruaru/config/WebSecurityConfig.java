@@ -36,6 +36,7 @@ public class WebSecurityConfig {
         		"/chat",
         		"/chatting",
         		"/mypage",
+        		"/mypage/review",
                 "/css/**",
                 "/images/**",
                 "/js/jquery-3.6.0.min.js",

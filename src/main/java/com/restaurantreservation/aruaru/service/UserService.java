@@ -8,5 +8,5 @@ public interface UserService {
 	public int insertUser(User_member member);
 	
 	// 오라클 연결 테스트용 입니다.
-	public int insertTable(tabletest test);
+	//public int insertTable(tabletest test);
 }

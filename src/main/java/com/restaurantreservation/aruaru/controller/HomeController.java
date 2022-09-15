@@ -18,11 +18,11 @@ public class HomeController {
 		return "home";
 	}
 	
-	//오라클 연결 테스트용
-	@PostMapping("insertTest")
-	public String insertTest(String tableid, String text) {
-		tabletest test = new tabletest(tableid, text);
-		int result = service.insertTable(test);
-		return "home";
-	}
+	/*
+	 * //오라클 연결 테스트용
+	 * 
+	 * @PostMapping("insertTest") public String insertTest(String tableid, String
+	 * text) { tabletest test = new tabletest(tableid, text); int result =
+	 * service.insertTable(test); return "home"; }
+	 */
 }

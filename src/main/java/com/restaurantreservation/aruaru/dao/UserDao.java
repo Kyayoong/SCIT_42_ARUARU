@@ -10,8 +10,9 @@ public interface UserDao {
 	// 회원가입
 	int insertUser(User_member member);
 	
-	// 오라클 연결 테스트용입니다.
-	int insertTest(tabletest test);
+	/*
+	 * // 오라클 연결 테스트용입니다. int insertTest(tabletest test);
+	 */
 
 	 //ID 개수 확인
     public int countMemberid(String member_id);

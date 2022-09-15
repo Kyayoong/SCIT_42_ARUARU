@@ -14,4 +14,14 @@ public class PageController {
 	public String mypage() {
 		return "mypage";
 	}
+	
+	@GetMapping("couponandinquiry") 
+	public String couponandinqury(){
+		return "couponandinquiry";
+	}
+	
+	@GetMapping("seereservation") 
+	public String seeresevation() {
+		return "seereservation";
+	}
 }

@@ -15,6 +15,7 @@
 <script>
 var emailCheck = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
 var phoneNumberCheck = RegExp(/^\d{3}-\d{3,4}-\d{4}$/);
+var birthdayCheck = RegExp(/^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/);
 
 $(document).ready(function() {
 	$('#member_id').keyup(function() {
@@ -56,6 +57,14 @@ $(document).ready(function() {
 			}else {$('#msg4').html('')}
 			});
 	
+	$('#member_birth').keyup(function(){
+		if(birthdayCheck.test($('#member_birth').val())){
+			$('#msg5').html('');	
+		}else {
+			$('#msg5').html('올바른 생년월일 형식을 입력해주세요.').css("color","red");
+			}
+	});
+	
 	$('#member_email').keyup(function(){
 		if(emailCheck.test($('#member_email').val())){
 			$('#msg8').html('');	
@@ -71,6 +80,7 @@ $(document).ready(function() {
 			$('#msg9').html('올바른 전화번호 형식을 입력해주세요.').css("color","red");
 			}
 	});
+	
 });
 </script>
 <title>회원가입</title>
@@ -106,39 +116,39 @@ $(document).ready(function() {
 				<table>
 					<tr>
 						<td><label for="member_id"
-							style="font-family: IBM Plex Sans KR;">아이디를 입력해주세요</label><br>
+							style="font-size : 20px; font-family: IBM Plex Sans KR;">아이디를 입력해주세요</label><br>
 							<input class="form-control" type="text" id="member_id"
-							name="member_id" style="width: 250px;" placeholder="아이디"><span id="msg1"></span></td>
+							name="member_id" style="width: 500px;" placeholder="아이디"><span id="msg1"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_pw"
 							style="font-family: IBM Plex Sans KR;">패스워드를 입력해주세요</label><br>
 							<input class="form-control" type="password" id="member_pw"
-							name="member_pw" style="width: 250px;" placeholder="패스워드"><span id="msg2"></span></td>
+							name="member_pw" style="width: 500px;" placeholder="패스워드"><span id="msg2"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_pw2"
 							style="font-family: IBM Plex Sans KR;">패스워드를 재확인해주세요</label><br>
 							<input class="form-control" type="password" id="member_pw2"
-							style="width: 250px;" placeholder="패스워드 재확인"><span id="msg3"></span></td>
+							style="width: 500px;" placeholder="패스워드 재확인"><span id="msg3"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_name"
 							style="font-family: IBM Plex Sans KR;">성명</label><br> <input
 							class="form-control" type="text" id="member_name"
-							name="member_name" style="width: 250px;" placeholder="이름을 입력해주세요"><span
+							name="member_name" style="width: 500px;" placeholder="이름을 입력해 주세요"><span
 							id="msg4"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_birth"
 							style="font-family: IBM Plex Sans KR;">생년월일</label><br> <input
 							class="form-control" type="text" id="member_birth"
-							name="member_birth" style="width: 250px;"
-							placeholder="생년월일을 입력해주세요('YYYYMMDD')"><span
+							name="member_birth" style="width: 500px;"
+							placeholder="생년월일을 입력해 주세요('YYYYMMDD')"><span
 							id="msg5"></span></td>
 					</tr>
 					<tr>
-						<td><label for="member_birth"
+						<td><label for="member_gender"
 							style="font-family: IBM Plex Sans KR;">성별</label><br> <label
 							for="member-gender-male">남</label> <input type="radio"
 							id="member-gender-male" name="member_gender" value="male">
@@ -151,32 +161,32 @@ $(document).ready(function() {
 						<td><label for="member_address"
 							style="font-family: IBM Plex Sans KR;">주소</label><br> <input
 							class="form-control" type="text" id="member_address"
-							name="member_address" style="width: 250px;"
-							placeholder="주소를 입력해주세요"><span
+							name="member_address" style="width: 500px;"
+							placeholder="주소를 입력해 주세요"><span
 							id="msg7"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_email"
 							style="font-family: IBM Plex Sans KR;">이메일</label><br> <input
 							class="form-control" type="email" id="member_email"
-							name="member_email" style="width: 250px;"
-							placeholder="이메일을 입력해주세요(ex)email@email.com)"><span
+							name="member_email" style="width: 500px;"
+							placeholder="이메일을 입력해 주세요(ex)email@email.com)"><span
 							id="msg8"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_phone"
 							style="font-family: IBM Plex Sans KR;">휴대전화</label><br> <input
 							class="form-control" type="text" id="member_phone"
-							name="member_phone" style="width: 250px;"
-							placeholder="-없이 입력해주세요('ex)010XXXXXXXX')"><span
+							name="member_phone" style="width: 500px;"
+							placeholder="전화번호를 입력해 주세요('ex)010-XXXX-XXXX')"><span
 							id="msg9"></span></td>
 					</tr>
 					<tr>
 						<td><label for="member_nickname"
 							style="font-family: IBM Plex Sans KR;">닉네임</label><br> <input
 							class="form-control" type="text" id="member_nickname"
-							name="member_nickname" style="width: 250px;"
-							placeholder="닉네임을 입력해주세요"><span
+							name="member_nickname" style="width: 500px;"
+							placeholder="닉네임을 입력해 주세요"><span
 							id="msg10"></span></td>
 					</tr>
 					<tr>

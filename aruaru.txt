@@ -62,7 +62,6 @@ CREATE TABLE restaurant_member(
     restaurant_phone VARCHAR2(50) NOT NULL,				--가게번호
     restaurant_grade NUMBER(1) DEFAULT 0,				--평점
     registration_date DATE DEFAULT SYSDATE,				--등록일
-    restaurant_location VARCHAR2(500) NOT NULL,                 		--가게 위치(gps적 요소)
     restaurant_address VARCHAR2(500) NOT NULL,                  		--가게 실제주소
     certification NUMBER(1) DEFAULT 0					--허가 여부
 );
@@ -112,7 +111,8 @@ CREATE TABLE menu(
     menu_originalfile VARCHAR2(300),					--음식사진(오리지널)
     menu_savedfile VARCHAR2(300),					--음식사진(저장)
     menu_content VARCHAR2(800),					--음식상세설명
-    menu_select number(2) NOT NULL					--음식종류
+    menu_select number(2) NOT NULL,					--음식종류
+    menu_suggestion NUMBER(1) DEFAULT 0			--음식추천여부
 );
 
 --메뉴 번호 시퀀스

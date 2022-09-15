@@ -52,7 +52,7 @@ public class RestaurantController {
 	}
 	
 	/**
-	 * 평균가격이랑 메뉴판 및 메뉴추가화면입니다.
+	 * 평균가격이랑 메뉴추가화면입니다.
 	 */
 	@GetMapping("/join_as_restaurant_menu")
 	public String join_as_restaurant_menu() {

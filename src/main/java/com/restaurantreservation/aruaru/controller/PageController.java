@@ -10,11 +10,6 @@ public class PageController {
 		return "introduce_store";
 	}
 	
-	@GetMapping("mypage")
-	public String mypage() {
-		return "mypage";
-	}
-	
 	@GetMapping("couponandinquiry") 
 	public String couponandinqury(){
 		return "couponandinquiry";

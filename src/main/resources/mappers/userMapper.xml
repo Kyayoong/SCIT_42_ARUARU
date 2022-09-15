@@ -35,13 +35,13 @@
     </insert>
     
     <!-- 오라클 연결 테스트용입니다. -->
-    <insert id="insertTest" parameterType="tabletest">
+    <!-- <insert id="insertTest" parameterType="tabletest">
     	INSERT INTO TEST_TABLE(
     		tableid, text
     	) VALUES (
     		#{tableid}, #{text}
     	)
-    </insert>
+    </insert> -->
     
     <select id="countMemberid" parameterType="String" resultType="int">
 	select count(*) from user_member where member_id = #{member_id}

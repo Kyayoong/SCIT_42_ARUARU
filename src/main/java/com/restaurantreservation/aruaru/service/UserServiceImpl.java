@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	//오라클 연결 테스트용입니다.
-	public int insertTable(tabletest test) {
-		int result = dao.insertTest(test);
-		
-		return result;
-	}
+	/*
+	 * public int insertTable(tabletest test) { int result = dao.insertTest(test);
+	 * 
+	 * return result; }
+	 */
 }

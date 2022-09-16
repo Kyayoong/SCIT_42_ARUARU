@@ -17,91 +17,122 @@
 	
 </script>
 <script>
+$(document).ready(function() {
+	$('#formButton').click(formSubmit);
+});
+
+function formSubmit() {
+    var form = $('#menuadd')[0];
+    var formData = new FormData(form);
+	$.ajax({
+		url : 'insertmenu',
+		type : 'post',
+		data : formData,
+		success : function() {
+			alert('저장되었습니다.');
+			$("#menuadd")[0].reset(); 
+			modalOff();
+		},
+		error : function() {
+			alert('저장 실패');
+		},
+		cache: false,
+        contentType: false,
+        processData: false
+	});
+	
+};
+
+function insert() {
+	if($('#name').val() == '') {
+		alert('이름을 입력해주세요');
+	}
+	if($('#text').val() == '') {
+		alert('내용을 입력해주세요');
+	}
+	$.ajax({
+		url : 'insert',
+		type : 'post',
+		data : {name : $('#name').val(), text : $('#text').val()},
+		success : function() {
+			init();
+			alert('저장 성공');
+			$('#name').val('');
+			$('#text').val('');
+		},
+		error : function() {
+			alert('전송 실패');
+		}
+	});
+}
+
+function init() {
+	let s = '';
+	//서버로 Ajax요청을 보내서 댓글 목록을 받아서 반복문으로 화면에 출력 get
+	$.ajax({
+		url : 'selectAll',
+		type : 'get',
+		dataType : 'json',
+		success : output
+	});
+}
+function output(msg) {
+	var str = '<table>';
+	$.each(msg,function(i,item) {
+		str += '<tr>';
+		str += '<td class="tdNum">' + item.num + '</td>';
+		str += '<td class="tdName">' + item.name + '</td>';
+		str += '<td class="tdText">' + item.text + '</td>';
+		str += '<td><input type="button" value="삭제" class="btnDel" num="' + item.num + '"></td>';
+		str += '<tr>';
+	});
+	str += '<table>';
+	$('#output').html(str);
+	
+	//삭제이벤트처리하려면 삭제버튼이 생긴이후로 무조건해야한다.
+	
+	$('.btnDel').on('click',commentDel);
+}
+
+function commentDel() {
+	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
+	$.ajax({
+		url : 'commentDel',
+		type : 'get',
+		data : {num : $(this).attr('num')},
+		success : function(cnt) {
+			if(cnt == 0) {
+				alert('삭제 실패');
+			}
+			else {
+			alert('삭제 성공');
+			init();
+			}
+		},
+		error : function() {
+			alert('삭제 실패');
+		}
+	});
+};
 
 	$(function() {
-		$('#btn-upload').click(function(e) {
+		$('#btn1').click(function(e) {
+			console.log("x");
+			e.preventDefault();
+			$('#btn-modal').click();
+		});
+	});
+	
+	$(function() {
+		$('#btn2').click(function(e) {
+			console.log("x");
 			e.preventDefault();
 			$('#btnAtt').click();
 		});
 	});
 
-	//ID 중복 확인창 열기
-	function menuFormOpen() {
-		var option = "top=100,left=575,width=400,height=500,location= no,scrollbars = yes,toolbars= no,status= no"
-		var w = window.open('join_as_restaurant_menu_add', 'addwin', option);
-	}
-
-	//보내는데 데이터 체크
-	function check() {
-		let restaurant_name = document.getElementById('restaurant_name');
-		let restaurant_ename = document.getElementById('restaurant_ename');
-		let restaurant_sectors = document.getElementById('restaurant_sectors');
-		let restaurant_comment = document.getElementById('restaurant_comment');
-		let tag = document.getElementById('restaurant_name');
-		let restaurant_phone = document.getElementById('restaurant_phone');
-		let restaurant_phone1 = document.getElementById('restaurant_phone1');
-		let restaurant_phone2 = document.getElementById('restaurant_phone2');
-		let restaurant_address = document.getElementById('restaurant_address');
-		let restaurant_address1 = document
-				.getElementById('restaurant_address1');
-		let restaurant_address2 = document
-				.getElementById('restaurant_address2');
-
-		restaurant_phone.value = restaurant_phone1.value + "-"
-				+ restaurant_phone2.value;
-		restaurant_address.value = restaurant_address1.value + " "
-				+ restaurant_address2.value;
-
-		console.log(restaurant_phone.value);
-		console.log(restaurant_address.value);
-		console.log(restaurant_phone1.value);
-		console.log(restaurant_phone2.value);
-		console.log(restaurant_address1.value);
-		console.log(restaurant_address2.value);
-
-		if (restaurant_name.value.length < 1) {
-			alert("식당 이름을 입력하세요.");
-			restaurant_name.focus();
-			restaurant_name.select();
-			return false;
-		}
-
-		if (restaurant_ename.value.length < 1) {
-			alert("식당 이름(영어)을 입력하세요.");
-			restaurant_ename.focus();
-			restaurant_ename.select();
-			return false;
-		}
-
-		if (restaurant_comment.value.length < 1) {
-			alert("내용을 입력하세요.");
-			restaurant_comment.focus();
-			restaurant_comment.select();
-			return false;
-		}
-
-		if (restaurant_phone2.value.length < 8) {
-			alert("식당 번호를 입력하세요.");
-			restaurant_phone2.focus();
-			restaurant_phone2.select();
-			return false;
-		}
-
-		if (restaurant_address1.value.length < 1) {
-			alert("식당 주소를 입력하세요.");
-			restaurant_address1.focus();
-			restaurant_address1.select();
-			return false;
-		}
-
-		if (restaurant_address2.value.length < 1) {
-			alert("식당 상세주소를 입력하세요.");
-			restaurant_address2.focus();
-			restaurant_address2.select();
-			return false;
-		}
-		return true;
-	}
+	
+	
 </script>
 <title>[ 식당 등록 ]</title>
 </head>
@@ -121,63 +152,199 @@
 	</nav>
 
 	<!-- 식당 등록 폼 -->
-	<div id="registform">
-		<div id="rrmarkarea">
-			<img id="rrmark" th:src="@{../images/rrmark.png}"> <img
-				id="rrjapanesemark" th:src="@{../images/rrjapanesemark.png}">
-			<div id="inform-restaurant-register">
-				<p style="font-family: IBM Plex Sans KR;">메뉴 등록 화면입니다.</p>
-			</div>
-		</div>
-		<!-- 식당 등록 테이블 -->
-		<div id="registtable">
-			<p style="font-family: IBM Plex Sans KR;">음식점 업종은 1개 이상의 메뉴 등록이
-				필요합니다. 언제든지 추가 수정이 가능합니다</p>
-			<form th:action="@{/restaurant/regist1}"
-				enctype="multipart/form-data" method="post"
-				onsubmit="return check();">
-				<table>
-					<tr>
-						<td><label for="menu_priceavr"
-							style="font-family: IBM Plex Sans KR;">1인당 평균 가격은 얼마정도
-								인가요?</label><br> <select class="form-control" id="menu_priceavr"
-							name="menu_priceavr">
-								<option value="1">1만원 미만</option>
-								<option value="2">1~1.5만원</option>
-								<option value="3">1.5만원</option>
-								<option value="4">1.5~2만원</option>
-								<option value="5">2~3만원</option>
-								<option value="6">3~5만원</option>
-								<option value="7">5만원 이상</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">메뉴를
-								추가해주세요.</label> <span style="font-family: IBM Plex Sans KR;">※(필수)</span>
-							<br>
-							<div id='image_preview'>
-								<button class="btn btn-primary" id="btn-upload2" type="button"
-									style="width: 600px" onclick="menuFormOpen()">메뉴추가</button>
-								<input id="btnAtt2" type="button" style="display: none;">
-								<div id='att_zone'
-									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
-							</div></td>
-					</tr>
-					<tr>
-						<td>
-							<p></p>
-						</td>
-					</tr>
-				</table>
-				<!-- 전송 보낼거임~-->
-				<div id="registerbuttondiv">
-					<input type="button" style="font-family: IBM Plex Sans KR;"
-						class="btn btn-primary" value="취소"> <input type="submit"
-						style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
-						value="다음">
+	<div id="container">
+		<div id="registform">
+			<div id="rrmarkarea">
+				<img id="rrmark" th:src="@{../images/rrmark.png}"> <img
+					id="rrjapanesemark" th:src="@{../images/rrjapanesemark.png}">
+				<div id="inform-restaurant-register">
+					<p style="font-family: IBM Plex Sans KR;">메뉴 등록 화면입니다.</p>
 				</div>
-				<br>
-			</form>
+			</div>
+			<!-- 식당 등록 테이블 -->
+			<div id="registtable">
+				<p style="font-family: IBM Plex Sans KR;">음식점 업종은 1개 이상의 메뉴 등록이
+					필요합니다. 언제든지 추가 수정이 가능합니다</p>
+				<form action="" enctype="multipart/form-data" method="post">
+					<table>
+						<tr>
+							<td><label for="menu_priceavr"
+								style="font-family: IBM Plex Sans KR;">1인당 평균 가격은 얼마정도
+									인가요?</label><br> <select class="form-control" id="menu_priceavr"
+								name="menu_priceavr">
+									<option value="1">1만원 미만</option>
+									<option value="2">1~1.5만원</option>
+									<option value="3">1.5만원</option>
+									<option value="4">1.5~2만원</option>
+									<option value="5">2~3만원</option>
+									<option value="6">3~5만원</option>
+									<option value="7">5만원 이상</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><label for="fffle"
+								style="font-family: IBM Plex Sans KR;">메뉴를 추가해주세요.</label> <span
+								style="font-family: IBM Plex Sans KR;">※(필수)</span> <br>
+								<button class="btn btn-primary" id="btn1" type="button"
+									style="width: 600px">메뉴추가</button> <input id="btn-modal"
+								type="button" style="display: none;">
+								<div></div></td>
+						</tr>
+						<tr>
+							<td>
+								<p></p>
+							</td>
+						</tr>
+					</table>
+					<!-- 전송 보낼거임~-->
+					<div id="registerbuttondiv">
+						<input type="button" style="font-family: IBM Plex Sans KR;"
+							class="btn btn-primary" value="취소"> <input type="submit"
+							style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
+							value="다음">
+					</div>
+					<br>
+				</form>
+			</div>
+			<!-- 모달창 내부입니다. -->
+			<div id="modal" class="modal-overlay">
+				<div class="modal-window">
+					<div class="content">
+						<div id="registtable2">
+							<h3 id="h3" style="font-family: IBM Plex Sans KR;">메뉴 추가하기</h3>
+							<br> <br>
+							<form id="menuadd" enctype="multipart/form-data" method="post">
+								<table>
+									<tr>
+										<td><label for="menu_name"
+											style="font-family: IBM Plex Sans KR;">메뉴명 </label><br>
+											<input class="form-control" type="text" id="menu_name"
+											name="menu_name" style="width: 350px;"
+											placeholder="메뉴명을 입력하세요.(필수)"></td>
+									</tr>
+									<tr>
+										<td><label for="menu_price"
+											style="font-family: IBM Plex Sans KR;">메뉴가격 </label><br>
+											<input class="form-control" type="text" id="menu_price"
+											name="menu_price" style="width: 350px;"
+											placeholder="메뉴가격을 입력하세요.(필수) - 원"></td>
+									</tr>
+									<tr>
+										<td class="contents2"><label for="menu_content"
+											style="font-family: IBM Plex Sans KR;">상세 설명</label> <br>
+											<textarea placeholder="메뉴에 대해서 설명해주세요." class="form-control"
+												rows="3" cols="10" name="menu_content" id="menu_content"></textarea></td>
+									</tr>
+									<tr>
+									<tr>
+										<td><label for="fffle"
+											style="font-family: IBM Plex Sans KR;">메뉴 사진</label> <span
+											style="font-family: IBM Plex Sans KR;">※(필수)</span> <br>
+											<div id='image_preview'>
+												<button class="btn btn-primary" id="btn2" type="button">사진
+													추가</button>
+												<input id="btnAtt" multiple="multiple" type="file"
+													accept="image/*" name="upload" style="display: none;">
+												<span style="font-family: IBM Plex Sans KR;">※첨부파일은
+													1개만</span>
+												<div id='att_zone'></div>
+											</div> <script type="text/javascript">
+
+							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
+							imageView = function imageView(att_zone, btn){
+
+							var attZone = document.getElementById(att_zone);
+							var btnAtt = document.getElementById(btn)
+							var sel_files = [];
+									    
+									    // 이미지와 체크 박스를 감싸고 있는 div 속성
+									    var div_style = 'display:inline-block;position:relative;'
+									                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
+									    // 미리보기 이미지 속성
+									    var img_style = 'width:100%;height:100%;z-index:none';
+									    // 이미지안에 표시되는 체크박스의 속성
+									    var chk_style = 'width:30px;height:30px;position:absolute;'
+									                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
+									  
+									    btnAtt.onchange = function(e){
+									      var files = e.target.files;
+									      var fileArr = Array.prototype.slice.call(files)
+									      for(f of fileArr){
+									        imageLoader(f);
+									      }
+									    }  
+									    									    
+									    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
+									    imageLoader = function(file){
+									      sel_files.push(file);
+									      var reader = new FileReader();
+									      reader.onload = function(ee){
+									        let img = document.createElement('img')
+									        img.setAttribute('style', img_style)
+									        img.src = ee.target.result;
+									        attZone.appendChild(makeDiv(img, file));
+									      }
+									      
+									      reader.readAsDataURL(file);
+									    }
+									    
+									    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
+									    makeDiv = function(img, file){
+									      var div = document.createElement('div')
+									      div.setAttribute('style', div_style)
+									      
+									      var btn = document.createElement('input')
+									      btn.setAttribute('type', 'button')
+									      btn.setAttribute('value', 'x')
+									      btn.setAttribute('delFile', file.name);
+									      btn.setAttribute('style', chk_style);
+									      btn.onclick = function(ev){
+									        var ele = ev.srcElement;
+									        var delFile = ele.getAttribute('delFile');
+									        for(var i=0 ;i<sel_files.length; i++){
+									          if(delFile== sel_files[i].name){
+									            sel_files.splice(i, 1);      
+									          }
+									        }
+									        
+									        dt = new DataTransfer();
+									        for(f in sel_files) {
+									          var file = sel_files[f];
+									          dt.items.add(file);
+									        }
+									        btnAtt.files = dt.files;
+									        var p = ele.parentNode;
+									        attZone.removeChild(p)
+									      }
+									      div.appendChild(img)
+									      div.appendChild(btn)
+									      return div
+									    }
+									  }
+									)('att_zone', 'btnAtt')
+
+							</script></td>
+									</tr>
+									<tr>
+										<td><label id="suggest" class="form-check-label" style="font-family: IBM Plex Sans KR;"> 
+										<input type="checkbox" class="form-check-input" name="menu_suggestion" id="menu_suggestio" value="1">추천메뉴 선택하기
+										</label></td>
+									</tr>
+								</table>
+								<br>
+								<div id="registerbuttondiv2">
+									<input id="modal_close" type="button"
+										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
+										value="취소"> <input type="button"
+										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
+										id="formButton" value="등록">
+								</div>
+								<br>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- 공백용 -->
@@ -185,4 +352,35 @@
 		<p></p>
 	</div>
 </body>
+<script type="text/javascript">
+	const modal = document.getElementById("modal")
+	function modalOn() {
+	    modal.style.display = "flex"
+	}
+	function isModalOn() {
+	    return modal.style.display === "flex"
+	}
+	function modalOff() {
+	    modal.style.display = "none"
+	}
+	const btnModal = document.getElementById("btn-modal")
+	btnModal.addEventListener("click", e => {
+	    modalOn()
+	})
+	const closeBtn = document.getElementById("modal_close")
+	closeBtn.addEventListener("click", e => {
+	    modalOff()
+	})
+	modal.addEventListener("click", e => {
+	    const evTarget = e.target
+	    if(evTarget.classList.contains("modal-overlay")) {
+	        modalOff()
+	    }
+	})
+	window.addEventListener("keyup", e => {
+	    if(isModalOn() && e.key === "Escape") {
+	        modalOff()
+	    }
+	})
+	</script>
 </html>

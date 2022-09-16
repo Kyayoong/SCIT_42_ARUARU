@@ -4,6 +4,16 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.restaurantreservation.aruaru.dao.RestaurantDao">
+    <!-- 식당 조회 -->
+    <select id="selectOne" resultType="Restaurant_member" parameterType="String">
+    SELECT 
+    *
+    FROM
+    restaurant_member
+    WHERE
+    member_id = #{member_id}
+    </select>
+    
     <!-- 식당등록 -->
     <insert id="regist1" parameterType="Restaurant_member">
     INSERT INTO restaurant_member
@@ -27,7 +37,7 @@
 	    , #{restaurant_address}
     )
     </insert>
-    
+     <!-- 식당 파일 등록 -->
     <insert id="fileregist" parameterType="Restaurant_file">
     INSERT INTO restaurant_file
 	    (restaurant_file_num
@@ -42,13 +52,28 @@
 	    , #{restaurant_num}
     )
     </insert>
-    
-    <select id="selectOne" resultType="Restaurant_member" parameterType="String">
-    SELECT 
-    *
-    FROM
-    restaurant_member
-    WHERE
-    member_id = #{member_id}
-    </select>
+  
+  	<!-- 메뉴 등록 -->
+  	<insert id="insertmenu" parameterType="Menu">
+  	 INSERT INTO menu
+	    (menu_num
+	    , menu_name
+	    , restaurant_num
+	    , menu_price
+	    , menu_originalfile
+	    , menu_savedfile
+	    , menu_content
+	    , menu_suggestion
+	    )
+    VALUES
+	    (menu_seq.nextval
+	    , #{menu_name}
+	    , #{restaurant_num}
+	    , #{menu_price}
+	    , #{menu_originalfile}
+	    , #{menu_savedfile}
+	    , #{menu_content}
+	    , #{menu_suggestion}
+    )
+  	</insert>
     </mapper>

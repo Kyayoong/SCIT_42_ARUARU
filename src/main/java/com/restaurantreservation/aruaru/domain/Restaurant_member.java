@@ -19,6 +19,7 @@ public class Restaurant_member {
 	String restaurant_phone; 		// 가게번호
 	int restaurant_grade; 			// 평점
 	String registration_date;		// 등록일
-	String restaurant_address; 		// 가게 실제주소
+	String restaurant_address; 		// 가게 실제주소4
+	String menu_priceavr;			// 1인당 평균 가격
 	int certification; 				// 허가 여부
 }

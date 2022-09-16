@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyPageController {
 	//마이페이지 메인화면
-	@GetMapping("")
+	@GetMapping("/")
 	public String mypage() {
-		return "mypage";
+		return "userView/mypage";
 	}
 	
 	//리뷰 작성 화면
 	@GetMapping("review")
 	public String review() {
-		return "generalMemView/review";
+		return "userView/review";
 	}
 }

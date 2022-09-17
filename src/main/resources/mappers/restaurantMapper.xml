@@ -20,21 +20,21 @@
 	    (restaurant_num
 	    , member_id
 	    , restaurant_name
-	    , restaurant_ename
 	    , restaurant_sectors
 	    , restaurant_comment
 	    , restaurant_phone
-	    , restaurant_address
+	    , restaurant_address1
+	    , restaurant_address2
 	    )
     VALUES
 	    (restaurant_member_seq.nextval
 	    , #{member_id}
 	    , #{restaurant_name}
-	    , #{restaurant_ename}
 	    , #{restaurant_sectors}
 	    , #{restaurant_comment}
 	    , #{restaurant_phone}
-	    , #{restaurant_address}
+	    , #{restaurant_address1}
+	    , #{restaurant_address2}
     )
     </insert>
      <!-- 식당 파일 등록 -->

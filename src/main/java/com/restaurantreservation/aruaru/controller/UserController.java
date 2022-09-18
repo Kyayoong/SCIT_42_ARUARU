@@ -2,6 +2,7 @@ package com.restaurantreservation.aruaru.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,12 +53,33 @@ public class UserController {
 	}
 	
 	// 아이디 중복체크
-	@ResponseBody
+//	@ResponseBody
+//	@PostMapping("idcheck")
+//	public int check(String member_id) {
+//		int cnt = 0;
+//		cnt = dao.countMemberid(member_id);
+//		return cnt;
+//	}
+	
+	@GetMapping("idcheck")
+	public String idcheck() {
+		return "/registView/idForm";
+	}
+	
+	@GetMapping("emailcheck")
+	public String emailcheck() {
+		return "/registView/emailForm";
+	}
+	
 	@PostMapping("idcheck")
-	public int check(String member_id) {
-		int cnt = 0;
-		cnt = dao.countMemberid(member_id);
-		return cnt;
+	public String idcheck(String searchId, Model model) {
+		log.debug("검색할 ID : {}", searchId);
+		boolean result = service.idcheck(searchId);
+		
+		model.addAttribute("searchId", searchId);
+		model.addAttribute("result", result);
+		
+		return "/registView/idForm";
 	}
 
 	@GetMapping("/join_as_restaurant")

@@ -28,6 +28,8 @@ public class WebSecurityConfig {
         		"/user/login",
         		"/user/joinselect",
         		"/user/join_as_user",
+        		"/user/idcheck",
+        		"/user/emailcheck",
         		"/user/insert_user",
         		"/login/mailConfirm",
         		"/introduce_store",

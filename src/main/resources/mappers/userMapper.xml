@@ -43,7 +43,12 @@
     	)
     </insert> -->
     
-    <select id="countMemberid" parameterType="String" resultType="int">
+   <!--  <select id="countMemberid" parameterType="String" resultType="int">
 	select count(*) from user_member where member_id = #{member_id}
+</select> -->
+
+<select id="selectOne" parameterType="string" resultType="User_member">
+	SELECT * from user_member 
+	WHERE member_id = #{member_id}
 </select>
     </mapper>

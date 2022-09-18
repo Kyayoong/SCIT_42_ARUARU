@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public boolean idcheck(String member_id) {
+		User_member member = dao.selectOne(member_id);
+		return member == null? true : false;
+	}
+
 	//오라클 연결 테스트용입니다.
 	/*
 	 * public int insertTable(tabletest test) { int result = dao.insertTest(test);

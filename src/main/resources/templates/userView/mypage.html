@@ -40,8 +40,7 @@
 	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 		<ul class="navbar-nav">
 
-			<li sec:authorize="isAuthenticated()" class="nav-item">#님
-				로그인되었습니다</li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/}">HOME</a></li>
 
 		</ul>
 		<ul class="navbar-nav ml-auto">

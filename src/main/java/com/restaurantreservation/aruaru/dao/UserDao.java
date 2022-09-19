@@ -16,4 +16,6 @@ public interface UserDao {
 
 	 //ID 개수 확인
     public int countMemberid(String member_id);
+
+	User_member selectOne(String member_id);
 }

@@ -43,6 +43,7 @@ public class WebSecurityConfig {
                 "/css/**",
                 "/images/**",
                 "/js/jquery-3.6.0.min.js",
+                "/ckeditor/**",
                 "/kakaoMapImages/**",
                 //관리자페이지 임시로 풀어놨습니다. - 성준
                 "/admin/**",

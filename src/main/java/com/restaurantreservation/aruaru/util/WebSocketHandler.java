@@ -17,9 +17,11 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	@Override 
 	public void handleTextMessage(WebSocketSession session, TextMessage message) {
 		//메시지 발송
+		
 		String msg = message.getPayload();
 		for(String key : sessionMap.keySet()) {
 			WebSocketSession wss = sessionMap.get(key);
+			
 			try {
 				wss.sendMessage(new TextMessage(msg));
 			} catch(Exception e) {

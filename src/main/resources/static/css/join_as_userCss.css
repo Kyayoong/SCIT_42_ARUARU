@@ -24,7 +24,7 @@ nav {
 
 #registuserform {
 	top: 5vh;
-	height : 148vh;
+	height : 150vh;
 	width : 40vw;
 	position : relative;
 	left : 30vw;
@@ -69,7 +69,52 @@ nav {
 	font-size: 15px;
 	
 }
+/*
+* id중복확인 버튼 위치 조정
+*/
+#idCheckButton {
+	position : absolute;
+	top : 4.3vh;
+	left : 24.2vw;
+}
 
+/*
+* 주소 검색 버튼 위치 조정
+*/
+
+#addressCheckButton {
+	position : absolute;
+	top : 60vh;
+	left : 27.1vw;
+}
+
+/*
+* 이메일 인증번호 전송 
+*/
+
+#sendEmailVerify {
+	position : absolute;
+	top : 74.6vh;
+	left : 26.3vw; 
+}
+
+/*
+*  이메일 인증번호 입력 
+*/
+#verifyNumberInput {
+	position : absolute;
+	top : 84vh;
+	left : 26.3vw;
+}
+
+/*
+* 상세 주소 입력 칸 위치 조정
+*/
+
+#detailAddress {
+	position : relative;
+	top: 0.3vh;
+}
 /*
 * 두번째 체크박스 위치 설정
 */

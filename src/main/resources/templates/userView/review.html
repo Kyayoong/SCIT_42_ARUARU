@@ -56,13 +56,12 @@
 	<!-- navbar 부분-->
 	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 		<ul class="navbar-nav">
-			<li sec:authorize="isAuthenticated()" class="nav-item">#님
-				로그인되었습니다</li>
-
+			<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
+			<li sec:authorize="hasRole('USER')" class="nav-item">[일반 사용자] 입니다</li>
+			<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자] 입니다</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다. -->
-			
 			<li class="nav-item"><a class="nav-link"
 				th:href="@{/admin/main}">Admin(임시)</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
@@ -81,6 +80,7 @@
 		<div class="row">
 			<div id="mypage-left" class="col-sm-3">
 				<div id="mypage-list">
+					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}" alt="내 정보 아이콘">
 					<h5>나의 활동</h5>
 					<h6>예약 내역 조회</h6>
 					<h6>리뷰</h6>

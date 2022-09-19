@@ -34,13 +34,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
 				<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-				<li sec:authorize="hasRole('USER')" class="nav-item">[일반 사용자] 입니다.</li>
-				<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자] 입니다.</li>
+				<li sec:authorize="hasRole('USER')" class="nav-item">[일반 사용자] 입니다</li>
+				<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자] 입니다</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다.(임시) -->
 				<li class="nav-item"><a class="nav-link" th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin(임시)</a></li>
-
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
 				<li class="nav-item"><a sec:authorize="not isAuthenticated()" class="nav-link" th:href="@{/user/login}">LOGIN</a></li>
@@ -54,12 +53,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		<div id="container1">
 		
 			<!--알파벳 CI-->
-
 			<a th:href = "@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
+
 			<!--일본어 CI-->
 			<a th:href = "@{/}"><img id="aruaru" th:src="@{/images/rrjapanesemark.png}"></a>
+
 			<!--검색 부분-->
-			
 			<table style="font-family:Jua;">
 				<tr>
 					<td><input type="text" class="form-control" id="area-input"

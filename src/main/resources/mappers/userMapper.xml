@@ -51,4 +51,9 @@
 	SELECT * from user_member 
 	WHERE member_id = #{member_id}
 </select>
+
+<select id="findID" parameterType="String" resultType="String">
+	SELECT member_id
+	WHERE member_name = #{member_name}
+</select>
     </mapper>

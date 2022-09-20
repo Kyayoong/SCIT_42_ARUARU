@@ -44,5 +44,9 @@ public class MyPageController {
 		return "userView/mywishlist";
 	}
 	
+	@GetMapping("mybenefit") 
+	public String mybenefit(){
+		return "userView/mybenefit";
+	}
 	
 }

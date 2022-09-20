@@ -36,6 +36,7 @@ public class WebSecurityConfig {
         		"/couponandinquiry",
         		"/seereservation",
         		"/mypage/mywishlist",
+        		"/mypage/mybenefit",
         		"/notice",
         		"/user/myinfomodify",
         		"/user/mypage",

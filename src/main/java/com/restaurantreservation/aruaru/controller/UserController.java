@@ -102,5 +102,14 @@ public class UserController {
 	@GetMapping("pwInquiry")
 	public String pwInquiry() {
 		return "registView/pwInquiry";
+
+	@GetMapping("myinfomodify") 
+	public String myinfomodify() {
+		return "/userView/myinfomodify";
+	}
+	
+	@GetMapping("mypage") 
+	public String mypage() {
+		return "/userView/mypage";
 	}
 }

@@ -31,7 +31,9 @@ function formSubmit() {
 		success : function() {
 			alert('저장되었습니다.');
 			$("#menuadd")[0].reset(); 
+			$("#att_zone").html(' ');
 			modalOff();
+			init();
 		},
 		error : function() {
 			alert('저장 실패');
@@ -40,38 +42,15 @@ function formSubmit() {
         contentType: false,
         processData: false
 	});
-	
 };
 
-function insert() {
-	if($('#name').val() == '') {
-		alert('이름을 입력해주세요');
-	}
-	if($('#text').val() == '') {
-		alert('내용을 입력해주세요');
-	}
-	$.ajax({
-		url : 'insert',
-		type : 'post',
-		data : {name : $('#name').val(), text : $('#text').val()},
-		success : function() {
-			init();
-			alert('저장 성공');
-			$('#name').val('');
-			$('#text').val('');
-		},
-		error : function() {
-			alert('전송 실패');
-		}
-	});
-}
 
 function init() {
 	let s = '';
 	//서버로 Ajax요청을 보내서 댓글 목록을 받아서 반복문으로 화면에 출력 get
 	$.ajax({
-		url : 'selectAll',
-		type : 'get',
+		url : 'menucheck',
+		type : 'post',
 		dataType : 'json',
 		success : output
 	});
@@ -80,21 +59,23 @@ function output(msg) {
 	var str = '<table>';
 	$.each(msg,function(i,item) {
 		str += '<tr>';
-		str += '<td class="tdNum">' + item.num + '</td>';
-		str += '<td class="tdName">' + item.name + '</td>';
-		str += '<td class="tdText">' + item.text + '</td>';
-		str += '<td><input type="button" value="삭제" class="btnDel" num="' + item.num + '"></td>';
-		str += '<tr>';
+		str += '<td class="tdNum">' + item.menu_name + '</td>';
+		str += '<td class="tdName">' + item.menu_price + '</td>';
+		str += '<td class="tdText">' + '<img th:src="@{/restaurant/display(menu_num=' + item.menu_num + ')}" width="100px" height="100px">' + '</td>';
+		str += '<td class="tdText">' + item.menu_suggestion + '</td>';
+		str += '<td><input type="button" value="삭제" class="btnDel" num="' + item.menu_num + '"></td>';
+		str += '</tr>';
 	});
 	str += '<table>';
+	console.log(str);
 	$('#output').html(str);
 	
 	//삭제이벤트처리하려면 삭제버튼이 생긴이후로 무조건해야한다.
 	
-	$('.btnDel').on('click',commentDel);
+	/* $('.btnDel').on('click',commentDel); */
 }
 
-function commentDel() {
+/* function menuUpd() {
 	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
 	$.ajax({
 		url : 'commentDel',
@@ -114,6 +95,27 @@ function commentDel() {
 		}
 	});
 };
+
+function menuDel() {
+	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
+	$.ajax({
+		url : 'commentDel',
+		type : 'get',
+		data : {num : $(this).attr('num')},
+		success : function(cnt) {
+			if(cnt == 0) {
+				alert('삭제 실패');
+			}
+			else {
+			alert('삭제 성공');
+			init();
+			}
+		},
+		error : function() {
+			alert('삭제 실패');
+		}
+	});
+}; */
 
 	$(function() {
 		$('#btn1').click(function(e) {
@@ -196,6 +198,9 @@ function commentDel() {
 							</td>
 						</tr>
 					</table>
+					<div id="output">
+								
+					</div>
 					<!-- 전송 보낼거임~-->
 					<div id="registerbuttondiv">
 						<input type="button" style="font-family: IBM Plex Sans KR;"
@@ -248,7 +253,8 @@ function commentDel() {
 												<span style="font-family: IBM Plex Sans KR;">※첨부파일은
 													1개만</span>
 												<div id='att_zone'></div>
-											</div> <script type="text/javascript">
+											</div> 
+							<script type="text/javascript">
 
 							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
 							imageView = function imageView(att_zone, btn){
@@ -330,8 +336,13 @@ function commentDel() {
 										<input type="checkbox" class="form-check-input" name="menu_suggestion" id="menu_suggestio" value="1">추천메뉴 선택하기
 										</label></td>
 									</tr>
+									<tr>
+									</tr>
 								</table>
 								<br>
+								<div id="output">
+								
+								</div>
 								<div id="registerbuttondiv2">
 									<input id="modal_close" type="button"
 										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
@@ -369,6 +380,8 @@ function commentDel() {
 	})
 	const closeBtn = document.getElementById("modal_close")
 	closeBtn.addEventListener("click", e => {
+		$("#menuadd")[0].reset(); 
+		$("#att_zone").html(' ');
 	    modalOff()
 	})
 	modal.addEventListener("click", e => {

@@ -1,5 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +45,22 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public int insertmenu(Menu menu) {
 		int result = dao.insertmenu(menu);
 		return result;
+	}
+	
+	//메뉴 전체 조회
+	@Override
+	public ArrayList<Menu> menucheck(int Restaurant_num) {
+		
+		ArrayList<Menu> list = dao.menucheck(Restaurant_num);
+		
+		return list;
+	}
+	
+	//메뉴 조회
+	@Override
+	public Menu readMenu(int menu_num) {
+		Menu menu = dao.readMenu(menu_num);
+		return menu;
 	}
 
 

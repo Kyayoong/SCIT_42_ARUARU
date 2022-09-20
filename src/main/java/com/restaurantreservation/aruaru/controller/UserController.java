@@ -86,4 +86,21 @@ public class UserController {
 	public String join_as_restaurant() {
 		return "/registView/join_as_restaurant";
 	}
+	
+	@GetMapping("inquirySelect")
+	public String inquirySelect() {
+		return "registView/inquirySelect";
+	}
+	
+	@GetMapping("idInquiry")
+	public String idInquiry() {
+		return "registView/idInquiry";
+	}
+
+	
+	
+	@GetMapping("pwInquiry")
+	public String pwInquiry() {
+		return "registView/pwInquiry";
+	}
 }

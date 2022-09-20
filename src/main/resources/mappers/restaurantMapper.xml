@@ -76,4 +76,25 @@
 	    , #{menu_suggestion}
     )
   	</insert>
+  	
+  	<!-- 메뉴 조회 -->
+  	<select id="menucheck" parameterType="int" resultType="Menu">
+  	SELECT
+  	*
+  	FROM
+  	menu
+  	WHERE
+  	restaurant_num = #{restaurant_num}
+  	</select>
+  	
+  	<select id="readMenu" parameterType="int" resultType="Menu">
+  	SELECT
+  	*
+  	FROM
+  	menu
+  	WHERE
+  	menu_num = #{menu_num}
+  	</select>
+  	
+  	
     </mapper>

@@ -55,12 +55,12 @@ CREATE SEQUENCE user_member_seq;
 CREATE TABLE restaurant_member(
     restaurant_num NUMBER(10) PRIMARY KEY,				--가게번호
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원아이디
-    restaurant_name VARCHAR2(100) NOT NULL,			--가게이름
+    restaurant_name VARCHAR2(100) NOT NULL,			    --가게이름
     restaurant_sectors VARCHAR2(40) NOT NULL,			--업종선택
     restaurant_comment VARCHAR2(1000) NOT NULL,			--상세설명
     restaurant_phone VARCHAR2(50) NOT NULL,				--가게번호
-    restaurant_grade    NUMBER(1) DEFAULT 0,				--평점
-    registration_date   DATE DEFAULT SYSDATE,				--등록일
+    restaurant_grade    NUMBER(1) DEFAULT 0,			--평점
+    registration_date   DATE DEFAULT SYSDATE,			--등록일
     restaurant_address1 VARCHAR2(500) NOT NULL,         --도로명 주소
     restaurant_address2 VARCHAR2(500), 			        --상세주소
     menu_priceavr VARCHAR2(200) DEFAULT 0,				--1인당 평균 가격
@@ -104,6 +104,7 @@ CREATE SEQUENCE web_reply_seq;
 
 --메뉴테이블
 CREATE TABLE menu(
+	
     menu_num NUMBER(10) PRIMARY KEY,				--메뉴번호
     menu_name VARCHAR2(200) NOT NULL,				--메뉴이름
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),	--식당번호						

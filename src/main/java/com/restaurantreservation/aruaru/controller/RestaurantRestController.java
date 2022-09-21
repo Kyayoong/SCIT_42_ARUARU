@@ -120,5 +120,12 @@ public class RestaurantRestController {
 		return "redirect:/";
 	}	
 	
+	@GetMapping("menuDel")
+	public void menuDel(int menu_num) {
+		log.debug("num 결과 {}",menu_num);
+		int result = service.menuDel(menu_num);
+		log.debug("삭제 결과 {}",result);
+		
+	}
 	
 }

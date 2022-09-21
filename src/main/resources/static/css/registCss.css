@@ -101,6 +101,22 @@ nav {
 	margin-left : 32vw;
 }
 
+.tag1 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 4vw;
+}
+
+/*
+* 두번째 체크박스 위치 설정
+*/
+
+#idtag1 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 4vw;
+}
+
 /*
 * 두번째 체크박스 위치 설정
 */

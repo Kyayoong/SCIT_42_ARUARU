@@ -56,66 +56,46 @@ function init() {
 	});
 }
 function output(msg) {
+	var suggestion;
 	var str = '<table>';
 	$.each(msg,function(i,item) {
+		if(item.menu_suggestion == 1) {
+			suggestion = '☆';
+		}
+		else {
+			suggestion = ' ';
+		}
 		str += '<tr>';
-		str += '<td class="tdNum">' + item.menu_name + '</td>';
-		str += '<td class="tdName">' + item.menu_price + '</td>';
-		str += '<td class="tdText">' + '<img th:src="@{/restaurant/display(menu_num=' + item.menu_num + ')}" width="100px" height="100px">' + '</td>';
-		str += '<td class="tdText">' + item.menu_suggestion + '</td>';
-		str += '<td><input type="button" value="삭제" class="btnDel" num="' + item.menu_num + '"></td>';
+		str += '<td class="tdNum" style="width: 100px">' + item.menu_name + '</td>';
+		str += '<td class="tdName" style="width: 175px">' + item.menu_price + '원</td>';
+		str += '<td class="tdImage" style="width: 175px">' + '<img src="display?menu_num=' + item.menu_num + '" width="100px" height="100px" >' + '</td>';
+		str += '<td class="tdText" style="width: 100px">' + suggestion + '</td>';
+		str += '<td><input type="button" class="btn-danger" value="삭제" num="' + item.menu_num + '"></td>';
 		str += '</tr>';
 	});
 	str += '<table>';
-	console.log(str);
 	$('#output').html(str);
 	
 	//삭제이벤트처리하려면 삭제버튼이 생긴이후로 무조건해야한다.
 	
-	/* $('.btnDel').on('click',commentDel); */
+	 $('.btn-danger').on('click',menuDel); 
 }
-
-/* function menuUpd() {
-	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
-	$.ajax({
-		url : 'commentDel',
-		type : 'get',
-		data : {num : $(this).attr('num')},
-		success : function(cnt) {
-			if(cnt == 0) {
-				alert('삭제 실패');
-			}
-			else {
-			alert('삭제 성공');
-			init();
-			}
-		},
-		error : function() {
-			alert('삭제 실패');
-		}
-	});
-};
 
 function menuDel() {
 	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
 	$.ajax({
-		url : 'commentDel',
+		url : 'menuDel',
 		type : 'get',
-		data : {num : $(this).attr('num')},
+		data : {menu_num : $(this).attr('num')},
 		success : function(cnt) {
-			if(cnt == 0) {
-				alert('삭제 실패');
-			}
-			else {
 			alert('삭제 성공');
 			init();
-			}
 		},
 		error : function() {
 			alert('삭제 실패');
 		}
 	});
-}; */
+}; 
 
 	$(function() {
 		$('#btn1').click(function(e) {
@@ -167,7 +147,7 @@ function menuDel() {
 			<div id="registtable">
 				<p style="font-family: IBM Plex Sans KR;">음식점 업종은 1개 이상의 메뉴 등록이
 					필요합니다. 언제든지 추가 수정이 가능합니다</p>
-				<form action="" enctype="multipart/form-data" method="post">
+				<form th:action="@{/restaurant/regist2}" enctype="multipart/form-data" method="post">
 					<table>
 						<tr>
 							<td><label for="menu_priceavr"

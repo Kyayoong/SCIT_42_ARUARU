@@ -96,5 +96,35 @@
   	menu_num = #{menu_num}
   	</select>
   	
+  	<delete id="menuDel" parameterType="int">
+  	DELETE
+  	FROM
+  	menu
+  	WHERE
+  	menu_num = #{menu_num}
+  	</delete>
+  	
+  	<update id="Rupdate" parameterType="Restaurant_member">
+  	UPDATE
+  	restaurant_member
+  	SET
+  	menu_priceavr = #{menu_priceavr}
+  	WHERE
+  	restaurant_num = #{restaurant_num}
+  	</update>
+  	
+  	<!-- 전체 태그 섹터로 분류 -->
+<select id="tagList" parameterType="String" resultType="Tags">
+	select 
+		tags_name
+		, tags_sector
+	from 
+		tags 
+	<if test="searchWord != null">
+	WHERE
+			tags_sector like '%' || #{searchWord} || '%'
+	</if>
+	order by tags_num desc
+</select>
   	
     </mapper>

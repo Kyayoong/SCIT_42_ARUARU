@@ -25,7 +25,6 @@ nav {
 }
 
 
-
 #mypage-right {
 	right : -13vw;
 
@@ -96,16 +95,22 @@ nav {
 	font-family: Jua;
 }
 
+
+
 #table-area1-caption {
 	font-family: Jua;
 }
 
+#table-area1-all {
+	position : absolute;
+	text-align: right;
+	margin-top : -3.5vh;
+	left : 53.5vw;
+}
 
 #table1 {
 	text-align : center;
 }
-
-
 
 #table-area1 {
 	position: absolute;
@@ -114,39 +119,30 @@ nav {
 	width: 58vw;
 }
 
-th {
-	text-align : center;
-}
-
 td {
 	text-align : left;
 }
 
-#image {
-	border-radius : 0.5vw;	
-}
-
-#text
-{
+#text {
 	position : absolute;
-	margin-top : -8vh;
-	margin-left : 7vw;
+	left : 5.5vw;
+	top : 13.5vh;
 	font-family : Jua;
 }
+
 #star-icon-area {
 	position : absolute;
-	margin-top : -4vh;
-	margin-left : 6.8vw;
+	left : 5.3vw;
+	top : 17.5vh;
 }
 
 #star-icon {
-	
-	width : 3vh;
-	height : 3vh;
+	width : 2vw;
+	height : 2vw;
 }
 
 #score-area {
 	position : absolute;
-	margin-top : -3.8vh;
-	margin-left : 8.5vw;
+	left : 7.3vw;
+	top : 17.7vh;
 }

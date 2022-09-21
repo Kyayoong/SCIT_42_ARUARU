@@ -10,4 +10,6 @@ public class PageController {
 	public String stores() {
 		return "stores";
 	}
+	
+	
 }

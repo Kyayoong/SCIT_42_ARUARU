@@ -3,61 +3,61 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
-<link rel="stylesheet" th:href="@{/css/mypageViewCss/myinfomodifyCss.css}">
+<link rel="stylesheet"
+	th:href="@{/css/mypageViewCss/myinfomodifyCss.css}">
 <link rel="stylesheet"
 	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <style>
-
 #addressCheckButton {
-	position : absolute;
-	top : 80.3vh;
-	left : 36.1vw;
+	position: absolute;
+	top: 80.3vh;
+	left: 36.1vw;
 }
 
 /*
 * 상세 주소 입력 칸 위치 조정
 */
 #detailAddress {
-	position : relative;
+	position: relative;
 	top: 0.3vh;
 }
 
 #idtag1 {
-	margin-right : 30vw;
+	margin-right: 30vw;
 }
 
 #idtag2 {
-	position : absolute;
-	margin-top : -5vh;
-	margin-left : 5.7vw;
-	
+	position: absolute;
+	margin-top: -5vh;
+	margin-left: 5.7vw;
 }
 
 #idtag3 {
-	position : absolute;
+	position: absolute;
 	margin-top: -5vh;
-	margin-left : 9.4vw;
+	margin-left: 9.4vw;
 }
 
 #idtag4 {
-	position : absolute;
-	margin-top : -5vh;
-	margin-left : 13.1vw;
-}
-#idtag5 {
-	position : absolute;
-	margin-top : -5vh;
-	margin-left : 16.8vw;
-}
-#idtag6 {
-	position : absolute;
-	margin-top : -5vh;
-	margin-left : 23.3vw;
+	position: absolute;
+	margin-top: -5vh;
+	margin-left: 13.1vw;
 }
 
+#idtag5 {
+	position: absolute;
+	margin-top: -5vh;
+	margin-left: 16.8vw;
+}
+
+#idtag6 {
+	position: absolute;
+	margin-top: -5vh;
+	margin-left: 23.3vw;
+}
 </style>
 <script>
 	
@@ -109,17 +109,34 @@
 		<div class="row">
 			<div id="mypage-left" class="col-sm-3">
 				<div id="mypage-list">
-					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}" alt="내 정보 아이콘">
+					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}"
+						alt="내 정보 아이콘">
 					<h5>나의 활동</h5>
-					<h6>예약 내역 조회</h6>
-					<h6>리뷰</h6>
-					<h6>찜</h6>
-					<h6>쿠폰</h6>
-					<h6>회원혜택</h6>
-					<h6>문의사항</h6>
-					<h6>회원정보변경</h6>
+					<h6>
+						<a th:href="@{/mypage/seereservation}">예약 내역 조회</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/review}">리뷰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mywishlist}">찜</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/couponandinquiry}">쿠폰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mybenefit}">회원혜택</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">문의사항</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+					</h6>
 					<hr style="margin-left: 0; width: 7.5vw;">
-					<h6>공지사항</h6>
+					<h6>
+						<a th:href="@{/mypage/notice}">공지사항</a>
+					</h6>
 				</div>
 			</div>
 			<div id="mypage-right" class="col-sm-9">
@@ -132,157 +149,180 @@
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">
-					<h6>회원정보변경</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+					</h6>
 				</div>
 				<div id="grade-benefit">
-					<h6>등급혜택></h6>
+					<h6>
+						<a th:href="@{/mypage/mybenefit}">등급혜택></a>
+					</h6>
 				</div>
 				<div id="coupon-icon">
-					<a><img th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
+					<a th:href="@{/mypage/couponandinquiry}"><img
+						th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
 				</div>
 				<div id="coupon-caption">
-					<h6>쿠폰></h6>
+					<h6>
+						<a th:href="@{/mypage/couponandinquiry}">쿠폰></a>
+					</h6>
 				</div>
 				<div id="coupon-numbers">
-					<h5>2개</h5>
+					<h5>
+						<a th:href="@{/mypage/couponandinquiry}">2개</a>
+					</h5>
 				</div>
 				<div id="review-icon">
-					<img th:src="@{/images/review_icon.png}" alt="리뷰 아이콘">
+					<a th:href="@{/mypage/review}"><img
+						th:src="@{/images/review_icon.png}" alt="리뷰 아이콘"></a>
 				</div>
 				<div id="review-caption">
-					<h5>리뷰작성></h5>
+					<h5>
+						<a th:href="@{/mypage/review}">리뷰작성></a>
+					</h5>
 				</div>
 
-			<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
-			<div id="contents">
-				<div id="table-area1">
-					<h4 id="table-area1-caption">내 정보 변경</h4>
-					<table class="table table" id="table1">
-						<tr>
-							<th>필수정보</th>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><div id="profile-table">프로필</div></td>
-							<td><img id="p-photo-table" th:src="@{/images/user_icon.png}" class="rounded" alt=""></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>아이디</td>
-							<td>rudghka777</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>비밀번호</td>
-							<td><input type="text" class="form-control" id="member_pw" name="member_pw"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>비밀번호 확인</td>
-							<td><input type="text" class="form-control"  id="member_pw2"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>이름</td>
-							<td><input type="text" class="form-control" id="member_name" name="member_name"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>닉네임</td>
-							<td><input type="text" class="form-control"  id="member_nickname" name="member_nickname"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td><input type="email" class="form-control" id="member_email" name="member_email"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>휴대전화</td>
-							<td><input type="text" class="form-control" id="member_phone" name="member_phone"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<td>주소</td>
-							<td><input
-							type="hidden" id="member_address" name="member_address">
-							<input class="form-control" type="text" id="member_address1"
-							name="member_address1" placeholder="주소를 입력해 주세요"
-							style="width: 350px;" readonly="readonly">
-							<div id="addressCheckButton">
-								<input style="width: 7vw;" class="form-control" type="button"
-									onclick="sample5_execDaumPostcode()" value="주소 검색">
-							</div> 
-							<div id="detailAddress"><input class="form-control" type="text" id="member_address2"
-							name="member_address2" placeholder="상세주소" style="width: 500px;">
-							</div>
-							<div id="wrap"
-								style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
-								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
-									id="btnFoldWrap"
-									style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1"
-									onclick="foldDaumPostcode()" alt="접기 버튼">
-							</div> <script
-								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-							<script>
-								function sample5_execDaumPostcode() {
-									new daum.Postcode(
-											{
-												oncomplete : function(data) {
-													var addr = data.address; // 최종 주소 변수
+				<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
+				<div id="contents">
+					<div id="table-area1">
+						<h4 id="table-area1-caption">내 정보 변경</h4>
+						<table class="table table" id="table1">
+							<tr>
+								<th>필수정보</th>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><div id="profile-table">프로필</div></td>
+								<td><img id="p-photo-table"
+									th:src="@{/images/user_icon.png}" class="rounded" alt=""></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>아이디</td>
+								<td>rudghka777</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>비밀번호</td>
+								<td><input type="text" class="form-control" id="member_pw"
+									name="member_pw"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>비밀번호 확인</td>
+								<td><input type="text" class="form-control" id="member_pw2"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>이름</td>
+								<td><input type="text" class="form-control"
+									id="member_name" name="member_name"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>닉네임</td>
+								<td><input type="text" class="form-control"
+									id="member_nickname" name="member_nickname"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>이메일</td>
+								<td><input type="email" class="form-control"
+									id="member_email" name="member_email"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>휴대전화</td>
+								<td><input type="text" class="form-control"
+									id="member_phone" name="member_phone"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>주소</td>
+								<td><input type="hidden" id="member_address"
+									name="member_address"> <input class="form-control"
+									type="text" id="member_address1" name="member_address1"
+									placeholder="주소를 입력해 주세요" style="width: 350px;"
+									readonly="readonly">
+									<div id="addressCheckButton">
+										<input style="width: 7vw;" class="form-control" type="button"
+											onclick="sample5_execDaumPostcode()" value="주소 검색">
+									</div>
+									<div id="detailAddress">
+										<input class="form-control" type="text" id="member_address2"
+											name="member_address2" placeholder="상세주소"
+											style="width: 500px;">
+									</div>
+									<div id="wrap"
+										style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
+										<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
+											id="btnFoldWrap"
+											style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1"
+											onclick="foldDaumPostcode()" alt="접기 버튼">
+									</div> <script
+										src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+									<script>
+										function sample5_execDaumPostcode() {
+											new daum.Postcode(
+													{
+														oncomplete : function(
+																data) {
+															var addr = data.address; // 최종 주소 변수
 
-													// 주소 정보를 해당 필드에 넣는다.
-													document
-															.getElementById("member_address1").value = addr;
-												}
-											}).open();
-								}
-							</script></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-							<th>추가정보</th>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<th>생일</th>
-							<td><input type="text" class="form-control" placeholder="8자리 ex)19900121"></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-						</tr>
-						<tr>
-						<td>태그</td>
-						<td style="width: 600px;">
-							<div id="idtag1" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag1"><input
-									name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
-							</div>
-							<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag2"><input
-									name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
-							</div>
-							<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag3"><input
-									name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
-							</div>
-							<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag4"><input
-									name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
-							</div>
-							<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag5"><input
-									name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
-							</div>
-							<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag6"><input
-									name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
-							</div> <span id="msg13"></span></td>
-							<td><input type="button" class="btn btn-primary" value="수정"></td>
-					</tr>
-					</table>
-				</div>
-				
+															// 주소 정보를 해당 필드에 넣는다.
+															document
+																	.getElementById("member_address1").value = addr;
+														}
+													}).open();
+										}
+									</script></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<th>추가정보</th>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th>생일</th>
+								<td><input type="text" class="form-control"
+									placeholder="8자리 ex)19900121"></td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+							<tr>
+								<td>태그</td>
+								<td style="width: 600px;">
+									<div id="idtag1" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag1"><input
+											name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
+									</div>
+									<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag2"><input
+											name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
+									</div>
+									<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag3"><input
+											name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
+									</div>
+									<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag4"><input
+											name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
+									</div>
+									<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag5"><input
+											name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
+									</div>
+									<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary" for="tag6"><input
+											name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
+									</div> <span id="msg13"></span>
+								</td>
+								<td><input type="button" class="btn btn-primary" value="수정"></td>
+							</tr>
+						</table>
+					</div>
+
 				</div>
 			</div>
 		</div>

@@ -21,7 +21,6 @@
 	margin-right: 0.6rem;
 }
 
-
 h1, h2{
 	font-family: Jua;
 }
@@ -159,4 +158,9 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.tableFontJua{
+	font-size: 1.5rem;
+	font-family: Jua;
 }

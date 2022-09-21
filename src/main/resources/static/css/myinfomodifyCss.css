@@ -1,0 +1,125 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap')
+	;
+
+nav {
+	height: 4.1vh;
+}
+
+#container1 {
+	width: 96vw;
+	margin: 0 auto;
+	left: 60vw;
+}
+
+#mypage-left {
+	position: absolute;
+	font-family: Jua;
+	top: 29vh;
+	left : 13vw;
+	position : fixed;
+}
+
+
+#mypage-right {
+	right : -13vw;
+
+}
+#profile-photo {
+	position: absolute;
+	left: 12vw;
+	top: 11vh;
+}
+
+#p-photo {
+	width: 3.5vw;
+	height: 3.5vw;
+}
+
+#profile-name {
+	margin-left: 16vw;
+	margin-top: 11vh;
+	font-family: Jua;
+}
+
+#profile-modify {
+	position: absolute;
+	color: grey;
+	font-family: IBM Plex Sans KR;
+	left: 26vw;
+	top: 11.5vh;
+}
+
+#grade-benefit {
+	position: absolute;
+	color: grey;
+	font-family: IBM Plex Sans KR;
+	left: 33vw;
+	top: 15.5vh;
+}
+
+#coupon-icon {
+	position: absolute;
+	left: 55vw;
+	top: 9vh;
+}
+
+#coupon-caption {
+	position: absolute;
+	left: 55.45vw;
+	top: 15.1vh;
+	font-family: IBM Plex Sans KR;
+}
+
+#coupon-numbers {
+	position: absolute;
+	left: 55.5vw;
+	top: 18.1vh;
+	font-family: Jua;
+}
+
+#review-icon {
+	position: absolute;
+	top: 10.5vh;
+	left: 65vw;
+}
+
+#review-caption {
+	position: absolute;
+	top: 18vh;
+	left: 64vw;
+	font-family: Jua;
+}
+
+#table-area1-caption {
+	font-family: Jua;
+}
+
+#table-area1-all {
+	position : absolute;
+	text-align: right;
+	margin-top : -3.5vh;
+	left : 53.5vw;
+}
+
+#table1 {
+	text-align : center;
+	font-family : IBM Plex Sans KR;
+}
+
+#table-area1 {
+	position: absolute;
+	top: 27vh;
+	margin-left: 11vw;
+	width: 60vw;
+}
+
+
+#p-photo-table {
+	width: 3.5vw;
+	height: 3.5vw;
+}

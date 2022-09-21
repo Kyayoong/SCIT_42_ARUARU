@@ -18,4 +18,35 @@ public class MyPageController {
 	public String review() {
 		return "userView/review";
 	}
+	
+	@GetMapping("introduce_store")
+	public String introduceStore() {
+		return "userView/introduce_store";
+	}
+	
+	@GetMapping("couponandinquiry") 
+	public String couponandinqury(){
+		return "userView/couponandinquiry";
+	}
+	
+	@GetMapping("seereservation") 
+	public String seeresevation() {
+		return "userView/seereservation";
+	}
+	
+	@GetMapping("notice")
+	public String notice() {
+		return "userView/notice";
+	}
+	
+	@GetMapping("mywishlist") 
+		public String mywishlist() {
+		return "userView/mywishlist";
+	}
+	
+	@GetMapping("myinfomodify")
+	public String myinfomodify() {
+		return "userView/myinfomodify";
+	}
+	
 }

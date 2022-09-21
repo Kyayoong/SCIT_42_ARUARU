@@ -39,6 +39,14 @@ public interface RestaurantDao {
 	//태그 리스트
 	ArrayList<Tags> tagList(String tags_sector);
 	
+	//태그 선택
+	Tags tagRead(int tags_num);
+	
+	//태그 삭제
+	int tagDelete(Tags tag);
+	
+	//태그 저장
+	int tagInsert(Tags tag);
 	
 
 }

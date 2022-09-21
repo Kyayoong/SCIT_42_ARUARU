@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-<link th:href="@{/css/registCss.css}" rel="stylesheet">
+<link th:href="@{/css/registViewCss/registCss.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -19,6 +19,27 @@
 <script>
 $(document).ready(function() {
 	$('#formButton').click(formSubmit);
+	$('.tag1').change(function(){
+		
+        if($('.tag1').is(":checked")){
+        	console.log("1");
+        	$.ajax({
+        		url : 'tagInsert',
+        		type : 'get',
+        		data : {tags_num : $(this).attr('num')},
+        		success : function() {
+        		}
+        	});
+        }else{
+        	$.ajax({
+        		url : 'tagDelete',
+        		type : 'get',
+        		data : {tags_num : $(this).attr('num')},
+        		success : function() {
+        		}
+        	});
+        }
+    });
 });
 
 function formSubmit() {
@@ -88,11 +109,9 @@ function menuDel() {
 		type : 'get',
 		data : {menu_num : $(this).attr('num')},
 		success : function(cnt) {
-			alert('삭제 성공');
 			init();
 		},
 		error : function() {
-			alert('삭제 실패');
 		}
 	});
 }; 
@@ -163,6 +182,40 @@ function menuDel() {
 									<option value="7">5만원 이상</option>
 							</select></td>
 						</tr>
+						<tr>
+						<td style="width: 600px;"><label for="tag1">태그</label><br>
+						<label for="tag1" th:text="${tagList[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
+						<label for="tag1" th:text="${tagList2[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList2}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
+							<label for="tag1" th:text="${tagList3[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList3}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
+							<label for="tag1" th:text="${tagList4[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList4}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
+							<label for="tag1" th:text="${tagList5[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList5}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
+							</td>
+					</tr>
 						<tr>
 							<td><label for="fffle"
 								style="font-family: IBM Plex Sans KR;">메뉴를 추가해주세요.</label> <span

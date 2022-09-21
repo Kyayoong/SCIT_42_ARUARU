@@ -101,7 +101,7 @@ nav {
 	margin-left : 32vw;
 }
 
-.tag1 {
+.btn-check {
 	position : absolute;
 	margin-top : -5vh;
 	margin-left : 4vw;
@@ -244,9 +244,3 @@ nav {
 	font-size: 20px;
 }
 
-input[type=checkbox] {
-
-transform : scale(2.0);
- top: 4px;
-
-}

@@ -48,7 +48,16 @@ public class RestaurantController {
 	 * 식당 등록 폼으로 이동 회원가입창에서 회원가입이 완료되면 넘어갑니다.
 	 */
 	@GetMapping("/join_as_restaurant")
-	public String join_as_restaurant(Model model) {
+	public String join_as_restaurant() {
+		
+		return "/registView/join_as_restaurant";
+	}
+	
+	/**
+	 * 평균가격이랑 메뉴추가화면입니다.
+	 */
+	@GetMapping("/join_as_restaurant_menu")
+	public String join_as_restaurant_menu(Model model) {
 		
 		ArrayList<Tags> tagList = service.tagList("맛");
 		ArrayList<Tags> tagList2 = service.tagList("서비스");
@@ -65,14 +74,7 @@ public class RestaurantController {
 		model.addAttribute("tagList3",tagList3);
 		model.addAttribute("tagList4",tagList4);
 		model.addAttribute("tagList5",tagList5);
-		return "/registView/join_as_restaurant";
-	}
-	
-	/**
-	 * 평균가격이랑 메뉴추가화면입니다.
-	 */
-	@GetMapping("/join_as_restaurant_menu")
-	public String join_as_restaurant_menu() {
+		
 		return "/registView/join_as_restaurant_menu";
 	}
 	

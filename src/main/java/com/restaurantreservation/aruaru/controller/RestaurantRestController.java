@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.util.FileService;
 
@@ -124,6 +125,42 @@ public class RestaurantRestController {
 	public void menuDel(int menu_num) {
 		log.debug("num 결과 {}",menu_num);
 		int result = service.menuDel(menu_num);
+		log.debug("삭제 결과 {}",result);
+		
+	}
+	
+	@GetMapping("tagInsert")
+	public void tagInsert(int tags_num,@AuthenticationPrincipal UserDetails user,Tags tag2) {
+		
+		Restaurant_member member = service.selectOne(user.getUsername());
+		
+		Tags tag = service.tagRead(tags_num);
+		log.debug("num 결과 {}",tag);
+		
+		
+		tag2.setRestaurant_num(member.getRestaurant_num());
+		tag2.setTags_name(tag.getTags_name());
+		tag2.setTags_sector(tag.getTags_sector());
+		
+		log.debug("num 결과 {}",tag2);
+		int result = service.tagInsert(tag2);
+		log.debug("저장 결과 {}",result);
+		
+	}
+	
+	@GetMapping("tagDelete")
+	public void tagDelete(int tags_num,@AuthenticationPrincipal UserDetails user,Tags tag2) {
+		
+		Restaurant_member member = service.selectOne(user.getUsername());
+		
+		Tags tag = service.tagRead(tags_num);
+		
+		tag2.setRestaurant_num(member.getRestaurant_num());
+		tag2.setTags_name(tag.getTags_name());
+		tag2.setTags_sector(tag.getTags_sector());
+		
+		log.debug("num 결과 {}",tags_num);
+		int result = service.tagDelete(tag2);
 		log.debug("삭제 결과 {}",result);
 		
 	}

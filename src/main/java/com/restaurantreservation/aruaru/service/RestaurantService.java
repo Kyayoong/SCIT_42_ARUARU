@@ -32,9 +32,16 @@ public interface RestaurantService {
 	
 	//식당 수정
 	public int Rupdate(Restaurant_member member);
-
+	
+	//태그 리스트
 	public ArrayList<Tags> tagList(String tags_sector);
 	
+	//태그 선택
+	public Tags tagRead(int tags_num);
 	
-
+	//태그 삭제
+	public int tagDelete(Tags tag);
+	
+	//태그 저장
+	public int tagInsert(Tags tag);
 }

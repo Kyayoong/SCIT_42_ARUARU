@@ -59,9 +59,7 @@
 	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 		<ul class="navbar-nav">
 			<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-			<li sec:authorize="hasRole('USER')" class="nav-item">[일반 사용자]
-				입니다</li>
-			<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자] 입니다</li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/}">HOME</a></li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다. -->
@@ -75,7 +73,7 @@
 			<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 				class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			<li class="nav-item"><a sec:authorize="isAuthenticated()"
-				class="nav-link" href="#">MYPAGE</a></li>
+				class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
 		</ul>
 	</nav>
 

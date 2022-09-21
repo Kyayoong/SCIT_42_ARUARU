@@ -87,8 +87,7 @@ nav {
 	<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 		<ul class="navbar-nav">
 
-			<li sec:authorize="isAuthenticated()" class="nav-item">#님
-				로그인되었습니다</li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/}">HOME</a></li>
 
 		</ul>
 		<ul class="navbar-nav ml-auto">
@@ -104,7 +103,7 @@ nav {
 			<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 				class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			<li class="nav-item"><a sec:authorize="isAuthenticated()"
-				class="nav-link" href="#">MYPAGE</a></li>
+				class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
 		</ul>
 	</nav>
 	<div id="container1">

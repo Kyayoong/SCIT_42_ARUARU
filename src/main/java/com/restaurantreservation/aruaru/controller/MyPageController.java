@@ -26,17 +26,17 @@ public class MyPageController {
 	
 	@GetMapping("couponandinquiry") 
 	public String couponandinqury(){
-		return "couponandinquiry";
+		return "userView/couponandinquiry";
 	}
 	
 	@GetMapping("seereservation") 
 	public String seeresevation() {
-		return "seereservation";
+		return "userView/seereservation";
 	}
 	
 	@GetMapping("notice")
 	public String notice() {
-		return "notice";
+		return "userView/notice";
 	}
 	
 	@GetMapping("mywishlist") 

@@ -31,6 +31,7 @@ public class WebSecurityConfig {
         		"/user/pwInquiry",
         		"/user/joinselect",
         		"/user/join_as_user",
+        		"/user/join_as_restaurant",
         		"/user/idcheck",
         		"/user/emailcheck",
         		"/user/insert_user",

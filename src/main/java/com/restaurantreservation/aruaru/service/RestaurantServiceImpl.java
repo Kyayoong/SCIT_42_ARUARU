@@ -1,5 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +10,7 @@ import com.restaurantreservation.aruaru.dao.RestaurantDao;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Tags;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,6 +46,43 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public int insertmenu(Menu menu) {
 		int result = dao.insertmenu(menu);
 		return result;
+	}
+	
+	//메뉴 전체 조회
+	@Override
+	public ArrayList<Menu> menucheck(int Restaurant_num) {
+		
+		ArrayList<Menu> list = dao.menucheck(Restaurant_num);
+		
+		return list;
+	}
+	
+	//메뉴 조회
+	@Override
+	public Menu readMenu(int menu_num) {
+		Menu menu = dao.readMenu(menu_num);
+		return menu;
+	}
+	
+	//메뉴 삭제
+	@Override
+	public int menuDel(int menu_num) {
+		int result = dao.menuDel(menu_num);
+		return result;
+	}
+	
+	//식당수정
+	@Override
+	public int Rupdate(Restaurant_member member) {
+		int result = dao.Rupdate(member);
+		return result;
+	}
+	
+	//태그리스트
+	@Override
+	public ArrayList<Tags> tagList(String tags_sector) {
+		ArrayList<Tags> taglist = dao.tagList(tags_sector);
+		return taglist;
 	}
 
 

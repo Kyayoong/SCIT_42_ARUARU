@@ -26,12 +26,14 @@ public class WebSecurityConfig {
         .authorizeRequests()
         .antMatchers("/",
         		"/user/login",
+        		"/user/inquirySelect",
+        		"/user/idInquiry",
+        		"/user/pwInquiry",
         		"/user/joinselect",
         		"/user/join_as_user",
         		"/user/idcheck",
         		"/user/emailcheck",
         		"/user/insert_user",
-        		"/login/mailConfirm",
         		"/introduce_store",
         		"/couponandinquiry",
         		"/seereservation",
@@ -47,6 +49,7 @@ public class WebSecurityConfig {
                 "/css/**",
                 "/images/**",
                 "/js/jquery-3.6.0.min.js",
+                "/ckeditor/**",
                 "/kakaoMapImages/**",
                 //관리자페이지 임시로 풀어놨습니다. - 성준
                 "/admin/**",

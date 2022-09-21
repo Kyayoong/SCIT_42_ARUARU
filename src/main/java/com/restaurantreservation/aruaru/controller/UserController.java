@@ -24,7 +24,7 @@ public class UserController {
 
 	@Autowired
 	UserDao dao;
-	
+
 	// 로그인 페이지
 	@GetMapping("login")
 	public String login() {
@@ -51,7 +51,7 @@ public class UserController {
 		log.debug("회원정보 : {}", result);
 		return "redirect:/";
 	}
-	
+
 	// 아이디 중복체크
 //	@ResponseBody
 //	@PostMapping("idcheck")
@@ -60,25 +60,25 @@ public class UserController {
 //		cnt = dao.countMemberid(member_id);
 //		return cnt;
 //	}
-	
+
 	@GetMapping("idcheck")
 	public String idcheck() {
 		return "/registView/idForm";
 	}
-	
+
 	@GetMapping("emailcheck")
 	public String emailcheck() {
 		return "/registView/emailForm";
 	}
-	
+
 	@PostMapping("idcheck")
 	public String idcheck(String searchId, Model model) {
 		log.debug("검색할 ID : {}", searchId);
 		boolean result = service.idcheck(searchId);
-		
+
 		model.addAttribute("searchId", searchId);
 		model.addAttribute("result", result);
-		
+
 		return "/registView/idForm";
 	}
 
@@ -86,31 +86,20 @@ public class UserController {
 	public String join_as_restaurant() {
 		return "/registView/join_as_restaurant";
 	}
-	
+
 	@GetMapping("inquirySelect")
 	public String inquirySelect() {
 		return "registView/inquirySelect";
 	}
-	
+
 	@GetMapping("idInquiry")
 	public String idInquiry() {
 		return "registView/idInquiry";
 	}
 
-	
-	
 	@GetMapping("pwInquiry")
 	public String pwInquiry() {
 		return "registView/pwInquiry";
 	}
 
-	@GetMapping("myinfomodify") 
-	public String myinfomodify() {
-		return "/userView/myinfomodify";
-	}
-	
-	@GetMapping("mypage") 
-	public String mypage() {
-		return "/userView/mypage";
-	}
 }

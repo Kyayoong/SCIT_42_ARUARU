@@ -10,9 +10,6 @@
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <style>
-
-
-
 </style>
 <script>
 	
@@ -56,7 +53,7 @@
 			<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 				class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			<li class="nav-item"><a sec:authorize="isAuthenticated()"
-				class="nav-link" href="#">MYPAGE</a></li>
+				class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
 		</ul>
 	</nav>
 	<div id="container1">
@@ -64,8 +61,10 @@
 		<div class="row">
 			<div id="mypage-left" class="col-sm-3">
 				<div id="mypage-list">
-					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}" alt="내 정보 아이콘">
+					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}"
+						alt="내 정보 아이콘">
 					<h5>나의 활동</h5>
+<<<<<<< HEAD
 					<h6><a th:href="@{/mypage/seereservation}">예약 내역 조회</a></h6>
 					<h6>리뷰</h6>
 					<h6>찜</h6>
@@ -73,8 +72,33 @@
 					<h6>회원혜택</h6>
 					<h6>문의사항</h6>
 					<h6 th:href="@{user/myinfomodify}">회원정보변경</h6>
+=======
+					<h6>
+						<a th:href="@{/mypage/seereservation}">예약 내역 조회</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/review}">리뷰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mywishlist}">찜</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/couponandinquiry}">쿠폰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mybenefit}">회원혜택</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">문의사항</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+					</h6>
+>>>>>>> 5015400acb53671b52758c563cb6823305639fbd
 					<hr style="margin-left: 0; width: 7.5vw;">
-					<h6>공지사항</h6>
+					<h6>
+						<a th:href="@{/mypage/notice}">공지사항</a>
+					</h6>
 				</div>
 			</div>
 			<div id="mypage-right" class="col-sm-9">
@@ -87,90 +111,102 @@
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">
-					<h6>회원정보변경</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+					</h6>
 				</div>
 				<div id="grade-benefit">
-					<h6>등급혜택></h6>
+					<h6>
+						<a th:href="@{/mypage/mybenefit}">등급혜택></a>
+					</h6>
 				</div>
 				<div id="coupon-icon">
-					<a><img th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
+					<a th:href="@{/mypage/couponandinquiry}"><img
+						th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
 				</div>
 				<div id="coupon-caption">
-					<h6>쿠폰></h6>
+					<h6>
+						<a th:href="@{/mypage/couponandinquiry}">쿠폰></a>
+					</h6>
 				</div>
 				<div id="coupon-numbers">
-					<h5>2개</h5>
+					<h5>
+						<a th:href="@{/mypage/couponandinquiry}">2개</a>
+					</h5>
 				</div>
 				<div id="review-icon">
-					<img th:src="@{/images/review_icon.png}" alt="리뷰 아이콘">
+					<a th:href="@{/mypage/review}"><img
+						th:src="@{/images/review_icon.png}" alt="리뷰 아이콘"></a>
 				</div>
 				<div id="review-caption">
-					<h5>리뷰작성></h5>
+					<h5>
+						<a th:href="@{/mypage/review}">리뷰작성></a>
+					</h5>
 				</div>
 
-			<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
-			<div id="contents">
-				<div id="table-area1">
-					<h4 id="table-area1-caption">예약 내역 조회</h4>
-					<h6 id="table-area1-all">전체 보기</h6>
-					<table class="table" id="table1">
-						<tr>
-							<th>예약가게명</th>
-							<th>예약일시</th>
-							<th>인원수</th>
-							<th>예약확정여부</th>
-						</tr>
-						<tr>
-							<td>성준식당</td>
-							<td>2022.09.15</td>
-							<td>5</td>
-							<th>N</th>
-						</tr>
-						<tr>
-							<td>예현식당</td>
-							<td>2022.09.20</td>
-							<td>4</td>
-							<th>Y</th>
-						</tr>
-						<tr>
-							<td>기원식당</td>
-							<td>2022.09.22</td>
-							<td>3</td>
-							<th>N</th>
-						</tr>
-					</table>
-				</div>
-				
-				<div id="table-area2">
-					<h4 id="table-area2-caption">찜</h4>
-					<h6 id="table-area2-all">전체 보기</h6>
-					<table class="table" id="table1">
-						<tr>
-							<th>예약가게명</th>
-							<th>예약일시</th>
-							<th>인원수</th>
-							<th>예약여부</th>
-						</tr>
-						<tr>
-							<td>성준식당</td>
-							<td>2022.09.15</td>
-							<td>5</td>
-							<th>N</th>
-						</tr>
-						<tr>
-							<td>예현식당</td>
-							<td>2022.09.20</td>
-							<td>4</td>
-							<th>Y</th>
-						</tr>
-						<tr>
-							<td>기원식당</td>
-							<td>2022.09.22</td>
-							<td>3</td>
-							<th>N</th>
-						</tr>
-					</table>
-				</div>
+				<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
+				<div id="contents">
+					<div id="table-area1">
+						<h4 id="table-area1-caption">예약 내역 조회</h4>
+						<h6 id="table-area1-all">전체 보기</h6>
+						<table class="table" id="table1">
+							<tr>
+								<th>예약가게명</th>
+								<th>예약일시</th>
+								<th>인원수</th>
+								<th>예약확정여부</th>
+							</tr>
+							<tr>
+								<td>성준식당</td>
+								<td>2022.09.15</td>
+								<td>5</td>
+								<th>N</th>
+							</tr>
+							<tr>
+								<td>예현식당</td>
+								<td>2022.09.20</td>
+								<td>4</td>
+								<th>Y</th>
+							</tr>
+							<tr>
+								<td>기원식당</td>
+								<td>2022.09.22</td>
+								<td>3</td>
+								<th>N</th>
+							</tr>
+						</table>
+					</div>
+
+					<div id="table-area2">
+						<h4 id="table-area2-caption">찜</h4>
+						<h6 id="table-area2-all">전체 보기</h6>
+						<table class="table" id="table1">
+							<tr>
+								<th>예약가게명</th>
+								<th>예약일시</th>
+								<th>인원수</th>
+								<th>예약여부</th>
+							</tr>
+							<tr>
+								<td>성준식당</td>
+								<td>2022.09.15</td>
+								<td>5</td>
+								<th>N</th>
+							</tr>
+							<tr>
+								<td>예현식당</td>
+								<td>2022.09.20</td>
+								<td>4</td>
+								<th>Y</th>
+							</tr>
+							<tr>
+								<td>기원식당</td>
+								<td>2022.09.22</td>
+								<td>3</td>
+								<th>N</th>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

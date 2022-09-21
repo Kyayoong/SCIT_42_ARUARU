@@ -10,8 +10,6 @@
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <style>
-
-
 </style>
 <script>
 	
@@ -55,7 +53,7 @@
 			<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 				class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 			<li class="nav-item"><a sec:authorize="isAuthenticated()"
-				class="nav-link" href="#">MYPAGE</a></li>
+				class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
 		</ul>
 	</nav>
 	<div id="container1">
@@ -63,78 +61,114 @@
 		<div class="row">
 			<div id="mypage-left" class="col-sm-3">
 				<div id="mypage-list">
-					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}" alt="내 정보 아이콘">
+					<img id="myinfo-icon" th:src="@{/images/myinfo_icon.png}"
+						alt="내 정보 아이콘">
 					<h5>나의 활동</h5>
-					<h6>예약 내역 조회</h6>
-					<h6>리뷰</h6>
-					<h6>찜</h6>
-					<h6>쿠폰</h6>
-					<h6>회원혜택</h6>
-					<h6>문의사항</h6>
-					<h6>회원정보변경</h6>
+					<h6>
+						<a th:href="@{/mypage/seereservation}">예약 내역 조회</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/review}">리뷰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mywishlist}">찜</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/couponandinquiry}">쿠폰</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/mybenefit}">회원혜택</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">문의사항</a>
+					</h6>
+					<h6>
+						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+					</h6>
 					<hr style="margin-left: 0; width: 7.5vw;">
-					<h6>공지사항</h6>
+					<h6>
+						<a th:href="@{/mypage/notice}">공지사항</a>
+					</h6>
 				</div>
 			</div>
 			<div id="mypage-right" class="col-sm-9">
-				<div id="profile-photo">
-					<img id="p-photo" th:src="@{/images/user_icon.png}"
-						class="rounded-circle" alt="프로필 이미지">
-				</div>
-				<div id="profile-name">
-					<h4>LV4. 호에에엥</h4>
-					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
-				</div>
-				<div id="profile-modify">
-					<h6>회원정보변경</h6>
-				</div>
-				<div id="grade-benefit">
-					<h6>등급혜택></h6>
-				</div>
-				<div id="coupon-icon">
-					<a><img th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
-				</div>
-				<div id="coupon-caption">
-					<h6>쿠폰></h6>
-				</div>
-				<div id="coupon-numbers">
-					<h5>2개</h5>
-				</div>
-				<div id="review-icon">
-					<img th:src="@{/images/review_icon.png}" alt="리뷰 아이콘">
-				</div>
-				<div id="review-caption">
-					<h5>리뷰작성></h5>
-				</div>
+				<div id="mypage-right" class="col-sm-9">
+					<div id="profile-photo">
+						<img id="p-photo" th:src="@{/images/user_icon.png}"
+							class="rounded-circle" alt="프로필 이미지">
+					</div>
+					<div id="profile-name">
+						<h4>LV4. 호에에엥</h4>
+						<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
+					</div>
+					<div id="profile-modify">
+						<h6>
+							<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
+						</h6>
+					</div>
+					<div id="grade-benefit">
+						<h6>
+							<a th:href="@{/mypage/mybenefit}">등급혜택></a>
+						</h6>
+					</div>
+					<div id="coupon-icon">
+						<a th:href="@{/mypage/couponandinquiry}"><img
+							th:src="@{/images/coupon_icon.png}" alt="쿠폰 아이콘"></a>
+					</div>
+					<div id="coupon-caption">
+						<h6>
+							<a th:href="@{/mypage/couponandinquiry}">쿠폰></a>
+						</h6>
+					</div>
+					<div id="coupon-numbers">
+						<h5>
+							<a th:href="@{/mypage/couponandinquiry}">2개</a>
+						</h5>
+					</div>
+					<div id="review-icon">
+						<a th:href="@{/mypage/review}"><img
+							th:src="@{/images/review_icon.png}" alt="리뷰 아이콘"></a>
+					</div>
+					<div id="review-caption">
+						<h5>
+							<a th:href="@{/mypage/review}">리뷰작성></a>
+						</h5>
+					</div>
 
-			<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
-			<div id="contents">
-				<div id="table-area1">
-					<h4 id="table-area1-caption">찜리스트</h4>
-					<table class="table table-hover" id="table1">
-						<tr>
-							<th>식당</th>
-							<th>소재지</th>
-							<th>예약여부</th>
-						</tr>
-						<tr>
-							<td><img id="image" th:src="@{/images/photo_icon.png}" alt="사진 들어갈 곳">
-							<div id="text"><h4>기원식당</h4></div>
-							<div id="star-icon-area"><img id="star-icon" th:src="@{/images/star_icon.png}" alt="평점"></div>
-							<div id="score-area"><h5 id="score">3.5</h5></div></td>
-							<td style="text-align : center;">서울시 강남구</td>
-							<th>Y</th>
-							
-						</tr>
-					</table>
-				</div>
-				
-				
+					<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
+					<div id="contents">
+						<div id="table-area1">
+							<h4 id="table-area1-caption">찜리스트</h4>
+							<table class="table table-hover" id="table1">
+								<tr>
+									<th>식당</th>
+									<th>소재지</th>
+									<th>예약여부</th>
+								</tr>
+								<tr>
+									<td><img id="image" th:src="@{/images/photo_icon.png}"
+										alt="사진 들어갈 곳">
+										<div id="text">
+											<h4>기원식당</h4>
+										</div>
+										<div id="star-icon-area">
+											<img id="star-icon" th:src="@{/images/star_icon.png}"
+												alt="평점">
+										</div>
+										<div id="score-area">
+											<h5 id="score">3.5</h5>
+										</div></td>
+									<td style="text-align: center;">서울시 강남구</td>
+									<th>Y</th>
+
+								</tr>
+							</table>
+						</div>
+
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-
 </body>
 </html>

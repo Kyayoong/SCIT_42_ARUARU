@@ -2,58 +2,70 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-    <mapper namespace="com.restaurantreservation.aruaru.dao.UserDao">
-    <!-- 회원가입 -->
-    <insert id="insertUser" parameterType="User_member">
-    INSERT INTO user_member
-	    (member_num
-	    , member_id
-	    , member_pw
-	    , member_birth
-	    , member_name
-	    , member_phone
-	    , member_email
-	    , member_tags
-	    , member_address
-	    , member_gender
-	    , member_nickname
-	    )
-    VALUES
-	    (user_member_seq.nextval
-	    , #{member_id}
-	    , #{member_pw}
-	    , #{member_birth}
-	    , #{member_name}
-	    , #{member_phone}
-	    , #{member_email}
-	    , #{member_tags}
-	    , #{member_address}
-	    , #{member_gender}
-	    , #{member_nickname}
-    )
-    </insert>
-    
-    <!-- 오라클 연결 테스트용입니다. -->
-    <!-- <insert id="insertTest" parameterType="tabletest">
-    	INSERT INTO TEST_TABLE(
-    		tableid, text
-    	) VALUES (
-    		#{tableid}, #{text}
-    	)
-    </insert> -->
-    
-   <!--  <select id="countMemberid" parameterType="String" resultType="int">
-	select count(*) from user_member where member_id = #{member_id}
-</select> -->
 
-<select id="selectOne" parameterType="string" resultType="User_member">
-	SELECT * from user_member 
-	WHERE member_id = #{member_id}
-</select>
+<mapper namespace="com.restaurantreservation.aruaru.dao.UserDao">
+	<!-- 회원가입 -->
+	<insert id="insertUser" parameterType="User_member">
+		INSERT INTO user_member
+		(member_num
+		, member_id
+		, member_pw
+		, member_birth
+		, member_name
+		, member_phone
+		, member_email
+		, member_tags
+		, member_address1
+		, member_address2
+		, member_gender
+		, member_nickname
+		)
+		VALUES
+		(user_member_seq.nextval
+		, #{member_id}
+		, #{member_pw}
+		, #{member_birth}
+		, #{member_name}
+		, #{member_phone}
+		, #{member_email}
+		, #{member_tags}
+		, #{member_address1}
+		, #{member_address2}
+		, #{member_gender}
+		, #{member_nickname}
+		)
+	</insert>
 
-<select id="findID" parameterType="String" resultType="String">
-	SELECT member_id
-	WHERE member_name = #{member_name}
-</select>
-    </mapper>
+	<!-- 오라클 연결 테스트용입니다. -->
+	<!-- <insert id="insertTest" parameterType="tabletest"> INSERT INTO TEST_TABLE( 
+		tableid, text ) VALUES ( #{tableid}, #{text} ) </insert> -->
+
+	<!-- <select id="countMemberid" parameterType="String" resultType="int"> 
+		select count(*) from user_member where member_id = #{member_id} </select> -->
+
+	<select id="selectOne" parameterType="string"
+		resultType="User_member">
+		SELECT * from user_member
+		WHERE member_id = #{member_id}
+	</select>
+
+	<select id="findID" parameterType="String" resultType="String">
+		SELECT member_id
+		WHERE member_name = #{member_name}
+	</select>
+
+	<update id="updateUser" parameterType="User_member">
+		UPDATE user_member
+		SET
+		member_pw = #{member_pw},
+		member_name = #{member_name},
+		member_nickname = #{member_nickname},
+		member_email = #{member_email},
+		member_phone = #{member_phone},
+		member_address1 = #{member_address1},
+		member_address2 = #{member_address2},
+		member_birth = #{member_birth},
+		member_tags = #{member_tags}
+		WHERE member_id = #{member_id}
+	</update>
+</mapper>

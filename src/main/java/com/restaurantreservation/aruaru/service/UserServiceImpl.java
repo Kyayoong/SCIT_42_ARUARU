@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean idcheck(String member_id) {
 		User_member member = dao.selectOne(member_id);
-		return member == null? true : false;
+		return member == null ? true : false;
 	}
 
 	@Override
@@ -42,10 +42,14 @@ public class UserServiceImpl implements UserService {
 		return dao.selectOne(member_id);
 	}
 
-	//오라클 연결 테스트용입니다.
-	/*
-	 * public int insertTable(tabletest test) { int result = dao.insertTest(test);
-	 * 
-	 * return result; }
-	 */
+	@Override
+	public int updateUser(User_member member) {
+		if (member.getMember_pw() != null && member.getMember_pw().length() != 0) {
+			String encodedPassword = passwordEncoder.encode(member.getMember_pw());
+			member.setMember_pw(encodedPassword);
+		}
+		int result = dao.updateUser(member);
+		return result;
+	}
+
 }

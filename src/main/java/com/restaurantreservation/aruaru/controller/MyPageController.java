@@ -6,11 +6,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.UserService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RequestMapping("mypage")
 @Controller
 public class MyPageController {
@@ -38,10 +42,7 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
-
 		return "userView/review";
 	}
 
@@ -51,8 +52,6 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
 
 		return "userView/introduce_store";
@@ -64,8 +63,6 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
 
 		return "userView/couponandinquiry";
@@ -77,10 +74,7 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
-
 		return "userView/seereservation";
 	}
 
@@ -89,8 +83,6 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
 
 		return "userView/notice";
@@ -102,24 +94,30 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
 
 		return "userView/mywishlist";
 	}
 
+	// 회원정보변경 화면으로 이동
 	@GetMapping("myinfomodify")
 	public String myinfomodify(Model model, @AuthenticationPrincipal UserDetails user) {
 
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
 		}
 
 		return "userView/myinfomodify";
+	}
+
+	// 회원정보 수정 처리
+	@PostMapping("myinfomodify")
+	public String myinfomodify(User_member member, @AuthenticationPrincipal UserDetails user) {
+		log.debug("수정할 정보 : {}", member);
+		member.setMember_id(user.getUsername());
+		int result = service.updateUser(member);
+		return "redirect:/";
 	}
 
 	@GetMapping("mybenefit")
@@ -128,8 +126,7 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-		} else {
-			model.addAttribute("member_nickname", null);
+			log.debug("멤버 정보:{}", member);
 		}
 
 		return "userView/mybenefit";

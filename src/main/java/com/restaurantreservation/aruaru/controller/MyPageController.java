@@ -134,5 +134,9 @@ public class MyPageController {
 
 		return "userView/mybenefit";
 	}
-
+	
+	@GetMapping("insertReview")
+	public String insertReview() {
+		return "userView/insertReview";
+	}
 }

@@ -24,11 +24,9 @@ nav {
 	position : fixed;
 }
 
-
 #mypage-right {
 	position : absolute;
 	left : 13vw;
-	height : 10vh;
 
 }
 #profile-photo {
@@ -99,7 +97,6 @@ nav {
 
 
 
-
 #table-area1-caption {
 	font-family: Jua;
 }
@@ -160,9 +157,10 @@ nav {
 }
 
 #table-area3 {
-	position: relative;
-	top: 75vh;
+	position: absolute;
+	top: 93vh;
 	margin-left: 11vw;
 	width: 58vw;
 }
+
 

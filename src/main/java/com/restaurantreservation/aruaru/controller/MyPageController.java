@@ -16,14 +16,14 @@ import com.restaurantreservation.aruaru.service.UserService;
 public class MyPageController {
 	@Autowired
 	UserService service;
-	
+
 	// 마이페이지 메인화면
 	@GetMapping("/")
 	public String mypage(Model model, @AuthenticationPrincipal UserDetails user) {
 
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
-			model.addAttribute("member_nickname", member.getMember_nickname());
+			model.addAttribute("member", member);
 		} else {
 			model.addAttribute("member_nickname", null);
 		}
@@ -33,42 +33,105 @@ public class MyPageController {
 
 	// 리뷰 작성 화면
 	@GetMapping("review")
-	public String review() {
+	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/review";
 	}
 
 	@GetMapping("introduce_store")
-	public String introduceStore() {
+	public String introduceStore(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/introduce_store";
 	}
 
 	@GetMapping("couponandinquiry")
-	public String couponandinqury() {
+	public String couponandinqury(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/couponandinquiry";
 	}
 
 	@GetMapping("seereservation")
-	public String seeresevation() {
+	public String seeresevation(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/seereservation";
 	}
 
 	@GetMapping("notice")
-	public String notice() {
+	public String notice(Model model, @AuthenticationPrincipal UserDetails user) {
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/notice";
 	}
 
 	@GetMapping("mywishlist")
-	public String mywishlist() {
+	public String mywishlist(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/mywishlist";
 	}
 
 	@GetMapping("myinfomodify")
-	public String myinfomodify() {
+	public String myinfomodify(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/myinfomodify";
 	}
 
 	@GetMapping("mybenefit")
-	public String mybenefit() {
+	public String mybenefit(Model model, @AuthenticationPrincipal UserDetails user) {
+
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		} else {
+			model.addAttribute("member_nickname", null);
+		}
+
 		return "userView/mybenefit";
 	}
 

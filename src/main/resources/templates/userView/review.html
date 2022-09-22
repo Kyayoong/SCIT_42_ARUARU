@@ -25,33 +25,11 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
 
-<!-- CKeditor api -->
-<script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}"></script>
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-
-<style>
-#contents {
-	display: block;
-	margin: 3rem 0 0 10rem;
-}
-
-.ck-editor__editable[role="textbox"] {
-	/* editing area */
-	min-height: 800px;
-}
-
-.ck-content .image {
-	/* block images */
-	max-width: 100%;
-	margin: 20px auto;
-}
-</style>
-
-
 
 </head>
 <body>
@@ -152,31 +130,43 @@
 					<a th:href="@{/mypage/review}">리뷰작성></a>
 				</h5>
 			</div>
-
 			<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
 			<div id="contents">
-				<div>
-					<table style="margin: 0 auto; text-align: center;">
+				<div id="table-area1">
+					<h4 id="table-area1-caption">리뷰쓰기</h4>
+					<table class="table" id="table1">
 						<tr>
-							<td><h2 id="restName">ㅁ니;어ㅏㅎ</h2></td>
+							<th>음식점명</th>
+							<th>예약일자</th>
+							<th>예약시간</th>
+							<th>예약인원</th>
+							<th>리뷰작성</th>
 						</tr>
 						<tr>
-							<td><h2 id="stars">별볇렬별</h2></td>
+							<td>성준식당</td>
+							<td>2022.09.10</td>
+							<td>19:00</td>
+							<td>3</td>
+							<td><input type="button" class="btn btn-outline-primary btn-sm" value="작성"></td>
+						</tr>
+						<tr>
+							<td>예현식당</td>
+							<td>2022.09.07</td>
+							<td>19:00</td>
+							<td>3</td>
+							<td><input type="button" class="btn btn-outline-primary btn-sm" value="작성"></td>
+						</tr>
+						<tr>
+							<td>
+								<span>용태식당</span>
+							</td>
+							<td>2022.09.06</td>
+							<td>18:30</td>
+							<td>3</td>
+							<td><input type="button" class="btn btn-outline-primary btn-sm" value="작성"></td>
 						</tr>
 					</table>
 				</div>
-
-				<textarea name="editor1"></textarea>
-				<script>
-					$(function() {
-						CKEDITOR
-								.replace(
-										'editor1',
-										{
-											filebrowserUploadUrl : '${pageContext.request.contextPath}/adm/fileupload.do'
-										});
-					});
-				</script>
 			</div>
 		</div>
 	</div>

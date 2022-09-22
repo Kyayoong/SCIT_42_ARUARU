@@ -2,6 +2,10 @@
 /* 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+#tables1, tables2, tables3, tables4{
+	width: 90%; text-align: center;
+}
+
 #homebtn {
 	position: fixed; 
 	bottom: 0.5rem; 
@@ -104,7 +108,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+  color: #ff4e0d;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -161,6 +165,6 @@ body {
 }
 
 .tableFontJua{
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-family: Jua;
 }

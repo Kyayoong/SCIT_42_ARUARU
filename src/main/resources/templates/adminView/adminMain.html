@@ -90,7 +90,7 @@
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">대시보드</h1>
-					<div class="btn-toolbar mb-2 mb-md-0">
+					<!-- <div class="btn-toolbar mb-2 mb-md-0">
 						<div class="btn-group mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
 							<button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
@@ -99,63 +99,204 @@
 							class="btn btn-sm btn-outline-secondary dropdown-toggle">
 							<span data-feather="calendar"></span> This week
 						</button>
-					</div>
+					</div> -->
 				</div>
 				
 				<!-- 추이 그래프 -->
-				<div class="row">
-				<div class="col-sm-6">
-					<h2 class="h4">일반 가입자 추이</h2><canvas class="my-4" id="myChart1" width="100" height="30"></canvas>
+				<div class="row mx-auto p-1">
+				<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+					<h2 class="h4 border-bottom">일반 가입자 추이</h2><canvas class="my-4" id="myChart1" width="100" height="30"></canvas>
 				</div>
-				<div class="col-sm-6">
-					<h2 class="h4">식당 가입자 추이</h2><canvas class="my-4" id="myChart2" width="100" height="30"></canvas>
+				<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+					<h2 class="h4 border-bottom">식당 가입자 추이</h2><canvas class="my-4" id="myChart2" width="100" height="30"></canvas>
 				</div>
 				</div>
-				<div class="row" >
-				<div class="col-sm-6">
-					<h2 class="h4">리뷰 작성 추이</h2><canvas class="my-4" id="myChart3" width="100" height="30"></canvas>
+				<div class="row mx-auto p-1">
+				<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+					<h2 class="h4 border-bottom">리뷰 작성 추이</h2><canvas class="my-4" id="myChart3" width="100" height="30"></canvas>
 				</div>
-				<div class="col-sm-6">
-					<h2 class="h4">사이트 방문자 추이</h2><canvas class="my-4" id="myChart4" width="100" height="30"></canvas>
+				<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+					<h2 class="h4 border-bottom">사이트 방문자 추이</h2><canvas class="my-4" id="myChart4" width="100" height="30"></canvas>
 				</div>
 				</div>
 				
 				
 				<!-- 신규 요청 숏컷 -->
-				<div class="row" >
-				<div class="col-sm-6">
-					<h2 class="h4">신규 식당 등록 요청</h2>
-					<div class="col-sm-12">
-					<table class="table-sm table-dark table-hover" style="width:80%; text-align: center;">
-						<tr>
-							<th class="tableFontJua">
-								제목1
-							<!-- <p class="fontJua">제목1</p> -->
-							</th>
-						</tr>
-						<tr>
-							<td>제목2</td>
-						</tr>
-						<tr>
-							<td>제목3</td>
-						</tr>
-						<tr>
-							<td>제목4</td>
-						</tr>
-						<tr>
-							<td>제목5</td>
-						</tr>
-					</table>
+				<div class="row mx-auto p-1" >
+					<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+						<h2 class="h4">신규 식당 등록 요청</h2>
+						<div class="col-sm-12">
+							<table class="table-sm table-hover mx-auto" id="tables1">
+								<tr class="border-bottom">
+									<th class="tableFontJua">
+										날짜
+									</th>
+									<th class="tableFontJua">
+										제목
+									</th>
+									<th class="tableFontJua">
+										작성자
+									</th>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목1asdfasdgwaefdoaisdjf;waenf</td>
+									<td>홍길동</td>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목2</td>
+									<td>김길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목3</td>
+									<td>이길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목4</td>
+									<td>최길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목5</td>
+									<td>제갈길동</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+						<h2 class="h4">고객문의</h2>
+						<div class="col-sm-12">
+							<table class="table-sm table-hover mx-auto" id="tables2">
+								<tr class="border-bottom">
+									<th class="tableFontJua">
+										날짜
+									</th>
+									<th class="tableFontJua">
+										제목
+									</th>
+									<th class="tableFontJua">
+										작성자
+									</th>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목1asdfasdgwaefdoaisdjf;waenf</td>
+									<td>홍길동</td>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목2</td>
+									<td>김길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목3</td>
+									<td>이길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목4</td>
+									<td>최길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목5</td>
+									<td>제갈길동</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<h2 class="h4">고객 문의</h2>
-				</div>
-				</div>
 				
-				<div class="row" >
-				<div class="col-sm-6">
-					<h2 class="h4">신고 문의</h2>
+				<div class="row m-1 p-1" >
+					<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+						<h2 class="h4">신고 문의</h2>
+						<div class="col-sm-12">
+							<table class="table-sm table-hover mx-auto" id="tables3">
+								<tr class="border-bottom">
+									<th class="tableFontJua">
+										날짜
+									</th>
+									<th class="tableFontJua">
+										제목
+									</th>
+									<th class="tableFontJua">
+										작성자
+									</th>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목1asdfasdgwaefdoaisdjf;waenf</td>
+									<td>홍길동</td>
+								</tr>
+								<tr>
+									<td>22/09/21</td>
+									<td>제목2</td>
+									<td>김길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목3</td>
+									<td>이길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목4</td>
+									<td>최길동</td>
+								</tr>
+								<tr>
+									<td>22/09/20</td>
+									<td>제목5</td>
+									<td>제갈길동</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="col-sm-5 border shadow rounded-sm m-3 p-3">
+					<h2 class="h4">비즈니스 문의</h2>
+					<div class="col-sm-12">
+						<table class="table-sm table-hover mx-auto" id="tables4">
+							<tr class="border-bottom">
+								<th class="tableFontJua">
+									날짜
+								</th>
+								<th class="tableFontJua">
+									제목
+								</th>
+								<th class="tableFontJua">
+									작성자
+								</th>
+							</tr>
+							<tr>
+								<td>22/09/21</td>
+								<td>제목1asdfasdgwaefdoaisdjf;waenf</td>
+								<td>홍길동</td>
+							</tr>
+							<tr>
+								<td>22/09/21</td>
+								<td>제목2</td>
+								<td>김길동</td>
+							</tr>
+							<tr>
+								<td>22/09/20</td>
+								<td>제목3</td>
+								<td>이길동</td>
+							</tr>
+							<tr>
+								<td>22/09/20</td>
+								<td>제목4</td>
+								<td>최길동</td>
+							</tr>
+							<tr>
+								<td>22/09/20</td>
+								<td>제목5</td>
+								<td>제갈길동</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 				</div>
 

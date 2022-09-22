@@ -71,5 +71,9 @@ public class MyPageController {
 	public String mybenefit() {
 		return "userView/mybenefit";
 	}
-
+	
+	@GetMapping("insertReview")
+	public String insertReview() {
+		return "userView/insertReview";
+	}
 }

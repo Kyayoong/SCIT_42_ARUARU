@@ -37,6 +37,7 @@ public class WebSecurityConfig {
         		"/user/insert_user",
         		"/introduce_store",
         		"/stores",
+        		"/mypage/**",
         		"/mypage/couponandinquiry",
         		"/mypage/seereservation",
         		"/mypage/mywishlist",

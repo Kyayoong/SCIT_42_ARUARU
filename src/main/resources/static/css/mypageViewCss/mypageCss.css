@@ -27,7 +27,9 @@ nav {
 
 
 #mypage-right {
-	right : -16vw;
+	position : absolute;
+	left : 13vw;
+	height : 7vh;
 
 }
 #profile-photo {

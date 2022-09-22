@@ -26,7 +26,8 @@ nav {
 
 
 #mypage-right {
-	right : -13vw;
+	position : absolute;
+	left : 13vw;
 
 }
 #profile-photo {

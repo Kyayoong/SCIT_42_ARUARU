@@ -41,7 +41,9 @@ $(document).ready(function() {
         }
     });
 });
-
+function registformwide() {
+	alert($('#registerform').css('height'));
+}
 function formSubmit() {
     var form = $('#menuadd')[0];
     var formData = new FormData(form);
@@ -381,7 +383,7 @@ function menuDel() {
 										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
 										value="취소"> <input type="button"
 										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
-										id="formButton" value="등록">
+										id="formButton" onclick="javascript:registformwide()" value="등록">
 								</div>
 								<br>
 							</form>

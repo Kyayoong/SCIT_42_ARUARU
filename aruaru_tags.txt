@@ -412,3 +412,4 @@ INSERT INTO tags
 VALUES
 (tags_seq.nextval,'따뜻한','계절');
 
+commit;

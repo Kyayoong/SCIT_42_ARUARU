@@ -208,8 +208,7 @@ function numCheck(){
 		</div>
 		<!-- 회원 등록 table -->
 		<div id="registtable">
-			<form id="contact-form" th:action="insert_user" method="post"
-				onsubmit="return check();">
+			<form id="contact-form" th:action="insert_user" method="post">
 				<input type="hidden" name="contact_number">
 				<table>
 					<tr>
@@ -259,8 +258,7 @@ function numCheck(){
 					</tr>
 					<tr>
 						<td><label for="member_address1"
-							style="font-family: IBM Plex Sans KR;">주소</label><br> <input
-							type="hidden" id="member_address" name="member_address">
+							style="font-family: IBM Plex Sans KR;">주소</label><br> 
 							<input class="form-control" type="text" id="member_address1"
 							name="member_address1" placeholder="주소를 입력해 주세요"
 							style="width: 350px;" readonly="readonly">

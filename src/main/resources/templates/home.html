@@ -36,8 +36,10 @@
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
 				<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-				<li th:if="${member.member_nickname != null}" sec:authorize="hasRole('USER')" class="nav-item"
-					th:text="|${member.member_nickname}님이 로그인 하셨습니다.|">[일반 사용자] 입니다.</li>
+				<li th:if="${member.member_nickname != null}"
+					sec:authorize="hasRole('USER')" class="nav-item"
+					th:text="|${member.member_nickname}님이 로그인하셨습니다.|">[일반 사용자]
+					입니다.</li>
 				<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자]
 					입니다.</li>
 			</ul>

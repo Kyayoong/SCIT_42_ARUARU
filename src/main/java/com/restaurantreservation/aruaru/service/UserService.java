@@ -12,4 +12,5 @@ public interface UserService {
 	
 	// 오라클 연결 테스트용 입니다.
 	//public int insertTable(tabletest test);
+	public User_member selectUser(String member_id);
 }

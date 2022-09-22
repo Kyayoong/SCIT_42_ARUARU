@@ -22,8 +22,8 @@ public class HomeController {
 	public String home(Model model, @AuthenticationPrincipal UserDetails user) {
 		
 		if(user != null) {
-			User_member member = service.selectUser(user.getUsername());
-			model.addAttribute("member_nickname", member.getMember_nickname());
+		User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
 		}
 		else {
 			model.addAttribute("member_nickname", null);

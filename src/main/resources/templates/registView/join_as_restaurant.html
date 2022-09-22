@@ -32,7 +32,9 @@
 			$('#btnAtt').click();
 		});
 	});
-
+	function registformwide() {
+		document.getElementById('registform').style.height ="150vh";
+	}
 	function check() {
 		let restaurant_name = document.getElementById('restaurant_name');
 		let restaurant_sectors = document.getElementById('restaurant_sectors');
@@ -303,7 +305,7 @@
 							placeholder="주소" style="width: 450px;" readonly="readonly">
 							<div id="b-search-address">
 								<input style="width: 7vw;" class="form-control" type="button"
-									onclick="sample5_execDaumPostcode()" value="주소 검색">
+									onclick="javascript:sample5_execDaumPostcode(); registformwide();" onclick="do"id="addressSearchButton" value="주소 검색">
 							</div> <input class="form-control" type="text" id="restaurant_address2"
 							name="restaurant_address2" placeholder="상세주소"
 							style="width: 600px;">
@@ -314,7 +316,9 @@
 								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 							<script
 								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
+							
 							<script>
+								
 								var mapContainer = document
 										.getElementById('map'), // 지도를 표시할 div
 								mapOption = {

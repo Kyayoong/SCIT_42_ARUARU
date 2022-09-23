@@ -61,7 +61,7 @@
 		<div class="row">
 			<div id="mypage-left" class="col-sm-3">
 				<div id="mypage-list">
-					<img th:src="@{images/myinfo_icon.png}" alt="내 정보 아이콘">
+					<img th:src="@{/images/myinfo_icon.png}" alt="내 정보 아이콘">
 					<h5>나의 활동</h5>
 					<h6>
 						<a th:href="@{/mypage/seereservation}">예약 내역 조회</a>
@@ -96,7 +96,7 @@
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
-					<h4>LV4. 호에에엥</h4>
+					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4. 호에에엥</h4>
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">

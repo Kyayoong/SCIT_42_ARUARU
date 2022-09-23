@@ -76,7 +76,7 @@ public class RestaurantController {
 		model.addAttribute("tagList4",tagList4);
 		model.addAttribute("tagList5",tagList5);
 		
-		return "/registView/join_as_restaurant_menu";
+		return "registView/join_as_restaurant_menu";
 	}
 	
 	/**

@@ -9,13 +9,13 @@ import com.restaurantreservation.aruaru.domain.tabletest;
 public interface UserDao {
 	// 회원가입
 	int insertUser(User_member member);
-	
-	/*
-	 * // 오라클 연결 테스트용입니다. int insertTest(tabletest test);
-	 */
 
-	 //ID 개수 확인
-    public int countMemberid(String member_id);
+	// ID 개수 확인
+	public int countMemberid(String member_id);
 
+	// 정보 가져오기
 	User_member selectOne(String member_id);
+
+	// 정보 수정
+	public int updateUser(User_member member);
 }

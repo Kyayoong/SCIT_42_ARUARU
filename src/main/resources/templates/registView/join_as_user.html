@@ -31,15 +31,19 @@ var result = Math.random() * 100000 | 0;
 
 //경고문구 띄우기
 $(document).ready(function() {
+	
+	let emailvaild = false;
+	let phonevaild = false;
+	
 	$('#member_id').keyup(function() {
 		let member_id = $(this).val();
 		
 		if (member_id.length < 3 || member_id.length > 10) {
 			$('#msg1').html('ID는 3~10자로 입력하세요.').css("color","red");
-			$('#submitButton').attr('disabled', true);
+			//$('#submitButton').attr('disabled', true);
 		} else {
 			$('#msg1').html('');
-			$('#submitButton').attr('disabled', false);	
+			//$('#submitButton').attr('disabled', false);	
 		}
 	});
 		
@@ -48,10 +52,10 @@ $(document).ready(function() {
 		
 		if (member_pw.length < 3 || member_pw.length > 10) {
 			$('#msg2').html('비밀번호는 3~10자로 입력하세요.').css("color","red");
-			$('#submitButton').attr('disabled', true);
+			//$('#submitButton').attr('disabled', true);
 		}else {
 			$('#msg2').html('');
-			$('#submitButton').attr('disabled', false);	
+			//$('#submitButton').attr('disabled', false);	
 		}
 });
 	
@@ -61,10 +65,10 @@ $(document).ready(function() {
 			
 			if (member_pw != member_pw2) {
 				$('#msg3').html('비밀번호가 일치하지 않습니다.').css("color","red");
-				$('#submitButton').attr('disabled', true);
+				//$('#submitButton').attr('disabled', true);
 			}else {
 				$('#msg3').html('');
-				$('#submitButton').attr('disabled', false);	
+				//$('#submitButton').attr('disabled', false);	
 			}
 	});
 			
@@ -92,23 +96,33 @@ $(document).ready(function() {
 	$('#member_email').keyup(function(){
 		if(emailCheck.test($('#member_email').val())){
 			$('#msg8').html('');	
-			$('#submitButton').attr('disabled', false);
+			//$('#submitButton').attr('disabled', false);
+			emailvalid = true;
+			checkall();
 		}else {
 			$('#msg8').html('올바른 이메일 형식을 입력해주세요.').css("color","red");
-			$('#submitButton').attr('disabled', true);
+			//$('#submitButton').attr('disabled', true);
 			}
 	});
 	
 	$('#member_phone').keyup(function(){
 		if(phoneNumberCheck.test($('#member_phone').val())){
 			$('#msg10').html('');	
-			$('#submitButton').attr('disabled', false);
+			//$('#submitButton').attr('disabled', false);
+			phonevalid = true;
+			checkall();
 		}else {
 			$('#msg10').html('올바른 전화번호 형식을 입력해주세요.').css("color","red");
-			$('#submitButton').attr('disabled', true);
+			//$('#submitButton').attr('disabled', true);
 			}
 	});
 	
+	function checkall(){
+// 		alert("gkdl")
+		if(emailvalid == true && phonevalid == true){
+			$('#submitButton').attr('disabled', false);
+		}
+	}
 	
 });
 
@@ -194,8 +208,7 @@ function numCheck(){
 		</div>
 		<!-- 회원 등록 table -->
 		<div id="registtable">
-			<form id="contact-form" th:action="insert_user" method="post"
-				onsubmit="return check();">
+			<form id="contact-form" th:action="insert_user" method="post">
 				<input type="hidden" name="contact_number">
 				<table>
 					<tr>
@@ -245,8 +258,7 @@ function numCheck(){
 					</tr>
 					<tr>
 						<td><label for="member_address1"
-							style="font-family: IBM Plex Sans KR;">주소</label><br> <input
-							type="hidden" id="member_address" name="member_address">
+							style="font-family: IBM Plex Sans KR;">주소</label><br> 
 							<input class="form-control" type="text" id="member_address1"
 							name="member_address1" placeholder="주소를 입력해 주세요"
 							style="width: 350px;" readonly="readonly">

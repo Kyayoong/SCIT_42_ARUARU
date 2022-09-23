@@ -23,7 +23,8 @@ public class User_member {
 	int email_auth; 			//이메일 인증여부
 	String email_key;			//이메일 인증번호
 	String registration_date;	//등록일
-	String member_address;		//회원주소
+	String member_address1;		//회원 도로명주소
+	String member_address2;		//회원 상세주소
 	int member_score;			//회원점수
 	String member_tags;			//태그번호
 	String member_gender; 		//회원 성별

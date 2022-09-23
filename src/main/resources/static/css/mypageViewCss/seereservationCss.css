@@ -24,9 +24,9 @@ nav {
 	position : fixed;
 }
 
-
 #mypage-right {
-	right : -13vw;
+	position : absolute;
+	left : 13vw;
 
 }
 #profile-photo {
@@ -157,9 +157,10 @@ nav {
 }
 
 #table-area3 {
-	position: relative;
-	top: 75vh;
+	position: absolute;
+	top: 93vh;
 	margin-left: 11vw;
 	width: 58vw;
 }
+
 

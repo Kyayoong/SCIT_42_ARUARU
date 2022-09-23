@@ -96,7 +96,7 @@
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
-					<h4>LV4. 호에에엥</h4>
+					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4. 호에에엥</h4>
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">
@@ -134,107 +134,99 @@
 				</div>
 
 				<div id="table-area1">
-					<h4 id="table-area1-caption">예약 내역 보기</h4>
+					<h4 id="table-area1-caption">예약 내역</h4>
 					<table class="table" id="table1">
 						<tr>
 							<th>음식점명</th>
 							<th>예약일자</th>
-							<th>예약시간</th>
 							<th>예약인원</th>
 							<th>예약확정여부</th>
 						</tr>
 						<tr>
 							<td>SCIT식당</td>
 							<td>2022.09.23</td>
-							<td>19:00</td>
 							<td>3</td>
-							<td>Y</td>
+							<th>N</th>
 						</tr>
 						<tr>
-							<td>맛있다식당</td>
+							<td>맛있는식당</td>
+							<td>2022.09.24</td>
+							<td>2</td>
+							<th>Y</th>
+						</tr>
+						<tr>
+							<td>코엑스식당</td>
 							<td>2022.09.30</td>
-							<td>19:00</td>
-							<td>3</td>
-							<td>N</td>
+							<td>4</td>
+							<th>N</th>
 						</tr>
-						<tr>
-							<td>경환식당</td>
-							<td>2022.10.02</td>
-							<td>19:00</td>
-							<td>3</td>
-							<td>Y</td>
-						</tr>
+					
+					
 					</table>
 				</div>
-
+				
 				<div id="table-area2">
-					<h4 id="table-area2-caption">이전예약 보기</h4>
+					<h4 id="table-area2-caption">지난 예약 내역</h4>
 					<table class="table" id="table2">
 						<tr>
 							<th>음식점명</th>
 							<th>예약일자</th>
-							<th>예약시간</th>
 							<th>예약인원</th>
 							<th>리뷰작성여부</th>
 						</tr>
 						<tr>
-							<td>성준식당</td>
-							<td>2022.09.10</td>
-							<td>19:00</td>
+							<td>떡볶이분식</td>
+							<td>2022.09.18</td>
 							<td>3</td>
-							<td>Y</td>
+							<th>N</th>
 						</tr>
 						<tr>
-							<td>예현식당</td>
-							<td>2022.09.07</td>
-							<td>19:00</td>
-							<td>3</td>
-							<td>N</td>
+							<td>맛있는식당</td>
+							<td>2022.09.11</td>
+							<td>2</td>
+							<th>Y</th>
 						</tr>
 						<tr>
-							<td>용태식당</td>
-							<td>2022.09.06</td>
-							<td>18:30</td>
-							<td>3</td>
-							<td>Y</td>
+							<td>코엑스식당</td>
+							<td>2022.09.04</td>
+							<td>4</td>
+							<th>N</th>
 						</tr>
+					
+					
 					</table>
 				</div>
 				
 				<div id="table-area3">
-					<h4 id="table-area3-caption">취소한 예약보기</h4>
+					<h4 id="table-area3-caption">취소한 예약 내역</h4>
 					<table class="table" id="table3">
 						<tr>
 							<th>음식점명</th>
 							<th>예약일자</th>
-							<th>예약시간</th>
-							<th>예약인원</th>
 							<th>찜하기</th>
 						</tr>
 						<tr>
-							<td>길아식당</td>
-							<td>2022.09.06</td>
-							<td>18:30</td>
-							<td>3</td>
-							<td>찜</td>
+							<td>순이네분식</td>
+							<td>2022.09.23</td>
+							<th>찜</th>
 						</tr>
 						<tr>
-							<td>수연식당</td>
-							<td>2022.09.02</td>
-							<td>17:30</td>
-							<td>3</td>
-							<td>찜</td>
+							<td>파스타식당</td>
+							<td>2022.09.11</td>
+							<th>찜</th>
 						</tr>
 						<tr>
-							<td>기열식당</td>
-							<td>2022.09.01</td>
-							<td>19:30</td>
-							<td>2</td>
-							<td>찜</td>
+							<td>라면식당</td>
+							<td>2022.09.04</td>
+							<th>찜</th>
 						</tr>
+					
+					
 					</table>
 				</div>
+
 				
+			
 			</div>
 		</div>
 	</div>

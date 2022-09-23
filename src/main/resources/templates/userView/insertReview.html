@@ -27,33 +27,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script type="text/javascript">
-	/* $(document).ready(function(){
-		$('#point1').click(changeStar(1));
-		$('#point2').click(changeStar(2));
-		$('#point3').click(changeStar(3));
-		$('#point4').click(changeStar(4));
-		$('#point5').click(changeStar(5));
-	}) */
-	
-	function changeStar(n){
-		//넘어온 n값으로 별 아이콘(star_full) n개 표시
-		//html내용 바꾸는 함수 사용한다.
+	$(document).on('click', '#point1', drawStars);
+	$(document).on('click', '#point2', drawStars);
+	$(document).on('click', '#point3', drawStars);
+	$(document).on('click', '#point4', drawStars);
+	$(document).on('click', '#point5', drawStars);
+
+	let path = '[[@{/images/}]]';
+		
+	//별 채워주고 html상에 표기하는 함수
+	function drawStars(){
+		let starImg = '';
+		let dataPoint = parseInt($(this).attr('data-point'));
+		let dataActivated = parseInt($(this).attr('data-activated'));
+		
+		switch(dataActivated){
+		case 0 : 
+			for(let i = 1; i <= 5; i++){
+				if( i < dataPoint ){
+					starImg += '<img id="point' + i + '" class="p-1" src="' +
+								path + 'star_full.png" data-point="' + i + 
+								'" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
+				} else if(i == dataPoint){
+					starImg += '<img id="point' + i + '" class="p-1" src="' +
+								path + 'star_full.png" data-point="' + i + 
+								'" data-activated="1" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
+				}
+					else {
+					starImg += '<img id="point' + i + '" class="p-1" src="' +
+								path + 'star_none.png" data-point="' + i + 
+								'" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
+				}
+			}
+			$('#starPoint').html(starImg);
+			break;
+		
+		case 1 : 
+			for(let i = 1; i <= 5; i++){
+				starImg += '<img id="point' + i + '" class="p-1" src="' +
+							path + 'star_none.png" data-point="' + i + '" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
+			}
+			$('#starPoint').html(starImg);
+			break;
+		}
 	}
+	
 	
 </script>
 
 <title>리뷰 입력 하기</title>
 </head>
 <body>
-
-	<div class="d-flex justify-content-center">
-		<span class="p-1"><img id="point1" th:src="@{/images/star_none.png}" style="width:2rem;" alt="별표시" onclick="changeStar(1)"></span>
-		<span class="p-1"><img id="point2" th:src="@{/images/star_none.png}" style="width:2rem;" alt="별표시" onclick="changeStar(2)"></span>
-		<span class="p-1"><img id="point3" th:src="@{/images/star_none.png}" style="width:2rem;" alt="별표시" onclick="changeStar(3)"></span>
-		<span class="p-1"><img id="point4" th:src="@{/images/star_none.png}" style="width:2rem;" alt="별표시" onclick="changeStar(4)"></span>
-		<span class="p-1"><img id="point5" th:src="@{/images/star_none.png}" style="width:2rem;" alt="별표시" onclick="changeStar(5)"></span>
+	<!-- 별점주기(id가 꼭 필요할까?) -->
+	<div id="starPoint" class="d-flex justify-content-center">
+		<img id="point1" class="p-1" th:src="@{/images/star_none.png}" data-point="1" data-activated="0" style="width:2.8rem;" alt="별표시">
+		<img id="point2" class="p-1" th:src="@{/images/star_none.png}" data-point="2" data-activated="0" style="width:2.8rem;" alt="별표시">
+		<img id="point3" class="p-1" th:src="@{/images/star_none.png}" data-point="3" data-activated="0" style="width:2.8rem;" alt="별표시">
+		<img id="point4" class="p-1" th:src="@{/images/star_none.png}" data-point="4" data-activated="0" style="width:2.8rem;" alt="별표시">
+		<img id="point5" class="p-1" th:src="@{/images/star_none.png}" data-point="5" data-activated="0" style="width:2.8rem;" alt="별표시">
 	</div>
-	
 					
 </body>
 </html>

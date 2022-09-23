@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://thymeleaf.org"
-   xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <style>
 </style>
-<link rel="stylesheet" th:href="@{/css/mainCss2.css}">
+<link rel="stylesheet" th:href="@{/css/storesCss.css}">
 <link rel="stylesheet"
-   th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
+	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
 <script
-   src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
-   src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
-   src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
 <!-- 카카오 지도 API와 불러올 library: 실행코드보다 먼저 선언 되어야 합니다. -->
 <script type="text/javascript"
-   src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,200 +31,250 @@
 </head>
 <body>
 
- 
-      <!-- navbar 부분-->
-      <nav id="navbar" class="navbar navbar-expand-sm bg-light">
-         <ul class="navbar-nav">
-            <!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-            <li sec:authorize="hasRole('USER')" class="nav-item">[일반 사용자]
-               입니다.</li>
-            <li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자]
-               입니다.</li>
-         </ul>
-         <ul class="navbar-nav ml-auto">
-            <!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다.(임시) -->
-            <li class="nav-item"><a class="nav-link"
-               th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin(임시)</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
-            </li>
-            <li class="nav-item"><a sec:authorize="not isAuthenticated()"
-               class="nav-link" th:href="@{/user/login}">LOGIN</a></li>
-            <li class="nav-item"><a sec:authorize="isAuthenticated()"
-               class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
-            <li class="nav-item"><a sec:authorize="not isAuthenticated()"
-               class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
-            <li class="nav-item"><a sec:authorize="isAuthenticated()"
-               class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
-         </ul>
-      </nav>
+	<section id="section1">
+		<!-- navbar 부분-->
+		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
+			<ul class="navbar-nav">
+				<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
+				<li th:if="${member.member_nickname != null}" sec:authorize="hasRole('USER')" class="nav-item"
+					th:text="|${member.member_nickname}님이 로그인 하셨습니다.|">[일반 사용자] 입니다.</li>
+				<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자]
+					입니다.</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다.(임시) -->
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin(임시)</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
+				</li>
+				<li class="nav-item"><a sec:authorize="not isAuthenticated()"
+					class="nav-link" th:href="@{/user/login}">LOGIN</a></li>
+				<li class="nav-item"><a sec:authorize="isAuthenticated()"
+					class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
+				<li class="nav-item"><a sec:authorize="not isAuthenticated()"
+					class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
+				<li class="nav-item"><a sec:authorize="isAuthenticated()"
+					class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
+			</ul>
+		</nav>
 
-      <div id="container1">
+		<div id="container1">
 
-         <!--알파벳 CI-->
+			<!--알파벳 CI-->
 
-         <a th:href="@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
-         <!--일본어 CI-->
-         <a th:href="@{/}"><img id="aruaru"
-            th:src="@{/images/rrjapanesemark.png}"></a>
-         <!--검색 부분-->
+			<a th:href="@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
+			<!--일본어 CI-->
+			<a th:href="@{/}"><img id="aruaru"
+				th:src="@{/images/rrjapanesemark.png}"></a>
+			<!--검색 부분-->
 
-         <table style="font-family: Jua;">
-            <tr>
-               <td><input type="text" class="form-control" id="area-input"
-                  placeholder="지역"></td>
-               <td><input type="text" class="form-control" id="keyword-input"
-                  placeholder="키워드(ex)오마카세, 분위기있는)"></td>
-               <td><input type="date" class="form-control" id="day-input"></td>
-               <td><select id="select-time" class="form-control">
-                     <option value="0900">09:00</option>
-                     <option value="0930">09:30</option>
-                     <option value="1000">10:00</option>
-                     <option value="1030">10:30</option>
-                     <option value="1100">11:00</option>
-                     <option value="1130">11:30</option>
-                     <option value="1200">12:00</option>
-                     <option value="1230">12:30</option>
-                     <option value="1300">13:00</option>
-                     <option value="1330">13:30</option>
-                     <option value="1400">14:00</option>
-                     <option value="1430">14:30</option>
-                     <option value="1500">15:00</option>
-                     <option value="1530">15:30</option>
-                     <option value="1600">16:00</option>
-                     <option value="1630">16:30</option>
-                     <option value="1700">17:00</option>
-                     <option value="1730">17:30</option>
-                     <option value="1800">18:00</option>
-                     <option value="1830">18:30</option>
-                     <option value="1900">19:00</option>
-                     <option value="1930">19:30</option>
-                     <option value="2000">20:00</option>
-                     <option value="2030">20:30</option>
-                     <option value="2100">21:00</option>
-                     <option value="2130">21:30</option>
-                     <option value="2200">22:00</option>
-               </select></td>
-               <td><input type="text" class="form-control" id="person-input"
-                  placeholder="인원수"></td>
-               <td><input type="submit" class="btn btn-primary"
-                  id="search-submit" value="검색"></td>
-            </tr>
-         </table>
-      </div>
-      <!-- 회전화면 부분 -->
-      
-     <!-- 랭킹 부분 -->
-      <!-- 신상맛집 소개 -->
-      <h3 id="new-restaurants-intro">검색결과</h3>
-      <div id="new-restaurants-images" class="row">
+			<table style="font-family: Jua;">
+				<tr>
+					<td><input type="text" class="form-control" id="area-input"
+						placeholder="지역"></td>
+					<td><input type="text" class="form-control" id="keyword-input"
+						placeholder="키워드(ex)오마카세, 분위기있는)"></td>
+					<td><input type="date" class="form-control" id="day-input"></td>
+					<td><select id="select-time" class="form-control">
+							<option value="0900">09:00</option>
+							<option value="0930">09:30</option>
+							<option value="1000">10:00</option>
+							<option value="1030">10:30</option>
+							<option value="1100">11:00</option>
+							<option value="1130">11:30</option>
+							<option value="1200">12:00</option>
+							<option value="1230">12:30</option>
+							<option value="1300">13:00</option>
+							<option value="1330">13:30</option>
+							<option value="1400">14:00</option>
+							<option value="1430">14:30</option>
+							<option value="1500">15:00</option>
+							<option value="1530">15:30</option>
+							<option value="1600">16:00</option>
+							<option value="1630">16:30</option>
+							<option value="1700">17:00</option>
+							<option value="1730">17:30</option>
+							<option value="1800">18:00</option>
+							<option value="1830">18:30</option>
+							<option value="1900">19:00</option>
+							<option value="1930">19:30</option>
+							<option value="2000">20:00</option>
+							<option value="2030">20:30</option>
+							<option value="2100">21:00</option>
+							<option value="2130">21:30</option>
+							<option value="2200">22:00</option>
+					</select></td>
+					<td><input type="text" class="form-control" id="person-input"
+						placeholder="인원수"></td>
+					<td><input type="submit" class="btn btn-primary"
+						id="search-submit" value="검색"></td>
+				</tr>
+			</table>
+		</div>
+		<!-- 회전화면 부분 -->
+		<div id="container2">
+		<table id="table1">
+			<tr>
+						<td>
+							<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag1"><input
+									name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
+							</div>
+						</td>
+						<td>	
+							<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag2"><input
+									name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
+							</div>
+						</td>
+						<td>	
+							<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag3"><input
+									name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
+							</div>
+						</td>
+						<td>
+							<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag4"><input
+									name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
+							</div>
+						</td>
+						<td>
+							<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag5"><input
+									name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
+							</div>
+						</td>
+						<td>
+							<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="tag6"><input
+									name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
+							</div> <span id="msg13"></span></td>
+						<td>
+							<select id="organize">
+								<option value="1">평점순</option>
+								<option value="2">리뷰갯수순</option>
+								<option value="3">가까운순</option>
+							</select>
+						</td>
+					</tr>
 
-         <!-- 첫번째 그림 부분, 글씨부분 -->
-         <div class="col">
-            <img class="ranking-img" style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant1.png}" width=300 height=300>
-            <div class="name-ranking">
-               <h3 style="text-align: left">라멘야</h3>
-            </div>
-            <div class="star-ranking">
-               <img th:src="@{/images/star_icon.png}" width=23 height=23>
-            </div>
-            <div class="rate-ranking">
-               <p style="text-align: left">3.3</p>
-            </div>
-            <div class="map-pin-ranking">
-               <img th:src="@{images/map_flag_icon.png}" width=18 height=18>
-            </div>
-            <div class="location-ranking">
-               <p style="text-align: left">서울 강남구</p>
-            </div>
-            <div class="comment-ranking">
-               <p style="text-align: left">
-                  <br>마제소바가 너무나도 맛있는 집 이었습니다.
-               </p>
-            </div>
-         </div>
+		</table>
+		<hr>
+		</div>
+		<!-- 랭킹 부분 -->
+		<div id="ranking" class="row">
 
-         <!-- 두번째 그림 부분, 글씨부분 -->
-         <div class="col">
-            <img class="ranking-img" style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant2.png}" width=300 height=300>
-            <div class="name-ranking">
-               <h3 style="text-align: left">라멘야</h3>
-            </div>
-            <div class="star-ranking">
-               <img th:src="@{/images/star_icon.png}" width=23 height=23>
-            </div>
-            <div class="rate-ranking">
-               <p style="text-align: left">3.3</p>
-            </div>
-            <div class="map-pin-ranking">
-               <img th:src="@{images/map_flag_icon.png}" width=18 height=18>
-            </div>
-            <div class="location-ranking">
-               <p style="text-align: left">서울 강남구</p>
-            </div>
-            <div class="comment-ranking">
-               <p style="text-align: left">
-                  <br>마제소바가 너무나도 맛있는 집 이었습니다.
-               </p>
-            </div>
-         </div>
+			<!-- 첫번째 그림 부분, 글씨부분 -->
+		
+			<div class="col">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="@{/images/ranking1.png}">
+				<div class="name-ranking">
+					<h3 style="text-align: left">라멘야</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">3.3</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">서울 강남구</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>마제소바가 너무나도 맛있는 집 이었습니다.
 
-         <!-- 세번째 그림 부분, 글씨부분 -->
-         <div class="col">
-            <img class="ranking-img" style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant3.jpg}" width=300 height=300>
-            <div class="name-ranking">
-               <h3 style="text-align: left">라멘야</h3>
-            </div>
-            <div class="star-ranking">
-               <img th:src="@{/images/star_icon.png}" width=23 height=23>
-            </div>
-            <div class="rate-ranking">
-               <p style="text-align: left">3.3</p>
-            </div>
-            <div class="map-pin-ranking">
-               <img th:src="@{images/map_flag_icon.png}" width=18 height=18>
-            </div>
-            <div class="location-ranking">
-               <p style="text-align: left">서울 강남구</p>
-            </div>
-            <div class="comment-ranking">
-               <p style="text-align: left">
-                  <br>마제소바가 너무나도 맛있는 집 이었습니다.
-               </p>
-            </div>
-         </div>
+					</p>
+				</div>
+			</div>
 
-         <!-- 더보기 그림 부분, 글씨부분 -->
-         <div class="col">
-            <img class="ranking-img" style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant1.png}" width=300 height=300>
-            <div class="name-ranking">
-               <h3 style="text-align: left">라멘야</h3>
-            </div>
-            <div class="star-ranking">
-               <img th:src="@{/images/star_icon.png}" width=23 height=23>
-            </div>
-            <div class="rate-ranking">
-               <p style="text-align: left">3.3</p>
-            </div>
-            <div class="map-pin-ranking">
-               <img th:src="@{images/map_flag_icon.png}" width=18 height=18>
-            </div>
-            <div class="location-ranking">
-               <p style="text-align: left">서울 강남구</p>
-            </div>
-            <div class="comment-ranking">
-               <p style="text-align: left">
-                  <br>마제소바가 너무나도 맛있는 집 이었습니다.
-               </p>
-            </div>
-         </div>
-      </div>
-      <br>
+			<!-- 두번째 그림 부분, 글씨부분 -->
+			<div class="col">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="@{/images/ranking2.png}">
+				<div class="name-ranking">
+					<h3 style="text-align: left">라멘야</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">3.3</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">서울 강남구</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>마제소바가 너무나도 맛있는 집 이었습니다.
+					</p>
+				</div>
+			</div>
 
-      <!-- 카카오 지도 테스트
+			<!-- 세번째 그림 부분, 글씨부분 -->
+			<div class="col">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="@{/images/ranking3.png}" width=300 height=300>
+				<div class="name-ranking">
+					<h3 style="text-align: left">라멘야</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">3.3</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">서울 강남구</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>마제소바가 너무나도 맛있는 집 이었습니다.
+					</p>
+				</div>
+			</div>
+
+			<!-- 더보기 -->
+				<div class="col">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="@{/images/ranking1.png}">
+				<div class="name-ranking">
+					<h3 style="text-align: left">라멘야</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">3.3</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">서울 강남구</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>마제소바가 너무나도 맛있는 집 이었습니다.
+
+					</p>
+				</div>
+
+		</div>
+		<br>
+
+		<!-- 카카오 지도 테스트
       <hr>
       <p>맵 테스트 공간입니다.</p>
       오라클 연결 테스트
@@ -236,6 +286,8 @@
       <div id="map" style="width:1000px;height:800px; margin: 0 auto;"></div>
       js폴더 내, home.html용 js파일
       <script type="text/javascript" th:src="@{/js/kakaoMap.js}"></script> -->
+
+	</section>
 
 </body>
 </html>

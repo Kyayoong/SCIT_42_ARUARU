@@ -1,0 +1,229 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    /*
+    * 네비게이션 바 높이 조정
+    */
+
+    #navbar {
+        height : 4.1vh;
+    }
+    
+    /*
+    * 알파벳 CI 크기 및 위치 조정
+    */
+
+    #RR {
+        position :relative;
+        width : 2.5vw;
+        top : 1.3vh;
+        left :	14.5vw;
+    }
+
+    /*
+    * 일본어 CI 크기 및 위치 조정
+    */
+
+    #aruaru {
+        position : relative;
+        height : 3vw;
+        top : 1.3vh;
+        left : 14.4vw;
+    }
+
+    /*
+    * 지역 검색 창 위치 조정
+    */
+    #area-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 26.9vw;
+        width : 13vw;
+    }
+    /*
+    * 검색창 키워드 인풋 위치 및 크기 조정
+    */
+    #keyword-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 40.1vw;
+        width : 16.4vw;
+    }
+    /*
+    * 날짜 설정 인풋 위치 및 크기 조정
+    */
+    #day-input {
+        position : absolute;
+        top : 6.3vh;
+        left : 56.7vw;
+        width : 9.8vw; /*150px;*/
+    }
+    /*
+    * 시간 설정 인풋 위치 및 크기 조정
+    */
+    #select-time {
+        position :absolute;
+        top:6.3vh;
+        left:66.7vw;
+        width : 6.5vw;
+    }
+    /*
+    * 인원수 인풋 위치 및 크기 조정
+    */
+    #person-input {
+        position: absolute;
+        top:6.3vh;
+        left:73.4vw;
+        width: 6.5vw;
+    }
+    /*
+    * 검색버튼 위치 조정
+    */
+    #search-submit {
+    	position : absolute;
+    	top : 6.3vh;
+    	left : 80.2vw;
+    }
+    
+    #container2 {
+    	position : absolute;
+    	top : 14vh;
+    	width : 95vw;
+    	padding-left : 4vw;
+    }
+      
+    #organize {
+    	position : absolute;
+    	right : 0vw;
+    }
+    #ranking-class {
+    	position : relative;
+    	top : 5vw;
+    }  
+
+	#ranking-caption {
+		font-family : Jua;
+		position : relative;
+		margin-top : -2vh;
+		padding-left : 60px;
+	}
+	
+	
+	/*
+	*  랭킹 그림 위치 조정
+	*/
+	
+	#ranking {
+		position : relative;
+		top : 14vh;
+		padding-left : 50px;
+		margin : 0 auto;
+	}	
+	
+	
+	/*
+	* '신상맛집' 글자 위치 조정
+	*/
+	
+	#new-restaurants-intro {
+		padding-top : 4vh;
+		font-family : Jua;
+		position : relative;
+		padding-left : 60px;
+	}
+
+	/*
+	* '신상맛집' 이미지 위치 조정
+	*/
+	
+	#new-restaurants-images {
+		position : relative;
+		padding-left : 50px;
+		margin : 0 auto;
+	}
+	
+	/*
+	*	랭킹, 신상맛집 이미지
+	*/
+	.ranking-img {
+		width : 20vw;
+		height : 27.5vh;
+	
+	}
+	
+	/*
+	* 랭킹, 신상맛집 깃발 부분 위치 설정
+	*/
+	.map-pin-ranking {
+		position : absolute;
+		top: 28.6vh;
+		left:2vw;
+	}
+	
+	/*
+	* 랭킹,신상맛집 주소정보 글씨체 크기, 색깔 및 위치 조정 
+	*/
+	
+	.location-ranking {
+		position : absolute;
+		top: 28.8vh;
+		left:3.2vw;
+		font-family : Jua;
+		font-size:18px;
+	}
+	
+	/*
+	* 랭킹, 신상맛집 이름정보 글씨체 크기, 색깔 및 위치 조정 
+	*/
+	
+	
+	.name-ranking {
+		position :absolute;
+		top: 32vh;
+   		left : 2vw;
+   		font-family : Jua;
+   		font-size : 28px;
+	}
+	
+	/*
+	* 랭킹, 신상맛집 별 부분 크기, 색깔 및 위치 조정 
+	*/
+	.star-ranking {
+		position : absolute;
+		top:32.2vh;
+		left : 6.5vw;
+	}
+	
+	
+	/*
+	* 랭킹, 신상맛집 평점숫자부분 글씨체 색깔 및 위치 조정 
+	*/
+	.rate-ranking {
+		position : absolute;
+		top:32.5vh;
+		left:8vw;
+		font-family : Jua;
+	}
+	
+	/*
+	* 랭킹,신상맛집 코멘트 부분 글씨체 크기, 색깔 및 위치 조정 
+	*/
+	.comment-ranking {
+		position : absolute;
+		top: 33.5vh;
+		left:2vw;
+		font-family : Jua;
+		font-size:16px;
+	}
+	/*
+	* 랭킹, 신상맛집 더 보기 글씨 위치 및 크기 설정 
+	*/
+	.see-more {
+		position : absolute;
+		top: 17.5vh;
+		left : 8vw;
+		text-align :center;
+		font-family : Jua;
+		color : white;
+		font-size:20px;
+	}

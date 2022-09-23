@@ -1,5 +1,9 @@
 package com.restaurantreservation.aruaru.util;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,10 +23,22 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		//메시지 발송
 		
 		String msg = message.getPayload();
+		File file = new File("E:\\workspace\\Test_SpringBoot\\file.text");
+		byte[] binary = msg.getBytes();
+		FileWriter stream;
+		try {
+			stream = new FileWriter(file,true);
+			stream.append(new String(binary));
+			stream.append("\n");
+			stream.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		for(String key : sessionMap.keySet()) {
 			WebSocketSession wss = sessionMap.get(key);
-			
-			try {
+			try{
 				wss.sendMessage(new TextMessage(msg));
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -35,6 +51,9 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		//소켓 연결
 		super.afterConnectionEstablished(session);
 		sessionMap.put(session.getId(), session);
+		
+		
+		
 	}
 	
 	@Override 

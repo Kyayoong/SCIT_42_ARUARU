@@ -2,169 +2,180 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-    <mapper namespace="com.restaurantreservation.aruaru.dao.RestaurantDao">
-    <!-- 식당 조회 -->
-    <select id="selectOne" resultType="Restaurant_member" parameterType="String">
-    SELECT 
-    *
-    FROM
-    restaurant_member
-    WHERE
-    member_id = #{member_id}
-    </select>
-    
-    <!-- 식당등록 -->
-    <insert id="regist1" parameterType="Restaurant_member">
-    INSERT INTO restaurant_member
-	    (restaurant_num
-	    , member_id
-	    , restaurant_name
-	    , restaurant_sectors
-	    , restaurant_comment
-	    , restaurant_phone
-	    , restaurant_address1
-	    , restaurant_address2
-	    )
-    VALUES
-	    (restaurant_member_seq.nextval
-	    , #{member_id}
-	    , #{restaurant_name}
-	    , #{restaurant_sectors}
-	    , #{restaurant_comment}
-	    , #{restaurant_phone}
-	    , #{restaurant_address1}
-	    , #{restaurant_address2}
-    )
-    </insert>
-     <!-- 식당 파일 등록 -->
-    <insert id="fileregist" parameterType="Restaurant_file">
-    INSERT INTO restaurant_file
-	    (restaurant_file_num
-	    , restaurant_originalfile
-	    , restaurant_savedfile
-	    , restaurant_num
-	    )
-    VALUES
-	    (restaurant_file_seq.nextval
-	    , #{restaurant_originalfile}
-	    , #{restaurant_savedfile}
-	    , #{restaurant_num}
-    )
-    </insert>
-  
-  	<!-- 메뉴 등록 -->
-  	<insert id="insertmenu" parameterType="Menu">
-  	 INSERT INTO menu
-	    (menu_num
-	    , menu_name
-	    , restaurant_num
-	    , menu_price
-	    , menu_originalfile
-	    , menu_savedfile
-	    , menu_content
-	    , menu_suggestion
-	    )
-    VALUES
-	    (menu_seq.nextval
-	    , #{menu_name}
-	    , #{restaurant_num}
-	    , #{menu_price}
-	    , #{menu_originalfile}
-	    , #{menu_savedfile}
-	    , #{menu_content}
-	    , #{menu_suggestion}
-    )
-  	</insert>
-  	
-  	<!-- 메뉴 조회 -->
-  	<select id="menucheck" parameterType="int" resultType="Menu">
-  	SELECT
-  	*
-  	FROM
-  	menu
-  	WHERE
-  	restaurant_num = #{restaurant_num}
-  	</select>
-  	<!-- 메뉴 등록 -->
-  	<select id="readMenu" parameterType="int" resultType="Menu">
-  	SELECT
-  	*
-  	FROM
-  	menu
-  	WHERE
-  	menu_num = #{menu_num}
-  	</select>
-  	<!-- 메뉴 삭제 -->
-  	<delete id="menuDel" parameterType="int">
-  	DELETE
-  	FROM
-  	menu
-  	WHERE
-  	menu_num = #{menu_num}
-  	</delete>
-  	
-  	<!-- 식당맴버 평균가격 업데이트 -->
-  	<update id="Rupdate" parameterType="Restaurant_member">
-  	UPDATE
-  	restaurant_member
-  	SET
-  	menu_priceavr = #{menu_priceavr}
-  	WHERE
-  	restaurant_num = #{restaurant_num}
-  	</update>
-  	
-  	<!-- 전체 태그 섹터로 분류 -->
+
+<mapper
+	namespace="com.restaurantreservation.aruaru.dao.RestaurantDao">
+	<!-- 식당 조회 -->
+	<select id="selectOne" resultType="Restaurant_member"
+		parameterType="String">
+		SELECT
+		*
+		FROM
+		restaurant_member
+		WHERE
+		member_id = #{member_id}
+	</select>
+
+	<!-- 식당등록 -->
+	<insert id="regist1" parameterType="Restaurant_member">
+		INSERT INTO restaurant_member
+		(restaurant_num
+		, member_id
+		, restaurant_name
+		, restaurant_sectors
+		, restaurant_comment
+		, restaurant_phone
+		, restaurant_address1
+		, restaurant_address2
+		)
+		VALUES
+		(restaurant_member_seq.nextval
+		, #{member_id}
+		, #{restaurant_name}
+		, #{restaurant_sectors}
+		, #{restaurant_comment}
+		, #{restaurant_phone}
+		, #{restaurant_address1}
+		, #{restaurant_address2}
+		)
+	</insert>
+	<!-- 식당 파일 등록 -->
+	<insert id="fileregist" parameterType="Restaurant_file">
+		INSERT INTO restaurant_file
+		(restaurant_file_num
+		, restaurant_originalfile
+		, restaurant_savedfile
+		, restaurant_num
+		)
+		VALUES
+		(restaurant_file_seq.nextval
+		, #{restaurant_originalfile}
+		, #{restaurant_savedfile}
+		, #{restaurant_num}
+		)
+	</insert>
+
+	<!-- 메뉴 등록 -->
+	<insert id="insertmenu" parameterType="Menu">
+		INSERT INTO menu
+		(menu_num
+		, menu_name
+		, restaurant_num
+		, menu_price
+		, menu_originalfile
+		, menu_savedfile
+		, menu_content
+		, menu_suggestion
+		)
+		VALUES
+		(menu_seq.nextval
+		, #{menu_name}
+		, #{restaurant_num}
+		, #{menu_price}
+		, #{menu_originalfile}
+		, #{menu_savedfile}
+		, #{menu_content}
+		, #{menu_suggestion}
+		)
+	</insert>
+
+	<!-- 메뉴 조회 -->
+	<select id="menucheck" parameterType="int" resultType="Menu">
+		SELECT
+		*
+		FROM
+		menu
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</select>
+	<!-- 메뉴 등록 -->
+	<select id="readMenu" parameterType="int" resultType="Menu">
+		SELECT
+		*
+		FROM
+		menu
+		WHERE
+		menu_num = #{menu_num}
+	</select>
+	<!-- 메뉴 삭제 -->
+	<delete id="menuDel" parameterType="int">
+		DELETE
+		FROM
+		menu
+		WHERE
+		menu_num = #{menu_num}
+	</delete>
+
+	<!-- 식당맴버 평균가격 업데이트 -->
+	<update id="Rupdate" parameterType="Restaurant_member">
+		UPDATE
+		restaurant_member
+		SET
+		menu_priceavr = #{menu_priceavr}
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</update>
+
+	<!-- 전체 태그 섹터로 분류 -->
 	<select id="tagList" parameterType="String" resultType="Tags">
-	SELECT 
+		SELECT
 		tags_num
 		, tags_name
 		, restaurant_num
 		, tags_sector
-	FROM 
-		tags 
-	<if test="searchWord != null">
-	WHERE
-			tags_sector like '%' || #{searchWord} || '%'
-	</if>
-	AND
-	restaurant_num = 0
-	order by tags_num desc
-	</select>
-  
-  	<select id="tagRead" parameterType="int" resultType="Tags">
-  	SELECT
-  		tags_name
-  		, tags_sector
-  	FROM 
+		FROM
 		tags
-	WHERE
+		<if test="searchWord != null">
+			WHERE
+			tags_sector like '%' || #{searchWord} || '%'
+		</if>
+		AND
+		restaurant_num = 0
+		order by tags_num desc
+	</select>
+	<!-- 저장된 태그 가져오기 -->
+	<select id="tagRead" parameterType="int" resultType="Tags">
+		SELECT
+		tags_name
+		, tags_sector
+		FROM
+		tags
+		WHERE
 		tags_num = #{tags_num}
 
-  	</select>
-  	
-  	<insert id="tagInsert" parameterType="Tags">
-  	 INSERT INTO tags
-	    (tags_num
-	    , tags_name
-	    , restaurant_num
-	    , tags_sector
-	    )
-    VALUES
-	    (tags_seq.nextval
-	    , #{tags_name}
-	    , #{restaurant_num}
-	    , #{tags_sector}
-    )
-  	</insert>
-  	
-  	<delete id="tagDelete" parameterType="Tags">
-  	DELETE
-  	FROM
-  	tags
-  	WHERE
-  	restaurant_num = #{restaurant_num}
-  	AND
-  	tags_name = #{tags_name}
-  	</delete>
-    </mapper>
+	</select>
+	<!-- 태그 저장 -->
+	<insert id="tagInsert" parameterType="Tags">
+		INSERT INTO tags
+		(tags_num
+		, tags_name
+		, restaurant_num
+		, tags_sector
+		)
+		VALUES
+		(tags_seq.nextval
+		, #{tags_name}
+		, #{restaurant_num}
+		, #{tags_sector}
+		)
+	</insert>
+	<!-- 태그 삭제 -->
+	<delete id="tagDelete" parameterType="Tags">
+		DELETE
+		FROM
+		tags
+		WHERE
+		restaurant_num = #{restaurant_num}
+		AND
+		tags_name = #{tags_name}
+	</delete>
+
+	<select id="readHoliday" resultType="Holiday">
+		SELECT
+		*
+		FROM
+		holiday
+		WHERE
+		restaurant_num IS NULL
+	</select>
+</mapper>

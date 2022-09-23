@@ -2,6 +2,7 @@ package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
 
+import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
@@ -44,4 +45,8 @@ public interface RestaurantService {
 	
 	//태그 저장
 	public int tagInsert(Tags tag);
+	
+	//공휴일 리스트
+	public ArrayList<Holiday> readHoliday();
+	
 }

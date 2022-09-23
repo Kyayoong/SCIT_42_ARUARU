@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
@@ -48,5 +49,7 @@ public interface RestaurantDao {
 	//태그 저장
 	int tagInsert(Tags tag);
 	
+	//공휴일 리스트
+	ArrayList<Holiday> readHoliday();
 
 }

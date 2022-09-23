@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-<link th:href="@{/css/registViewCss/registCss.css}" rel="stylesheet">
+<link th:href="@{/css/registViewCss/registCss2.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -17,21 +17,57 @@
 	
 </script>
 <script>
-	$(document).ready(function()
-	// input file 파일 첨부시 fileCheck 함수 실행
-	{
-		$("#input_file").on("change", fileCheck);
-	});
+	
+	
 
-	/**
-	 * 첨부파일로직
-	 */
+	$(document).ready(function() {
+			$("#select").hide();
+			$("#time1").hide();
+			$("#time2").hide();
+			$("#time3").hide();
+			
+	});
+	
 	$(function() {
-		$('#btn-upload').click(function(e) {
-			e.preventDefault();
-			$('#btnAtt').click();
+		$('#hoilday').click(function(e) {
+			console.log("1");
+			$("#select").show(); // display 속성을 block 으로 바꾼다.
+			
 		});
 	});
+	
+	$(function() {
+		$('#nohoilday').click(function(e) {
+			console.log("1");
+			$("#select").hide(); // display 속성을 none 으로 바꾼다. 
+		});
+	});
+	$(function() {
+		$('#timeselect1').click(function(e) {
+			console.log("1");
+			$("#time1").show();
+			$("#time2").hide();
+			$("#time3").hide();
+		});
+	});
+	$(function() {
+		$('#timeselect2').click(function(e) {
+			console.log("1");
+			$("#time1").hide();
+			$("#time2").show();
+			$("#time3").hide();
+		});
+	});
+	$(function() {
+		$('#timeselect3').click(function(e) {
+			console.log("1");
+			$("#time1").hide();
+			$("#time2").hide();
+			$("#time3").show();
+		});
+	});
+
+	
 
 	function check() {
 		let restaurant_name = document.getElementById('restaurant_name');
@@ -117,7 +153,7 @@
 			<img id="rrmark" th:src="@{../images/rrmark.png}"> <img
 				id="rrjapanesemark" th:src="@{../images/rrjapanesemark.png}">
 			<div id="inform-restaurant-register">
-				<p style="font-family: IBM Plex Sans KR;">식당 등록 화면입니다.</p>
+				<p style="font-family: IBM Plex Sans KR;">휴무일/영업정보 등록 화면</p>
 			</div>
 		</div>
 		<!-- 식당 등록 테이블 -->
@@ -127,256 +163,204 @@
 				onsubmit="return check();">
 				<table>
 					<tr>
-						<td><label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">식당 명을 입력해주세요.</label><br>
-							<input class="form-control" type="text" id="restaurant_name"
-							name="restaurant_name" style="width: 600px;"
-							placeholder="식당 이름을 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><label for="sectors"
-							style="font-family: IBM Plex Sans KR;">업종선택</label><br> <select
-							class="form-control" id="restaurant_sectors"
-							name="restaurant_sectors">
-								<option value="koreanfood">한식(韓食)</option>
-								<option value="chinesefood">중식(中食)</option>
-								<option value="Japanesefood">일식(和食)</option>
-								<option value="western food">양식(洋食)</option>
-								<option value="baking">제과제빵(ベーキング)</option>
-								<option value="pub">주점(さかや)</option>
-								<option value="fastfood">패스트푸드(ファーストフード)</option>
-								<option value="schoolfood">분식(粉物)</option>
-								<option value="ice">아이스크림/빙수(アイスクリーム/かき氷)</option>
-								<option value="pizza">피자(ピザ)</option>
-								<option value="drink">음료(飲み物)</option>
-								<option value="chicken">치킨(チキン)</option>
-								<option value="coffee">커피(コーヒー)</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">업체
-								사진</label><br>
-							<div id='image_preview'>
-								<button class="btn btn-primary" id="btn-upload" type="button">
-									파일추가</button>
-								<input id="btnAtt" multiple="multiple" type="file"
-									accept="image/*" name="upload" style="display: none;">
-								<span style="font-family: IBM Plex Sans KR;">※첨부파일은 최대
-									5개까지 등록이 가능합니다.</span>
-								<div id='att_zone'
-									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
-							</div> <script type="text/javascript">
-
-							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-							imageView = function imageView(att_zone, btn){
-
-							var attZone = document.getElementById(att_zone);
-							var btnAtt = document.getElementById(btn)
-							var sel_files = [];
-									    
-									    // 이미지와 체크 박스를 감싸고 있는 div 속성
-									    var div_style = 'display:inline-block;position:relative;'
-									                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-									    // 미리보기 이미지 속성
-									    var img_style = 'width:100%;height:100%;z-index:none';
-									    // 이미지안에 표시되는 체크박스의 속성
-									    var chk_style = 'width:30px;height:30px;position:absolute;'
-									                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
-									  
-									    btnAtt.onchange = function(e){
-									      var files = e.target.files;
-									      var fileArr = Array.prototype.slice.call(files)
-									      for(f of fileArr){
-									        imageLoader(f);
-									      }
-									    }  
-									    
-									  
-									    // 탐색기에서 드래그앤 드롭 사용
-									    attZone.addEventListener('dragenter', function(e){
-									      e.preventDefault();
-									      e.stopPropagation();
-									    }, false)
-									    
-									    attZone.addEventListener('dragover', function(e){
-									      e.preventDefault();
-									      e.stopPropagation();
-									      
-									    }, false)
-									  
-									    attZone.addEventListener('drop', function(e){
-									      var files = {};
-									      e.preventDefault();
-									      e.stopPropagation();
-									      var dt = e.dataTransfer;
-									      files = dt.files;
-									      for(f of files){
-									        imageLoader(f);
-									      }
-									      
-									    }, false)
-									    
-
-									    
-									    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-									    imageLoader = function(file){
-									      sel_files.push(file);
-									      var reader = new FileReader();
-									      reader.onload = function(ee){
-									        let img = document.createElement('img')
-									        img.setAttribute('style', img_style)
-									        img.src = ee.target.result;
-									        attZone.appendChild(makeDiv(img, file));
-									      }
-									      
-									      reader.readAsDataURL(file);
-									    }
-									    
-									    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-									    makeDiv = function(img, file){
-									      var div = document.createElement('div')
-									      div.setAttribute('style', div_style)
-									      
-									      var btn = document.createElement('input')
-									      btn.setAttribute('type', 'button')
-									      btn.setAttribute('value', 'x')
-									      btn.setAttribute('delFile', file.name);
-									      btn.setAttribute('style', chk_style);
-									      btn.onclick = function(ev){
-									        var ele = ev.srcElement;
-									        var delFile = ele.getAttribute('delFile');
-									        for(var i=0 ;i<sel_files.length; i++){
-									          if(delFile== sel_files[i].name){
-									            sel_files.splice(i, 1);      
-									          }
-									        }
-									        
-									        dt = new DataTransfer();
-									        for(f in sel_files) {
-									          var file = sel_files[f];
-									          dt.items.add(file);
-									        }
-									        btnAtt.files = dt.files;
-									        var p = ele.parentNode;
-									        attZone.removeChild(p)
-									      }
-									      div.appendChild(img)
-									      div.appendChild(btn)
-									      return div
-									    }
-									  }
-									)('att_zone', 'btnAtt')
-
-							</script>
 						<td>
+						<label for="restaurant_name" style="font-family: IBM Plex Sans KR;">휴무일 여부</label><br>
+						<div class="btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-outline-secondary" for="hoilday" style="width: 300px; height:50px; font-size:25px;"><input name="tags_name" 
+						value="hoilday" type="radio" id="hoilday" class="tag1" >휴무가 있어요.</label>
+						<label class="btn btn-outline-secondary" for="nohoilday" style="width: 300px; height:50px; font-size:25px;"><input name="tags_name" 
+						value="nohoilday" type="radio" id="nohoilday" class="tag1">휴무가 없어요.</label>
+						</div>
+						</td>
 					</tr>
-
+					
+					
 					<tr>
-						<td class="contents"><label for="contents"
-							style="font-family: IBM Plex Sans KR;">업체 설명</label> <br> <textarea
-								placeholder="우리 업체를 고객들에게 상세히 설명해주세요." class="form-control"
-								rows="3" cols="50" name="restaurant_comment"
-								id="restaurant_comment"></textarea></td>
+						<td>
+						<br>
+						<div id="select">
+						<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
+								 type="checkbox" id="w1" class="tag1">첫째주</label>
+								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
+								 type="checkbox" id="w2" class="tag1">둘째주</label>
+								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
+								 type="checkbox" id="w3" class="tag1">셋째주</label>
+								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
+								 type="checkbox" id="w4" class="tag1">넷째주</label>
+								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
+								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+							</div>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
+								 type="checkbox" id="1" class="tag1">월요일</label>
+								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
+								 type="checkbox" id="2" class="tag1">화요일</label>
+								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
+								 type="checkbox" id="3" class="tag1">수요일</label>
+								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
+								 type="checkbox" id="4" class="tag1">목요일</label>
+								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
+								 type="checkbox" id="5" class="tag1">금요일</label>
+								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
+								 type="checkbox" id="6" class="tag1">토요일</label>
+								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
+								 type="checkbox" id="7" class="tag1">일요일</label>
+							</div>
+							<br>
+							<label for=""
+							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
+								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							</div>
+						</div>
+						</td>
 					</tr>
 					<tr>
-						<td><label for="restaurant_phone"
-							style="font-family: IBM Plex Sans KR;">전화번호를 입력해주세요.</label><br>
-							<input type="hidden" id="restaurant_phone"
-							name="restaurant_phone"> <select class="form-control"
-							id="restaurant_phone1" name="restaurant_phone1"
-							style="width: 100px;">
-								<option value="02">02</option>
-								<option value="031">031</option>
-								<option value="070">070</option>
-						</select>
-							<div id="form-phone2">
-								<input class="form-control" style="width: 500px;" type="text"
-									id="restaurant_phone2" name="restaurant_phone2"
-									placeholder="식당 번호 입력(-포함)">
-							</div></td>
+						<td>
+						<label for="restaurant_name" style="font-family: IBM Plex Sans KR;">영업시간 여부</label><br>
+						<div class="btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-outline-secondary" for="timeselect1" style="width: 200px; height:45px; font-size:20px;"><input name="tags_name" 
+						value="timeselect1" type="radio" id="timeselect1" class="tag1" >모든 요일 같아요</label>
+						<label class="btn btn-outline-secondary" for="timeselect2" style="width: 200px; height:45px; font-size:20px;"><input name="tags_name" 
+						value="timeselect2" type="radio" id="timeselect2" class="tag1">평일 주말 달라요.</label>
+						<label class="btn btn-outline-secondary" for="timeselect3" style="width: 200px; height:45px; font-size:20px;"><input name="tags_name" 
+						value="timeselect3" type="radio" id="timeselect3" class="tag1">요일마다 달라요.</label>
+						</div>
+						</td>
 					</tr>
 					<tr>
-						<td><label for="restaurant_address1"
-							style="font-family: IBM Plex Sans KR;">주소를 입력해주세요</label><br>
-							<input class="form-control"
-							type="text" id="restaurant_address1" name="restaurant_address1"
-							placeholder="주소" style="width: 450px;" readonly="readonly">
-							<div id="b-search-address">
-								<input style="width: 7vw;" class="form-control" type="button"
-									onclick="sample5_execDaumPostcode()" value="주소 검색">
-							</div> <input class="form-control" type="text" id="restaurant_address2"
-							name="restaurant_address2" placeholder="상세주소"
-							style="width: 600px;">
-							<div id="map"
-								style="width: 500px; height: 300px; margin-top: 10px; display: none"></div>
-
-							<script
-								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-							<script
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
-							<script>
-								var mapContainer = document
-										.getElementById('map'), // 지도를 표시할 div
-								mapOption = {
-									center : new daum.maps.LatLng(37.537187,
-											127.005476), // 지도의 중심좌표
-									level : 5
-								// 지도의 확대 레벨
-								};
-
-								//지도를 미리 생성
-								var map = new daum.maps.Map(mapContainer,
-										mapOption);
-								//주소-좌표 변환 객체를 생성
-								var geocoder = new daum.maps.services.Geocoder();
-								//마커를 미리 생성
-								var marker = new daum.maps.Marker({
-									position : new daum.maps.LatLng(37.537187,
-											127.005476),
-									map : map
-								});
-
-								function sample5_execDaumPostcode() {
-									new daum.Postcode(
-											{
-												oncomplete : function(data) {
-													var addr = data.address; // 최종 주소 변수
-
-													// 주소 정보를 해당 필드에 넣는다.
-													document
-															.getElementById("restaurant_address1").value = addr;
-													// 주소로 상세 정보를 검색
-													geocoder
-															.addressSearch(
-																	data.address,
-																	function(
-																			results,
-																			status) {
-																		// 정상적으로 검색이 완료됐으면
-																		if (status === daum.maps.services.Status.OK) {
-
-																			var result = results[0]; //첫번째 결과의 값을 활용
-
-																			// 해당 주소에 대한 좌표를 받아서
-																			var coords = new daum.maps.LatLng(
-																					result.y,
-																					result.x);
-																			// 지도를 보여준다.
-																			mapContainer.style.display = "block";
-																			map
-																					.relayout();
-																			// 지도 중심을 변경한다.
-																			map
-																					.setCenter(coords);
-																			// 마커를 결과값으로 받은 위치로 옮긴다.
-																			marker
-																					.setPosition(coords)
-																		}
-																	});
-												}
-											}).open();
-								}
-							</script></td>
+						<td>
+						<br>
+						<div id="time1">
+						<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
+								 type="checkbox" id="w1" class="tag1">첫째주</label>
+								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
+								 type="checkbox" id="w2" class="tag1">둘째주</label>
+								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
+								 type="checkbox" id="w3" class="tag1">셋째주</label>
+								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
+								 type="checkbox" id="w4" class="tag1">넷째주</label>
+								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
+								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+							</div>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
+								 type="checkbox" id="1" class="tag1">월요일</label>
+								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
+								 type="checkbox" id="2" class="tag1">화요일</label>
+								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
+								 type="checkbox" id="3" class="tag1">수요일</label>
+								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
+								 type="checkbox" id="4" class="tag1">목요일</label>
+								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
+								 type="checkbox" id="5" class="tag1">금요일</label>
+								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
+								 type="checkbox" id="6" class="tag1">토요일</label>
+								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
+								 type="checkbox" id="7" class="tag1">일요일</label>
+							</div>
+							<br>
+							<label for=""
+							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
+								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							</div>
+						</div>
+						<div id="time2">
+						<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
+								 type="checkbox" id="w1" class="tag1">첫째주</label>
+								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
+								 type="checkbox" id="w2" class="tag1">둘째주</label>
+								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
+								 type="checkbox" id="w3" class="tag1">셋째주</label>
+								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
+								 type="checkbox" id="w4" class="tag1">넷째주</label>
+								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
+								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+							</div>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
+								 type="checkbox" id="1" class="tag1">월요일</label>
+								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
+								 type="checkbox" id="2" class="tag1">화요일</label>
+								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
+								 type="checkbox" id="3" class="tag1">수요일</label>
+								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
+								 type="checkbox" id="4" class="tag1">목요일</label>
+								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
+								 type="checkbox" id="5" class="tag1">금요일</label>
+								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
+								 type="checkbox" id="6" class="tag1">토요일</label>
+								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
+								 type="checkbox" id="7" class="tag1">일요일</label>
+							</div>
+							<br>
+							<label for=""
+							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
+								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							</div>
+						</div>
+						<div id="time3">
+						<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
+								 type="checkbox" id="w1" class="tag1">첫째주</label>
+								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
+								 type="checkbox" id="w2" class="tag1">둘째주</label>
+								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
+								 type="checkbox" id="w3" class="tag1">셋째주</label>
+								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
+								 type="checkbox" id="w4" class="tag1">넷째주</label>
+								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
+								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+							</div>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
+								 type="checkbox" id="1" class="tag1">월요일</label>
+								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
+								 type="checkbox" id="2" class="tag1">화요일</label>
+								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
+								 type="checkbox" id="3" class="tag1">수요일</label>
+								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
+								 type="checkbox" id="4" class="tag1">목요일</label>
+								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
+								 type="checkbox" id="5" class="tag1">금요일</label>
+								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
+								 type="checkbox" id="6" class="tag1">토요일</label>
+								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
+								 type="checkbox" id="7" class="tag1">일요일</label>
+							</div>
+							<br>
+							<label for=""
+							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
+								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							</div>
+						</div>
+						</td>
 					</tr>
 					<tr>
 						<td>

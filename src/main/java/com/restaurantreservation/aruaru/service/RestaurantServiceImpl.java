@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.RestaurantDao;
+import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
@@ -106,6 +107,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public int tagDelete(Tags tag) {
 		int result = dao.tagDelete(tag);
 		return result;
+	}
+
+	@Override
+	public ArrayList<Holiday> readHoliday() {
+		ArrayList<Holiday> hList = dao.readHoliday();
+		return hList;
 	}
 
 }

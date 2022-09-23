@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
@@ -141,7 +142,13 @@ public class RestaurantController {
 	 * 영업일 설정화면으로 이동합니다~
 	 */
 	@GetMapping("/join_as_restaurant_time")
-	public String join_as_restaurant_time() {
+	public String join_as_restaurant_time(Model model) {
+		
+		
+		ArrayList<Holiday> hList = service.readHoliday();
+		log.debug("결과 : {}",hList);
+		model.addAttribute("hList", hList);
+		
 		return "/registView/join_as_restaurant_time";
 	}
 }

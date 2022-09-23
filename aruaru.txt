@@ -175,7 +175,8 @@ CREATE TABLE tags(
     tags_num NUMBER(10) PRIMARY KEY,				--태그 번호
     restaurant_num NUMBER(10) DEFAULT 0, 			--식당번호
     tags_name VARCHAR2(50) NOT NULL,				--태그 이름
-    tags_sector VARCHAR2(50) NOT NULL  				--태그 종류
+    tags_sector VARCHAR2(50) NOT NULL, 				--태그 종류
+    tags_count NUMBER(10) DEFAULT 0					--태그 카운트
 );
 
 
@@ -186,16 +187,18 @@ CREATE SEQUENCE tags_seq;
 --영업시간 테이블
 CREATE TABLE restaurant_time(
     opentime VARCHAR2(50) NOT NULL,				--오픈시간
-    closetime VARCHAR2(50) NOT NULL,				--영업종료시간
-    breaktime VARCHAR2(50) NOT NULL,				--브레이크 타임
-    business_days VARCHAR2(50) NOT NULL,				--영업일
+    closetime VARCHAR2(50) NOT NULL,			--영업종료시간
+    breaktime-start VARCHAR2(50),				--브레이크 타임 시작
+    breaktime-end VARCHAR2(50),					--브레이크 타임 종료
+    business_days VARCHAR2(50) NOT NULL,		--영업일
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
 );
 
 --휴무일 테이블
 CREATE TABLE holiday(
     holidays_num NUMBER(10) PRIMARY KEY,				--휴무일 번호
-    holidays VARCHAR2(50) NOT NULL,				--휴무일
+    holidays VARCHAR2(50) NOT NULL,						--휴무일
+    holiday_date DATE,									--날자
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
 );
 

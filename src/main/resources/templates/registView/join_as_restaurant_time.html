@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<link rel="stylesheet" th:href="@{/css/jquery.timepicker.css}">
+<script th:src="@{/js/jquery.timepicker.js}"></script>
 <link th:href="@{/css/registViewCss/registCss2.css}" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,6 +131,17 @@
 		}
 		return true;
 	}
+	
+	$(document).ready(function () {
+		$('input.timepicker').timepicker({
+	            timeFormat: 'HH:mm',
+	            interval: 30,
+	            startTime: '00:00',
+	            dynamic: false,
+	            dropdown: true,
+	            scrollbar: true
+	        });
+	    });
 </script>
 <title>[ 식당 등록 ]</title>
 </head>
@@ -182,41 +195,39 @@
 						<label for="restaurant_name"
 							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
 							<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							style="font-family: IBM Plex Sans KR;">매달</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
 								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
-								 type="checkbox" id="w1" class="tag1">첫째주</label>
+								 type="checkbox" id="w1" class="tag1" value="-1">첫째주</label>
 								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
-								 type="checkbox" id="w2" class="tag1">둘째주</label>
+								 type="checkbox" id="w2" class="tag1" value="6">둘째주</label>
 								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
-								 type="checkbox" id="w3" class="tag1">셋째주</label>
+								 type="checkbox" id="w3" class="tag1" value="13">셋째주</label>
 								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
-								 type="checkbox" id="w4" class="tag1">넷째주</label>
-								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
-								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+								 type="checkbox" id="w4" class="tag1" value="19">넷째주</label>
 							</div>
 							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
-								 type="checkbox" id="1" class="tag1">월요일</label>
-								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
-								 type="checkbox" id="2" class="tag1">화요일</label>
-								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
-								 type="checkbox" id="3" class="tag1">수요일</label>
-								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
-								 type="checkbox" id="4" class="tag1">목요일</label>
-								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
-								 type="checkbox" id="5" class="tag1">금요일</label>
-								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
-								 type="checkbox" id="6" class="tag1">토요일</label>
-								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
-								 type="checkbox" id="7" class="tag1">일요일</label>
+								<label class="btn btn-outline-secondary" for="d1" ><input name="d1" 
+								 type="checkbox" id="d1" class="tag1" value="월요일">월요일</label>
+								<label class="btn btn-outline-secondary" for="d2" ><input name="d2" 
+								 type="checkbox" id="d2" class="tag1" value="화요일">화요일</label>
+								<label class="btn btn-outline-secondary" for="d3" ><input name="d3" 
+								 type="checkbox" id="d3" class="tag1" value="수요일">수요일</label>
+								<label class="btn btn-outline-secondary" for="d4" ><input name="d4" 
+								 type="checkbox" id="d4" class="tag1" value="목요일">목요일</label>
+								<label class="btn btn-outline-secondary" for="d5" ><input name="d5" 
+								 type="checkbox" id="d5" class="tag1" value="금요일">금요일</label>
+								 <label class="btn btn-outline-secondary" for="d6" ><input name="d6" 
+								 type="checkbox" id="d6" class="tag1" value="토요일">토요일</label>
+								<label class="btn btn-outline-secondary" for="d7" ><input name="d7" 
+								 type="checkbox" id="d7" class="tag1" value="일요일">일요일</label>
 							</div>
 							<br>
 							<label for=""
 							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
-								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+								th:value="${holiday.holidays}" type="checkbox" th:id="${holiday.holidays_num}"  th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
 							</div>
 						</div>
 						</td>
@@ -238,128 +249,141 @@
 						<td>
 						<br>
 						<div id="time1">
+						<hr>
 						<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
-							<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							style="font-family: IBM Plex Sans KR;">영업시간</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
-								 type="checkbox" id="w1" class="tag1">첫째주</label>
-								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
-								 type="checkbox" id="w2" class="tag1">둘째주</label>
-								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
-								 type="checkbox" id="w3" class="tag1">셋째주</label>
-								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
-								 type="checkbox" id="w4" class="tag1">넷째주</label>
-								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
-								 type="checkbox" id="w5" class="tag1">다섯째주</label>
-							</div>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
-								 type="checkbox" id="1" class="tag1">월요일</label>
-								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
-								 type="checkbox" id="2" class="tag1">화요일</label>
-								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
-								 type="checkbox" id="3" class="tag1">수요일</label>
-								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
-								 type="checkbox" id="4" class="tag1">목요일</label>
-								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
-								 type="checkbox" id="5" class="tag1">금요일</label>
-								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
-								 type="checkbox" id="6" class="tag1">토요일</label>
-								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
-								 type="checkbox" id="7" class="tag1">일요일</label>
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
 							</div>
 							<br>
-							<label for=""
-							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
-								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
+							<div>
+								<input type="text" value="00:00" name="breaktime_start" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="00:00" name="breaktime_end" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
 							</div>
 						</div>
 						<div id="time2">
+						<hr>
 						<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
-							<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							style="font-family: IBM Plex Sans KR;font-size:1.5em;">평일(월~금)</label><br>
+						<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">영업시간</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
-								 type="checkbox" id="w1" class="tag1">첫째주</label>
-								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
-								 type="checkbox" id="w2" class="tag1">둘째주</label>
-								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
-								 type="checkbox" id="w3" class="tag1">셋째주</label>
-								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
-								 type="checkbox" id="w4" class="tag1">넷째주</label>
-								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
-								 type="checkbox" id="w5" class="tag1">다섯째주</label>
-							</div>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
-								 type="checkbox" id="1" class="tag1">월요일</label>
-								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
-								 type="checkbox" id="2" class="tag1">화요일</label>
-								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
-								 type="checkbox" id="3" class="tag1">수요일</label>
-								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
-								 type="checkbox" id="4" class="tag1">목요일</label>
-								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
-								 type="checkbox" id="5" class="tag1">금요일</label>
-								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
-								 type="checkbox" id="6" class="tag1">토요일</label>
-								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
-								 type="checkbox" id="7" class="tag1">일요일</label>
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
 							</div>
 							<br>
-							<label for=""
-							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
+							<div>
+								<input type="text" value="00:00" name="breaktime_start" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="00:00" name="breaktime_end" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+							</div>
+							<br>
+							<hr>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;font-size:1.5em;">주말</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">영업시간</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
-								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
+							<div>
+								<input type="text" value="00:00" name="breaktime_start" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="00:00" name="breaktime_end" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
 							</div>
 						</div>
 						<div id="time3">
-						<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
+						<hr>
 							<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">매주</label><br>
+							style="font-family: IBM Plex Sans KR;">영업시간</label><br>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">월요일</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="w1" ><input name="w1" 
-								 type="checkbox" id="w1" class="tag1">첫째주</label>
-								<label class="btn btn-outline-secondary" for="w2" ><input name="w2" 
-								 type="checkbox" id="w2" class="tag1">둘째주</label>
-								<label class="btn btn-outline-secondary" for="w3" ><input name="w3" 
-								 type="checkbox" id="w3" class="tag1">셋째주</label>
-								<label class="btn btn-outline-secondary" for="w4" ><input name="w4" 
-								 type="checkbox" id="w4" class="tag1">넷째주</label>
-								<label class="btn btn-outline-secondary" for="w5" ><input name="w5" 
-								 type="checkbox" id="w5" class="tag1">다섯째주</label>
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
 							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">화요일</label><br>
 							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="1" ><input name="1" 
-								 type="checkbox" id="1" class="tag1">월요일</label>
-								<label class="btn btn-outline-secondary" for="2" ><input name="2" 
-								 type="checkbox" id="2" class="tag1">화요일</label>
-								<label class="btn btn-outline-secondary" for="3" ><input name="3" 
-								 type="checkbox" id="3" class="tag1">수요일</label>
-								<label class="btn btn-outline-secondary" for="4" ><input name="4" 
-								 type="checkbox" id="4" class="tag1">목요일</label>
-								<label class="btn btn-outline-secondary" for="5" ><input name="5" 
-								 type="checkbox" id="5" class="tag1">금요일</label>
-								 <label class="btn btn-outline-secondary" for="6" ><input name="6" 
-								 type="checkbox" id="6" class="tag1">토요일</label>
-								<label class="btn btn-outline-secondary" for="7" ><input name="7" 
-								 type="checkbox" id="7" class="tag1">일요일</label>
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
 							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">수요일</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">목요일</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">금요일</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">토요일</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<hr>
+								<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">일요일</label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<input type="text" value="10:00" name="opentime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="22:00" name="closetime" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>영업시간을 설정해주세요</span>
+							</div>
+							<hr>
 							<br>
-							<label for=""
-							style="font-family: IBM Plex Sans KR;">공휴일중에 쉬는 날이 있나요??</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-outline-secondary" th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input name="holidays" 
-								th:value="${holiday.holidays}" type="checkbox" th:for="${holiday.holidays_num}" th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
+							<label for="restaurant_name"
+							style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
+							<div>
+								<input type="text" value="00:00" name="breaktime_start" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
+								<span>~</span>
+								<input type="text" value="00:00" name="breaktime_end" class="timepicker" style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;" >
 							</div>
-						</div>
+							</div>
 						</td>
 					</tr>
 					<tr>

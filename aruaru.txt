@@ -74,17 +74,17 @@ CREATE SEQUENCE restaurant_member_seq;
 
 --게시판테이블
 CREATE TABLE web_board(
-    board_num NUMBER(10) PRIMARY KEY,                         		--게시판번호
-    member_id VARCHAR2(100) REFERENCES user_member(member_id),      	--회원아이디
-    board_title VARCHAR2(200) NOT NULL,				--게시판 제목
-    boatd_contents VARCHAR2(2000) NOT NULL,			--게시판 내용
-    hits number(10) DEFAULT 0,					--조회수
+    board_num NUMBER(10) PRIMARY KEY,                   --게시판번호
+    member_id VARCHAR2(100) REFERENCES user_member(member_id), --회원아이디
+    board_title VARCHAR2(200) NOT NULL,					--게시판 제목
+    board_contents VARCHAR2(2000) NOT NULL,				--게시판 내용
+    hits number(10) DEFAULT 0,							--조회수
     board_originalfile VARCHAR2(300),					--게시판파일(오리지날)
-    board_savedfile VARCHAR2(300),					--게시판파일(저장)
+    board_savedfile VARCHAR2(300),						--게시판파일(저장)
     board_suggestion NUMBER(10) DEFAULT 0,				--추천수
     registration_date DATE DEFAULT SYSDATE,				--등록일
-    board_notice NUMBER(1) DEFAULT 0,				--공지여부
-    category VARCHAR2(50) not null					--카테고리
+    board_notice NUMBER(1) DEFAULT 0,					--공지여부
+    category VARCHAR2(50) not null						--카테고리
 );
 
 --게시판 번호 시퀀스
@@ -92,7 +92,7 @@ CREATE SEQUENCE web_board_seq;
 
 --게시판 댓글테이블
 CREATE TABLE web_reply(
-    reply_num NUMBER(10) PRIMARY KEY,				--댓글번호
+    reply_num NUMBER(10) PRIMARY KEY,					--댓글번호
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원아이디
     board_num NUMBER(10) REFERENCES web_board(board_num),		--게시판번호
     reply_contents VARCHAR2(2000) NOT NULL,				--댓글 내용
@@ -107,7 +107,7 @@ CREATE TABLE menu(
 	
     menu_num NUMBER(10) PRIMARY KEY,				--메뉴번호
     menu_name VARCHAR2(200) NOT NULL,				--메뉴이름
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),	--식당번호						
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE,	--식당번호						
     menu_price NUMBER(10) NOT NULL,					--메뉴가격
     menu_originalfile VARCHAR2(300),				--음식사진(오리지널)
     menu_savedfile VARCHAR2(300),					--음식사진(저장)
@@ -188,18 +188,20 @@ CREATE SEQUENCE tags_seq;
 CREATE TABLE restaurant_time(
     opentime VARCHAR2(50) NOT NULL,				--오픈시간
     closetime VARCHAR2(50) NOT NULL,			--영업종료시간
-    breaktime-start VARCHAR2(50),				--브레이크 타임 시작
-    breaktime-end VARCHAR2(50),					--브레이크 타임 종료
-    business_days VARCHAR2(50) NOT NULL,		--영업일
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
+    breaktime_start VARCHAR2(50),				--브레이크 타임 시작
+    breaktime_end VARCHAR2(50),					--브레이크 타임 종료
+    business_days VARCHAR2(50) NOT NULL,		--요일
+    holidays_num NUMBER(10) REFERENCES holiday(holidays_num),	--날짜
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
 );
 
 --휴무일 테이블
 CREATE TABLE holiday(
     holidays_num NUMBER(10) PRIMARY KEY,				--휴무일 번호
-    holidays VARCHAR2(50) NOT NULL,						--휴무일
-    holiday_date DATE,									--날자
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
+    holidays VARCHAR2(50) NOT NULL,						--설명
+    holidays_day VARCHAR2(50),							--요일
+    holidays_date DATE,									--날짜
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
 );
 
 --휴무일 번호 시퀀스
@@ -209,7 +211,7 @@ CREATE SEQUENCE holidays_seq;
 CREATE TABLE reservation_select(
     reservation_seat VARCHAR2(50) NOT NULL,				--좌석종류
     can_people number(3),						--가능 수용인수
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
 );
 
 --신고 테이블
@@ -228,7 +230,7 @@ CREATE TABLE restaurant_file(
     restaurant_file_num NUMBER(10) PRIMARY KEY,				--파일번호
 	restaurant_originalfile VARCHAR2(300), 				--가게 사진파일(오리지날)
     restaurant_savedfile VARCHAR2(300),                         		--가게 사진파일(저장)
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) --식당번호
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
 );
 
 --식당 파일 시퀀스

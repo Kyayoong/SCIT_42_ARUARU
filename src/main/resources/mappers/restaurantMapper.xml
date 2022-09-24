@@ -88,7 +88,7 @@
 		WHERE
 		restaurant_num = #{restaurant_num}
 	</select>
-	<!-- 메뉴 등록 -->
+	<!-- 메뉴 읽어오기 -->
 	<select id="readMenu" parameterType="int" resultType="Menu">
 		SELECT
 		*

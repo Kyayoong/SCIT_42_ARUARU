@@ -1,133 +1,133 @@
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'1월1일','2022-01-01');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'설날','2022-01-31');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'설날당일','2022-02-01');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'설날','2022-02-02');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'삼일절','2022-03-01');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'대통령선거일','2022-03-09');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'어린이날','2022-05-05');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'부처님오신날','2022-05-08');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'전국동시지방선거','2022-06-01');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'현충일','2022-06-06');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'광복절','2022-08-15');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'추석','2022-09-09');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'추석당일','2022-09-10');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'추석','2022-09-11');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'대체공휴일','2022-09-12');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'개천절','2022-10-03');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'한글날','2022-10-09');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'대체공휴일','2022-10-10');
 INSERT INTO holiday
 (holidays_num
 ,holidays
-,holiday_date
+,holidays_date
 )
 VALUES
 (holidays_seq.nextval,'기독탄신일','2022-12-25');

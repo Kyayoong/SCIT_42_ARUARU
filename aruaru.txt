@@ -35,14 +35,17 @@ CREATE TABLE user_member(
     member_birth VARCHAR2(100) NOT NULL,							--회원 생년월일
     member_name VARCHAR2(30) NOT NULL,                        		--회원이름
     member_phone VARCHAR2(50) NOT NULL,                         	--회원폰번호
-    member_grade NUMBER(1) DEFAULT 0,                           	--회원등급
     member_role VARCHAR2(50) DEFAULT 'ROLE_USER' CHECK( member_role IN ('ROLE_USER','ROLE_ADMIN','ROLE_MEMBER')), --회원역할
     member_email VARCHAR2(50) NOT NULL,								--이메일 
     enabled NUMBER(1) DEFAULT 1,									--이메일 인증여부    				
     email_key VARCHAR2(50),											--이메일 인증번호
     registration_date DATE DEFAULT SYSDATE,                    		--등록일  
-    member_address VARCHAR2(500) NOT NULL,                      	--회원주소
+    member_address1 VARCHAR2(500) NOT NULL,                      	--회원 도로명주소
+    member_address2 VARCHAR2(500),                                   --회원 상세주소
+    member_grade NUMBER(1) DEFAULT 0,                           	--회원등급
     member_score NUMBER(5) DEFAULT 0,								--회원점수
+    member_originalfile VARCHAR2(300), 				                --프로필사진(오리지날)
+    member_savedfile VARCHAR2(300),                         		--프로필사진(저장)
     member_tags VARCHAR2(50) NOT NULL,								--태그번호
     member_gender VARCHAR2(30) CHECK(member_gender IN ('male','female'))	--회원 성별
 );
@@ -233,5 +236,3 @@ CREATE TABLE restaurant_file(
 
 --식당 파일 시퀀스
 CREATE SEQUENCE restaurant_file_seq;
-
-

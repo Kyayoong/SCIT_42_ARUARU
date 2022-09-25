@@ -14,7 +14,6 @@ DROP SEQUENCE restaurant_member_seq;
 DROP TABLE restaurant_zzim;
 DROP TABLE restaurant_file;
 DROP TABLE declaration;
-DROP TABLE reservation_select;
 DROP TABLE restaurant_time;
 DROP TABLE web_reply;
 DROP TABLE web_board;
@@ -187,16 +186,6 @@ CREATE TABLE tags(
 --태그 번호 시퀀스
 CREATE SEQUENCE tags_seq;
 
---영업시간 테이블
-CREATE TABLE restaurant_time(
-    opentime VARCHAR2(50) NOT NULL,				--오픈시간
-    closetime VARCHAR2(50) NOT NULL,			--영업종료시간
-    breaktime_start VARCHAR2(50),				--브레이크 타임 시작
-    breaktime_end VARCHAR2(50),					--브레이크 타임 종료
-    business_days VARCHAR2(50) NOT NULL,		--요일
-    holidays_num NUMBER(10) REFERENCES holiday(holidays_num),	--날짜
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
-);
 
 --휴무일 테이블
 CREATE TABLE holiday(
@@ -209,6 +198,18 @@ CREATE TABLE holiday(
 
 --휴무일 번호 시퀀스
 CREATE SEQUENCE holidays_seq;
+
+
+--영업시간 테이블
+CREATE TABLE restaurant_time(
+    opentime VARCHAR2(50) NOT NULL,				--오픈시간
+    closetime VARCHAR2(50) NOT NULL,			--영업종료시간
+    breaktime_start VARCHAR2(50),				--브레이크 타임 시작
+    breaktime_end VARCHAR2(50),					--브레이크 타임 종료
+    business_days VARCHAR2(50) NOT NULL,		--요일
+    holidays_num NUMBER(10) REFERENCES holiday(holidays_num),	--날짜
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
+);
 
 
 --신고 테이블

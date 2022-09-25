@@ -1,0 +1,5935 @@
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'맛있는','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'맛집','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'돈이 아깝지 않은','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'디테일이 살아있는','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'또 오고 싶은','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'후회 없는','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'이런 곳이','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'존맛','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'이색적','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'술이 당기는','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'재방문','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'뜨끈한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'쫄깃한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'육즙','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'엄청 매운','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'매콤한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'매콤달콤한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'달콤한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'신선한','맛');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'친절한 ','서비스');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'편안한 시간','서비스');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'가격값을 하는','서비스');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'데이트','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'파티','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'뷰가 좋은','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'회식','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'반려동물과 함께 ','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'아이들과 함께','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'아이랑 같이 가기 좋은','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'힐링 가능한','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'아지트','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'바다뷰','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'계곡','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'산뷰','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'나들이 하기 좋은','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'고급진','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'혼밥','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'혼자','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'노포','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'상견례','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'고급진','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'럭셔리한','분위기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'인기','인기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'핫플','인기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'요즘 떠오르는','인기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'인싸','인기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'줄 서서 먹는','인기');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'저렴한','가격');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'양이 많은','가격');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'대식가','가격');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'든든한','가격');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'가성비','가격');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'봄','계절');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'여름','계절');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'가을','계절');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'겨울','계절');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'시원한','계절');
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+)
+VALUES
+(tags_seq.nextval,'따뜻한','계절');
+
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon001','1111','950123','류기원','010-1111-1111','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 130','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon002','1111','950123','류기원','010-1111-1112','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 130','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon003','1111','950123','류기원','010-1111-1113','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 131','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon004','1111','950123','류기원','010-1111-1114','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 132','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon005','1111','950123','류기원','010-1111-1115','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 133','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon006','1111','950123','류기원','010-1111-1116','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 134','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon007','1111','950123','류기원','010-1111-1117','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 135','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon008','1111','950123','류기원','010-1111-1118','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 136','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon009','1111','950123','류기원','010-1111-1119','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 137','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon010','1111','950123','류기원','010-1111-1120','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 138','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon011','1111','950123','류기원','010-1111-1121','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 139','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon012','1111','950123','류기원','010-1111-1122','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 140','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon013','1111','950123','류기원','010-1111-1123','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 141','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon014','1111','950123','류기원','010-1111-1124','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 142','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon015','1111','950123','류기원','010-1111-1125','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 143','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon016','1111','950123','류기원','010-1111-1126','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 144','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon017','1111','950123','류기원','010-1111-1127','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 145','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon018','1111','950123','류기원','010-1111-1128','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 146','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon019','1111','950123','류기원','010-1111-1129','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 147','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon020','1111','950123','류기원','010-1111-1130','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 148','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon021','1111','950123','류기원','010-1111-1131','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 149','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon022','1111','950123','류기원','010-1111-1132','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 150','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon023','1111','950123','류기원','010-1111-1133','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 151','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon024','1111','950123','류기원','010-1111-1134','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 152','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon025','1111','950123','류기원','010-1111-1135','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 153','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon026','1111','950123','류기원','010-1111-1136','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 154','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon027','1111','950123','류기원','010-1111-1137','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 155','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon028','1111','950123','류기원','010-1111-1138','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 156','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon029','1111','950123','류기원','010-1111-1139','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 157','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon030','1111','950123','류기원','010-1111-1140','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 158','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon031','1111','950123','류기원','010-1111-1141','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 159','별빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon032','1111','950123','류기원','010-1111-1142','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 160','금빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon033','1111','950123','류기원','010-1111-1143','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 161','은빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon034','1111','950123','류기원','010-1111-1144','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 162','햇빛마을','male','옹애');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon035','1111','950123','류기원','010-1111-1145','asd@asdsad.com','노잼','경기 고양시 덕양구 화중로 163','별빛마을','male','옹애');
+
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon036','1111','950123','류기원','010-1111-1145','asd@asdsad.com','맛있는/맛집/돈이 아깝지 않은','경기 고양시 덕양구 화중로 164','','male','안아줘요',4,2000,'P001','P001');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon037','1111','950123','류기원','010-1111-1146','asd@asdsad.com','디테일이 살아있는/또 오고 싶은/후회 없는','경기 고양시 덕양구 화중로 165','','male','화났어요',3,1800,'P002','P002');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon038','1111','950123','류기원','010-1111-1147','asd@asdsad.com','이런 곳이/존맛','경기 고양시 덕양구 화중로 166','','male','정말 고마워요',2,700,'P003','P003');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon039','1111','950123','류기원','010-1111-1148','asd@asdsad.com','이색적/술이 당기는/재방문','경기 고양시 덕양구 화중로 167','','male','잘자요',1,329,'P004','P004');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon040','1111','950123','류기원','010-1111-1149','asd@asdsad.com','뜨끈한/쫄깃한','경기 고양시 덕양구 화중로 168','','male','이상해요',3,1700,'P005','P005');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon041','1111','950123','류기원','010-1111-1150','asd@asdsad.com','육즙/엄청 매운/매콤한','경기 고양시 덕양구 화중로 169','','male','너무해요',3,1800,'P006','P006');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon042','1111','950123','류기원','010-1111-1151','asd@asdsad.com','매콤달콤한/달콤한/신선한','경기 고양시 덕양구 화중로 170','','male','두려워요',2,900,'P007','P007');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon043','1111','950123','류기원','010-1111-1152','asd@asdsad.com','친절한/데이트','경기 고양시 덕양구 화중로 171','','male','안아줘요',1,499,'P008','P008');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon044','1111','950123','류기원','010-1111-1153','asd@asdsad.com','신선한/연말 모임/계곡','경기 고양시 덕양구 화중로 172','','male','화났어요',1,300,'P009','P009');
+INSERT INTO user_member
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+, member_grade
+, member_score
+, member_originalfile
+, member_savedfile
+)
+VALUES
+(user_member_seq.nextval,'kiwon045','1111','950123','류기원','010-1111-1154','asd@asdsad.com','고급진/상견례/재방문','경기 고양시 덕양구 화중로 173','','male','정말 고마워요',1,200,'P010','P010');
+
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon001','가무','커피','아주 오래된 카페입니다. 창가 자리에 앉으면 중국대사관 정원이 보입니다. 내부 디자인은 엔티크하고 고풍스러운 느낌을 주는 카페.','02-776-3141',4,'서울 중구 명동4길 16','','1만원 미만',1,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon002','향복집','한식','영등포구 여의도의 36년 전통 복어 요리 전문식당','02-783-9441',4.1,'서울 영등포구 국제금융로8길 11','(여의도동 대영빌딩) 지하1층','2~3만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon003','루나바인','양식','와인 종류 많고 이야기하기 좋은 신사 와인바.','02-515-3381',4.32,'서울 강남구 논현로149길 13','(예진빌딩) 1층','2~3만원',1,10);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon004','이키이키','일식','요즘 핫한 오목교 자가제면 우동','0507-1346-0736',4.63,'서울 양천구 목동동로14길 10','1층','1~1.5만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon005','강강술래(상계점)','한식','가족과 방문하기 좋은 숯불구이 전문점','02-935-9233',4.36,'서울 노원구 동일로 1628','(상계동 상계동강강술래)','3~5만원',1,40);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon006','태림산채정식','한식','1997년 오픈, 23년 전통의 쌍문동 숨은 맛집, 자랑스러운 한국음식점 태림산채정식','02-998-5468',4.1,'서울특별시 도봉구 노해로60길 32','(쌍문동) 1층','2~3만원',1,33);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon007','미우야','일식','양재천 오래된 소바 맛집','02-577-6348',4.34,'서울 서초구 강남대로23길 90 ','(기정빌딩) 1층','1~1.5만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon008','도봉산갈비','한식','무한리필도 가능한 도봉산 돼지갈비','02-955-8668',4.23,'서울 도봉구 도봉로 919','(도봉동)','3~5만원',1,22);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon009','채운','중식','모던한 분위기 속에서 새로운 맛을 경험할 수 있는 광동식 가게','02-516-8837',4.4,'서울특별시 강남구 논현로175길 107','(신사동)','3~5만원',1,13);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon010','장원북어국','한식','아침 6시 30분에 오픈하여 해장국과 아침 식사를 위한 손님들이 많이 찾는 북어국집','02-784-0639',4.39,'서울특별시 영등포구 국제금융로8길 11','(대영빌딩)','1만원 미만',1,23);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon011','애플하우스','한식','무침만두와 즉석떡볶이가 맛있는 이수 맛집','02-595-1629',4.34,'서울 동작구 동작대로27다길 29','2층','1~1.5만원',1,17);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon012','쿄우','일식','테이블 3개의 아담한 이자카야','02-769-1558',4.3,'서울특별시 영등포구 국제금융로8길 27-9','(여의도동)','1.5~2만원',1,23);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon013','지호한방삼계탕','한식','삼계탕으로 가족 외식하기 좋은 잠실새내역 맛집','0507-1438-3390',4.41,'서울 송파구 삼학사로 73','(은일빌딩)','1.5~2만원',1,23);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon014','알라딘의양고기','징기스칸','신천 할랄 양고기 전문점','02-421-5534',4.39,'서울 송파구 백제고분로7길 42-16','(정빌딩)','2~3만원',1,54);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon015','스즈란테이','일식','미타니야 일식집의 원조 주인인 일본인 미타니 마사키씨가 운영하는 일본 가정식요리 전문점','02-749-5324',4.37,'서울 용산구 이촌로245','(로얄맨숀아파트)','1.5~2만원',1,59);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon016','남서울민물장어','한식','신논현 회식하기 좋은 장어 맛집','02-544-1010',4.3,'서울 강남구 봉은사로 137','(상원빌딩)','3~5만원',1,12);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon017','신정','징기스칸','강남 징기스칸 요리 맛집','02-554-1033',4.01,'서울 강남구 테헤란로8길 29','(신정)','5만원 이상',1,12);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon018','감격시대','한식','무한리필의 정석을 보여줬던 서초동 고기집','0507-1382-3392',4.73,'서울 서초구 서초대로50길 104','(코랜드빌딩)','2~3만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon019','아이리쉬펍 더블린','양식','유럽 느낌 물씬 나는 야외 테라스 펍','02-561-3281',4.03,'서울 강남구 강남대로 442','(역삼동) 별관 2층','1.5~2만원',1,10);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon020','오장동흥남집','한식','서울 오장동 함흥냉면맛집','02-2266-0735',4.28,'서울 중구 마른내로 114','(흥남집)','1~1.5만원',1,5);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon021','현대칼국수','한식','줄서는 시청 맛집','02-752-9504',4.34,'서울 중구 세종대로 76','(청남빌딩)','1만원 미만',1,7);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon022','농민백암순대','한식','선릉 수요미식회 순대국밥 맛집','02-555-9603',4.5,'서울 강남구 선릉로86길 40-4','','1~1.5만원',1,8);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon023','청일집','한식','70년 전통의 고소한 녹두전 집','02-732-2626',4.05,'서울 은평구 통일로 850','연서시장 A동 1층 24호','1.5~2만원',1,94);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon024','블루라팽','양식','르 꼬르동블루 출신 셰프가 운영하는 프렌치 비스트로','02-723-4856',4.58,'서울 강남구 삼성로100길 23-9 ','지하 1층','2~3만원',1,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon025','이태원숯불구이','한식','고기와 파절이가 맛있는 성시경먹을텐데 이태원 숯불구이 한우맛집','02-797-7777',4.24,'서울 용산구 녹사평대로32길 43','(이태원동)','3~5만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon026','영동설렁탕','한식','3호선 신사 5번 출구','02-543-4716',0,'서울 서초구 강남대로101안길 24','(잠원동)','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon027','토마틸로','양식','2호선 역삼역 12번 출구','02-2112-3883',0,'서울 강남구 테헤란로 152','(역삼동 강남파이낸스센터)','3~5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon028','채근담','한식','2호선 삼성역 3번 출구','02-555-9173',0,'서울 강남구 역삼로98길 23','(일동빌딩)','5만원 이상',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon029','마포숯불갈비','한식','7호선 학동 10번 출구','02-516-1522',0,'서울 강남구 도산대로 232','(논현동 청학아파트) 에이동','2~3만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon030','조개창고 (달마수산)','한식','2호선 상왕십리역 4번 출구 2호선 왕십리역 11번 출구','02-',0,'서울 성동구 왕십리로 331','','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon031','이마스시','일식','3호선 압구정역 3번 출구','02-515-7787',0,'서울 강남구 도산대로37길 5','(신사동)','1~1.5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon032','마츠에라멘','일식','26 호선 합정 2번 출구','02-323-6877',0,'서울 마포구 동교로 126','(서교동 광남벨라스아파트)','1만원 미만',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon033','부산복집','한식','3호선 2호선 을지로3가역 9번 출구','02-2266-3236',0,'서울 중구 마른내로2길 14','(초동)','1~1.5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon034','내고향식당','한식','4호선 회현 5번 출구','02-752-7954',0,'서울특별시 중구 남대문시장길 18-3','(남창동)','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon035','반포치킨','치킨','9호선 구반포역 3번 출구','02-599-2825',0,'서울 서초구 신반포로 38','(구반포상가) 반포상가 J동 21호','2~3만원',0,30);
+
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R001.jpg','R001.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R002.jpg','R002.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R003.jpg','R003.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R004.jpg','R004.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R005.jpg','R005.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R006.jpg','R006.jpg',1);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R007.jpg','R007.jpg',2);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R008.jpg','R008.jpg',2);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R009.jpg','R009.jpg',2);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'R010.jpg','R010.jpg',2);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y001.jpg','Y001.jpg',3);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y002.jpg','Y002.jpg',3);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y003.jpg','Y003.jpg',3);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y004.jpg','Y004.jpg',3);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y008.jpg','Y008.jpg',4);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y009.jpg','Y009.jpg',4);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y015.jpg','Y015.jpg',5);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y016.jpg','Y016.jpg',5);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y017.jpg','Y017.jpg',6);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y018.jpg','Y018.jpg',6);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y019.jpg','Y019.jpg',6);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y022.jpg','Y022.jpg',7);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y023.jpg','Y023.jpg',7);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y027.jpg','Y027.jpg',8);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y028.jpg','Y028.jpg',8);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y031.jpg','Y031.jpg',9);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y032.jpg','Y032.jpg',9);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y033.jpg','Y033.jpg',9);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y037.jpg','Y037.jpg',10);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y038.jpg','Y038.jpg',10);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y039.jpg','Y039.jpg',10);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y043.jpg','Y043.jpg',11);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y044.jpg','Y044.jpg',11);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y045.jpg','Y045.jpg',12);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y046.jpg','Y046.jpg',12);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y051.jpg','Y051.jpg',13);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y052.jpg','Y052.jpg',13);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y055.jpg','Y055.jpg',14);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y056.jpg','Y056.jpg',14);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y057.jpg','Y057.jpg',15);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y058.jpg','Y058.jpg',15);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y063.jpg','Y063.jpg',16);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y064.jpg','Y064.jpg',16);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y067.jpg','Y067.jpg',17);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y068.jpg','Y068.jpg',17);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y073.jpg','Y073.jpg',19);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y074.jpg','Y074.jpg',19);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y079.jpg','Y079.jpg',20);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y080.jpg','Y080.jpg',20);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y079.jpg','Y079.jpg',20);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y080.jpg','Y080.jpg',20);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y081.jpg','Y081.jpg',21);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y082.jpg','Y082.jpg',21);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y087.jpg','Y087.jpg',22);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y088.jpg','Y088.jpg',22);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y091.jpg','Y091.jpg',23);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y092.jpg','Y092.jpg',23);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y093.jpg','Y093.jpg',24);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y094.jpg','Y094.jpg',24);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y097.jpg','Y097.jpg',25);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y098.jpg','Y098.jpg',25);
+
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '비엔나',1,'6000','M001.jpg','M001.jpg','가무의 인기비결',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '에스프레소',1,'6000','M002.jpg','M002.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '카푸치노',1,'6000','M003.jpg','M003.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '아메리카노',1,'6000','M004.jpg','M004.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '카페라떼',1,'6000','M005.jpg','M005.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '참복정식',2,'35000','M006.jpg','M006.jpg','참복매운탕+초밥2p+복가라아게2p',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '밀복정식',2,'24000','M007.jpg','M007.jpg','밀복매운탕+초밥2p+복가라아게2p',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '치킨 오븐구이',3,'30000','Y006.jpg','Y006.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '바질 페스토 펜네',3,'23000','Y007.jpg','Y007.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '단새우 성게알 우동',4,'18000','Y010.jpg','Y010.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '텐붓카케 우동',4,'10500','Y011.jpg','Y011.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '강강양념구이',5,'33000','Y012.jpg','Y012.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '술래양념구이',5,'33000','Y013.jpg','Y013.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '영양갈비탕',5,'13000','Y014.jpg','Y014.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '양념목살',6,'11000','Y020.jpg','Y020.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '산채정식',6,'15000','Y021.jpg','Y021.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '와라비소바',7,'15000','Y024.jpg','Y024.jpg','고사리와 갈은 소고기에 들기름을 올린 소바',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '호렌소사라다소바',7,'14000','Y025.jpg','Y025.jpg','시금치와 베이컨, 온천 달걀이 올라간 소바',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '소바스시',7,'8000','Y026.jpg','Y026.jpg','미우야 소바면에 아보카도, 새우튀김등을 넣어 말은 롤 4P',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '소 이동갈비',8,'24000','Y029.jpg','Y029.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '돼지갈비',8,'14000','Y030.jpg','Y030.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '가지와 다진 돼지고개 냄비',9,'28000','Y034.jpg','Y034.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '광동식 구운통닭',9,'30000','Y035.jpg','Y035.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '다진 마늘 튀긴 새우',9,'40000','Y036.jpg','Y036.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '북어국',10,'7000','Y040.jpg','Y040.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '즉석떡볶이',11,'4000','Y041.jpg','Y041.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '돌솥 카레 정식',11,'14000','Y041.jpg','Y042.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '돌솥 카레 정식',12,'9000','Y047.jpg','Y047.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '돌솥 돈카스 카레 정식',12,'13000','Y048.jpg','Y048.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '미용한방삼계탕',13,'17000','Y049.jpg','Y049.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '들깨한방삼계탕',13,'22000','Y050.jpg','Y050.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '아랍식 양갈비',14,'24000',' Y053.jpg',' Y053.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '양갈비살',14,'20000',' Y054.jpg',' Y054.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '마구로덮밥',15,'23000','Y059.jpg','Y059.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '도시락',15,'15000','Y060.jpg','Y060.jpg','치킨까스, 돈까스, 연어조림, 제철회, 계란찜, 계란말이, 야채찜, 국, 밥, 계란샐러드',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '장어구이',16,'36000','Y061.jpg','Y061.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '고추장구이',16,'36000','Y062.jpg','Y062.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '오리구이',17,'78000','Y065.jpg','Y065.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '양갈비구이',17,'40000','Y066.jpg','Y066.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '스페샬 무한리필',18,'30000','Y069.jpg','Y069.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '감격 무한리필',18,'24500','Y070.jpg','Y070.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '더블린 웨지 포테이토',19,'17000','Y075.jpg','Y075.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '나쵸칩',19,'22000','Y076.jpg','Y076.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '물냉면',20,'12000','Y077.jpg','Y077.JPG','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '회비빔냉면',20,'12000','Y078.jpg','Y078.JPG','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '칼국수',21,'8000','Y083.jpg','Y083.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '섞어칼국수',21,'8500','Y084.jpg','Y084.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '국밥',23,'12000','Y089.jpg','Y089.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '모둠수육',23,'15000','Y090.jpg','Y090.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '원조빈대떡',24,'20000','Y095.jpg','Y095.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '생굴전',24,'23000','Y096.jpg','Y096.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '야생버섯크림파스타',24,'20000','Y095.jpg','Y095.jpg','',0);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '뷔프부르기뇽',24,'23000','Y096.jpg','Y096.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '산적불고기',25,'45000','Y099.jpg','Y099.jpg','',1);
+INSERT INTO menu
+(menu_num
+, menu_name
+, restaurant_num
+, menu_price
+, menu_originalfile
+, menu_savedfile
+, menu_content
+, menu_suggestion
+)
+VALUES
+(menu_seq.nextval
+, '특등심',25,'61000','Y100.jpg','Y100.jpg','',1);
+
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','월요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','화요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','수요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','목요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','금요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','토요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','일요일',1);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','월요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','화요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','수요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','목요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','금요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','토요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','일요일',2);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','월요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','화요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','수요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','목요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','금요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','토요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','24:00','','','일요일',3);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','월요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','화요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','수요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','목요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','금요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','토요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:00','','','일요일',4);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','월요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','화요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','수요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','목요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','금요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','토요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:30','','','일요일',5);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','월요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','화요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','수요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','목요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','금요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','토요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','21:00','','','일요일',6);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','월요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','화요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','수요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','목요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','금요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','토요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','일요일',7);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','월요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','화요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','수요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','목요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','금요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','토요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','일요일',8);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','월요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','화요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','수요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','목요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','금요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','토요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','일요일',9);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','월요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','화요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','수요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','목요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','금요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','토요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '06:30','15:00','','','일요일',10);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','월요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','화요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','수요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','목요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','금요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','토요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:30','21:00','','','일요일',11);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','월요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','화요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','수요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','목요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','금요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','토요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','24:00','','','일요일',12);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','월요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','화요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','수요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','목요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','금요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','토요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','22:00','','','일요일',13);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','월요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','화요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','수요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','목요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','금요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','토요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '16:00','24:00','','','일요일',14);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','월요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','화요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','수요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','목요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','금요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','토요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','일요일',15);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','월요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','화요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','수요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','목요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','금요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','토요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '12:00','22:00','','','일요일',16);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:30','','','월요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:30','','','화요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:30','','','수요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:30','','','목요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:30','','','금요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','토요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:30','','','일요일',17);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','월요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','화요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','수요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','목요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','금요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','토요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:30','22:10','','','일요일',18);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','01:00','','','월요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','01:00','','','화요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','01:00','','','수요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','01:00','','','목요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '15:00','02:00','','','금요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '14:00','02:00','','','토요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '14:00','24:00','','','일요일',19);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','월요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','화요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','수요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','목요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','금요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','토요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','20:30','','','일요일',20);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','21:00','','','월요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','21:00','','','화요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','21:00','','','수요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','21:00','','','목요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','21:00','','','금요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','19:00','','','토요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '09:00','19:00','','','일요일',21);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','21:00','','','월요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','21:00','','','화요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','21:00','','','수요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','21:00','','','목요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','21:00','','','금요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','15:00','','','토요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:10','15:00','','','일요일',22);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:00','23:00','','','월요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:00','23:00','','','화요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:00','23:00','','','수요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:00','23:00','','','목요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '10:00','23:00','','','금요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','토요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:00','23:00','','','일요일',23);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','월요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','화요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','수요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','목요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','금요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','토요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','21:40','','','일요일',24);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','월요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','화요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','수요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','목요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','금요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','토요일',25);
+INSERT INTO restaurant_time
+(opentime
+, closetime
+, breaktime_start
+, breaktime_end
+, business_days
+, restaurant_num )
+VALUES
+( '11:30','22:00','','','일요일',25);
+
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'맛있는','맛',1,50);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가격값을 하는','서비스',1,5);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'따뜻한','계절',1,4);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'쫄깃한','맛',2,2);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'인기','인기',2,1);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'고급진','분위기',3,30);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'따뜻한','계절',3,20);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가성비','가격',3,10);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'또 오고 싶은','맛',4,80);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기',4,20);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'요즘 떠오르는','인기',4,10);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가을','계절',4,2);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'디테일이 살아있는','맛',5,40);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'편안한 시간','서비스',5,230);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'줄 서서 먹는','인기',5,22);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'든든한','가격',5,1);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가을','계절',5,15);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'또 오고 싶은','맛',6,56);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'후회 없는','맛',6,87);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'이런 곳이','맛',6,21);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'존맛','맛',6,36);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'친절한 ','서비스',6,54);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'편안한 시간','서비스',6,89);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가격값을 하는','서비스',6,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'힐링 가능한','분위기',6,21);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'아지트','분위기',6,55);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'바다뷰','분위기',6,87);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'핫플','인기',6,63);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'요즘 떠오르는','인기',6,21);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'인싸','인기',6,55);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'줄 서서 먹는','인기',6,21);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'존맛','맛',7,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'이색적','맛',7,546);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기',7,54);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'파티','분위기',7,35);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'대식가','가격',7,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'겨울','계절',7,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'디테일이 살아있는','맛',8,54);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'편안한 시간','서비스',8,63);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'인기','인기',8,7);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'따뜻한','계절',8,4);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'이색적','맛',9,12);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'술이 당기는','맛',9,17);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'데이트','분위기',9,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기',9,19);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'혼밥','분위기',9,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'혼자','분위기',9,77);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'여름','계절',9,88);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가을','계절',9,25);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'달콤한','맛',10,12);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'신선한','맛',10,12);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'편안한 시간','서비스',10,13);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가격값을 하는','서비스',10,14);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'힐링 가능한','분위기',10,18);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'인기','인기',10,19);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'맛있는','맛',11,20);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'맛집','맛',11,15);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'데이트','분위기',11,68);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기',11,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'고급진','분위기',11,94);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'럭셔리한','분위기',11,21);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'가성비','가격',11,65);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'봄','계절',11,23);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'돈이 아깝지 않은','맛',12,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'친절한 ','서비스',12,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'힐링 가능한','분위기',12,546);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'핫플','인기',12,54);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'시원한','계절',12,35);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'이런 곳이','맛',13,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'데이트','분위기',13,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'반려동물과 함께 ','분위기',13,54);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'핫플','인기',13,63);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'양이 많은','가격',13,7);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'데이트','분위기',14,4);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'연말 모임','분위기',14,12);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'요즘 떠오르는','인기',14,17);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'인싸','인기',14,78);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'디테일이 살아있는','맛',15,19);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'또 오고 싶은','맛',15,45);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'고급진','분위기',15,77);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'혼밥','분위기',15,88);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'줄 서서 먹는','인기',15,25);
+INSERT INTO tags
+(tags_num
+,tags_name
+,tags_sector
+,restaurant_num
+,tags_count
+)
+VALUES
+(tags_seq.nextval,'저렴한','가격',15,12);
+
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'1월1일','2022-01-01');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'설날','2022-01-31');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'설날당일','2022-02-01');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'설날','2022-02-02');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'삼일절','2022-03-01');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'대통령선거일','2022-03-09');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'어린이날','2022-05-05');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'부처님오신날','2022-05-08');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'전국동시지방선거','2022-06-01');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'현충일','2022-06-06');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'광복절','2022-08-15');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'추석','2022-09-09');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'추석당일','2022-09-10');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'추석','2022-09-11');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'대체공휴일','2022-09-12');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'개천절','2022-10-03');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'한글날','2022-10-09');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'대체공휴일','2022-10-10');
+INSERT INTO holiday
+(holidays_num
+,holidays
+,holidays_date
+)
+VALUES
+(holidays_seq.nextval,'기독탄신일','2022-12-25');
+
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon036','이 사이트 문제가많아요','저기  이 사이트 정식 오픈했나요?','문의',0,5,1);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon037','게시판 1','게시판 내용1','문의',0,0,2);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon038','게시판 2','게시판 내용2','문의',0,1,3);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon039','게시판 3','게시판 내용3','문의',0,2,4);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon040','게시판 4','게시판 내용4','문의',0,3,5);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon041','게시판 5','게시판 내용5','문의',0,4,6);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon042','게시판 6','게시판 내용6','문의',0,5,7);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon043','게시판 7','게시판 내용7','문의',0,6,8);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon044','게시판 8','게시판 내용8','문의',0,7,9);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon045','게시판 9','게시판 내용9','문의',0,8,10);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon036','게시판 10','게시판 내용10','문의',0,9,11);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon037','게시판 11','게시판 내용11','문의',1,10,12);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon038','게시판 12','게시판 내용12','문의',0,11,13);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon039','게시판 13','게시판 내용13','문의',0,12,14);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon040','게시판 14','게시판 내용14','문의',0,13,15);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon041','게시판 15','게시판 내용15','문의',0,14,16);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon042','게시판 16','게시판 내용16','문의',0,15,17);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon043','게시판 17','게시판 내용17','문의',0,16,18);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon044','게시판 18','게시판 내용18','문의',0,17,19);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon045','게시판 19','게시판 내용19','문의',0,18,20);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon036','게시판 20','게시판 내용20','문의',0,19,21);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon037','게시판 21','게시판 내용21','문의',0,20,22);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon038','게시판 22','게시판 내용22','문의',1,21,23);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon039','게시판 23','게시판 내용23','문의',0,22,24);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon040','게시판 24','게시판 내용24','문의',0,23,25);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon041','게시판 25','게시판 내용25','문의',0,24,26);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon042','게시판 26','게시판 내용26','문의',0,25,27);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon043','게시판 27','게시판 내용27','문의',0,26,28);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon044','게시판 28','게시판 내용28','문의',0,27,29);
+INSERT INTO web_board
+(board_num
+, member_id
+, board_title
+, board_contents
+, category
+, board_notice
+, board_suggestion
+, hits
+)
+VALUES
+(web_board_seq.nextval,'kiwon045','게시판 29','게시판 내용29','문의',0,28,30);
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon036',1,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon037',1,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon038',1,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon039',2,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon040',2,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon041',3,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon042',3,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon043',4,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon044',5,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon045',6,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon036',7,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon037',8,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon038',9,'아뭐야 이거 진짜 써지네');
+INSERT INTO web_reply
+(reply_num
+,member_id
+,board_num
+,reply_contents
+)
+VALUES
+(web_reply_seq.nextval,'kiwon039',10,'아뭐야 이거 진짜 써지네');
+
+COMMIT;

@@ -20,7 +20,7 @@ $(document).ready(function() {
 	$('#formButton').click(formSubmit);
 	$('.tag1').change(function(){
 		
-        if($('.tag1').is(":checked")){
+		if($('.tag1').is(":checked")){
         	console.log("1");
         	$.ajax({
         		url : 'tagInsert',

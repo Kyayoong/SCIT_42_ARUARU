@@ -11,6 +11,7 @@ DROP SEQUENCE menu_seq;
 DROP SEQUENCE user_member_seq;
 DROP SEQUENCE restaurant_member_seq;
 
+DROP TABLE restaurant_zzim;
 DROP TABLE restaurant_file;
 DROP TABLE declaration;
 DROP TABLE reservation_select;
@@ -46,7 +47,7 @@ CREATE TABLE user_member(
     member_score NUMBER(5) DEFAULT 0,								--회원점수
     member_originalfile VARCHAR2(300), 				                --프로필사진(오리지날)
     member_savedfile VARCHAR2(300),                         		--프로필사진(저장)
-    member_tags VARCHAR2(50) NOT NULL,								--태그번호
+    member_tags VARCHAR2(100),										--태그번호
     member_gender VARCHAR2(30) CHECK(member_gender IN ('male','female'))	--회원 성별
 );
 
@@ -67,7 +68,9 @@ CREATE TABLE restaurant_member(
     restaurant_address1 VARCHAR2(500) NOT NULL,         --도로명 주소
     restaurant_address2 VARCHAR2(500), 			        --상세주소
     menu_priceavr VARCHAR2(200) DEFAULT 0,				--1인당 평균 가격
-    certification NUMBER(1) DEFAULT 0					--허가 여부
+    certification NUMBER(1) DEFAULT 0,					--허가 여부
+    restaurant_people NUMBER(10)						--수용인원 
+
 );
 
 --식당 번호 시퀀스
@@ -95,11 +98,11 @@ CREATE SEQUENCE web_board_seq;
 
 --게시판 댓글테이블
 CREATE TABLE web_reply(
-    reply_num NUMBER(10) PRIMARY KEY,					--댓글번호
+    reply_num NUMBER(10) PRIMARY KEY,							--댓글번호
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원아이디
     board_num NUMBER(10) REFERENCES web_board(board_num),		--게시판번호
-    reply_contents VARCHAR2(2000) NOT NULL,				--댓글 내용
-    registration_date DATE DEFAULT SYSDATE				--등록일
+    reply_contents VARCHAR2(2000) NOT NULL,						--댓글 내용
+    registration_date DATE DEFAULT SYSDATE						--등록일
  );
 
 --댓글 번호 시퀀스
@@ -108,14 +111,14 @@ CREATE SEQUENCE web_reply_seq;
 --메뉴테이블
 CREATE TABLE menu(
 	
-    menu_num NUMBER(10) PRIMARY KEY,				--메뉴번호
-    menu_name VARCHAR2(200) NOT NULL,				--메뉴이름
+    menu_num NUMBER(10) PRIMARY KEY,															--메뉴번호
+    menu_name VARCHAR2(200) NOT NULL,															--메뉴이름
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE,	--식당번호						
-    menu_price NUMBER(10) NOT NULL,					--메뉴가격
-    menu_originalfile VARCHAR2(300),				--음식사진(오리지널)
-    menu_savedfile VARCHAR2(300),					--음식사진(저장)
-    menu_content VARCHAR2(800),						--음식상세설명
-    menu_suggestion NUMBER(1) DEFAULT 0				--음식추천여부
+    menu_price NUMBER(10) NOT NULL,																--메뉴가격
+    menu_originalfile VARCHAR2(300),															--음식사진(오리지널)
+    menu_savedfile VARCHAR2(300),																--음식사진(저장)
+    menu_content VARCHAR2(800),																	--음식상세설명
+    menu_suggestion NUMBER(1) DEFAULT 0															--음식추천여부
 );
 
 --메뉴
@@ -125,15 +128,14 @@ CREATE SEQUENCE menu_seq;
 
 --가게 예약 정보 테이블
 CREATE TABLE reservation(
-    reservation_num NUMBER(10) PRIMARY KEY,				--예약 번호
-    member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원아이디
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),	--식당번호
-    reservation_people NUMBER(3) NOT NULL,				--예약인수
-    reservation_seat VARCHAR2(50) NOT NULL,				--좌석 종류
-    registration_date DATE DEFAULT SYSDATE, 				--등록일
-    reservation_date DATE,						--예약일
-    reservation_hours VARCHAR2(20) NOT NULL	,			--예약시간
-    request VARCHAR2(1000)						--요청사항
+    reservation_num NUMBER(10) PRIMARY KEY,														--예약 번호
+    member_id VARCHAR2(100) REFERENCES user_member(member_id),									--회원아이디
+    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),						--식당번호
+    reservation_people NUMBER(3) NOT NULL,														--예약인수
+    registration_date DATE DEFAULT SYSDATE, 													--등록일
+    reservation_date DATE,																		--예약일
+    reservation_hours VARCHAR2(20) NOT NULL	,													--예약시간
+    request VARCHAR2(1000)																		--요청사항
 );
 
 --리뷰 번호 시퀀스
@@ -182,8 +184,6 @@ CREATE TABLE tags(
     tags_count NUMBER(10) DEFAULT 0					--태그 카운트
 );
 
-
-
 --태그 번호 시퀀스
 CREATE SEQUENCE tags_seq;
 
@@ -210,12 +210,6 @@ CREATE TABLE holiday(
 --휴무일 번호 시퀀스
 CREATE SEQUENCE holidays_seq;
 
---예약 테이블
-CREATE TABLE reservation_select(
-    reservation_seat VARCHAR2(50) NOT NULL,				--좌석종류
-    can_people number(3),						--가능 수용인수
-    restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num) ON DELETE CASCADE --식당번호
-);
 
 --신고 테이블
 CREATE TABLE declaration(
@@ -238,3 +232,8 @@ CREATE TABLE restaurant_file(
 
 --식당 파일 시퀀스
 CREATE SEQUENCE restaurant_file_seq;
+
+CREATE TABLE restaurant_zzim(
+	member_num VARCHAR2(100) ,		--회원 아이디
+    restaurant_num NUMBER(10)         --식당번호
+);

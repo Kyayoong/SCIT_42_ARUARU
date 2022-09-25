@@ -29,4 +29,6 @@ public class User_member {
 	String member_tags;			//태그번호
 	String member_gender; 		//회원 성별
 	String member_nickname;		//닉네임
+	String member_originalfile; //오리지널
+	String member_savedfile; 	//세이브
 }

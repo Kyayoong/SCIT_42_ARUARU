@@ -137,7 +137,7 @@ INSERT INTO tags
 ,tags_sector
 )
 VALUES
-(tags_seq.nextval,'친절한 ','서비스');
+(tags_seq.nextval,'친절한','서비스');
 INSERT INTO tags
 (tags_num
 ,tags_name

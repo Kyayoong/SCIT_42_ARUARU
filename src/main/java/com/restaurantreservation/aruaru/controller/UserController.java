@@ -1,17 +1,24 @@
 package com.restaurantreservation.aruaru.controller;
 
+import java.util.ArrayList;
+
+import javax.print.DocFlavor.STRING;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
+import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
+import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +28,15 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 	@Autowired
 	UserService service;
+	
+	/**
+	 * 게시판 첨부파일 업로드 경로
+	 */
+	@Value("${spring.servlet.multipart.location}")
+	String uploadPath;
+	
+	@Autowired
+	RestaurantService service1;
 
 	@Autowired
 	UserDao dao;
@@ -39,13 +55,30 @@ public class UserController {
 
 	// 일반 사용자로 회원가입
 	@GetMapping("/join_as_user")
-	public String join_as_user() {
+	public String join_as_user(Model model) {
+		ArrayList<Tags> tagList = service1.tagList("맛");
+		ArrayList<Tags> tagList2 = service1.tagList("서비스");
+		ArrayList<Tags> tagList3 = service1.tagList("인기");
+		ArrayList<Tags> tagList4 = service1.tagList("가격");
+		ArrayList<Tags> tagList5 = service1.tagList("계절");
+		model.addAttribute("tagList",tagList);
+		model.addAttribute("tagList2",tagList2);
+		model.addAttribute("tagList3",tagList3);
+		model.addAttribute("tagList4",tagList4);
+		model.addAttribute("tagList5",tagList5);
 		return "/registView/join_as_user";
 	}
 
 	// 회원가입
 	@PostMapping("/insert_user")
-	public String insertUser(User_member member) {
+	public String insertUser(User_member member,MultipartFile upload) {
+		log.debug("회원정보 : {}", upload);
+		if (!upload.isEmpty()) {
+			String savedfile = FileService.saveFile(upload, uploadPath);
+			member.setMember_originalfile(upload.getOriginalFilename());
+			member.setMember_savedfile(savedfile);
+		}
+		
 		log.debug("회원정보 : {}", member);
 		int result = service.insertUser(member);
 		log.debug("회원정보 : {}", result);

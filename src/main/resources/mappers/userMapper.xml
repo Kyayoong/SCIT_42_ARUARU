@@ -15,24 +15,36 @@
 		, member_phone
 		, member_email
 		, member_tags
-		, member_address1
+		,
+		member_address1
 		, member_address2
 		, member_gender
 		, member_nickname
+		<if test="member_originalfile != null and member_savedfile != null">
+			, member_originalfile
+			, member_savedfile
+		</if>
 		)
 		VALUES
 		(user_member_seq.nextval
 		, #{member_id}
 		, #{member_pw}
-		, #{member_birth}
+		,
+		#{member_birth}
 		, #{member_name}
 		, #{member_phone}
 		, #{member_email}
-		, #{member_tags}
+		,
+		#{member_tags}
 		, #{member_address1}
 		, #{member_address2}
-		, #{member_gender}
+		,
+		#{member_gender}
 		, #{member_nickname}
+		<if test="member_originalfile != null and member_savedfile != null">
+			, #{member_originalfile}
+			, #{member_savedfile}
+		</if>
 		)
 	</insert>
 
@@ -50,7 +62,8 @@
 	</select>
 
 	<select id="findID" parameterType="String" resultType="String">
-		SELECT member_id
+		SELECT
+		member_id
 		WHERE member_name = #{member_name}
 	</select>
 
@@ -59,13 +72,17 @@
 		SET
 		member_pw = #{member_pw},
 		member_name = #{member_name},
-		member_nickname = #{member_nickname},
+		member_nickname
+		= #{member_nickname},
 		member_email = #{member_email},
-		member_phone = #{member_phone},
+		member_phone =
+		#{member_phone},
 		member_address1 = #{member_address1},
-		member_address2 = #{member_address2},
+		member_address2 =
+		#{member_address2},
 		member_birth = #{member_birth},
-		member_tags = #{member_tags}
+		member_tags =
+		#{member_tags}
 		WHERE member_id = #{member_id}
 	</update>
 </mapper>

@@ -1,526 +1,568 @@
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon001','1111','950123','류기원','010-1111-1111','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon001','1111','950123','류기원','010-1111-1111','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 130','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon002','1111','950123','류기원','010-1111-1112','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon002','1111','950123','류기원','010-1111-1112','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 130','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon003','1111','950123','류기원','010-1111-1113','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon003','1111','950123','류기원','010-1111-1113','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 131','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon004','1111','950123','류기원','010-1111-1114','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon004','1111','950123','류기원','010-1111-1114','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 132','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon005','1111','950123','류기원','010-1111-1115','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon005','1111','950123','류기원','010-1111-1115','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 133','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon006','1111','950123','류기원','010-1111-1116','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon006','1111','950123','류기원','010-1111-1116','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 134','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon007','1111','950123','류기원','010-1111-1117','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon007','1111','950123','류기원','010-1111-1117','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 135','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon008','1111','950123','류기원','010-1111-1118','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon008','1111','950123','류기원','010-1111-1118','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 136','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon009','1111','950123','류기원','010-1111-1119','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon009','1111','950123','류기원','010-1111-1119','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 137','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon010','1111','950123','류기원','010-1111-1120','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon010','1111','950123','류기원','010-1111-1120','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 138','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon011','1111','950123','류기원','010-1111-1121','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon011','1111','950123','류기원','010-1111-1121','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 139','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon012','1111','950123','류기원','010-1111-1122','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon012','1111','950123','류기원','010-1111-1122','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 140','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon013','1111','950123','류기원','010-1111-1123','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon013','1111','950123','류기원','010-1111-1123','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 141','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon014','1111','950123','류기원','010-1111-1124','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon014','1111','950123','류기원','010-1111-1124','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 142','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon015','1111','950123','류기원','010-1111-1125','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon015','1111','950123','류기원','010-1111-1125','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 143','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon016','1111','950123','류기원','010-1111-1126','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon016','1111','950123','류기원','010-1111-1126','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 144','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon017','1111','950123','류기원','010-1111-1127','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon017','1111','950123','류기원','010-1111-1127','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 145','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon018','1111','950123','류기원','010-1111-1128','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon018','1111','950123','류기원','010-1111-1128','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 146','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon019','1111','950123','류기원','010-1111-1129','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon019','1111','950123','류기원','010-1111-1129','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 147','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon020','1111','950123','류기원','010-1111-1130','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon020','1111','950123','류기원','010-1111-1130','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 148','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon021','1111','950123','류기원','010-1111-1131','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon021','1111','950123','류기원','010-1111-1131','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 149','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon022','1111','950123','류기원','010-1111-1132','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon022','1111','950123','류기원','010-1111-1132','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 150','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon023','1111','950123','류기원','010-1111-1133','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon023','1111','950123','류기원','010-1111-1133','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 151','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon024','1111','950123','류기원','010-1111-1134','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon024','1111','950123','류기원','010-1111-1134','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 152','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon025','1111','950123','류기원','010-1111-1135','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon025','1111','950123','류기원','010-1111-1135','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 153','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon026','1111','950123','류기원','010-1111-1136','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon026','1111','950123','류기원','010-1111-1136','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 154','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon027','1111','950123','류기원','010-1111-1137','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon027','1111','950123','류기원','010-1111-1137','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 155','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon028','1111','950123','류기원','010-1111-1138','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon028','1111','950123','류기원','010-1111-1138','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 156','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon029','1111','950123','류기원','010-1111-1139','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon029','1111','950123','류기원','010-1111-1139','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 157','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon030','1111','950123','류기원','010-1111-1140','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon030','1111','950123','류기원','010-1111-1140','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 158','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon031','1111','950123','류기원','010-1111-1141','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon031','1111','950123','류기원','010-1111-1141','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 159','별빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon032','1111','950123','류기원','010-1111-1142','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon032','1111','950123','류기원','010-1111-1142','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 160','금빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon033','1111','950123','류기원','010-1111-1143','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon033','1111','950123','류기원','010-1111-1143','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 161','은빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon034','1111','950123','류기원','010-1111-1144','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon034','1111','950123','류기원','010-1111-1144','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 162','햇빛마을','male','옹애');
 INSERT INTO user_member
-    (member_num
-    , member_id
-    , member_pw
-    , member_birth
-    , member_name
-    , member_phone
-    , member_email
-    , member_tags
-    , member_address
-    , member_gender
-    , member_nickname
-    )
-    VALUES
-    (user_member_seq.nextval,'kiwon035','1111','950123','류기원','010-1111-1145','노잼','asd@asdsad.com','고양고양고양시','male','옹애');
+(member_num
+, member_id
+, member_pw
+, member_birth
+, member_name
+, member_phone
+, member_email
+, member_tags
+, member_address1
+, member_address2
+, member_gender
+, member_nickname
+)
+VALUES
+(user_member_seq.nextval,'kiwon035','1111','950123','류기원','010-1111-1145','노잼','asd@asdsad.com','경기 고양시 덕양구 화중로 163','별빛마을','male','옹애');
 
+UPDATE user_member
+SET
+member_role = 'ROLE_MEMBER'
+WHERE
+member_num BETWEEN 1 AND 35;
+
+COMMIT;

@@ -65,11 +65,6 @@ public class RestaurantController {
 		ArrayList<Tags> tagList3 = service.tagList("인기");
 		ArrayList<Tags> tagList4 = service.tagList("가격");
 		ArrayList<Tags> tagList5 = service.tagList("계절");
-		log.debug("리스트 1 {}",tagList);
-		log.debug("리스트 2 {}",tagList2);
-		log.debug("리스트 3 {}",tagList3);
-		log.debug("리스트 4 {}",tagList4);
-		log.debug("리스트 5 {}",tagList5);
 		model.addAttribute("tagList",tagList);
 		model.addAttribute("tagList2",tagList2);
 		model.addAttribute("tagList3",tagList3);

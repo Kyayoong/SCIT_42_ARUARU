@@ -153,4 +153,28 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
+	
+	
+	@GetMapping("restaurantMain")
+	public String restaurantMain() {
+		return "/restaurantView/restaurantMain";
+	}
+	
+	//restMemberMain - 식당멤버관리창
+	@GetMapping("restaurantRTMemberMain")
+	public String restaurantRTMemberMain() {
+		return "/restaurantView/restaurantRTMemberMain";
+	}
+	
+	//genMemberMain - 일반회원관리창
+	@GetMapping("restaurantGNMemberMain")
+	public String restaurantGNMemberMain() {
+		return "/restaurantView/restaurantGNMemberMain";
+	}
+	
+	//boardMain - 게시글관리창
+	@GetMapping("restaurantBoardMain")
+	public String restaurantBoardMain() {
+		return "/restaurantView/restaurantBoardMain";
+	}
 }

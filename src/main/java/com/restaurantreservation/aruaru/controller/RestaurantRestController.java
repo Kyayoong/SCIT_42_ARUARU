@@ -99,7 +99,6 @@ public class RestaurantRestController {
 		//저장된 파일 경로
 		String fullPath = uploadPath + "/" + menu.getMenu_savedfile();
 		
-		log.debug("경로 : {}",fullPath);
 		
 		//서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
 		FileInputStream filein = null;

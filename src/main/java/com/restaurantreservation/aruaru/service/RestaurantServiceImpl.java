@@ -59,9 +59,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 	
 	// 식당 리스트 조회하기
 	@Override
-	public ArrayList<Restaurant_member> rList() {
-		ArrayList<Restaurant_member> rList = dao.rList(); 
-		return rList;
+	public ArrayList<Restaurant_member> resList() {
+		// TODO Auto-generated method stub
+		ArrayList<Restaurant_member> resList = dao.resList();
+		return resList;
 	}
 
 
@@ -135,11 +136,6 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Holiday> hList = dao.readHoliday();
 		return hList;
 	}
-	@Override
-	public ArrayList<Restaurant_member> resList() {
-		// TODO Auto-generated method stub
-		ArrayList<Restaurant_member> resList = dao.resList();
-		return resList;
-	}
+	
 
 }

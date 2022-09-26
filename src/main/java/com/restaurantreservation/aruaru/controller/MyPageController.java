@@ -136,4 +136,21 @@ public class MyPageController {
 	public String insertReview() {
 		return "userView/insertReview";
 	}
+	
+	@GetMapping("leaveId")
+	public String leaveId(Model model, @AuthenticationPrincipal UserDetails user) {
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		}
+		
+		return "userView/leaveId";
+	}
+	
+	@PostMapping("/leaveId")
+	public String leaveId(@AuthenticationPrincipal UserDetails user) {
+		User_member member = service.selectUser(user.getUsername());
+		int result = service.deleteUser(member.getMember_id());
+		return "redirect:/logout";
+	}
 }

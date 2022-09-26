@@ -18,4 +18,7 @@ public interface UserDao {
 
 	// 정보 수정
 	public int updateUser(User_member member);
+	
+	// 회원 탈퇴
+	public int deleteUser(String member_id);
 }

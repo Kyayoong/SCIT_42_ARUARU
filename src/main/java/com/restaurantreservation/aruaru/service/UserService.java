@@ -10,9 +10,12 @@ public interface UserService {
 	// ID 중복확인
 	public boolean idcheck(String member_id);
 
-	//회원 정보 가져옹기
+	// 회원 정보 가져옹기
 	public User_member selectUser(String member_id);
 
 	// 정보 수정
 	public int updateUser(User_member member);
+
+	// 회원 탈퇴
+	public int deleteUser(String member_id);
 }

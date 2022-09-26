@@ -107,7 +107,7 @@
 		</div>
 		<div id="mypage-right" class="col-sm-9">
 			<div id="profile-photo">
-				<img id="p-photo" th:src="@{/images/user_icon.png}"
+				<img id="p-photo" th:src="|profile?member_num=${member.member_num}|"
 					class="rounded-circle" alt="프로필 이미지">
 			</div>
 			<div id="profile-name">

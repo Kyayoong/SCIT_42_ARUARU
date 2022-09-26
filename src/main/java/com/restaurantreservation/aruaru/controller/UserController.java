@@ -38,9 +38,6 @@ public class UserController {
 	@Autowired
 	RestaurantService service1;
 
-	@Autowired
-	UserDao dao;
-
 	// 로그인 페이지
 	@GetMapping("login")
 	public String login() {

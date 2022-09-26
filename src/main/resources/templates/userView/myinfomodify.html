@@ -172,7 +172,7 @@ function check() {
 			</div>
 			<div id="mypage-right" class="col-sm-9">
 				<div id="profile-photo">
-					<img id="p-photo" th:src="@{/images/user_icon.png}"
+					<img id="p-photo" th:src="|profile?member_num=${member.member_num}|"
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
@@ -227,7 +227,7 @@ function check() {
 							<tr>
 								<td><div id="profile-table">프로필</div></td>
 								<td><img id="p-photo-table"
-									th:src="@{/images/user_icon.png}" class="rounded" alt=""></td>
+									th:src="|profile?member_num=${member.member_num}|" class="rounded" alt=""></td>
 							</tr>
 							<tr>
 								<td>아이디</td>
@@ -346,10 +346,11 @@ function check() {
 									</div> <span id="msg13"></span>
 								</td>
 							<tr>
-								<td><a th:href = "@{/mypage/leaveId}">회원탈퇴</a>
+								<td><a th:href = "@{/mypage/leaveId}">회원탈퇴</a></td>
+								<td></td>
 							</tr>
 							<tr>
-								<td><input type="submit" class="btn btn-primary" value="수정">
+								<td colspan="2"><input type="submit" class="btn btn-primary" value="수정">
 								</td>
 							</tr>
 

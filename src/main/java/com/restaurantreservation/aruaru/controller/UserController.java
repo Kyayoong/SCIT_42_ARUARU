@@ -28,13 +28,13 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 	@Autowired
 	UserService service;
-	
+
 	/**
 	 * 게시판 첨부파일 업로드 경로
 	 */
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
-	
+
 	@Autowired
 	RestaurantService service1;
 
@@ -61,24 +61,24 @@ public class UserController {
 		ArrayList<Tags> tagList3 = service1.tagList("인기");
 		ArrayList<Tags> tagList4 = service1.tagList("가격");
 		ArrayList<Tags> tagList5 = service1.tagList("계절");
-		model.addAttribute("tagList",tagList);
-		model.addAttribute("tagList2",tagList2);
-		model.addAttribute("tagList3",tagList3);
-		model.addAttribute("tagList4",tagList4);
-		model.addAttribute("tagList5",tagList5);
+		model.addAttribute("tagList", tagList);
+		model.addAttribute("tagList2", tagList2);
+		model.addAttribute("tagList3", tagList3);
+		model.addAttribute("tagList4", tagList4);
+		model.addAttribute("tagList5", tagList5);
 		return "/registView/join_as_user";
 	}
 
-	// 회원가입
+	// 회원가입 처리
 	@PostMapping("/insert_user")
-	public String insertUser(User_member member,MultipartFile upload) {
+	public String insertUser(User_member member, MultipartFile upload) {
 		log.debug("회원정보 : {}", upload);
 		if (!upload.isEmpty()) {
 			String savedfile = FileService.saveFile(upload, uploadPath);
 			member.setMember_originalfile(upload.getOriginalFilename());
 			member.setMember_savedfile(savedfile);
 		}
-		
+
 		log.debug("회원정보 : {}", member);
 		int result = service.insertUser(member);
 		log.debug("회원정보 : {}", result);
@@ -94,16 +94,13 @@ public class UserController {
 //		return cnt;
 //	}
 
+	// 아이디 중복체크
 	@GetMapping("idcheck")
 	public String idcheck() {
 		return "/registView/idForm";
 	}
 
-	@GetMapping("emailcheck")
-	public String emailcheck() {
-		return "/registView/emailForm";
-	}
-
+	// 아이디 중복체크 처리
 	@PostMapping("idcheck")
 	public String idcheck(String searchId, Model model) {
 		log.debug("검색할 ID : {}", searchId);
@@ -115,21 +112,31 @@ public class UserController {
 		return "/registView/idForm";
 	}
 
+	// 이메일 인증
+	@GetMapping("emailcheck")
+	public String emailcheck() {
+		return "/registView/emailForm";
+	}
+
+	// 식당 측 회원가입
 	@GetMapping("/join_as_restaurant")
 	public String join_as_restaurant() {
 		return "/registView/join_as_restaurant";
 	}
 
+	// ID 찾기, PW 찾기 선택 화면
 	@GetMapping("inquirySelect")
 	public String inquirySelect() {
 		return "registView/inquirySelect";
 	}
 
+	// ID 찾기
 	@GetMapping("idInquiry")
 	public String idInquiry() {
 		return "registView/idInquiry";
 	}
 
+	// PW 찾기
 	@GetMapping("pwInquiry")
 	public String pwInquiry() {
 		return "registView/pwInquiry";

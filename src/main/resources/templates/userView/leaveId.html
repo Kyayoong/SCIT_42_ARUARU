@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="leaveId" method="post">
+	<h3>탈퇴 안내</h3>
+	<p>회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.</p>
+	<br>
+	
+	<!-- 아이디 부분만 글씨 초록색으로-->
+	<p th:text="|사용하고 계신 아이디(${member.member_id})는 탈퇴할 경우 재사용 및 복구가 불가능합니다.|"></p>
+	<!-- 밑에 문구는 빨간색으로 표시-->
+	<p>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</p>
+	<br>
+	
+	<p>정말로 탈퇴하시겠습니까?</p>
+	<input type="submit" value="회원탈퇴">
+	</form>
+</body>
+</html>

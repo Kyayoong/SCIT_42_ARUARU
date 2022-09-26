@@ -48,13 +48,6 @@
 		)
 	</insert>
 
-	<!-- 오라클 연결 테스트용입니다. -->
-	<!-- <insert id="insertTest" parameterType="tabletest"> INSERT INTO TEST_TABLE( 
-		tableid, text ) VALUES ( #{tableid}, #{text} ) </insert> -->
-
-	<!-- <select id="countMemberid" parameterType="String" resultType="int"> 
-		select count(*) from user_member where member_id = #{member_id} </select> -->
-
 	<select id="selectOne" parameterType="string"
 		resultType="User_member">
 		SELECT * from user_member
@@ -85,4 +78,9 @@
 		#{member_tags}
 		WHERE member_id = #{member_id}
 	</update>
+	
+	<delete id="deleteUser" parameterType="String">
+	DELETE user_member
+	WHERE member_id = #{member_id}
+	</delete>
 </mapper>

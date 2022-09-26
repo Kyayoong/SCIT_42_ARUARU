@@ -29,6 +29,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		Restaurant_member member = dao.selectOne(Member_id);
 		return member;
 	}
+	// 번호로 식당개체가져오기
+	@Override
+	public Restaurant_member selectOne1(int restaurant_num) {
+		Restaurant_member member = dao.selectOne1(restaurant_num);
+		return member;
+	}
 
 	// 식당회원 저장하기
 	@Override
@@ -43,6 +49,21 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.fileregist(file);
 		return result;
 	}
+	
+	// 식당파일 조회하기
+	@Override
+	public ArrayList<Restaurant_file> fileselect(int restaurant_num) {
+		ArrayList<Restaurant_file> fileList = dao.fileselect(restaurant_num);
+		return fileList;
+	}
+	
+	// 식당 리스트 조회하기
+	@Override
+	public ArrayList<Restaurant_member> rList() {
+		ArrayList<Restaurant_member> rList = dao.rList(); 
+		return rList;
+	}
+
 
 	// 메뉴 저장하기
 	@Override

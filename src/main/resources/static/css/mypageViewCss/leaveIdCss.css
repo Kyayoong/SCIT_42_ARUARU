@@ -96,29 +96,13 @@ nav {
 	font-family: Jua;
 }
 
-#table-area1-caption {
-	font-family: Jua;
-}
-
-#table-area1-all {
+#confirm-area {
 	position : absolute;
-	text-align: right;
-	margin-top : -3.5vh;
-	left : 53.5vw;
-}
-
-#table1 {
-	text-align : center;
+	left : 12vw;
+	top: 29vh;
 	font-family : IBM Plex Sans KR;
+	
 }
-
-#table-area1 {
-	position: absolute;
-	top: 27vh;
-	margin-left: 11vw;
-	width: 60vw;
-}
-
 
 #p-photo-table {
 	width: 3.5vw;

@@ -305,7 +305,7 @@
 	.star-ranking {
 		position : absolute;
 		top:32.2vh;
-		left : 6.5vw;
+		left : 14.5vw;
 	}
 	
 	
@@ -315,7 +315,7 @@
 	.rate-ranking {
 		position : absolute;
 		top:32.5vh;
-		left:8vw;
+		left:16vw;
 		font-family : Jua;
 	}
 	

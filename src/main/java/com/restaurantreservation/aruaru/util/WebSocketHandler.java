@@ -1,6 +1,8 @@
 package com.restaurantreservation.aruaru.util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +15,8 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Component
 public class WebSocketHandler extends TextWebSocketHandler{
 	
@@ -50,13 +54,11 @@ public class WebSocketHandler extends TextWebSocketHandler{
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		//소켓 연결
 		super.afterConnectionEstablished(session);
-		sessionMap.put(session.getId(), session);
-		
-		
-		
+		sessionMap.put(session.getId(), session); 
 	}
 	
-	@Override 
+	
+		@Override 
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
 		//소켓 종료
 		sessionMap.remove(session.getId());

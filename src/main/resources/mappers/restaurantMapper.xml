@@ -206,4 +206,13 @@
 		WHERE
 		restaurant_num BETWEEN 1 AND 25
 	</select>
+	
+	<select id="resList" resultType="Restaurant_member">
+		SELECT
+		*
+		FROM
+		Restaurant_member
+		WHERE
+		restaurant_num BETWEEN 1 AND 25
+	</select>
 </mapper>

@@ -76,6 +76,8 @@
         left:73.4vw;
         width: 6.5vw;
     }
+    
+   
     /*
     * 검색버튼 위치 조정
     */
@@ -88,13 +90,17 @@
     #container2 {
     	position : absolute;
     	top : 14vh;
-    	width : 100vw;
+    	width : 90vw;
     	padding-left : 4vw;
     }
       
     #organize {
     	position : absolute;
-    	right : 0vw;
+    	right : 3vw;
+    }
+    
+    #line {
+    	width : 80vw;
     }
     #ranking-class {
     	position : relative;
@@ -116,6 +122,7 @@
 	#ranking {
 		position : relative;
 		top : 14vh;
+		width : 85vw;
 		padding-left : 50px;
 		margin : 0 auto;
 	}	
@@ -147,7 +154,7 @@
 	*/
 	.ranking-img {
 		width : 20vw;
-		height : 27.5vh;
+		height : 20vw;
 	
 	}
 	
@@ -191,7 +198,7 @@
 	.star-ranking {
 		position : absolute;
 		top:32.2vh;
-		left : 6.5vw;
+		left : 14.5vw;
 	}
 	
 	
@@ -201,7 +208,7 @@
 	.rate-ranking {
 		position : absolute;
 		top:32.5vh;
-		left:8vw;
+		left:16vw;
 		font-family : Jua;
 	}
 	

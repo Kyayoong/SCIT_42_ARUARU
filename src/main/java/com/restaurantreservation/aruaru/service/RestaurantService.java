@@ -57,5 +57,7 @@ public interface RestaurantService {
 	
 	//공휴일 리스트
 	public ArrayList<Holiday> readHoliday();
+
+	public ArrayList<Restaurant_member> resList();
 	
 }

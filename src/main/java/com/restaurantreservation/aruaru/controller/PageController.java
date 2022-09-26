@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
@@ -42,11 +42,26 @@ public class PageController {
 			else {
 				model.addAttribute("member_nickname", null);
 			}
+		ArrayList<Restaurant_member> resList = service.resList();
 		ArrayList<Tags> tagList = service.tagList("");
 		log.debug("tagList {}",tagList);
 		model.addAttribute("tagList",tagList);
+		model.addAttribute("resList", resList);
 		return "stores";
 	}
 	
+	@GetMapping("introduce_store")
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user) {
+		if(user != null) {
+			User_member member = service1.selectUser(user.getUsername());
+				model.addAttribute("member", member);
+			}
+			else {
+				model.addAttribute("member_nickname", null);
+			}
+		Restaurant_member storeList = service.selectOne1(restaurant_num);
+		model.addAttribute("store", storeList);
+		return "views/introduce_store";
+	}
 	
 }

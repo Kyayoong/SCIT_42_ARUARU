@@ -135,5 +135,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Holiday> hList = dao.readHoliday();
 		return hList;
 	}
+	@Override
+	public ArrayList<Restaurant_member> resList() {
+		// TODO Auto-generated method stub
+		ArrayList<Restaurant_member> resList = dao.resList();
+		return resList;
+	}
 
 }

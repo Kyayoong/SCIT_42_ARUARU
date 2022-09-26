@@ -61,4 +61,6 @@ public interface RestaurantDao {
 	//공휴일 리스트
 	ArrayList<Holiday> readHoliday();
 
+	ArrayList<Restaurant_member> resList();
+
 }

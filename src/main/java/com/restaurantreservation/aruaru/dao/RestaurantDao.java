@@ -29,7 +29,7 @@ public interface RestaurantDao {
 	ArrayList<Restaurant_file> fileselect(int restaurant_num);
 	
 	//식당 리스트
-	ArrayList<Restaurant_member> rList();
+	ArrayList<Restaurant_member> resList();
 		
 	//메뉴 저장하기
 	int insertmenu(Menu menu);
@@ -61,6 +61,5 @@ public interface RestaurantDao {
 	//공휴일 리스트
 	ArrayList<Holiday> readHoliday();
 
-	ArrayList<Restaurant_member> resList();
 
 }

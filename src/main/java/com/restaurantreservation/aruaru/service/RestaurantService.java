@@ -26,7 +26,7 @@ public interface RestaurantService {
 	public ArrayList<Restaurant_file> fileselect(int restaurant_num);
 	
 	//식당리스트가져오기
-	public ArrayList<Restaurant_member> rList();
+	public ArrayList<Restaurant_member> resList();
 	
 	//메뉴 저장하기
 	public int insertmenu(Menu menu);
@@ -58,6 +58,6 @@ public interface RestaurantService {
 	//공휴일 리스트
 	public ArrayList<Holiday> readHoliday();
 
-	public ArrayList<Restaurant_member> resList();
+	
 	
 }

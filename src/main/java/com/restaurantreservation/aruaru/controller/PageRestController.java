@@ -42,9 +42,7 @@ public class PageRestController {
 	@PostMapping("rlist") 
 	public ArrayList<Restaurant_member> rlist() {
 		ArrayList<Tags> tagList = service.tagList("");
-		ArrayList<Restaurant_member> rList = service.rList();
-		log.debug("tagList {}",tagList);
-		log.debug("rList {}",rList);
+		ArrayList<Restaurant_member> rList = service.resList();
 		return rList;
 	}
 	
@@ -59,7 +57,6 @@ public class PageRestController {
 		
 		ArrayList<Restaurant_file> fileList = service.fileselect(restaurant_num);
 		
-		log.debug("filelist : {}",fileList);
 		
 		//원래의 파일명
 		String originalfile = new String(fileList.get(0).getRestaurant_originalfile());
@@ -73,7 +70,6 @@ public class PageRestController {
 		//저장된 파일 경로
 		String fullPath = uploadPath + "/" + fileList.get(0).getRestaurant_savedfile();
 		
-		log.debug("경로 : {}",fullPath);
 		
 		//서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
 		FileInputStream filein = null;

@@ -1,14 +1,25 @@
 package com.restaurantreservation.aruaru.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -20,6 +31,9 @@ import lombok.extern.slf4j.Slf4j;
 public class MyPageController {
 	@Autowired
 	UserService service;
+	
+	@Value("${spring.servlet.multipart.location}")
+	String uploadPath;
 
 	// 마이페이지 메인화면
 	@GetMapping("/")
@@ -99,6 +113,43 @@ public class MyPageController {
 		return "userView/mywishlist";
 	}
 
+	@GetMapping("profile")
+	public String profile(int member_num, Model model, HttpServletResponse response, @AuthenticationPrincipal UserDetails user) {
+		//전달된 글 번호로 글 정보 조회
+		User_member member = service.selectUser(user.getUsername());
+		
+		//원래의 파일명
+		String originalfile = new String(member.getMember_originalfile());
+		try {
+			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		//저장된 파일 경로
+		String fullPath = uploadPath + "/" + member.getMember_savedfile();
+		
+		
+		//서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
+		FileInputStream filein = null;
+		ServletOutputStream fileout = null;
+		
+		try {
+			filein = new FileInputStream(fullPath);
+			fileout = response.getOutputStream();
+			
+			//Spring의 파일 관련 유틸 이용하여 출력
+			FileCopyUtils.copy(filein, fileout);
+			
+			filein.close();
+			fileout.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "redirect:/";
+	}	
+	
 	// 회원정보변경 화면으로 이동
 	@GetMapping("myinfomodify")
 	public String myinfomodify(Model model, @AuthenticationPrincipal UserDetails user) {

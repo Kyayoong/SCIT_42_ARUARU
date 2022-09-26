@@ -183,6 +183,7 @@ public class MyPageController {
 		return "userView/mybenefit";
 	}
 	
+	//리뷰 입력
 	@GetMapping("insertReview")
 	public String insertReview() {
 		return "userView/insertReview";

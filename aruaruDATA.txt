@@ -2148,6 +2148,24 @@ INSERT INTO restaurant_file
 )
 VALUES
 (restaurant_file_seq.nextval
+, 'Y071.jpg','Y071.jpg',18);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y072.jpg','Y072.jpg',18);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
 , 'Y073.jpg','Y073.jpg',19);
 INSERT INTO restaurant_file
 (restaurant_file_num
@@ -2158,24 +2176,6 @@ INSERT INTO restaurant_file
 VALUES
 (restaurant_file_seq.nextval
 , 'Y074.jpg','Y074.jpg',19);
-INSERT INTO restaurant_file
-(restaurant_file_num
-, restaurant_originalfile
-, restaurant_savedfile
-, restaurant_num
-)
-VALUES
-(restaurant_file_seq.nextval
-, 'Y079.jpg','Y079.jpg',20);
-INSERT INTO restaurant_file
-(restaurant_file_num
-, restaurant_originalfile
-, restaurant_savedfile
-, restaurant_num
-)
-VALUES
-(restaurant_file_seq.nextval
-, 'Y080.jpg','Y080.jpg',20);
 INSERT INTO restaurant_file
 (restaurant_file_num
 , restaurant_originalfile
@@ -2284,6 +2284,9 @@ INSERT INTO restaurant_file
 VALUES
 (restaurant_file_seq.nextval
 , 'Y098.jpg','Y098.jpg',25);
+
+
+
 
 INSERT INTO menu
 (menu_num
@@ -5931,5 +5934,221 @@ INSERT INTO web_reply
 )
 VALUES
 (web_reply_seq.nextval,'kiwon039',10,'아뭐야 이거 진짜 써지네');
+
+UPDATE user_member
+SET member_role = 'ROLE_MEMBER'
+WHERE member_num  BETWEEN 1 AND 35;
+
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',1,10,'2022-09-25','13:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',2,2,'2022-09-26','13:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',3,34,'2022-09-27','14:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',4,5,'2022-09-28','14:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',5,1,'2022-09-29','15:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',6,2,'2022-09-30','15:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',7,3,'2022-08-31','16:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',8,2,'2022-08-25','16:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',9,3,'2022-08-13','17:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon036',10,4,'2022-08-01','17:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon037',1,5,'2022-09-25','13:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon038',2,1,'2022-09-26','13:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon039',3,2,'2022-09-27','14:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon040',4,3,'2022-09-28','14:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon041',5,2,'2022-09-29','15:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon042',6,3,'2022-09-30','15:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon043',7,4,'2022-08-31','16:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon044',8,3,'2022-08-25','16:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon045',9,4,'2022-08-13','17:00','커플이에요');
+
+
 
 COMMIT;

@@ -10,9 +10,6 @@
 
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -27,6 +24,72 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+$(document).ready(function() {
+	//댓글 목록읽어오기
+	init();
+});
+
+function init() {
+	let s = '';
+	//서버로 Ajax요청을 보내서 댓글 목록을 받아서 반복문으로 화면에 출력 get
+	$.ajax({
+		url : 'rlist',
+		type : 'post',
+		dataType : 'json',
+		success : output,
+		error : function(e) {
+			alert(JSON.stringify(e));
+		}
+	});
+}
+
+
+function output(msg) {
+	var str = '<div class="col">';
+	$.each(msg,function(i,rest) {
+		if(rest.restaurant_address2 == null) {
+			rest.restaurant_address2 = '';
+		}
+		str += '<img class="ranking-img" style="border-radius: 0.5vw;" src="display?restaurant_num=' + rest.restaurant_num + '">';
+		str += '<div class="name-ranking"><h3 style="text-align: left">' + rest.restaurant_name + '</h3></div>';
+		str += '<div class="star-ranking"><img src="../images/star_icon.png" width=23 height=23></div>';
+		str += '<div class="rate-ranking"><p style="text-align: left">'+ rest.restaurant_grade +'</p></div>';
+		str += '<div class="map-pin-ranking"><img src="../images/map_flag_icon.png" width=18 height=18></div>';
+		str += '<div class="location-ranking"><p style="text-align: left">' + rest.restaurant_address1 + ' ' + rest.restaurant_address2 + '</p></div>';
+		str += '<div class="comment-ranking"><p style="text-align: left"><br>' + rest.restaurant_comment + '</p><div>'
+	});
+	str += '<div>';
+	$('#ranking').html(str);
+	
+	//삭제이벤트처리하려면 삭제버튼이 생긴이후로 무조건해야한다.
+	
+}
+
+$('.tag1').change(function(){
+	
+	if($('.tag1').is(":checked")){
+    	console.log("1");
+    	$.ajax({
+    		url : 'tagSearch1',
+    		type : 'get',
+    		data : {tags_num : $(this).attr('num')},
+    		success : function() {
+    		}
+    	});
+    }else{
+    	$.ajax({
+    		url : 'back',
+    		type : 'get',
+    		data : {tags_num : $(this).attr('num')},
+    		success : function() {
+    		}
+    	});
+    }
+});
+
+
+</script>
 <title>Document</title>
 </head>
 <body>
@@ -36,8 +99,10 @@
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
 				<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-				<li th:if="${member.member_nickname != null}" sec:authorize="hasRole('USER')" class="nav-item"
-					th:text="|${member.member_nickname}님이 로그인 하셨습니다.|">[일반 사용자] 입니다.</li>
+			<li th:if="${member.member_nickname != null}"
+					sec:authorize="hasRole('USER')" class="nav-item"
+					th:text="|${member.member_nickname}님이 로그인하셨습니다.|">[일반 사용자]
+					입니다.</li>
 				<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자]
 					입니다.</li>
 			</ul>
@@ -114,42 +179,15 @@
 		<!-- 회전화면 부분 -->
 		<div id="container2">
 		<table id="table1">
-			<tr>
-						<td>
+			<tr>        
+						<td th:each="tag : ${tagList}">
 							<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag1"><input
-									name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
+								<input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
+							>[[${tag.tags_name}]]</label>
 							</div>
 						</td>
-						<td>	
-							<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag2"><input
-									name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
-							</div>
-						</td>
-						<td>	
-							<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag3"><input
-									name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
-							</div>
-						</td>
-						<td>
-							<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag4"><input
-									name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
-							</div>
-						</td>
-						<td>
-							<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag5"><input
-									name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
-							</div>
-						</td>
-						<td>
-							<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" for="tag6"><input
-									name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
-							</div> <span id="msg13"></span></td>
 						<td>
 							<select id="organize">
 								<option value="1">평점순</option>
@@ -167,11 +205,10 @@
 
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 		
-			<div class="col">
-				<img class="ranking-img" style="border-radius: 0.5vw;"
-					th:src="@{/images/ranking1.png}">
+			<div class="col" th:each="rlist : ${rList}">
+				<img class="ranking-img" style="border-radius: 0.5vw;" src="display?restaurant_num=[[${rlist.restaurant_num}]]>"/>
 				<div class="name-ranking">
-					<h3 style="text-align: left">라멘야</h3>
+					<h3 style="text-align: left">[[${rlist.restaurant_name}]]</h3>
 				</div>
 				<div class="star-ranking">
 					<img th:src="@{/images/star_icon.png}" width=23 height=23>

@@ -16,6 +16,16 @@
 		member_id = #{member_id}
 	</select>
 
+	<select id="selectOne1" resultType="Restaurant_member"
+		parameterType="int">
+		SELECT
+		*
+		FROM
+		restaurant_member
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</select>
+
 	<!-- 식당등록 -->
 	<insert id="regist1" parameterType="Restaurant_member">
 		INSERT INTO restaurant_member
@@ -54,7 +64,16 @@
 		, #{restaurant_num}
 		)
 	</insert>
-
+	<!-- 식당파일조회 -->
+	<select id="fileselect" resultType="Restaurant_file"
+		parameterType="int">
+		SELECT
+		*
+		FROM
+		Restaurant_file
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</select>
 	<!-- 메뉴 등록 -->
 	<insert id="insertmenu" parameterType="Menu">
 		INSERT INTO menu
@@ -177,5 +196,14 @@
 		holiday
 		WHERE
 		restaurant_num IS NULL
+	</select>
+	
+	<select id="rList" resultType="Restaurant_member">
+		SELECT
+		*
+		FROM
+		Restaurant_member
+		WHERE
+		restaurant_num BETWEEN 1 AND 25
 	</select>
 </mapper>

@@ -15,12 +15,21 @@ public interface RestaurantDao {
 	
 	//아이디로 조회하여 식당객체가져오기
 	Restaurant_member selectOne(String Member_id);
+	
+	//식당번호로 개체가져오기
+	Restaurant_member selectOne1(int restaurant_num);
 		
 	//식당회원 저장하기
 	int regist1(Restaurant_member member);
 		
 	//식당파일 저정하기
 	int fileregist(Restaurant_file file);
+	
+	//파일 조회하기
+	ArrayList<Restaurant_file> fileselect(int restaurant_num);
+	
+	//식당 리스트
+	ArrayList<Restaurant_member> rList();
 		
 	//메뉴 저장하기
 	int insertmenu(Menu menu);

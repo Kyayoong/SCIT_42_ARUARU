@@ -152,9 +152,10 @@
 	/*
 	*	랭킹, 신상맛집 이미지
 	*/
+	
 	.ranking-img {
 		width : 20vw;
-		height : 20vw;
+		height : 27.5vh;
 	
 	}
 	
@@ -225,6 +226,10 @@
 	/*
 	* 랭킹, 신상맛집 더 보기 글씨 위치 및 크기 설정 
 	*/
+	
+	.empty-area {
+		height : 16vh;
+	}
 	.see-more {
 		position : absolute;
 		top: 17.5vh;

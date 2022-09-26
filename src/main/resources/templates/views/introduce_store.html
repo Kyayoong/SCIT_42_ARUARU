@@ -122,11 +122,11 @@
 		<img id="flag-icon" th:src="@{/images/map_flag_icon.png}">
 		<!-- 위치 글씨 부분 -->
 		<div id="location-area">
-			<h3>위치</h3>
+			<h3>[[${store.address1}]]</h3>
 		</div>
 		<!-- 음식점 이름 -->
 		<div id="store-name">
-			<h1>맛있는집</h1>
+			<h1>[[${store.restaurant_name}]]</h1>
 		</div>
 		<!-- 맛집 소개글 -->
 		<div id="store-contents">
@@ -174,7 +174,7 @@
 		</div>
 		<!-- 리뷰부분 -->
 		<div id="store-commentary">
-			<h3>리뷰(평균평점)</h3>
+			<h3>[[${store.restaurant_grade]]</h3>
 			<table class="table">
 				<tr>
 					<td>

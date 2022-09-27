@@ -28,4 +28,6 @@ public interface UserDao {
 	List<Web_board> findBoardById(String username);
 
 	int insertBoard(Web_board b);
+
+	public Web_board findBoard(int board_num);
 }

@@ -281,10 +281,27 @@ public class MyPageController {
 		return "/userView/inquiryWrite";
 	}
 	
+	@GetMapping("inquiryread") 
+	public String inquiryread(int board_num, Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("{}", board_num);
+		if(user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		}
+		Web_board b = service.readBoard(board_num);
+		model.addAttribute("board", b);
+		
+		//넘어온 게시글 번호를 통해 sql에서 게시글 객체 찾기
+		//찾아온 놈을 모델에 넣고
+		//inputiryboard.html로 가져간다.
+		
+		return "userView/inquiryRead";
+	}
+	
 	@PostMapping("submitWebBoard") 
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
 		int result = service.insertBoard(b);
-		return "redirect:/userView/inquiryBoard";
+		return "redirect:/userView/inquiryboard";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 
 @Mapper
 public interface AdminDao {
@@ -16,5 +17,16 @@ public interface AdminDao {
 	Web_board selectOneBoard(int boardNum);
 	//특정 게시글 조회수 올리기
 	int updateHitCnt(int boardNum);
+	
+	//추천수 불러오기
+	int selectBoardSuggestion(int boardNum);
+	//추천수 올리기
+	int updateSuggestionCnt(int boardNum);
+	
+	//댓글 달기
+	int insertReply(Web_reply reply);
+	
+	//댓글 가져오기
+	ArrayList<Web_reply> selectReplyList(int boardNum);
 
 }

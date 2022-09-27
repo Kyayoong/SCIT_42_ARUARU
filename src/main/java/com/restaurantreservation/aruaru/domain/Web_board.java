@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Web_board {
-
 	int board_num;				//게시판번호
 	String member_id;			//회원아이디
 	String board_title;			//게시판 제목
@@ -20,4 +19,5 @@ public class Web_board {
 	String registration_date;	//등록일
 	int board_notice;			//공지여부
 	String category;			//카테고리
+	String member_role;			//작성자 정보(일반?식당?)
 }

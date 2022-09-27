@@ -8,12 +8,26 @@
 	
 	<!-- 일반 게시글 전체 조회 -->
 	<select id="normalBoardList" resultType="Web_board">
-		SELECT * FROM WEB_BOARD WHERE BOARD_NOTICE = 0 ORDER BY BOARD_NUM DESC
+		SELECT B.BOARD_NUM, 
+                B.MEMBER_ID, 
+                B.BOARD_TITLE, 
+                B.BOARD_CONTENTS,
+                B.HITS,
+                B.BOARD_ORIGINALFILE, 
+                B.BOARD_SAVEDFILE, 
+                B.BOARD_SUGGESTION,
+                B.REGISTRATION_DATE, 
+                B.BOARD_NOTICE AS, 
+                B.CATEGORY,
+                M.MEMBER_ROLE
+		FROM WEB_BOARD B, USER_MEMBER M 
+		WHERE B.BOARD_NOTICE = 0 AND B.MEMBER_ID = M.MEMBER_ID
+		ORDER BY BOARD_NUM DESC
 	</select>
 	
 	<!-- 공지 게시글 전체 조회 -->
 	<select id="noticeBoardList" resultType="Web_board">
-		SELECT * FROM WEB_BOARD WHERE BOARD_NOTICE = 1 ORDER BY REGISTRATION_DATE DESC
+		SELECT * FROM WEB_BOARD WHERE BOARD_NOTICE = 1 ORDER BY BOARD_NUM DESC
 	</select>
 	
 	<!-- 특정 게시글 하나 가져오기 -->
@@ -25,4 +39,26 @@
 	<update id="updateHitCnt" parameterType="int">
  		UPDATE WEB_BOARD SET HITS = HITS + 1 WHERE BOARD_NUM = #{boardNum}
  	</update>
+ 	
+ 	<!-- 특정 게시글 추천수 갱신하기 -->
+ 	<select id="selectBoardSuggestion" parameterType="int" resultType="int">
+ 		SELECT BOARD_SUGGESTION FROM WEB_BOARD WHERE BOARD_NUM = #{boardNum}
+ 	</select>
+ 	
+ 	<!-- 특정 게시글 추천수 올리기 -->
+ 	<update id="updateSuggestionCnt" parameterType="int">
+ 		UPDATE WEB_BOARD SET BOARD_SUGGESTION = BOARD_SUGGESTION + 1 WHERE BOARD_NUM = #{boardNum}
+ 	</update>
+ 	
+ 	<!-- 문의글 댓글 달기 -->
+ 	<insert id="insertReply" parameterType="Web_reply">
+ 		INSERT INTO WEB_REPLY(REPLY_NUM, MEMBER_ID, BOARD_NUM, REPLY_CONTENTS)
+ 		VALUES
+ 		(web_reply_seq.nextval, #{member_id}, #{board_num}, #{reply_contents})
+ 	</insert>
+ 	
+ 	<!-- 문의글 댓글 가져오기 -->
+ 	<select id="selectReplyList" parameterType="int" resultType="Web_reply">
+ 		SELECT * FROM WEB_REPLY WHERE BOARD_NUM = #{boardNum}
+ 	</select>
 </mapper>

@@ -47,13 +47,23 @@
 						</a></li>
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/restMemberMain}"> <span
 								data-feather="user"></span> 식당회원관리
-						</a></li>
+						</a>
+							<ul style="list-style: none;">
+								<li>
+ 									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
+								</li>
+								<li>
+									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
+								</li>
+							</ul>
+						</li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
 								data-feather="users"></span> 일반회원관리
 						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/boardMain}"> <span
-								data-feather="clipboard"></span> 게시글관리
-						</a></li>
+								data-feather="clipboard"></span> 문의글관리
+						</a>
+						</li>
 					</ul>
 					<h6
 						class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

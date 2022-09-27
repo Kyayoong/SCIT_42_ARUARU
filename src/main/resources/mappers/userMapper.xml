@@ -90,4 +90,32 @@
 		DELETE user_member
 		WHERE member_id = #{member_id}
 	</delete>
+	<select id="findBoardById" parameterType="String" resultType="Web_board">
+	SELECT
+	*
+	FROM
+	Web_board
+	WHERE
+	member_id = #{member_id}
+	</select>
+	<insert id="insertBoard" parameterType="Web_board">
+	INSERT INTO 
+	web_board 
+	(
+	board_num 
+	, member_id
+	, board_title
+	, board_contents
+	, category
+	)
+	VALUES
+	( 
+	web_board_seq.nextval
+	, #{member_id}
+	, #{board_title}
+	, #{board_contents}
+	, #{category}
+	)
+	</insert>
+	
 </mapper>

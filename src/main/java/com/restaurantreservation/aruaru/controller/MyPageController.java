@@ -231,7 +231,7 @@ public class MyPageController {
 		return "/restaurantView/restaurantBoardMain";
 	}
 	
-	@GetMapping("inquiryBoard")
+	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());

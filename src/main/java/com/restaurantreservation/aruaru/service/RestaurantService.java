@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
@@ -58,11 +59,18 @@ public interface RestaurantService {
 	
 	//공휴일 리스트
 	public ArrayList<Holiday> readHoliday();
-
+	
+	//가게영업일 가져오기
 	public ArrayList<Restaurant_time> searchTime(int restaurant_num);
-
+	
+	//가게 태그 가져오기
 	public ArrayList<Tags> searchStoreTags(int restaurant_num);
-
+	
+	//검색하기
+	ArrayList<Restaurant_member> resListSearch(Map<String, String> map);
+	
+	//파일 가져오기 하나
+	public Restaurant_file readFile(int restaurant_file_num);
 	
 	
 }

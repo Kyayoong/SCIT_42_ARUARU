@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.dao;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -31,6 +32,9 @@ public interface RestaurantDao {
 	
 	//식당 리스트
 	ArrayList<Restaurant_member> resList();
+	
+	//가게리스트 검색
+	ArrayList<Restaurant_member> resListSearch(Map<String, String> map);
 		
 	//메뉴 저장하기
 	int insertmenu(Menu menu);
@@ -61,10 +65,15 @@ public interface RestaurantDao {
 	
 	//공휴일 리스트
 	ArrayList<Holiday> readHoliday();
-
+	
+	//영업일 가져오기
 	ArrayList<Restaurant_time> readTime(int restaurant_num);
-
+	
+	//가게당 태그 가져오기
 	ArrayList<Tags> searchStoreTags(int restaurant_num);
+	
+	//파일 가져오기 하나
+	Restaurant_file readFile(int restaurant_file_num);
 
 
 }

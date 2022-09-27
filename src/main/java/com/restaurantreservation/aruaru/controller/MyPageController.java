@@ -22,7 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.UserService;
-import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,7 +59,8 @@ public class MyPageController {
 		}
 		return "userView/review";
 	}
-
+	
+	// 가게 소개 페이지
 	@GetMapping("introduce_store")
 	public String introduceStore(Model model, @AuthenticationPrincipal UserDetails user) {
 

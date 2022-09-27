@@ -228,10 +228,7 @@ function check() {
 								</tr>
 								<tr>
 									<td><div id="profile-table">프로필</div></td>
-									<td><img id="p-photo-table"
-										th:src="|profile?member_num=${member.member_num}|"
-										class="rounded" alt=""> <label for="file"
-										style="font-family: IBM Plex Sans KR;"></label>
+									<td>
 										<input type="file" name="upload">
 										<span th:text="${member.member_originalfile}"></span>
 									</td>

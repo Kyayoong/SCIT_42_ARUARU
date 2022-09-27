@@ -69,55 +69,50 @@
 			<a th:href="@{/}"><img id="aruaru"
 				th:src="@{/images/rrjapanesemark.png}"></a>
 			<!--검색 부분-->
-			<select id="type" name="type">
-			<option value="title" th:selected="${type} == 'title'">제목</option>
-			<option value="contents" th:selected="${type} == 'contents'">본문</option>
-			<option value="memberid" th:selected="${type} == 'memberid'">작성자ID</option>
-			<option value="all" th:selected="${type} == 'all'">전체</option>
-			</select>
-			<input type="text"  name="searchWord" th:value="${searchWord}">
+			<form th:action="@{/stores/search}" method="get">
 			<table style="font-family: Jua;">
 				<tr>
 					<td><input type="text" class="form-control" id="area-input"
-						placeholder="지역" th:selected="${type} == 'address'" ></td>
+						placeholder="지역" name="s_address" ></td>
 					<td><input type="text" class="form-control" id="keyword-input"
-						placeholder="키워드(ex)오마카세, 분위기있는)" th:selected="${type} == 'tags_name'"></td>
-					<td><input type="date" class="form-control" id="day-input" th:selected="${type} == 'days'"></td>
-					<td><select id="select-time" class="form-control">
-							<option value="09:00">09:00</option>
-							<option value="09:30">09:30</option>
-							<option value="10:00">10:00</option>
-							<option value="10:30">10:30</option>
-							<option value="11:00">11:00</option>
-							<option value="11:30">11:30</option>
-							<option value="12:00">12:00</option>
-							<option value="12:30">12:30</option>
-							<option value="13:00">13:00</option>
-							<option value="13:30">13:30</option>
-							<option value="14:00">14:00</option>
-							<option value="14:30">14:30</option>
-							<option value="15:00">15:00</option>
-							<option value="15:30">15:30</option>
-							<option value="16:00">16:00</option>
-							<option value="16:30">16:30</option>
-							<option value="17:00">17:00</option>
-							<option value="17:30">17:30</option>
-							<option value="18:00">18:00</option>
-							<option value="18:30">18:30</option>
-							<option value="19:00">19:00</option>
-							<option value="19:30">19:30</option>
-							<option value="20:00">20:00</option>
-							<option value="20:30">20:30</option>
-							<option value="21:00">21:00</option>
-							<option value="21:30">21:30</option>
-							<option value="22:00">22:00</option>
+						placeholder="키워드(ex)오마카세, 분위기있는)" name="s_tags" ></td>
+					<td><input type="date" class="form-control" id="day-input" name="s_days" ></td>
+					<td><select id="select-time" class="form-control" name="s_time" >
+							<option value="0900">09:00</option>
+							<option value="0930">09:30</option>
+							<option value="1000">10:00</option>
+							<option value="1030">10:30</option>
+							<option value="1100">11:00</option>
+							<option value="1130">11:30</option>
+							<option value="1200">12:00</option>
+							<option value="1230">12:30</option>
+							<option value="1300">13:00</option>
+							<option value="1330">13:30</option>
+							<option value="1400">14:00</option>
+							<option value="1430">14:30</option>
+							<option value="1500">15:00</option>
+							<option value="1530">15:30</option>
+							<option value="1600">16:00</option>
+							<option value="1630">16:30</option>
+							<option value="1700">17:00</option>
+							<option value="1730">17:30</option>
+							<option value="1800">18:00</option>
+							<option value="1830">18:30</option>
+							<option value="1900">19:00</option>
+							<option value="1930">19:30</option>
+							<option value="2000">20:00</option>
+							<option value="2030">20:30</option>
+							<option value="2100">21:00</option>
+							<option value="2130">21:30</option>
+							<option value="2200">22:00</option>
 					</select></td>
 					<td><input type="text" class="form-control" id="person-input"
-						placeholder="인원수"></td>
+						placeholder="인원수" name="s_people" ></td>
 					<td><input type="submit" class="btn btn-primary"
 						id="search-submit" value="검색"></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 		<!-- 회전화면 부분 -->
 		<div id="demo" class="carousel slide carousel-fade"
@@ -151,44 +146,45 @@
 		<h3 id="menu-introduce">먹고싶은대로</h3>
 		<div id="tags1" class="row">
 			<br>
+			
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag1.png}"
-					alt="tag1" width=150 height=150>
+				 <a th:href="@{/stores/search?s_address=&s_tags=한식&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag1.png}"
+					alt="tag1" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#한식</p>
 				</div>
 			</div>
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag2.png}"
-					alt="tag2" width=150 height=150>
+				 <a th:href="@{/stores/search?s_address=&s_tags=중식&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag2.png}"
+					alt="tag2" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#중식</p>
 				</div>
 			</div>
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag3.png}"
-					alt="tag3" width=150 height=150>
+				<a th:href="@{/stores/search?s_address=&s_tags=양식&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag3.png}"
+					alt="tag3" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#양식</p>
 				</div>
 			</div>
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag4.png}"
-					alt="tag4" width=150 height=150>
+				<a th:href="@{/stores/search?s_address=&s_tags=일식&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag4.png}"
+					alt="tag4" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#일식</p>
 				</div>
 			</div>
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag5.png}"
-					alt="tag5" width=150 height=150>
+				<a th:href="@{/stores/search?s_address=&s_tags=동남아요리&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag5.png}"
+					alt="tag5" width=150 height=150></a>
 				<div class="caption-tag-5">
 					<p>#동남아요리</p>
 				</div>
 			</div>
 			<div class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag6.png}"
-					alt="tag6" width=150 height=150>
+				<a th:href="@{/stores/search?s_address=&s_tags=뷔페&s_days=&s_time=0900&s_people=}"><img style="border-radius: 0.5vw;" th:src="@{/images/tag6.png}"
+					alt="tag6" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#뷔페</p>
 				</div>
@@ -244,8 +240,8 @@
 		<h3 id="location-introduce">내 위치에서 가까운대로</h3>
 		<div id="tags3" class="row">
 			<div style="width: 200px; height: 200px;" class="col">
-				<img style="border-radius: 0.5vw;" th:src="@{/images/tag7.png}"
-					alt="tag7" width=150 height=150>
+				<a><img style="border-radius: 0.5vw;" th:src="@{/images/tag7.png}"
+					alt="tag7" width=150 height=150></a>
 				<div class="caption-tag-2">
 					<p>#서울</p>
 				</div>

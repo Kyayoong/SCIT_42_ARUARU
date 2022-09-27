@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -131,23 +132,38 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.tagDelete(tag);
 		return result;
 	}
-
+	
+	//휴무일
 	@Override
 	public ArrayList<Holiday> readHoliday() {
 		ArrayList<Holiday> hList = dao.readHoliday();
 		return hList;
 	}
+	//영업일가져오기
 	@Override
 	public ArrayList<Restaurant_time>searchTime(int restaurant_num) {
 		// TODO Auto-generated method stub
 		ArrayList<Restaurant_time> timeTable = dao.readTime(restaurant_num);
 		return timeTable;
 	}
+	//가게태그가져오기
 	@Override
 	public ArrayList<Tags> searchStoreTags(int restaurant_num) {
 		// TODO Auto-generated method stub
 		ArrayList<Tags> storeTags = dao.searchStoreTags(restaurant_num);
 		return storeTags;
+	}
+	//가개리스트 검색
+	@Override
+	public ArrayList<Restaurant_member> resListSearch(Map<String, String> map) {
+		ArrayList<Restaurant_member> resList = dao.resListSearch(map);
+		return resList;
+		
+	}
+	@Override
+	public Restaurant_file readFile(int restaurant_file_num) {
+		Restaurant_file file = dao.readFile(restaurant_file_num);
+		return file;
 	}
 	
 

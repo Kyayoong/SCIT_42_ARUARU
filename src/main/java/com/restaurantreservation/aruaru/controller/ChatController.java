@@ -27,7 +27,9 @@ public class ChatController {
 				  StringBuffer sb = new StringBuffer(a1);
 				 text+=sb.toString()+"\n";
 				 m.addAttribute("chatDetail", text);
-				 m.addAttribute("chatName", user.getUsername());
+				 if(user != null) {
+					 m.addAttribute("chatName", user.getUsername());	 
+				 }
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

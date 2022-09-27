@@ -42,34 +42,63 @@
 						'<th>글 번호</th>' +
 						'<th>제목</th>' +
 						'<th>작성자</th>' +
+						'<th>추천수</th>' +
 						'<th>조회수</th>' +
 						'<th>작성일</th>' +
 					'</tr>';
 			
 			//공지글 refresh
             for(let i = 0; i < json.notice.length; ++i){
-                 t += '<tr class="text-danger" style="background-color: oldlace;">'
-                 t += '<td><b>' + json.notice[i].board_num + '</b></td>'
-                 t += '<td><b><span data-feather="star"></span>' + 
-                 	'<a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="color:red;">' + json.notice[i].board_title + '</a></b></td>'
-                 t += '<td><b>' + json.notice[i].member_id + '</b></td>'
-                 t += '<td><b>' + json.notice[i].hits + '</b></td>'
-                 t += '<td><b>' + json.notice[i].registration_date + '</b></td>'
-                 t += '</tr>'
+                 t += '<tr class="text-danger" style="background-color: oldlace;">';
+                 t += '<td><b>' + json.notice[i].board_num + '</b></td>';
+                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="color:red;">' 
+                 	 + json.notice[i].board_title + '</a></b></td>';
+                 t += '<td><b>' + json.notice[i].member_id + '</b></td>';
+                 t += '<td><b>' + json.notice[i].board_suggestion + '</b></td>';
+                 t += '<td><b>' + json.notice[i].hits + '</b></td>';
+                 t += '<td><b>' + json.notice[i].registration_date + '</b></td>';
+                 t += '</tr>';
             }
 			
 			//일반글
-            for(let i = 0; i < json.normal.length; ++i){
-                t += '<tr>'
-                t += '<td>' + json.normal[i].board_num + '</td>'
-                t += '<td><a href="javascript:readBoard(' + json.normal[i].board_num + ')" style="color:black;">' 
-                	+ json.normal[i].board_title + '</a></td>'
-                t += '<td>' + json.normal[i].member_id + '</td>'
-                t += '<td>' + json.normal[i].hits + '</td>'
-                t += '<td>' + json.normal[i].registration_date + '</td>'
-                t += '</tr>'
+            for(let i = 0; i < json.normal.length; ++i){          
+            	console.log(json.normal[i].member_role);
+            	//식당일때
+            	if(json.normal[i].member_role == 'ROLE_MEMBER'){
+	                t += '<tr>';
+	                t += '<td>' + json.normal[i].board_num + '</td>';
+	                t += '<td><span>'+
+		                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"' +
+		                'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">' +
+		                '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' +
+		            	'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>' +
+		            	'<circle cx="12" cy="7" r="4"></circle></svg>' + " " + '</span>' +
+	                	 '<a href="javascript:readBoard(' + json.normal[i].board_num + ')" style="color:blue;">' 
+	                	+ json.normal[i].board_title + '</a></td>';	
+	                t += '<td>' + json.normal[i].member_id + '</td>';
+	                t += '<td>' + json.normal[i].board_suggestion + '</td>';
+	                t += '<td>' + json.normal[i].hits + '</td>';
+	                t += '<td>' + json.normal[i].registration_date + '</td>';
+	                t += '</tr>'
+	              //일반유저일때
+            	} else if(json.normal[i].member_role == 'ROLE_USER'){
+            		t += '<tr>';
+	                t += '<td>' + json.normal[i].board_num + '</td>';
+	                t += '<td><span>'+ 
+		                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+		            	'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">' +
+		            	'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87">' +
+		            	'</path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>'  + " " + '</span>' +
+	                	 '<a href="javascript:readBoard(' + json.normal[i].board_num + ')" style="color:red;">' 
+                	+ json.normal[i].board_title + '</a></td>';	
+	                t += '<td>' + json.normal[i].member_id + '</td>';
+	                t += '<td>' + json.normal[i].board_suggestion + '</td>';
+	                t += '<td>' + json.normal[i].hits + '</td>';
+	                t += '<td>' + json.normal[i].registration_date + '</td>';
+	                t += '</tr>'
+            	}
            	}
-            t += '</table>'
+            t += '</table>';
             $('#boardList').html(t);
         },
         error: function(e){
@@ -77,6 +106,7 @@
         }
    		})
 	}
+	
 	
 </script>
 </head>
@@ -117,8 +147,17 @@
 								data-feather="users"></span> 일반회원관리
 						</a></li>
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/boardMain}"> <span
-								data-feather="clipboard"></span> 게시글관리
-						</a></li>
+								data-feather="clipboard"></span> 문의글관리
+						</a>
+							<ul style="list-style: none;">
+								<li>
+ 									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
+								</li>
+								<li>
+									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 				<!-- 홈페이지로 이동 -->
@@ -133,7 +172,7 @@
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">게시글관리</h1>
-					<input type="button" sec:authorize="isAuthenticated()" class="btn1 btn btn-outline-primary btn-sm float-right" value="글쓰기">
+					<input type="button" sec:authorize="isAuthenticated()" class="btn1 btn btn-outline-primary btn-sm float-right" value="공지 글쓰기">
 				</div>
 				
 
@@ -144,6 +183,7 @@
 							<th>글 번호</th>
 							<th>제목</th>
 							<th>작성자</th>
+							<th>추천수</th>
 							<th>조회수</th>
 							<th>작성일</th>
 						</tr>
@@ -152,10 +192,14 @@
 								<b th:text="${notice.board_num}">글번호</b>
 							</td>
 							<td>
-								<b><span data-feather="star"></span><a th:href="|javascript:readBoard(${notice.board_num})|" th:text="${notice.board_title}" style="color:red;">제목</a><!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. --></b>
+								<b><span>[공지]</span>
+								<a th:href="|javascript:readBoard(${notice.board_num})|" th:text="${notice.board_title}" style="color:red;">제목</a><!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. --></b>
 							</td>
 							<td>
 								<b th:text="${notice.member_id}">아이디</b>
+							</td>
+							<td>
+								<b th:text="${notice.board_suggestion}">추천수</b>
 							</td>
 							<td>
 								<b th:text="${notice.hits}">조회수</b>
@@ -167,9 +211,15 @@
 						<tr th:each="normal:${normalList}">
 							<td th:text="${normal.board_num}">글 번호</td>
 							<td>
-								<a th:href="|javascript:readBoard(${normal.board_num})|" th:text="${normal.board_title}" style="color:black;">제목</a><!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. -->
+								<span data-feather="user" th:if="${normal.member_role} == 'ROLE_MEMBER'"></span>
+								<span data-feather="users" th:if="${normal.member_role} == 'ROLE_USER'"></span>
+								<a th:if="${normal.member_role} == 'ROLE_MEMBER'" th:href="|javascript:readBoard(${normal.board_num})|" 
+								th:text="${normal.board_title}" style="color:blue;">제목</a>
+								<a th:if="${normal.member_role} == 'ROLE_USER'" th:href="|javascript:readBoard(${normal.board_num})|" 
+								th:text="${normal.board_title}" style="color:red;">제목</a>
 							</td>
 							<td th:text="${normal.member_id}">작성자</td>
+							<td th:text="${normal.board_suggestion}">추천수</td>
 							<td th:text="${normal.hits}">조회수</td>
 							<td th:text="${normal.registration_date}">작성일</td>
 						</tr>

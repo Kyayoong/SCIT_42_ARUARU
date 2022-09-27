@@ -3,6 +3,7 @@ package com.restaurantreservation.aruaru.service;
 import java.util.ArrayList;
 
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 
 public interface AdminService {
 	
@@ -30,5 +31,33 @@ public interface AdminService {
 	 * @param boardNum 게시글 번호
 	 * @return 성공여부
 	 */
-	int updateHitCnt(int boardNum); 
+	int updateHitCnt(int boardNum);
+	
+	/**
+	 * 추천수 갱신
+	 * @param boardNum 갱신할 게시글 번호
+	 * @return 갱신된 추천수
+	 */
+	int selectBoardSuggestion(int boardNum);
+	
+	/**
+	 * 추천수 올리기
+	 * @param boardNum 추천수 올릴 게시글 번호
+	 * @return 성공여부
+	 */
+	int updateSuggestionCnt(int boardNum);
+	
+	/**
+	 * 문의글 댓글 저장
+	 * @param reply 댓글 객체
+	 * @return 성공여부
+	 */
+	int insertReply(Web_reply reply);
+	
+	/**
+	 * 특정 문의글 댓글 목록 가져오기
+	 * @param boardNum 문의글 번호
+	 * @return 댓글 리스트
+	 */
+	ArrayList<Web_reply> selectReplyList(int boardNum); 
 }

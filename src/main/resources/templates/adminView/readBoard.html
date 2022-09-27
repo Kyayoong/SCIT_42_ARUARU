@@ -8,7 +8,6 @@
 	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
 <!-- jQuery -->
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -20,80 +19,68 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <meta charset="UTF-8">
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	#suggestBtn:hover{
+		background-color: #afc9f6;
+		color: red;
+	}
 
+</style>
 <script type="text/javascript">
-
-	//별 이미지 클릭시
-	$(document).on('click', '#point1', drawStars);
-	$(document).on('click', '#point2', drawStars);
-	$(document).on('click', '#point3', drawStars);
-	$(document).on('click', '#point4', drawStars);
-	$(document).on('click', '#point5', drawStars);
-	
-	//사진 등록 버튼
-	$(document).on('click', '#btn-upload', function(e){
-		e.preventDefault();
-		$('#btnAtt').click();
-	});
-	
-	//등록, 취소 버튼	
+	//등록버튼
 	$(document).on('click', '#submitButton', function(){
-		alert('등록버튼');
-		//등록 버튼 실행 시, 모든 정보를 하나의 객체로 만들어 저장할 예정
-		
-		
-		
-		
-		
-	});
+		let form = $('#writeReply');
+		form.submit();
+	})
+	//취소버튼
 	$(document).on('click', '#cancelButton', function(){
 		window.opener.listRefresh();
 		window.close();
 	})
 	
-	
-	//별 채워주고 html상에 표기하는 기능
-	let path = '[[@{/images/}]]';
-	function drawStars(){
-		let starImg = '';
-		let dataPoint = parseInt($(this).attr('data-point'));
-		let dataActivated = parseInt($(this).attr('data-activated'));
+	let boardNum
+	function suggestBoard(n){
+		//추천 버튼 눌리면 -> 추천수 올리고 -> 추천수 갱신하여 표기
+		updateSuggestCnt(n);
+	}
+	//추천수 올리기
+	function updateSuggestCnt(n){
+		$.ajax({
+	        url: 'suggestVote',
+	        type: 'get',
+	        data: {boardNum : n}, 
+	        success: function(){
+	        	
+	        	suggestRefresh(n);
+	        },
+	        error: function(e){
+	            alert(JSON.stringify(e));
+	        }
+	   	})
+	}
+	//추천수 갱신하기
+	function suggestRefresh(n){
 		
-		switch(dataActivated){
-		case 0 : 
-			for(let i = 1; i <= 5; i++){
-				if( i < dataPoint ){
-					starImg += '<img id="point' + i + '" class="p-1" src="' +
-								path + 'star_full.png" data-point="' + i + 
-								'" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
-				} else if(i == dataPoint){
-					starImg += '<img id="point' + i + '" class="p-1" src="' +
-								path + 'star_full.png" data-point="' + i + 
-								'" data-activated="1" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
-				}
-					else {
-					starImg += '<img id="point' + i + '" class="p-1" src="' +
-								path + 'star_none.png" data-point="' + i + 
-								'" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
-				}
-			}
-			$('#starPoint').html(starImg);
-			break;
-		
-		case 1 : 
-			for(let i = 1; i <= 5; i++){
-				starImg += '<img id="point' + i + '" class="p-1" src="' +
-							path + 'star_none.png" data-point="' + i + '" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
-			}
-			$('#starPoint').html(starImg);
-			break;
-		}
+		$.ajax({
+	        url: 'suggestRefresh',
+	        type: 'get',
+	        data: {boardNum : n},
+	        dataType: 'json',
+	        success: function(json){
+	        	let index = '추천수 ' + json;
+	        	$('#suggestBtn').html(index)
+	        },
+	        error: function(e){
+	            alert(JSON.stringify(e));
+	        }
+	   	})
 	}
 </script>
 
-<title>리뷰 입력 하기</title>
+<title>문의글 읽기</title>
 </head>
 <body>
 	<!-- 1. 글제목
@@ -117,21 +104,52 @@
 				<span style="min-height:100px;" th:text="${board.board_contents}">글 내용</span>
 			</div>
 		</div>
-		<!-- 5. 텍스트 -->
+		<!-- 5. 추천수 표기란 -->
 		<div class="d-flex justify-content-center m-3">
-			<textarea rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+			<span id="suggestBtn" class="border p-3" style="font-family: Jua;" th:text="|추천수 ${board.board_suggestion}|"
+			th:onclick="|javascript:suggestBoard(${board.board_num})|">추천수</span>
 		</div>
 		
+		<!-- 6. 텍스트 : 기존 답변이 없을 때 나옴 -->
+		<div th:if="${replyFlag} == 0">
+			<form action="insertReply" id="writeReply" method="post">
+				<input type="hidden" id="hiddenVa" name="board_num" th:value="${board.board_num}">
+				<div class="d-flex justify-content-center m-3">
+					<textarea name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+				</div>
+			</form>
+			
+			<!-- 7. 버튼 -->
+			<div class="d-flex justify-content-center m-3">
+				<input type="button" style="font-family: IBM Plex Sans KR;"
+				class="btn btn-primary m-1" id="submitButton" value="등록">
+				<input type="button" style="font-family: IBM Plex Sans KR;"
+				class="btn btn-secondary m-1" id="cancelButton" value="취소">
+			</div>
+		</div>
 		
-		<!-- 7. 버튼 -->
-		<div class="d-flex justify-content-center m-3">
-			<input type="button" style="font-family: IBM Plex Sans KR;"
-			class="btn btn-primary m-1" id="submitButton" value="등록">
-			<input type="button" style="font-family: IBM Plex Sans KR;"
-			class="btn btn-secondary m-1" id="cancelButton" value="취소">
+		<!-- 텍스트 : 기존 답변이 있을 때, 기존 답변을 표기 -->
+		<div th:if="${replyFlag} == 1">
+			<div class="row border border-dark d-flex justify-content-center m-3" style="background-color: oldlace">
+				<!-- 작성자, 작성일시 -->
+				<div class="col-sm-6" style="text-align: left;">
+					<span th:text="|작성자: ${replyList[0].member_id}|" style="font-family: Jua;">작성자</span>
+				</div>
+				<div class="col-sm-6" style="text-align: right;">
+					<span th:text="|작성일: ${replyList[0].registration_date}|" style="font-family: Jua;">작성일시</span>
+				</div>
+				<div class="col-sm-12 p-5" style="min-height:5rem;">
+					<span th:text="${replyList[0].reply_contents}">내용</span>
+				</div>
+			</div>
+			<!-- 7. 버튼 -->
+			<div class="d-flex justify-content-center m-3">
+				<input type="button" style="font-family: IBM Plex Sans KR;"
+				class="btn btn-primary m-1" id="cancelButton" value="확인">
+			</div>
 		</div>
 	</div>
-		
+	
 					
 </body>
 </html>

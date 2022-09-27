@@ -165,7 +165,10 @@ $('.tag1').change(function(){
 
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 			<div class="col" th:each="rlist : ${resList}">
-				<img class="ranking-img" style="border-radius: 0.5vw;" th:src="|display?restaurant_num=${rlist.restaurant_num}|"/>
+				<a th:href="|introduce_store?restaurant_num=${rlist.restaurant_num}|">
+				<img class="ranking-img" style="border-radius: 0.5vw;" 
+				th:src="|display?restaurant_num=${rlist.restaurant_num}|"/>
+				</a>
 				<div class="name-ranking">
 					<h3 style="text-align: left">[[${rlist.restaurant_name}]]</h3>
 				</div>

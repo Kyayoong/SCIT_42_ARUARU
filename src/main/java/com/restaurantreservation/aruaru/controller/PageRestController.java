@@ -90,4 +90,45 @@ public class PageRestController {
 
 		return "redirect:/";
 	}	
+	
+	/**
+	 * 보여주기 
+	 * @param menunum 메뉴번호
+	 */
+	@GetMapping("menudis")
+	public String menudis(int menu_num, Model model, HttpServletResponse response) {
+		//전달된 글 번호로 글 정보 조회
+		Menu menu = service.readMenu(menu_num);
+		
+		//원래의 파일명
+		String originalfile = new String(menu.getMenu_originalfile());
+		try {
+			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		//저장된 파일 경로
+		String fullPath = uploadPath + "/" + menu.getMenu_savedfile();
+		
+		
+		//서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
+		FileInputStream filein = null;
+		ServletOutputStream fileout = null;
+		
+		try {
+			filein = new FileInputStream(fullPath);
+			fileout = response.getOutputStream();
+			
+			//Spring의 파일 관련 유틸 이용하여 출력
+			FileCopyUtils.copy(filein, fileout);
+			
+			filein.close();
+			fileout.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "redirect:/";
+	}	
 }

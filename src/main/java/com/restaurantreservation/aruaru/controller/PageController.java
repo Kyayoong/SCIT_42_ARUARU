@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -59,7 +60,10 @@ public class PageController {
 			else {
 				model.addAttribute("member_nickname", null);
 			}
+		
 		Restaurant_member storeList = service.selectOne1(restaurant_num);
+		ArrayList<Menu> menuList = service.menucheck(restaurant_num);
+		model.addAttribute("menuList", menuList);
 		model.addAttribute("store", storeList);
 		return "views/introduce_store";
 	}

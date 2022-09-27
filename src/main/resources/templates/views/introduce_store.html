@@ -151,18 +151,35 @@
 		</div>
 		<!-- 가게 정보 -->
 		<div id="store-information">
-			<h3 >영업 시간 및 식당 위치 정보 및 등등</h3>
-			<p></p>
-			<p></p>
-			<p></p>
-			<p></p>
+			<h3 >영업 시간</h3>
+			<table class="table table-hover">
+				<tr >
+					<th>영업일</th>
+					<th>오픈시간</th>
+					<th>닫는시간</th>
+				</tr>
+				<tr th:each="time : ${timeTable}">
+					<td th:text="${time.business_days}"></td>
+					<td th:text="${time.opentime}"></td>
+					<td th:text="${time.closetime}"></td>
+				</tr>
+			</table>
 		</div>
 		<!-- 가게 관련 태그 -->
 		<div id="store-tags">
 			<h3>스토어 태그</h3>
-			<p>스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요
-				스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를
-				표시해주세요</p>
+			<table id="tableTags">
+				<tr>
+					<td th:each="tag : ${storeTagList}">
+							<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
+								<input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
+							>[[${tag.tags_name}]]</label>
+							</div>
+						</td>
+				</tr>
+			</table>
 		</div>
 		<!-- 리뷰부분 -->
 		<div id="store-commentary">

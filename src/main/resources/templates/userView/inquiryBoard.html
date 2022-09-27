@@ -14,7 +14,9 @@
 
 </style>
 <script>
-	
+	function readBoard(n) {
+		let win = window.open('/aruaru/mypage/inquiryboard?board_num' + n);
+	}
 </script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -150,7 +152,7 @@
 						</tr>
 						<tr th:each="boardList : ${boardList}">
 							<td th:text="${boardList.board_num}"></td>
-							<td th:text="${boardList.board_title}"></td>
+							<td th:href="@{/mypage/}" th:text="${boardList.board_title}"></td>
 							<td th:text="${boardList.member_id}"></td>
 							<td th:text="${boardList.registration_date}"></td>
 						</tr>

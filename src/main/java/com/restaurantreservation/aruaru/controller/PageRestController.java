@@ -39,13 +39,6 @@ public class PageRestController {
 	@Autowired
 	RestaurantService service;
 	
-	@PostMapping("rlist") 
-	public ArrayList<Restaurant_member> rlist() {
-		ArrayList<Tags> tagList = service.tagList("");
-		ArrayList<Restaurant_member> rList = service.resList();
-		return rList;
-	}
-	
 	/**
 	 * 보여주기 
 	 * @param menunum 메뉴번호

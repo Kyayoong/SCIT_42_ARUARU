@@ -64,10 +64,13 @@
 		UPDATE user_member
 		SET
 		member_pw = #{member_pw},
-		member_name = #{member_name},
+		member_name =
+		#{member_name},
 		member_nickname
 		= #{member_nickname},
-		member_email = #{member_email},
+		member_email =
+		#{member_email},
+
 		member_phone =
 		#{member_phone},
 		member_address1 = #{member_address1},
@@ -76,11 +79,15 @@
 		member_birth = #{member_birth},
 		member_tags =
 		#{member_tags}
+		<if test="member_originalfile != null and member_savedfile != null">
+			, member_originalfile = #{member_originalfile}
+			, member_savedfile = #{member_savedfile}
+		</if>
 		WHERE member_id = #{member_id}
 	</update>
-	
+
 	<delete id="deleteUser" parameterType="String">
-	DELETE user_member
-	WHERE member_id = #{member_id}
+		DELETE user_member
+		WHERE member_id = #{member_id}
 	</delete>
 </mapper>

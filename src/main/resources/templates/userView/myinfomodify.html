@@ -172,7 +172,8 @@ function check() {
 			</div>
 			<div id="mypage-right" class="col-sm-9">
 				<div id="profile-photo">
-					<img id="p-photo" th:src="|profile?member_num=${member.member_num}|"
+					<img id="p-photo"
+						th:src="|profile?member_num=${member.member_num}|"
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
@@ -214,83 +215,91 @@ function check() {
 				</div>
 
 				<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
-				<form id="myinfomodify" th:action="@{/mypage/myinfomodify}" method="post">
-				<div id="contents">
-					<div id="table-area1">
-						<h4 id="table-area1-caption">내 정보 변경</h4>
-						<table class="table table" id="table1">
-							<tr>
-								<th>필수정보</th>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><div id="profile-table">프로필</div></td>
-								<td><img id="p-photo-table"
-									th:src="|profile?member_num=${member.member_num}|" class="rounded" alt=""></td>
-							</tr>
-							<tr>
-								<td>아이디</td>
-								<td th:text="${member.member_id}"></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>비밀번호</td>
-								<td><input type="text" class="form-control" id="member_pw"
-									name="member_pw"></td>
-							</tr>
-							<tr>
-								<td>비밀번호 확인</td>
-								<td><input type="text" class="form-control" id="member_pw2"></td>
-							</tr>
-							<tr>
-								<td>이름</td>
-								<td><input type="text" class="form-control"
-									id="member_name" name="member_name"
-									th:value="${member.member_name}"></td>
-							</tr>
-							<tr>
-								<td>닉네임</td>
-								<td><input type="text" class="form-control"
-									id="member_nickname" name="member_nickname"
-									th:value="${member.member_nickname}"></td>
-							</tr>
-							<tr>
-								<td>이메일</td>
-								<td><input type="email" class="form-control"
-									id="member_email" name="member_email"
-									th:value="${member.member_email}"></td>
-							</tr>
-							<tr>
-								<td>휴대전화</td>
-								<td><input type="text" class="form-control"
-									id="member_phone" name="member_phone"
-									th:value="${member.member_phone}"></td>
-							</tr>
-							<tr>
-								<td>주소</td>
-								<td><input class="form-control"
-									type="text" id="member_address1" name="member_address1" th:value="${member.member_address1}"
-									placeholder="주소를 입력해 주세요" style="width: 350px;"
-									readonly="readonly">
-									<div id="addressCheckButton">
-										<input style="width: 7vw;" class="form-control" type="button"
-											onclick="sample5_execDaumPostcode()" value="주소 검색">
-									</div>
-									<div id="detailAddress">
-										<input class="form-control" type="text" id="member_address2"
-											name="member_address2" th:value="${member.member_address2}" placeholder="상세주소"
-											style="width: 500px;">
-									</div>
-									<div id="wrap"
-										style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
-										<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
-											id="btnFoldWrap"
-											style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1"
-											onclick="foldDaumPostcode()" alt="접기 버튼">
-									</div> <script
-										src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-									<script>
+				<form id="myinfomodify" th:action="@{/mypage/myinfomodify}"
+					method="post">
+					<div id="contents">
+						<div id="table-area1">
+							<h4 id="table-area1-caption">내 정보 변경</h4>
+							<table class="table table" id="table1">
+								<tr>
+									<th>필수정보</th>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><div id="profile-table">프로필</div></td>
+									<td><img id="p-photo-table"
+										th:src="|profile?member_num=${member.member_num}|"
+										class="rounded" alt=""> <label for="file"
+										style="font-family: IBM Plex Sans KR;"></label>
+										<input type="file" name="upload">
+										<span th:text="${member.member_originalfile}"></span>
+									</td>
+								</tr>
+								<tr>
+									<td>아이디</td>
+									<td th:text="${member.member_id}"></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td><input type="text" class="form-control" id="member_pw"
+										name="member_pw"></td>
+								</tr>
+								<tr>
+									<td>비밀번호 확인</td>
+									<td><input type="text" class="form-control"
+										id="member_pw2"></td>
+								</tr>
+								<tr>
+									<td>이름</td>
+									<td><input type="text" class="form-control"
+										id="member_name" name="member_name"
+										th:value="${member.member_name}"></td>
+								</tr>
+								<tr>
+									<td>닉네임</td>
+									<td><input type="text" class="form-control"
+										id="member_nickname" name="member_nickname"
+										th:value="${member.member_nickname}"></td>
+								</tr>
+								<tr>
+									<td>이메일</td>
+									<td><input type="email" class="form-control"
+										id="member_email" name="member_email"
+										th:value="${member.member_email}"></td>
+								</tr>
+								<tr>
+									<td>휴대전화</td>
+									<td><input type="text" class="form-control"
+										id="member_phone" name="member_phone"
+										th:value="${member.member_phone}"></td>
+								</tr>
+								<tr>
+									<td>주소</td>
+									<td><input class="form-control" type="text"
+										id="member_address1" name="member_address1"
+										th:value="${member.member_address1}" placeholder="주소를 입력해 주세요"
+										style="width: 350px;" readonly="readonly">
+										<div id="addressCheckButton">
+											<input style="width: 7vw;" class="form-control" type="button"
+												onclick="sample5_execDaumPostcode()" value="주소 검색">
+										</div>
+										<div id="detailAddress">
+											<input class="form-control" type="text" id="member_address2"
+												name="member_address2" th:value="${member.member_address2}"
+												placeholder="상세주소" style="width: 500px;">
+										</div>
+										<div id="wrap"
+											style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
+											<img
+												src="//t1.daumcdn.net/postcode/resource/images/close.png"
+												id="btnFoldWrap"
+												style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1"
+												onclick="foldDaumPostcode()" alt="접기 버튼">
+										</div> <script
+											src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+										<script>
 										function sample5_execDaumPostcode() {
 											new daum.Postcode(
 													{
@@ -305,60 +314,66 @@ function check() {
 													}).open();
 										}
 									</script></td>
-							</tr>
-							<tr>
-								<th>추가정보</th>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<th>생일</th>
-								<td><input type="text" class="form-control"
-									placeholder="8자리 ex)19900121" id="member_birth"
-									name="member_birth" th:value="${member.member_birth}"></td>
-							</tr>
-							<tr>
-								<td>태그</td>
-								<td style="width: 600px;">
-									<div id="idtag1" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag1"><input
-											name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
-									</div>
-									<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag2"><input
-											name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
-									</div>
-									<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag3"><input
-											name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
-									</div>
-									<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag4"><input
-											name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
-									</div>
-									<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag5"><input
-											name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
-									</div>
-									<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
-										<label class="btn btn-outline-secondary" for="tag6"><input
-											name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
-									</div> <span id="msg13"></span>
-								</td>
-							<tr>
-								<td><a th:href = "@{/mypage/leaveId}">회원탈퇴</a></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td colspan="2"><input type="submit" class="btn btn-primary" value="수정">
-								</td>
-							</tr>
+								</tr>
+								<tr>
+									<th>추가정보</th>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<th>생일</th>
+									<td><input type="text" class="form-control"
+										placeholder="8자리 ex)19900121" id="member_birth"
+										name="member_birth" th:value="${member.member_birth}"></td>
+								</tr>
+								<tr>
+									<td>태그</td>
+									<td style="width: 600px;">
+										<div id="idtag1" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag1"><input
+												name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
+										</div>
+										<div id="idtag2" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag2"><input
+												name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
+										</div>
+										<div id="idtag3" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag3"><input
+												name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
+										</div>
+										<div id="idtag4" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag4"><input
+												name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
+										</div>
+										<div id="idtag5" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag5"><input
+												name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
+										</div>
+										<div id="idtag6" class="btn-group-toggle"
+											data-toggle="buttons">
+											<label class="btn btn-outline-secondary" for="tag6"><input
+												name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
+										</div> <span id="msg13"></span>
+									</td>
+								<tr>
+									<td><a th:href="@{/mypage/leaveId}">회원탈퇴</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td colspan="2"><input type="submit"
+										class="btn btn-primary" value="수정"></td>
+								</tr>
 
 
-						</table>
+							</table>
+						</div>
+
 					</div>
-
-				</div>
 				</form>
 			</div>
 		</div>

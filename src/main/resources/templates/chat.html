@@ -72,8 +72,8 @@
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">LOG IN</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">JOIN</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/user/login}">LOG IN</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
 		</ul>
 	</nav>
 	<div id="container" class="container">
@@ -86,7 +86,7 @@
 			<table class="inputTable">
 				<tr>
 					<th>사용자명</th>
-					<th><input type="text" name="userName" id="userName" th:value="${chatName}" disabled></th>
+					<th><input type="text" name="userName" id="userName" th:text="${chatName}"></th>
 					<th><button class="btn btn-primary" onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>

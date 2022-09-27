@@ -20,6 +20,7 @@ import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
+import net.softsociety.spring5.domain.Board;
 
 @RequestMapping("stores")
 @Slf4j
@@ -44,10 +45,16 @@ public class PageController {
 			else {
 				model.addAttribute("member_nickname", null);
 			}
-		ArrayList<Restaurant_member> resList = service.resList();
+		
+		ArrayList<Restaurant_member> resList = service.list(type, searchWord);
+		
+		
+		
 		ArrayList<Tags> tagList = service.tagList("");
 		log.debug("tagList {}",tagList);
 		model.addAttribute("tagList",tagList);
+		model.addAttribute("type", type);
+		model.addAttribute("searchWord", searchWord);
 		model.addAttribute("resList", resList);
 		return "stores";
 	}

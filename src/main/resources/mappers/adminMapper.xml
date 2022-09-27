@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.restaurantreservation.aruaru.dao.AdminDao">
+	
+	<!-- 일반 게시글 전체 조회 -->
+	<select id="normalBoardList" resultType="Web_board">
+		SELECT * FROM WEB_BOARD WHERE BOARD_NOTICE = 0 ORDER BY BOARD_NUM DESC
+	</select>
+	
+	<!-- 공지 게시글 전체 조회 -->
+	<select id="noticeBoardList" resultType="Web_board">
+		SELECT * FROM WEB_BOARD WHERE BOARD_NOTICE = 1 ORDER BY REGISTRATION_DATE DESC
+	</select>
+	
+	<!-- 특정 게시글 하나 가져오기 -->
+	<select id="selectOneBoard" parameterType="int" resultType="Web_board">
+		SELECT * FROM WEB_BOARD WHERE BOARD_NUM = #{boardNum}
+	</select>
+	
+	<!-- 특정 게시글 조회수 올리기 -->
+	<update id="updateHitCnt" parameterType="int">
+ 		UPDATE WEB_BOARD SET HITS = HITS + 1 WHERE BOARD_NUM = #{boardNum}
+ 	</update>
+</mapper>

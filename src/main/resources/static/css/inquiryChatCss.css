@@ -8,11 +8,16 @@
 		nav {
 		height : 4.1vh;
 		}
-		
+		#chatting-detail {
+			background-color : #000;
+			color : white;
+			width : 500px;
+			height : 300px;
+		}
 		.container{
 			width: 500px;
 			margin: 0 auto;
-			padding: 25px
+			padding: 25px;
 		}
 		.container h3{
 			text-align: left;
@@ -21,10 +26,15 @@
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
+		#chatDetail {
+		color : white;
+		font-family : IBM Plex Sans KR;
+		}
 		.chating{
 			background-color: #000;
 			width: 500px;
 			height: 500px;
+			font-family : IBM Plex Sans KR;
 			overflow: auto;
 		}
 		.chating p{

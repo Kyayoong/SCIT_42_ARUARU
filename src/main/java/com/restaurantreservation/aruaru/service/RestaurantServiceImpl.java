@@ -11,6 +11,7 @@ import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
 
 import lombok.extern.slf4j.Slf4j;
@@ -135,6 +136,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public ArrayList<Holiday> readHoliday() {
 		ArrayList<Holiday> hList = dao.readHoliday();
 		return hList;
+	}
+	@Override
+	public ArrayList<Restaurant_time>searchTime(int restaurant_num) {
+		// TODO Auto-generated method stub
+		ArrayList<Restaurant_time> timeTable = dao.readTime(restaurant_num);
+		return timeTable;
+	}
+	@Override
+	public ArrayList<Tags> searchStoreTags(int restaurant_num) {
+		// TODO Auto-generated method stub
+		ArrayList<Tags> storeTags = dao.searchStoreTags(restaurant_num);
+		return storeTags;
 	}
 	
 

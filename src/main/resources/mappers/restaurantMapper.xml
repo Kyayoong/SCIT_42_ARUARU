@@ -206,5 +206,20 @@
 		WHERE
 		restaurant_num BETWEEN 1 AND 25
 	</select>
-	
+	<select id="readTime" parameterType="Int" resultType="Restaurant_time">
+		SELECT
+		*
+		FROM
+		restaurant_time
+		where
+		restaurant_num = #{restaurant_num}
+	</select>
+	<select id="searchStoreTags" parameterType="Int" resultType="Tags">
+		SELECT
+		*
+		FROM
+		tags
+		where
+		restaurant_num = #{restaurant_num}
+	</select>
 </mapper>

@@ -8,6 +8,7 @@ import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
 
 @Mapper
@@ -60,6 +61,10 @@ public interface RestaurantDao {
 	
 	//공휴일 리스트
 	ArrayList<Holiday> readHoliday();
+
+	ArrayList<Restaurant_time> readTime(int restaurant_num);
+
+	ArrayList<Tags> searchStoreTags(int restaurant_num);
 
 
 }

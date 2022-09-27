@@ -6,6 +6,7 @@ import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
 
 public interface RestaurantService {
@@ -57,6 +58,10 @@ public interface RestaurantService {
 	
 	//공휴일 리스트
 	public ArrayList<Holiday> readHoliday();
+
+	public ArrayList<Restaurant_time> searchTime(int restaurant_num);
+
+	public ArrayList<Tags> searchStoreTags(int restaurant_num);
 
 	
 	

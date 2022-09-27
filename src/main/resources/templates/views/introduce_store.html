@@ -122,21 +122,15 @@
 		<img id="flag-icon" th:src="@{/images/map_flag_icon.png}">
 		<!-- 위치 글씨 부분 -->
 		<div id="location-area">
-			<h3>[[${store.address1}]]</h3>
+			<h3 th:text="${store.restaurant_address1}"></h3>
 		</div>
 		<!-- 음식점 이름 -->
 		<div id="store-name">
-			<h1>[[${store.restaurant_name}]]</h1>
+			<h1 th:text="${store.restaurant_name}"></h1>
 		</div>
 		<!-- 맛집 소개글 -->
 		<div id="store-contents">
-			<p>내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요</p>
+			<p th:text="${store.restaurant_comment}">
 		</div>
 		<!-- 메뉴 표시 -->
 		<div id="menu-area">
@@ -146,35 +140,50 @@
 					<th>가격</th>
 					<th>특징</th>
 				</tr>
+				<tr th:each="menu : ${menuList}"> 
+					<td th:text="${menu.menu_name}"></td>
+					<td th:text="|${menu.menu_price}원|"></td>
+					<td>
+					<img th:src="|menudis?menu_num=${menu.menu_num}|" style="width:60px;height:60px;">
+					</td>
+				</tr>
 			</table>
-		</div>
-		<!-- 그래프 삽입할 부분 -->
-		<div id="graph-area">
-			<p>그래프를 넣어주세요 그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를
-				넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를
-				넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요그래프를 넣어주세요</p>
 		</div>
 		<!-- 가게 정보 -->
 		<div id="store-information">
-			<h3>영업 시간 및 식당 위치 정보 및 등등</h3>
-			<p>내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요내용을
-				입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을
-				입력해주세요 내용을 입력해주세요내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요 내용을 입력해주세요</p>
+			<h3 >영업 시간</h3>
+			<table class="table table-hover">
+				<tr >
+					<th>영업일</th>
+					<th>오픈시간</th>
+					<th>닫는시간</th>
+				</tr>
+				<tr th:each="time : ${timeTable}">
+					<td th:text="${time.business_days}"></td>
+					<td th:text="${time.opentime}"></td>
+					<td th:text="${time.closetime}"></td>
+				</tr>
+			</table>
 		</div>
 		<!-- 가게 관련 태그 -->
 		<div id="store-tags">
 			<h3>스토어 태그</h3>
-			<p>스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요
-				스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를 표시해주세요 스토어 태그를
-				표시해주세요</p>
+			<table id="tableTags">
+				<tr>
+					<td th:each="tag : ${storeTagList}">
+							<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
+								<input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
+							>[[${tag.tags_name}]]</label>
+							</div>
+						</td>
+				</tr>
+			</table>
 		</div>
 		<!-- 리뷰부분 -->
 		<div id="store-commentary">
-			<h3>[[${store.restaurant_grade]]</h3>
+			<h3 th:text="|평점 : ${store.restaurant_grade}|"></h3>
 			<table class="table">
 				<tr>
 					<td>

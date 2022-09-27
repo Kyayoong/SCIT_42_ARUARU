@@ -22,7 +22,7 @@
 	var ws;
 
 	function wsOpen(){
-		alert(location.host);
+		alert("채팅에 연결되었습니다.");
 		ws = new WebSocket("ws://" + location.host + "/aruaru" + "/chatting");
 		wsEvt();
 	}
@@ -79,7 +79,7 @@
 	<div id="container" class="container">
 		<h1>실시간 문의</h1>
 		<div id="chating" class="chating">
-		<textarea id="chatting-detail" th:text="${chatDetail}" disabled></textarea>
+		<pre id="chatDetail" th:text="${chatDetail}"></pre>
 		</div>
 		
 		<div id="yourName">

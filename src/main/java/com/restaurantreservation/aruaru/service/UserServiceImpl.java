@@ -75,5 +75,12 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public Web_board readBoard(int board_num) {
+		// TODO Auto-generated method stub
+		Web_board b = dao.findBoard(board_num);
+		return b;
+	}
+
 
 }

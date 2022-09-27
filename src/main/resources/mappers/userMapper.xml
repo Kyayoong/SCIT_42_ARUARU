@@ -90,6 +90,9 @@
 	Web_board
 	WHERE
 	member_id = #{member_id}
+	order by
+	board_num
+	desc
 	</select>
 	<insert id="insertBoard" parameterType="Web_board">
 	INSERT INTO 
@@ -110,5 +113,14 @@
 	, #{category}
 	)
 	</insert>
+	<select id="findBoard" parameterType="Int" resultType="Web_board">
+	SELECT
+	*
+	FROM
+	web_board
+	WHERE 
+	board_num
+	= #{board_num}
+	</select>
 	
 </mapper>

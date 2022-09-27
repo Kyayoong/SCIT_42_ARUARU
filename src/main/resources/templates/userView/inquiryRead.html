@@ -4,7 +4,7 @@
 <head>
 
 <link rel="stylesheet"
-	th:href="@{/css/mypageViewCss/inquiryBoardCss.css}">
+	th:href="@{/css/mypageViewCss/inquiryReadCss.css}">
 <link rel="stylesheet"
 	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
@@ -14,7 +14,7 @@
 
 </style>
 <script>
-
+	
 </script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -137,38 +137,48 @@
 				</div>
 
 				<!-- mypage 수정하실 때, 이부분만 수정해주시면 됩니다. -->
-				<form id="myinfomodify" th:action="@{/mypage/myinfomodify}" method="post">
+				
 				<div id="contents">
 					<div id="table-area1">
-						<h4 id="table-area1-caption">내 문의 사항</h4>
+						<h4 id="table-area1-caption">문의 사항 읽기</h4>
+						<form th:action="@{/mypage/submitWebBoard/}" th:method="post">		
 						<table class="table table" id="table1">
-						<tr>
-							<th>글번호</th>
+						
+						<tr >
 							<th>제목</th>
-							<th>글쓴이</th>
-							<th>작성일자</th>
-						</tr>
-						<tr th:each="boardList : ${boardList}">
-							<td th:text="${boardList.board_num}"></td>
-							<td><a th:href="@{/mypage/inquiryread(board_num=${boardList.board_num})}" th:text="${boardList.board_title}" style="color: black;"></a></td>
-
-							<td th:text="${boardList.member_id}"></td>
-							<td th:text="${boardList.registration_date}"></td>
+							<td th:text=${board.board_title}></td>
 						</tr>
 						<tr>
-						<td colspan="4">
-						<a th:href="@{/mypage/inquirywrite/}"><input id="write" th:onclick="javascript:writeBoard();" type="button" class="btn btn-primary" value="글쓰기">
-						</a>
-						</td>
+							<th>작성자</th>
+							<td th:text=${board.member_id}></td>
+						</tr>
+						<tr>
+							<th>카테고리</th>
+							<td>
+							<select name="category" th:value="${board.category}">
+								<option value="신고">신고</option>
+								<option value="문의">문의</option>
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td th:text="${board.board_contents}"></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							<a th:href="@{/mypage/inquiryboard}"><input type="button" class="btn btn-primary" value="목록으로"></a>
+							</td>
 						</tr>
 						</table>		
+						</form>
 					</div>
 
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>
+
 
 
 </body>

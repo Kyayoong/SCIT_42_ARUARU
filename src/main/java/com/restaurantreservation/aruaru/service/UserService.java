@@ -26,4 +26,6 @@ public interface UserService {
 
 	public int insertBoard(Web_board b);
 
+	public Web_board readBoard(int board_num);
+
 }

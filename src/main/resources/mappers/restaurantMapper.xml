@@ -188,7 +188,8 @@
 		AND
 		tags_name = #{tags_name}
 	</delete>
-
+	
+	<!-- 휴무일 가져오기 -->
 	<select id="readHoliday" resultType="Holiday">
 		SELECT
 		*
@@ -198,14 +199,15 @@
 		restaurant_num IS NULL
 	</select>
 	
+	<!-- 식당 리스트 가쟈오기 -->
 	<select id="resList" resultType="Restaurant_member">
 		SELECT
 		*
 		FROM
 		Restaurant_member
-		WHERE
-		restaurant_num BETWEEN 1 AND 25
 	</select>
+	
+	<!-- 영업일 가져오기 -->
 	<select id="readTime" parameterType="Int" resultType="Restaurant_time">
 		SELECT
 		*
@@ -214,6 +216,8 @@
 		where
 		restaurant_num = #{restaurant_num}
 	</select>
+	
+	<!-- 가게 태그 가져오기 -->
 	<select id="searchStoreTags" parameterType="Int" resultType="Tags">
 		SELECT
 		*
@@ -221,5 +225,55 @@
 		tags
 		where
 		restaurant_num = #{restaurant_num}
+	</select>
+	
+	<!-- 검색기능 -->
+	<select id="resListSearch" parameterType="map" resultType="Restaurant_member">
+		SELECT
+		*
+		FROM
+		Restaurant_member
+		<if test="s_address != '' or s_tags != '' or s_people != ''">
+		<where>
+		<if test="s_address != '' and s_tags == '' and s_people == ''">
+		restaurant_address1 like '%' || #{s_address} || '%'
+		</if>
+		<if test="s_address == '' and s_tags != '' and s_people == ''">
+		restaurant_num IN 
+		(SELECT
+		a.restaurant_num
+		FROM
+		restaurant_member a,
+		tags b
+		WHERE
+		b.tags_name like '%' || #{s_tags} || '%'
+		AND
+		a.restaurant_num = b.restaurant_num)
+		</if>
+		<if test="s_address != '' and s_tags != '' and s_people == ''">
+		restaurant_address1 like '%' || #{s_address} || '%'
+		AND
+		restaurant_num IN 
+		(SELECT
+		a.restaurant_num
+		FROM
+		restaurant_member a,
+		tags b
+		WHERE
+		b.tags_name like '%' || #{s_tags} || '%'
+		AND
+		a.restaurant_num = b.restaurant_num)
+		</if>
+		</where>
+		</if>
+	</select>
+	
+	<select id="readFile" parameterType="int" resultType="Restaurant_file">
+		SELECT
+		*
+		FROM
+		Restaurant_file
+		WHERE
+		restaurant_file_num = #{restaurant_file_num}
 	</select>
 </mapper>

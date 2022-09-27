@@ -92,15 +92,15 @@ $('.tag1').change(function(){
 			<a th:href="@{/}"><img id="aruaru"
 				th:src="@{/images/rrjapanesemark.png}"></a>
 			<!--검색 부분-->
-
+			<form th:action="@{/stores/search}" method="get">
 			<table style="font-family: Jua;">
 				<tr>
 					<td><input type="text" class="form-control" id="area-input"
-						placeholder="지역"></td>
+						placeholder="지역" name="s_address" ></td>
 					<td><input type="text" class="form-control" id="keyword-input"
-						placeholder="키워드(ex)오마카세, 분위기있는)"></td>
-					<td><input type="date" class="form-control" id="day-input"></td>
-					<td><select id="select-time" class="form-control">
+						placeholder="키워드(ex)오마카세, 분위기있는)" name="s_tags" ></td>
+					<td><input type="date" class="form-control" id="day-input" name="s_days" ></td>
+					<td><select id="select-time" class="form-control" name="s_time" >
 							<option value="0900">09:00</option>
 							<option value="0930">09:30</option>
 							<option value="1000">10:00</option>
@@ -130,11 +130,12 @@ $('.tag1').change(function(){
 							<option value="2200">22:00</option>
 					</select></td>
 					<td><input type="text" class="form-control" id="person-input"
-						placeholder="인원수"></td>
+						placeholder="인원수" name="s_people" ></td>
 					<td><input type="submit" class="btn btn-primary"
 						id="search-submit" value="검색"></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 		<!-- 회전화면 부분 -->
 		<div id="container2">

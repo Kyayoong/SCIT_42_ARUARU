@@ -1,6 +1,9 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.List;
+
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 public interface UserService {
@@ -18,4 +21,9 @@ public interface UserService {
 
 	// 회원 탈퇴
 	public int deleteUser(String member_id);
+
+	public List<Web_board> findBoard(String username);
+
+	public int insertBoard(Web_board b);
+
 }

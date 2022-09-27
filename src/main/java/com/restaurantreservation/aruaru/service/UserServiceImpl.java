@@ -1,5 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 import lombok.extern.slf4j.Slf4j;
@@ -57,5 +60,20 @@ public class UserServiceImpl implements UserService {
 		int result = dao.deleteUser(member_id);
 		return result;
 	}
+
+	@Override
+	public List<Web_board> findBoard(String userid) {
+		// TODO Auto-generated method stub
+		List<Web_board> findById = dao.findBoardById(userid);
+		return findById;
+	}
+
+	@Override
+	public int insertBoard(Web_board b) {
+		// TODO Auto-generated method stub
+		int result = dao.insertBoard(b);
+		return result;
+	}
+
 
 }

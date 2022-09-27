@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -228,5 +229,33 @@ public class MyPageController {
 	@GetMapping("restaurantBoardMain")
 	public String restaurantBoardMain() {
 		return "/restaurantView/restaurantBoardMain";
+	}
+	
+	@GetMapping("inquiryBoard")
+	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		}
+		List<Web_board> writtenByme = service.findBoard(user.getUsername());
+		model.addAttribute("boardList", writtenByme);
+		return "/userView/inquiryBoard";
+	}
+	
+	
+	@GetMapping("inquirywrite") 
+	public String inquirywrite(Model model, @AuthenticationPrincipal UserDetails user) {
+		if(user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		}
+		return "/userView/inquiryWrite";
+	}
+	
+	@PostMapping("submitWebBoard") 
+	public String submitWebBoard(Web_board b) {
+		log.debug("{}", b);
+		int result = service.insertBoard(b);
+		return "redirect:/userView/inquiryBoard";
 	}
 }

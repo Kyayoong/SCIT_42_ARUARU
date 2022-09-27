@@ -1,8 +1,11 @@
 package com.restaurantreservation.aruaru.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.User_member;
+import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 @Mapper
@@ -21,4 +24,8 @@ public interface UserDao {
 	
 	// 회원 탈퇴
 	public int deleteUser(String member_id);
+
+	List<Web_board> findBoardById(String username);
+
+	int insertBoard(Web_board b);
 }

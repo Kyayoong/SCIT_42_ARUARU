@@ -78,6 +78,9 @@ public interface RestaurantDao {
 	
 	//예약 내역 저장
 	int reservationInsert(Reservation reservation);
+	
+	//손님수 조정
+	int peopleCount(Restaurant_member member);
 
 
 }

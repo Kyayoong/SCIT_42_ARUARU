@@ -299,6 +299,14 @@
 		, #{reservation_hours}
 		, #{request}
 		)
-	
 	</insert>
+	
+	<update id="peopleCount" parameterType="Restaurant_member">
+		UPDATE
+		restaurant_member
+		SET
+		restaurant_people = #{restaurant_people}
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</update>
 </mapper>

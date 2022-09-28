@@ -174,5 +174,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return result;
 	}
 	
+	//식당인수 변경
+	@Override
+	public int peopleCount(Restaurant_member member) {
+		int result = dao.peopleCount(member);
+		return result;
+	}
+	
 
 }

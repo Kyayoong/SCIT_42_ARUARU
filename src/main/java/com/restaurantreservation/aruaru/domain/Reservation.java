@@ -19,5 +19,5 @@ public class Reservation {
     String reservation_date;	//예약일
     String reservation_hours;	//예약시간
     String request;				//요청사항
-
+    int reservation_success;
 }

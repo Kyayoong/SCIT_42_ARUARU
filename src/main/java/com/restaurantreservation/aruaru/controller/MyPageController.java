@@ -20,6 +20,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
@@ -27,7 +28,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
-import com.restaurantreservation.aruaru.service.ManageService;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -52,6 +53,9 @@ public class MyPageController {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 			log.debug("마이페이지_member:{}", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -317,7 +321,8 @@ public class MyPageController {
 		}
 		Web_board b = service.readBoard(board_num);
 		model.addAttribute("board", b);
-		
+		List<Web_reply> replyListAll = service.readReplyAll(board_num);
+		model.addAttribute("replyList", replyListAll);
 		//넘어온 게시글 번호를 통해 sql에서 게시글 객체 찾기
 		//찾아온 놈을 모델에 넣고
 		//inputiryboard.html로 가져간다.
@@ -330,5 +335,29 @@ public class MyPageController {
 		log.debug("{}", b);
 		int result = service.insertBoard(b);
 		return "redirect:/userView/inquiryboard";
+	}
+	
+	@ResponseBody
+	@PostMapping("replyInsert")
+	public String replyinsert(Web_reply r) {
+		log.debug("{}", r);
+		int result = service.insertReply(r);
+		return "redirect:/userView/inquiryRead";
+	}
+	
+	@ResponseBody
+	@GetMapping("replyList")
+	public List<Web_reply> replyList(int board_num) {
+		log.debug("{}", board_num);
+		List<Web_reply> replyList = service.readReply(board_num);
+		return replyList ;
+	}
+	
+	@ResponseBody
+	@GetMapping("replyDelete")
+	public int replyDelete(int reply_num) {
+		log.debug("{}", reply_num);
+		int result = service.replyDelete(reply_num);
+		return result;
 	}
 }

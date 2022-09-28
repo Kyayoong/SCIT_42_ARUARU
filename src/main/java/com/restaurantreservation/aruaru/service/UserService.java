@@ -34,6 +34,9 @@ public interface UserService {
 
 	// 예약내역 확인
 	public ArrayList<Reservation> seeAllReservation(String member_id);
+	
+	// 지난 예약내역 확인
+	public ArrayList<Reservation> seeAllLastReservation(String member_id);
 
 	/**
 	 * 특정 회원의 이용내역 불러오기

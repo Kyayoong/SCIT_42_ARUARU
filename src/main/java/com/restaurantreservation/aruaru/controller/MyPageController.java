@@ -127,6 +127,11 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
+			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
+			model.addAttribute("lastreservationlist", lastreservationlist);
 		}
 		return "userView/seereservation";
 	}

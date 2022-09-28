@@ -100,6 +100,13 @@ public class UserServiceImpl implements UserService {
 		ArrayList<Reservation> reservationlist = dao.seeAllReservation(member_id);
 		return reservationlist;
 	}
+	
+	@Override
+	public ArrayList<Reservation> seeAllLastReservation(String member_id) {
+		ArrayList<Reservation> lastreservationlist = dao.seeAllLastReservation(member_id);
+		return lastreservationlist;
+	}
+
 
 	@Override
 	public int insertReply(Web_reply r1) {
@@ -128,6 +135,7 @@ public class UserServiceImpl implements UserService {
 		int result = dao.replyDelete(reply_num);
 		return result;
 	}
+
 
 
 }

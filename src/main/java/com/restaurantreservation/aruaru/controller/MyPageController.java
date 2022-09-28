@@ -77,12 +77,7 @@ public class MyPageController {
 		
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
 		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
-		for(int i = 0; i < usageList.size(); i++) {
-			int number = usageList.get(i).getRestaurant_num();
-			Restaurant_member restmember =  restaurantService.selectOne1(number);
-			String restaurantName = restmember.getRestaurant_name();
-			usageList.get(i).setRestaurant_name(restaurantName);
-		}
+	
 		
 		log.debug("00000000000000000000000000{}", member);
 		log.debug("00000000000000000000000000{}", usageList);
@@ -94,8 +89,12 @@ public class MyPageController {
 	}
 	//리뷰 입력
 	@GetMapping("insertReview")
-		public String insertReview() {
-			return "userView/insertReview";
+	public String insertReview(int usageNum, Model model) {
+		//해당 번호의 이용 내역 받아오기
+		Usage_history usage = service.selectOneUsageHistory(usageNum);
+		log.debug(" {} ",usage);
+		model.addAttribute("", usage)
+		return "userView/insertReview";
 	}
 	
 	// 가게 소개 페이지
@@ -282,7 +281,11 @@ public class MyPageController {
 	@GetMapping("restaurantRTMemberMain")
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+
+		
 		return "/restaurantView/restaurantRTMemberMain";
+		
 	}
 
 	// rsetreview - 리뷰관리

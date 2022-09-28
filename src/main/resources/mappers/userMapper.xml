@@ -231,5 +231,9 @@
 		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND
 		RESERVATION_SUCCESS = 1
 	</select>
+	<!-- 특정 이용내역 받아오기 -->
+	<select id="selectOneUsageHistory" parameterType="int" resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE USAGE_NUM = #{usageNum}
+	</select>
 
 </mapper>

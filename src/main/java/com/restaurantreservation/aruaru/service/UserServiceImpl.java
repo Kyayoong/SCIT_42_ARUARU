@@ -13,6 +13,7 @@ import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 import lombok.extern.slf4j.Slf4j;
@@ -89,6 +90,34 @@ public class UserServiceImpl implements UserService {
 	public ArrayList<Usage_history> selectAllUsageHistory(String username) {
 		ArrayList<Usage_history> list = dao.selectAllUsageHistory(username);
 		return list;
+	}
+
+	@Override
+	public int insertReply(Web_reply r1) {
+		// TODO Auto-generated method stub
+		int result = dao.insertReply(r1);
+		return result;
+	}
+
+	@Override
+	public List<Web_reply> readReply(int board_num) {
+		// TODO Auto-generated method stub
+		List<Web_reply> replyList = dao.readReply(board_num);
+		return replyList;
+	}
+
+	@Override
+	public List<Web_reply> readReplyAll(int board_num) {
+		// TODO Auto-generated method stub
+		List<Web_reply> replyListAll = dao.readReply(board_num); 
+		return replyListAll;
+	}
+
+	@Override
+	public int replyDelete(int reply_num) {
+		// TODO Auto-generated method stub
+		int result = dao.replyDelete(reply_num);
+		return result;
 	}
 
 

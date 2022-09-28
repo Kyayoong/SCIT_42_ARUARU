@@ -154,6 +154,42 @@
 		WHERE member_id=#{member_id}
 	</select>
 
+	<insert id="insertReply" parameterType="Web_reply">
+	INSERT INTO
+	web_reply
+	(
+	reply_num
+	, board_num
+	, member_id
+	, reply_contents
+	)
+	VALUES
+	(
+	web_reply_seq.nextval
+	, #{board_num}
+	, #{member_id}
+	, #{reply_contents}
+	)
+	</insert>
+	<select id="readReply" parameterType="Int" resultType="Web_reply">
+	SELECT
+	*
+	FROM
+	web_reply
+	WHERE
+	board_num
+	= #{board_num}
+	ORDER BY
+	reply_num
+	</select>
+	<delete id="replyDelete" parameterType="int">
+	DELETE
+	FROM
+	web_reply
+	where
+	reply_num
+	= #{reply_num}
+	</delete>
 
 	
 	<!-- 이용내역 리스트 불러오기 -->

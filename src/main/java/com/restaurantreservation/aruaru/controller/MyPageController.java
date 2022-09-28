@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -22,9 +23,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+
 import com.restaurantreservation.aruaru.domain.Web_reply;
+import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +42,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MyPageController {
 	@Autowired
 	UserService service;
+	@Autowired
+	RestaurantService restaurantService;
 
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
@@ -46,6 +55,9 @@ public class MyPageController {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 			log.debug("마이페이지_member:{}", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -53,16 +65,67 @@ public class MyPageController {
 		return "userView/mypage";
 	}
 
-	// 리뷰 작성 화면
+	// 예약내역->리뷰선택창
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
-
-		if (user != null) {
-			User_member member = service.selectUser(user.getUsername());
-			model.addAttribute("member", member);
+		//계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
+		//모델에 담아 html에 가져간다.
+		if (user == null) {
+			return "redirect:/";
 		}
+		User_member member = service.selectUser(user.getUsername());
+		
+		
+		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
+		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
+	
+		
+		log.debug("00000000000000000000000000{}", member);
+		log.debug("00000000000000000000000000{}", usageList);
+		
+		model.addAttribute("member", member);
+		model.addAttribute("usageList", usageList);
+		
 		return "userView/review";
 	}
+	//리뷰 입력창
+	@GetMapping("insertReview")
+	public String insertReview(int usageNum, Model model) {
+		//해당 번호의 이용 내역 받아오기
+		Usage_history usage = service.selectOneUsageHistory(usageNum);
+		log.debug(" {} ",usage);
+		model.addAttribute("usage", usage);
+		return "userView/insertReview";
+	}
+	//리뷰입력 form
+	@PostMapping("insertReview")
+	public String insertReview(int grade,String member_id, int usage_num, int restaurant_num, String restaurant_name, String contents) {
+		log.debug("{}", grade);
+		log.debug(member_id);
+		log.debug("{}", usage_num);
+		log.debug("{}", restaurant_num);
+		log.debug(restaurant_name);
+		log.debug(contents);
+		
+		String title = "아무 제목";
+		
+		Review review = new Review(member_id, restaurant_num, usage_num, title, contents, grade);
+		
+		//새로운 리뷰 객체를 저장한다.
+		int result = service.insertReview(review);
+		
+		
+		return "redirect:/mypage/review";
+		
+//		int review_num;
+//	    String member_id;
+//	    int restaurant_num;								
+//	    int usage_num;
+//	    String title;
+//	    String contents;
+//	    int grade;
+	}
+	
 	
 	// 가게 소개 페이지
 	@GetMapping("introduce_store")
@@ -93,6 +156,11 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
+			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
+			model.addAttribute("lastreservationlist", lastreservationlist);
 		}
 		return "userView/seereservation";
 	}
@@ -216,12 +284,6 @@ public class MyPageController {
 		return "userView/mybenefit";
 	}
 
-	//리뷰 입력
-	@GetMapping("insertReview")
-	public String insertReview() {
-		return "userView/insertReview";
-	}
-
 	@GetMapping("leaveId")
 	public String leaveId(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -238,29 +300,33 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
-
+	
+	//식당메인화면
 	@GetMapping("restaurantMain")
 	public String restaurantMain() {
 		return "/restaurantView/restaurantMain";
 	}
 
-	// restMemberMain - 식당멤버관리창
+	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain() {
+	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
+		ArrayList<Reservation> reservationList = restaurantService.ReservationList(member.getRestaurant_num());
+		log.debug("{}",reservationList);
+		
+		model.addAttribute("reservationList",reservationList);
+
+		
 		return "/restaurantView/restaurantRTMemberMain";
+		
 	}
 
-	// genMemberMain - 일반회원관리창
-	@GetMapping("restaurantGNMemberMain")
-	public String restaurantGNMemberMain() {
-		return "/restaurantView/restaurantGNMemberMain";
+	// rsetreview - 리뷰관리
+	@GetMapping("rsetreview")
+	public String rsetreview() {
+		return "/restaurantView/rsetreview";
 	}
 
-	// boardMain - 게시글관리창
-	@GetMapping("restaurantBoardMain")
-	public String restaurantBoardMain() {
-		return "/restaurantView/restaurantBoardMain";
-	}
 	
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -298,14 +364,14 @@ public class MyPageController {
 		//찾아온 놈을 모델에 넣고
 		//inputiryboard.html로 가져간다.
 		
-		return "userView/inquiryRead";
+		return "/userView/inquiryRead";
 	}
 	
 	@PostMapping("submitWebBoard") 
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
 		int result = service.insertBoard(b);
-		return "redirect:/userView/inquiryboard";
+		return "redirect:/mypage/inquiryboard";
 	}
 	
 	@ResponseBody

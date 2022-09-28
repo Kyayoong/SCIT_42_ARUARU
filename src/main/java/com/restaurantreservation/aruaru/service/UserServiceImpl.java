@@ -1,5 +1,6 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
+import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
@@ -83,6 +87,36 @@ public class UserServiceImpl implements UserService {
 		return b;
 	}
 
+	// 특정 회원의 이용 내역 불러오기
+	@Override
+	public ArrayList<Usage_history> selectAllUsageHistory(String username) {
+		ArrayList<Usage_history> list = dao.selectAllUsageHistory(username);
+		return list;
+	}
+
+
+	// 예약내역 확인하기
+	@Override
+	public ArrayList<Reservation> seeAllReservation(String member_id) {
+		ArrayList<Reservation> reservationlist = dao.seeAllReservation(member_id);
+		return reservationlist;
+	}
+
+	
+	@Override
+	public ArrayList<Reservation> seeAllLastReservation(String member_id) {
+		ArrayList<Reservation> lastreservationlist = dao.seeAllLastReservation(member_id);
+		return lastreservationlist;
+	}
+
+	// 특정 이용내역 받아오기
+	@Override
+	public Usage_history selectOneUsageHistory(int usageNum) {
+		Usage_history usage = dao.selectOneUsageHistory(usageNum);
+		return usage;
+	}
+
+
 	@Override
 	public int insertReply(Web_reply r1) {
 		// TODO Auto-generated method stub
@@ -110,6 +144,14 @@ public class UserServiceImpl implements UserService {
 		int result = dao.replyDelete(reply_num);
 		return result;
 	}
+	
+	//리뷰 객체 저장하기.
+	@Override
+	public int insertReview(Review review) {
+		int result = dao.insertReview(review);
+		return result;
+	}
+
 
 	@Override
 	public int updateBoard(Web_board b) {

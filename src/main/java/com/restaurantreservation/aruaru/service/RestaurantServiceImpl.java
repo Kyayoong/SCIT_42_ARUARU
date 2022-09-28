@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.restaurantreservation.aruaru.dao.RestaurantDao;
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -160,10 +161,31 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return resList;
 		
 	}
+	//파일 불러오기
 	@Override
 	public Restaurant_file readFile(int restaurant_file_num) {
 		Restaurant_file file = dao.readFile(restaurant_file_num);
 		return file;
+	}
+	//예약입력
+	@Override
+	public int reservationInsert(Reservation reservation) {
+		int result = dao.reservationInsert(reservation);
+		return result;
+	}
+	
+	//식당인수 변경
+	@Override
+	public int peopleCount(Restaurant_member member) {
+		int result = dao.peopleCount(member);
+		return result;
+	}
+	//예약내역조회
+	@Override
+	public ArrayList<Reservation> ReservationList(int restaurant_num) {
+		ArrayList<Reservation> list = dao.ReservationList(restaurant_num);
+		
+		return list;
 	}
 	
 

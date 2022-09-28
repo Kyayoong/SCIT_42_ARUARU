@@ -31,7 +31,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>예약내역조회</title>
 </head>
 <body>
 	<!-- navbar 부분-->
@@ -142,26 +142,13 @@
 							<th>예약인원</th>
 							<th>예약확정여부</th>
 						</tr>
-						<tr>
-							<td>SCIT식당</td>
-							<td>2022.09.23</td>
-							<td>3</td>
-							<th>N</th>
+						<tr th:each="reservationlist : ${reservationlist}">
+							<td th:text="${reservationlist.restaurant_name}">SCIT식당</td>
+							<td th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|">2022.09.23</td>
+							<td th:text="${reservationlist.reservation_people}">3</td>
+							<th th:if="${reservationlist.reservation_success} == 0">N</th>
+							<th th:if="${reservationlist.reservation_success} == 1">Y</th>
 						</tr>
-						<tr>
-							<td>맛있는식당</td>
-							<td>2022.09.24</td>
-							<td>2</td>
-							<th>Y</th>
-						</tr>
-						<tr>
-							<td>코엑스식당</td>
-							<td>2022.09.30</td>
-							<td>4</td>
-							<th>N</th>
-						</tr>
-					
-					
 					</table>
 				</div>
 				
@@ -174,26 +161,13 @@
 							<th>예약인원</th>
 							<th>리뷰작성여부</th>
 						</tr>
-						<tr>
-							<td>떡볶이분식</td>
-							<td>2022.09.18</td>
-							<td>3</td>
-							<th>N</th>
+						<tr th:each="lastreservationlist : ${lastreservationlist}">
+							<td th:text="${lastreservationlist.restaurant_name}">떡볶이분식</td>
+							<td th:text="|${lastreservationlist.reservation_date} ${lastreservationlist.reservation_hours}|">2022.09.18</td>
+							<td th:text="${lastreservationlist.reservation_people}">3</td>
+							<th th:if="${lastreservationlist.reservation_success} == 0">N</th>
+							<th th:if="${lastreservationlist.reservation_success} == 1">Y</th>
 						</tr>
-						<tr>
-							<td>맛있는식당</td>
-							<td>2022.09.11</td>
-							<td>2</td>
-							<th>Y</th>
-						</tr>
-						<tr>
-							<td>코엑스식당</td>
-							<td>2022.09.04</td>
-							<td>4</td>
-							<th>N</th>
-						</tr>
-					
-					
 					</table>
 				</div>
 				

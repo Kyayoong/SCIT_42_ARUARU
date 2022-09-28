@@ -27,16 +27,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>리뷰</title>
 
 <script type="text/javascript">
 	let win = null;
-	$(document).ready(function() {
+	/* $(document).ready(function() {
 		$('.btn1').click(openInsertReview);
-	})
+	}) */
 
-	function openInsertReview(){
-		win = window.open('/aruaru/mypage/insertReview', '리뷰입력', 
+	function openInsertReview(usage_num){
+		win = window.open('/aruaru/mypage/insertReview?usageNum='+ usage_num, '리뷰입력', 
 						'width=' + screen.width/2 + 
 						', height=' + screen.height/1.2 + 
 						', left=' + screen.width/3.8 + 
@@ -156,18 +156,13 @@
 							<th>예약번호</th>
 							<th>음식점명</th>
 							<th>예약일자</th>
-							<th>예약시간</th>
-							<th>예약인원</th>
 							<th>리뷰작성</th>
 						</tr>
-						<tr>
-							<td>10029837</td>
-							<td>용태식당</td>
-							<td>2022.09.06</td>
-							<td>18:30</td>
-							<td>3</td>
-							<!-- 예약번호를 같이 보내서 해당 예약/이용 내역을 새로운 창에 띄움 -->
-							<td><input type="button" class="btn1 btn btn-outline-primary btn-sm" value="작성" onclick="insertReview()"></td>
+						<tr th:each="usage:${usageList}">
+							<td th:text="${usage.reservation_num}">10029837</td>
+							<td th:text="${usage.restaurant_name}">용태식당</td>
+							<td th:text="${usage.usage_date}">2022.09.06</td>
+							<td><input type="button" class="btn1 btn btn-outline-primary btn-sm" value="작성" th:onclick="|openInsertReview(${usage.usage_num})|"></td>
 						</tr>
 					</table>
 				</div>

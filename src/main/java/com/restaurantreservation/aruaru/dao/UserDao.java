@@ -1,9 +1,13 @@
 package com.restaurantreservation.aruaru.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
@@ -22,7 +26,7 @@ public interface UserDao {
 
 	// 정보 수정
 	public int updateUser(User_member member);
-	
+
 	// 회원 탈퇴
 	public int deleteUser(String member_id);
 
@@ -38,5 +42,38 @@ public interface UserDao {
 
 	int replyDelete(int reply_num);
 
+<<<<<<< HEAD
 	int updateBoard(Web_board b);
+=======
+
+	// 예약내역 확인
+	public ArrayList<Reservation> seeAllReservation(String member_id);
+	
+	// 지난 예약내역 확인
+	public ArrayList<Reservation> seeAllLastReservation(String member_id);
+
+	/**
+	 * 특정 회원의 이용내역 불러오기
+	 * 
+	 * @param 찾을 회원의 id 정보
+	 * @return 이용내역 리스트
+	 */
+	ArrayList<Usage_history> selectAllUsageHistory(String username);
+	
+	/**
+	 * 특정 이용내역 받아오기
+	 * @param usageNum 이용내역번호
+	 * @return 이용내역객체
+	 */
+	Usage_history selectOneUsageHistory(int usageNum);
+	
+	/**
+	 * 리뷰객체 저장하기
+	 * @param review
+	 * @return 성공여부
+	 */
+	int insertReview(Review review);
+
+
+>>>>>>> 5525451b26977206d70e88923ad5a467617d02e8
 }

@@ -24,7 +24,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script type="text/javascript">
-
+let dataPoint = 0;
 	//별 이미지 클릭시
 	$(document).on('click', '#point1', drawStars);
 	$(document).on('click', '#point2', drawStars);
@@ -40,14 +40,14 @@
 	
 	//등록, 취소 버튼	
 	$(document).on('click', '#submitButton', function(){
-		alert('등록버튼');
-		//등록 버튼 실행 시, 모든 정보를 하나의 객체로 만들어 저장할 예정
+		alert(dataPoint);
+		$('#gradeObject').val(dataPoint);
+		let form = $('#writeReview');
+		form.submit();
 		
-		
-		
-		
-		
+		console.log(pointedId);
 	});
+	
 	$(document).on('click', '#cancelButton', function(){
 		window.close();
 	})
@@ -57,7 +57,7 @@
 	let path = '[[@{/images/}]]';
 	function drawStars(){
 		let starImg = '';
-		let dataPoint = parseInt($(this).attr('data-point'));
+		dataPoint = parseInt($(this).attr('data-point'));
 		let dataActivated = parseInt($(this).attr('data-activated'));
 		
 		switch(dataActivated){
@@ -71,6 +71,7 @@
 					starImg += '<img id="point' + i + '" class="p-1" src="' +
 								path + 'star_full.png" data-point="' + i + 
 								'" data-activated="1" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
+								storeReviewPoint(i);
 				}
 					else {
 					starImg += '<img id="point' + i + '" class="p-1" src="' +
@@ -86,10 +87,16 @@
 				starImg += '<img id="point' + i + '" class="p-1" src="' +
 							path + 'star_none.png" data-point="' + i + '" data-activated="0" style="width:2.8rem;" alt="별표시" onclick="drawStars">';
 			}
+			storeReviewPoint(0);
 			$('#starPoint').html(starImg);
 			break;
 		}
 	}
+	
+	function storeReviewPoint(point){
+		dataPoint = point;
+	}
+	
 </script>
 
 <title>리뷰 입력 하기</title>
@@ -98,11 +105,17 @@
 	<!-- 1. 가게 이름
 		 2. 예약/방문 일시 -->
 	<div class="border shadow rounded-sm m-2" style="font-family: Jua;">
+	<form action="insertReview" method="post" id="writeReview">
+		<input type="hidden" id="gradeObject" name="grade">
+		<input type="hidden" name="member_id" th:value="${usage.member_id}">
+		<input type="hidden" name="usage_num" th:value="${usage.usage_num}">
+		<input type="hidden" name="restaurant_num" th:value="${usage.restaurant_num}">
+		<input type="hidden" name="restaurant_name" th:value="${usage.restaurant_name}">
 		<div class="p-1" style="background: #afc9f6;">
 			<!-- 1. 가게이름 -->
-			<h1 class="h1 m-3 d-flex justify-content-center">용태식당</h1>
+			<h1 class="h1 m-3 d-flex justify-content-center"><span th:text="${usage.restaurant_name}">용태식당</span></h1>
 			<!-- 2. 예약/방문일 -->
-			<p class="p1 d-flex justify-content-center">방문일: 01/01/01</p>
+			<p class="p1 d-flex justify-content-center"><span th:text="|방문일자 : ${usage.usage_date}|">이용일</span></p>
 		</div>
 		<!-- 3. 별점 -->
 		<div id="starPoint" class="d-flex justify-content-center m-3">
@@ -141,7 +154,7 @@
 		</div>
 		<!-- 5. 텍스트 -->
 		<div class="d-flex justify-content-center m-3">
-			<textarea rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+			<textarea name="contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
 		</div>
 		
 		<!-- 6. 사진 -->
@@ -266,6 +279,7 @@
 			<input type="button" style="font-family: IBM Plex Sans KR;"
 			class="btn btn-secondary m-1" id="cancelButton" value="취소">
 		</div>
+	</form>
 	</div>
 		
 					

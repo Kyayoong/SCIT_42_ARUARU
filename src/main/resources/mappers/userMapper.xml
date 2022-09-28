@@ -60,6 +60,7 @@
 		WHERE member_name = #{member_name}
 	</select>
 
+	<!-- 개인정보수정 -->
 	<update id="updateUser" parameterType="User_member">
 		UPDATE user_member
 		SET
@@ -73,98 +74,156 @@
 
 		member_phone =
 		#{member_phone},
-		member_address1 = #{member_address1},
+		member_address1 =
+		#{member_address1},
 		member_address2 =
 		#{member_address2},
-		member_birth = #{member_birth},
+		member_birth =
+		#{member_birth},
 		member_tags =
 		#{member_tags}
 		<if test="member_originalfile != null and member_savedfile != null">
 			, member_originalfile = #{member_originalfile}
-			, member_savedfile = #{member_savedfile}
+			,
+			member_savedfile = #{member_savedfile}
 		</if>
 		WHERE member_id = #{member_id}
 	</update>
 
+	<!-- 회원탈퇴 -->
 	<delete id="deleteUser" parameterType="String">
 		DELETE user_member
-		WHERE member_id = #{member_id}
+		WHERE
+		member_id = #{member_id}
 	</delete>
-	<select id="findBoardById" parameterType="String" resultType="Web_board">
-	SELECT
-	*
-	FROM
-	Web_board
-	WHERE
-	member_id = #{member_id}
-	order by
-	board_num
-	desc
+
+	<select id="findBoardById" parameterType="String"
+		resultType="Web_board">
+		SELECT
+		*
+		FROM
+		Web_board
+		WHERE
+		member_id = #{member_id}
+		order by
+		board_num
+		desc
 	</select>
+
 	<insert id="insertBoard" parameterType="Web_board">
-	INSERT INTO 
-	web_board 
-	(
-	board_num 
-	, member_id
-	, board_title
-	, board_contents
-	, category
-	)
-	VALUES
-	( 
-	web_board_seq.nextval
-	, #{member_id}
-	, #{board_title}
-	, #{board_contents}
-	, #{category}
-	)
+		INSERT INTO
+		web_board
+		(
+		board_num
+		, member_id
+		, board_title
+		, board_contents
+		, category
+		)
+		VALUES
+		(
+		web_board_seq.nextval
+		, #{member_id}
+		, #{board_title}
+		, #{board_contents}
+		, #{category}
+		)
 	</insert>
-	<select id="findBoard" parameterType="Int" resultType="Web_board">
-	SELECT
-	*
-	FROM
-	web_board
-	WHERE 
-	board_num
-	= #{board_num}
+
+	<select id="findBoard" parameterType="Int"
+		resultType="Web_board">
+		SELECT
+		*
+		FROM
+		web_board
+		WHERE
+		board_num
+		= #{board_num}
 	</select>
+
+
+	<!-- 예약 내역 조회 -->
+	<select id="seeAllReservation" parameterType="String"
+		resultType="Reservation">
+		SELECT
+		member_id
+		, restaurant_name
+		, reservation_people
+		,
+		to_char(registration_date, 'YYYY-MM-DD') registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		,
+		reservation_hours
+		, request
+		, reservation_success
+		FROM
+		reservation
+		WHERE
+		member_id = #{member_id} AND
+		reservation_date &gt; SYSDATE
+	</select>
+
+	<!-- 지난 예약 내역 조회 -->
+	<select id="seeAllLastReservation" parameterType="String"
+		resultType="Reservation">
+		SELECT
+		member_id
+		, restaurant_name
+		, reservation_people
+		,
+		to_char(registration_date, 'YYYY-MM-DD') registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		,
+		reservation_hours
+		, request
+		, reservation_success
+		FROM
+		reservation
+		WHERE
+		member_id = #{member_id} AND
+		reservation_date &lt; SYSDATE
+	</select>
+
 	<insert id="insertReply" parameterType="Web_reply">
-	INSERT INTO
-	web_reply
-	(
-	reply_num
-	, board_num
-	, member_id
-	, reply_contents
-	)
-	VALUES
-	(
-	web_reply_seq.nextval
-	, #{board_num}
-	, #{member_id}
-	, #{reply_contents}
-	)
+		INSERT INTO
+		web_reply
+		(
+		reply_num
+		, board_num
+		, member_id
+		, reply_contents
+		)
+		VALUES
+		(
+		web_reply_seq.nextval
+		, #{board_num}
+		, #{member_id}
+		, #{reply_contents}
+		)
 	</insert>
-	<select id="readReply" parameterType="Int" resultType="Web_reply">
-	SELECT
-	*
-	FROM
-	web_reply
-	WHERE
-	board_num
-	= #{board_num}
-	ORDER BY
-	reply_num
+	<select id="readReply" parameterType="Int"
+		resultType="Web_reply">
+		SELECT
+		*
+		FROM
+		web_reply
+		WHERE
+		board_num
+		= #{board_num}
+		ORDER BY
+		reply_num
 	</select>
 	<delete id="replyDelete" parameterType="int">
-	DELETE
-	FROM
-	web_reply
-	where
-	reply_num
-	= #{reply_num}
+		DELETE
+		FROM
+		web_reply
+		where
+		reply_num
+		= #{reply_num}
 	</delete>
+<<<<<<< HEAD
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board
@@ -175,4 +234,26 @@
 	WHERE
 	board_num = #{board_num}
 	</update>
+=======
+
+
+	<!-- 이용내역 리스트 불러오기 -->
+	<select id="selectAllUsageHistory" parameterType="String"
+		resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND
+		RESERVATION_SUCCESS = 1
+	</select>
+	<!-- 특정 이용내역 받아오기 -->
+	<select id="selectOneUsageHistory" parameterType="int" resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE USAGE_NUM = #{usageNum}
+	</select>
+	<!-- 리뷰 객체 넣기 -->
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO REVIEW
+		(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+		VALUES
+		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
+	</insert>
+
+>>>>>>> 5525451b26977206d70e88923ad5a467617d02e8
 </mapper>

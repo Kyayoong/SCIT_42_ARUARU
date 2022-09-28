@@ -130,11 +130,13 @@ CREATE TABLE reservation(
     reservation_num NUMBER(10) PRIMARY KEY,														--예약 번호
     member_id VARCHAR2(100) REFERENCES user_member(member_id),									--회원아이디
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num),						--식당번호
+    restaurant_name VARCHAR2(100) NOT NULL,			    										--가게이름
     reservation_people NUMBER(3) NOT NULL,														--예약인수
     registration_date DATE DEFAULT SYSDATE, 													--등록일
     reservation_date DATE,																		--예약일
     reservation_hours VARCHAR2(20) NOT NULL	,													--예약시간
-    request VARCHAR2(1000)																		--요청사항
+    request VARCHAR2(1000),
+    reservation_success NUMBER(1)  DEFAULT 0																			--요청사항
 );
 
 --리뷰 번호 시퀀스
@@ -149,7 +151,8 @@ CREATE TABLE usage_history(
     usage_information VARCHAR2(2000) NOT NULL,			--이용 정보
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원 아이디
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num), --식당번호
-    reservation_success NUMBER(1)  DEFAULT 0				--실제갔는지확인
+    restaurant_name VARCHAR2(100) NOT NULL,			    										--가게이름
+    reservation_success NUMBER(1)  DEFAULT 0				
 );
 
 --이용 번호 시퀀스

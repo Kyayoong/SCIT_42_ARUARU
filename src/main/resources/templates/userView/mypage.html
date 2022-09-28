@@ -30,7 +30,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>Mypage</title>
 </head>
 <body>
 	<!-- navbar 부분-->
@@ -146,22 +146,10 @@
 								<th>인원수</th>
 								<th>예약확정여부</th>
 							</tr>
-							<tr>
-								<td>성준식당</td>
-								<td>2022.09.15</td>
-								<td>5</td>
-								<th>N</th>
-							</tr>
-							<tr>
-								<td>예현식당</td>
-								<td>2022.09.20</td>
-								<td>4</td>
-								<th>Y</th>
-							</tr>
-							<tr>
-								<td>기원식당</td>
-								<td>2022.09.22</td>
-								<td>3</td>
+							<tr th:each="reservationlist : ${reservationlist}">
+								<td th:text="${reservationlist.restaurant_name}">성준식당</td>
+								<td th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|"></td>
+								<td th:text="${reservationlist.reservation_people}">5</td>
 								<th>N</th>
 							</tr>
 						</table>

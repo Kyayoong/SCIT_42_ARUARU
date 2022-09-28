@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -74,6 +75,14 @@ public interface RestaurantDao {
 	
 	//파일 가져오기 하나
 	Restaurant_file readFile(int restaurant_file_num);
+	
+	//예약 내역 저장
+	int reservationInsert(Reservation reservation);
+	
+	//손님수 조정
+	int peopleCount(Restaurant_member member);
 
+	// 예약내역 확인
+	ArrayList<Reservation> ReservationList(int restaurant_num);
 
 }

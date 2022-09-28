@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -72,5 +73,12 @@ public interface RestaurantService {
 	//파일 가져오기 하나
 	public Restaurant_file readFile(int restaurant_file_num);
 	
+	//예약내역 저장하기
+	public int reservationInsert(Reservation reservation);
 	
+	//손님수 조정
+	public int peopleCount(Restaurant_member member);
+	
+	//예약내역조회
+	public ArrayList<Reservation> ReservationList(int restaurant_num);
 }

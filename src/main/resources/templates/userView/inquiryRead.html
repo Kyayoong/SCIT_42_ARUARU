@@ -14,7 +14,58 @@
 
 </style>
 <script>
+$(document).ready(function() {
 	
+	$('#submitreplybtn').click(replyInsert);
+	init();
+	
+});
+
+function replyInsert() {
+	let name = $('#member_id').val();
+	let text = $('#reply_contents').val();
+	let boardnum = $('#board_num').val();
+	if(text=='' || text.length == 0) {
+		alert('댓글 내용을 입력하세요');
+		return;
+	}
+	
+	$.ajax({
+		url: 'replyInsert',
+		type : 'post',
+		data : {board_num: boardnum, member_id:name, reply_contents:text},
+		success : function() {
+			alert('저장되었습니다.');
+			$('#member_id').val();
+			$('#reply_contents').val();
+			$('#board_num').val();
+			init();
+		},
+		error: function() {
+			alert('저장 실패');
+		}
+	})
+}
+
+function init() {
+	$.ajax({
+		url : 'replyList',
+		type : 'GET',
+		dataType : 'json',
+		success : output
+	});
+}
+
+function output(msg) {
+	var str = '';
+	$.each(msg, function(i, item) {
+		str = '<tr>';
+		str += '<th>' + item.member_id + '</th>';
+		str += '<td>' + item.reply_contents + '</td>;
+		str += '<td><input type="button" class="btn btn-primary" num="'+ item.reply_num +'"></td>';
+		str += '</tr>';
+	});
+}
 </script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -172,6 +223,19 @@
 						</tr>
 						</table>		
 						</form>
+						<table class="table table-hover">
+						<tr>
+						<th th:text="${member.member_id}"><input type="hidden" id="member_id" th:value="${member.member_id}" name="member_id">
+						<input type="hidden" th:value="${board.board_num}" id="board_num" name="board_num"></th>
+						<td>
+						<textarea class="form-control" id="reply_contents" name="reply_contents"></textarea>
+						</td>
+						<td>
+						<input type="submit" class="btn btn-primary" id="submitreplybtn" value="등록">
+						</td>
+						</tr>
+						</table>
+
 					</div>
 
 				</div>

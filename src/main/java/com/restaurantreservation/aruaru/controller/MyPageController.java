@@ -28,6 +28,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
@@ -125,6 +126,11 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
+			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
+			model.addAttribute("lastreservationlist", lastreservationlist);
 		}
 		return "userView/seereservation";
 	}
@@ -276,13 +282,10 @@ public class MyPageController {
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
 		Restaurant_member member = restaurantService.selectOne(user.getUsername());
-		/*
-		 * ArrayList<Reservation> reservationList =
-		 * 
-		 * log.debug("{} : ",reservationList);
-		 */
+
 		
 		return "/restaurantView/restaurantRTMemberMain";
+		
 	}
 
 	// rsetreview - 리뷰관리

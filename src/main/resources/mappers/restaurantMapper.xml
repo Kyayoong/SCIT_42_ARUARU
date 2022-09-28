@@ -285,6 +285,7 @@
 		(reservation_num
 		, member_id
 		, restaurant_num
+		, restaurant_name
 		, reservation_people
 		, reservation_date
 		, reservation_hours

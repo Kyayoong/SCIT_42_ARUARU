@@ -28,7 +28,6 @@ import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
-
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
@@ -276,6 +275,11 @@ public class MyPageController {
 	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+		ArrayList<Reservation> reservationList = 
+		
+		log.debug("{} : ",reservationList);
 		
 		return "/restaurantView/restaurantRTMemberMain";
 	}

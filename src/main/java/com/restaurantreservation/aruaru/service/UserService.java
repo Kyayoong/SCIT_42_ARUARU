@@ -69,4 +69,6 @@ public interface UserService {
 	 */
 	public int insertReview(Review review);
 
+	public int updateBoard(Web_board b);
+
 }

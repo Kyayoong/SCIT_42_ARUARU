@@ -153,5 +153,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public int updateBoard(Web_board b) {
+		// TODO Auto-generated method stub
+		int result = dao.updateBoard(b);
+		return result;
+	}
+
 
 }

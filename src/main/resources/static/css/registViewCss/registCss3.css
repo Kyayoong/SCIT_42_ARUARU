@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+
+/*
+*	navbar 사이즈 조정
+*/
+nav {
+	height: 4.1vh;	
+}
+
+/*
+* 마크 밑 안내 자막 부분
+*/
+
+#inform-restaurant-register  {
+	padding-left : 0.7vw;
+}
+
+
+/*
+* restaurant 영역 전체 위치, 크기, 투명도 및 그림자 조정
+*/
+
+#registform {
+	height : 130vh;
+	width : 50vw;
+	position : relative;
+	top : 5vh;
+	left : 25vw;
+	box-shadow : 5px 5px 20px grey; 
+	background-color : rgba(255,255,255, 0.5);
+	animation : slide2 2s;
+}
+
+/*
+* 마크부분 조정
+*/
+
+#rrmarkarea {
+	position : relative;
+	left : 19vw;
+	top : 3vh;
+}
+/*
+* 영어마크 부분 위치 조정
+*/
+
+#rrmark {
+	width : 2.5vw;
+}
+
+/*
+* 일어마크 부분 위치 조정
+*/
+
+#rrjapanesemark {
+	height : 3vw;
+}
+
+/*
+* 식당등록 전체(라벨, 입력부분, 등록버튼) 위치 조정
+*/
+
+#registtable {
+	position : relative;
+	top : 5vh;
+	padding-left : 5.5vw;
+	font-size: 15px;
+	
+}
+
+/*
+* div form-phone2 위치 조정
+*/
+
+#form-phone2 {
+	position : absolute;
+	margin-top : -5.1vh;
+	margin-left : 6.7vw;
+	
+}
+
+/*
+* 주소검색 버튼 위치 조정
+*/
+#b-search-address {
+	position : absolute;
+	margin-top : -5.1vh;
+	margin-left : 32vw;
+}
+
+/*
+* 두번째 체크박스 위치 설정
+*/
+
+#idtag2 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 4vw;
+}
+
+/*
+* 세번째 체크박스 위치 설정
+*/
+#idtag3 {
+	position : absolute;
+	margin-top : -5vh;
+	margin-left : 8vw;
+}
+
+/*
+* 네번째 체크박스 위치 설정
+*/
+#idtag4 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 12vw;
+}
+
+/*
+* 다섯번째 체크박스 위치 설정
+*/
+#idtag5 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 16vw;
+}
+
+/*
+* 여섯번째 체크박스 위치 설정
+*/
+#idtag6 {
+	position :absolute;
+	margin-top : -5vh;
+	margin-left : 23vw;
+}
+
+
+
+/*
+* 다음버튼 부분 위치설정
+*/
+#registerbuttondiv {
+	position:relative;
+	margin-top : -1vh;
+	margin-left : 18vw;
+}
+
+/*
+*
+*/
+
+#empty {
+	height : 6vh;
+}
+
+
+@keyframes slide2 {
+	from {
+		top: 0vh;
+		opacity : 0;
+	}
+	to {
+		top: 5vh;
+		opacity : 1;
+	}
+}
+
+#reservation {
+	margin-left : 5vw;
+	
+}
+
+

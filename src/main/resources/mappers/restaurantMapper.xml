@@ -235,20 +235,16 @@
 		*
 		FROM
 		Restaurant_member
-		<if test="s_address != '' or s_tags != '' or s_people != '' or s_sector != ''">
-		<where>
-		<if test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
-		restaurant_sectors like '%' || #{s_sector} || '%'
-		AND
+		WHERE
 		certification = 1
+		<if test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
+		AND restaurant_sectors like '%' || #{s_sector} || '%'
 		</if>
 		<if test="s_address != '' and s_tags == '' and s_people == '' and s_sector == ''">
-		restaurant_address1 like '%' || #{s_address} || '%'
-		AND
-		certification = 1
+		AND restaurant_address1 like '%' || #{s_address} || '%'
 		</if>
 		<if test="s_address == '' and s_tags != '' and s_people == '' and s_sector == ''">
-		restaurant_num IN 
+		AND restaurant_num IN 
 		(SELECT
 		a.restaurant_num
 		FROM
@@ -258,11 +254,9 @@
 		b.tags_name like '%' || #{s_tags} || '%'
 		AND
 		a.restaurant_num = b.restaurant_num)
-		AND 
-		certification = 1
 		</if>
 		<if test="s_address != '' and s_tags != '' and s_people == '' and s_sector == ''">
-		restaurant_address1 like '%' || #{s_address} || '%'
+		AND restaurant_address1 like '%' || #{s_address} || '%'
 		AND
 		restaurant_num IN 
 		(SELECT
@@ -274,10 +268,6 @@
 		b.tags_name like '%' || #{s_tags} || '%'
 		AND
 		a.restaurant_num = b.restaurant_num)
-		AND 
-		certification = 1
-		</if>
-		</where>
 		</if>
 	</select>
 	
@@ -289,4 +279,26 @@
 		WHERE
 		restaurant_file_num = #{restaurant_file_num}
 	</select>
+	
+	<insert id="reservationInsert" parameterType="Reservation">
+		INSERT INTO reservation
+		(reservation_num
+		, member_id
+		, restaurant_num
+		, reservation_people
+		, reservation_date
+		, reservation_hours
+		, request
+		)
+		VALUES
+		(reservation_seq.nextval
+		, #{member_id}
+		, #{restaurant_num}
+		, #{reservation_people}
+		, #{reservation_date}
+		, #{reservation_hours}
+		, #{request}
+		)
+	
+	</insert>
 </mapper>

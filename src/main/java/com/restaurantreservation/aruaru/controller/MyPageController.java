@@ -76,12 +76,7 @@ public class MyPageController {
 		
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
 		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
-		for(int i = 0; i < usageList.size(); i++) {
-			int number = usageList.get(i).getRestaurant_num();
-			Restaurant_member restmember =  restaurantService.selectOne1(number);
-			String restaurantName = restmember.getRestaurant_name();
-			usageList.get(i).setRestaurant_name(restaurantName);
-		}
+	
 		
 		log.debug("00000000000000000000000000{}", member);
 		log.debug("00000000000000000000000000{}", usageList);

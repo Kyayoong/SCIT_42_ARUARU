@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.service.ManageService;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -269,6 +271,11 @@ public class MyPageController {
 	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+		ArrayList<Reservation> reservationList = 
+		
+		log.debug("{} : ",reservationList);
 		
 		return "/restaurantView/restaurantRTMemberMain";
 	}

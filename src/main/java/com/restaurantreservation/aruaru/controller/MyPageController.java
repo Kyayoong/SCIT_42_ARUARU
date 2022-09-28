@@ -281,7 +281,6 @@ public class MyPageController {
 	@GetMapping("restaurantRTMemberMain")
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
-
 		ArrayList<Reservation> reservationList = restaurantService.ReservationList(member.getRestaurant_num());
 		log.debug("{}",reservationList);
 		
@@ -335,14 +334,14 @@ public class MyPageController {
 		//찾아온 놈을 모델에 넣고
 		//inputiryboard.html로 가져간다.
 		
-		return "userView/inquiryRead";
+		return "/userView/inquiryRead";
 	}
 	
 	@PostMapping("submitWebBoard") 
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
 		int result = service.insertBoard(b);
-		return "redirect:/userView/inquiryboard";
+		return "redirect:/mypage/inquiryboard";
 	}
 	
 	@ResponseBody

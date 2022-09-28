@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 import lombok.extern.slf4j.Slf4j;
@@ -80,6 +81,34 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		Web_board b = dao.findBoard(board_num);
 		return b;
+	}
+
+	@Override
+	public int insertReply(Web_reply r1) {
+		// TODO Auto-generated method stub
+		int result = dao.insertReply(r1);
+		return result;
+	}
+
+	@Override
+	public List<Web_reply> readReply(int board_num) {
+		// TODO Auto-generated method stub
+		List<Web_reply> replyList = dao.readReply(board_num);
+		return replyList;
+	}
+
+	@Override
+	public List<Web_reply> readReplyAll(int board_num) {
+		// TODO Auto-generated method stub
+		List<Web_reply> replyListAll = dao.readReply(board_num); 
+		return replyListAll;
+	}
+
+	@Override
+	public int replyDelete(int reply_num) {
+		// TODO Auto-generated method stub
+		int result = dao.replyDelete(reply_num);
+		return result;
 	}
 
 

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 @Mapper
@@ -30,4 +31,10 @@ public interface UserDao {
 	int insertBoard(Web_board b);
 
 	public Web_board findBoard(int board_num);
+
+	int insertReply(Web_reply r);
+
+	List<Web_reply> readReply(int board_num);
+
+	int replyDelete(int reply_num);
 }

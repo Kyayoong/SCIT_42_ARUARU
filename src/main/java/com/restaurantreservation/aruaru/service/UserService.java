@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -60,5 +61,12 @@ public interface UserService {
 	public List<Web_reply> readReplyAll(int board_num);
 
 	public int replyDelete(int reply_num);
+	
+	/**
+	 * 리뷰 객체를 저장한다.
+	 * @param review
+	 * @return 성공여부
+	 */
+	public int insertReview(Review review);
 
 }

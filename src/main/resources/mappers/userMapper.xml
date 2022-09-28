@@ -235,5 +235,12 @@
 	<select id="selectOneUsageHistory" parameterType="int" resultType="Usage_history">
 		SELECT * FROM USAGE_HISTORY WHERE USAGE_NUM = #{usageNum}
 	</select>
+	<!-- 리뷰 객체 넣기 -->
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO REVIEW
+		(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+		VALUES
+		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
+	</insert>
 
 </mapper>

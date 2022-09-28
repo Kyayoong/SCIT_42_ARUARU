@@ -227,8 +227,8 @@
 							</td>
 						</tr>
 						<tr th:each="normal:${normalList}">
-							<td th:text="${normal.board_num}" th:if="${normal.member_role} == 'ROLE_MEMBER'" style="color:blue;">글 번호</td>
-							<td th:text="${normal.board_num}" th:if="${normal.member_role} == 'ROLE_USER'" style="color:green;">글 번호</td>
+							<td th:text="${normal.board_num}" th:if="${normal.member_role == 'ROLE_MEMBER'}" style="color:blue;">글 번호</td>
+							<td th:text="${normal.board_num}" th:if="${normal.member_role == 'ROLE_USER'}" style="color:green;">글 번호</td>
 							<td>
 								<span th:if="${normal.reply_cnt} != 0" th:text="[답변완료]" style="font-weight:bolder; color:purple;"></span>
 								<a th:if="${normal.member_role} == 'ROLE_MEMBER'" th:href="|javascript:readBoard(${normal.board_num})|" 

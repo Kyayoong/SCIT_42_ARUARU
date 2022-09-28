@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -64,7 +65,7 @@ public class MyPageController {
 		return "userView/mypage";
 	}
 
-	// 리뷰 작성 화면
+	// 예약내역->리뷰선택창
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
 		//계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
@@ -87,15 +88,44 @@ public class MyPageController {
 		
 		return "userView/review";
 	}
-	//리뷰 입력
+	//리뷰 입력창
 	@GetMapping("insertReview")
 	public String insertReview(int usageNum, Model model) {
 		//해당 번호의 이용 내역 받아오기
 		Usage_history usage = service.selectOneUsageHistory(usageNum);
 		log.debug(" {} ",usage);
-		model.addAttribute("usgae", usage);
+		model.addAttribute("usage", usage);
 		return "userView/insertReview";
 	}
+	//리뷰입력 form
+	@PostMapping("insertReview")
+	public String insertReview(int grade,String member_id, int usage_num, int restaurant_num, String restaurant_name, String contents) {
+		log.debug("{}", grade);
+		log.debug(member_id);
+		log.debug("{}", usage_num);
+		log.debug("{}", restaurant_num);
+		log.debug(restaurant_name);
+		log.debug(contents);
+		
+		String title = "아무 제목";
+		
+		Review review = new Review(member_id, restaurant_num, usage_num, title, contents, grade);
+		
+		//새로운 리뷰 객체를 저장한다.
+		int result = service.insertReview(review);
+		
+		
+		return "redirect:/mypage/review";
+		
+//		int review_num;
+//	    String member_id;
+//	    int restaurant_num;								
+//	    int usage_num;
+//	    String title;
+//	    String contents;
+//	    int grade;
+	}
+	
 	
 	// 가게 소개 페이지
 	@GetMapping("introduce_store")

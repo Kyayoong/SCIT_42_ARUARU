@@ -42,6 +42,13 @@ public interface UserService {
 	 * @return 이용내역 리스트
 	 */
 	public ArrayList<Usage_history> selectAllUsageHistory(String username);
+	
+	/**
+	 * 특정 이용내역번호의 내역 불러오기
+	 * @param 이용내역번호
+	 * @return	이용내역객체
+	 */
+	public Usage_history selectOneUsageHistory(int usageNum);
 
 	public int insertReply(Web_reply r);
 

@@ -100,6 +100,13 @@ public class UserServiceImpl implements UserService {
 		ArrayList<Reservation> reservationlist = dao.seeAllReservation(member_id);
 		return reservationlist;
 	}
+	// 특정 이용내역 받아오기
+	@Override
+	public Usage_history selectOneUsageHistory(int usageNum) {
+		Usage_history usage = dao.selectOneUsageHistory(usageNum);
+		return usage;
+	}
+	
 
 	@Override
 	public int insertReply(Web_reply r1) {

@@ -52,6 +52,13 @@ public interface UserDao {
 	 * @return 이용내역 리스트
 	 */
 	ArrayList<Usage_history> selectAllUsageHistory(String username);
+	
+	/**
+	 * 특정 이용내역 받아오기
+	 * @param usageNum 이용내역번호
+	 * @return 이용내역객체
+	 */
+	Usage_history selectOneUsageHistory(int usageNum);
 
 
 }

@@ -281,7 +281,11 @@ public class MyPageController {
 	@GetMapping("restaurantRTMemberMain")
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
-		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+
+		ArrayList<Reservation> reservationList = restaurantService.ReservationList(member.getRestaurant_num());
+		log.debug("{}",reservationList);
+		
+		model.addAttribute("reservationList",reservationList);
 
 		
 		return "/restaurantView/restaurantRTMemberMain";

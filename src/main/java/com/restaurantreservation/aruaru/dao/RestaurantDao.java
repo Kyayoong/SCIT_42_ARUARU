@@ -82,5 +82,7 @@ public interface RestaurantDao {
 	//손님수 조정
 	int peopleCount(Restaurant_member member);
 
+	// 예약내역 확인
+	ArrayList<Reservation> ReservationList(int restaurant_num);
 
 }

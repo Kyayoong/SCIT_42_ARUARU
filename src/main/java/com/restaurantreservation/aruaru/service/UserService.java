@@ -37,4 +37,6 @@ public interface UserService {
 
 	public int replyDelete(int reply_num);
 
+	public int updateBoard(Web_board b);
+
 }

@@ -165,4 +165,14 @@
 	reply_num
 	= #{reply_num}
 	</delete>
+	<update id="updateBoard" parameterType="Web_board">
+	UPDATE
+	web_board
+	SET
+	board_title = #{board_title}
+	, board_contents = #{board_title}
+	, category = #{category}
+	WHERE
+	board_num = #{board_num}
+	</update>
 </mapper>

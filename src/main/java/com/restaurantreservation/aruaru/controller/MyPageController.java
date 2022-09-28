@@ -331,4 +331,24 @@ public class MyPageController {
 		int result = service.replyDelete(reply_num);
 		return result;
 	}
+	
+	@GetMapping("inquiryupdate")
+	public String inquiryupdate(int board_num,Model m,@AuthenticationPrincipal UserDetails user) {
+		if(user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			m.addAttribute("member", member);
+		}
+		log.debug("{}", board_num);
+		Web_board b = service.readBoard(board_num);
+		m.addAttribute("board", b);
+		return "userView/inquiryModify";
+	}
+	
+	@PostMapping("inquirymodifyAction")
+	public String inquirymodifyAction(Web_board b, Model m) {
+		
+		log.debug("{}", b);
+		int result = service.updateBoard(b);
+		return "redirect:/userView/inquiryRead";
+	}
 }

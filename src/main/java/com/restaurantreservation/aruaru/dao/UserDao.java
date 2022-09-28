@@ -37,4 +37,6 @@ public interface UserDao {
 	List<Web_reply> readReply(int board_num);
 
 	int replyDelete(int reply_num);
+
+	int updateBoard(Web_board b);
 }

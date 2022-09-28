@@ -82,7 +82,7 @@
 						<a th:href="@{/mypage/mybenefit}">회원혜택</a>
 					</h6>
 					<h6>
-						<a th:href="@{/mypage/inquiryBoard}">문의사항</a>
+						<a th:href="@{/mypage/inquiryboard}">문의사항</a>
 					</h6>
 					<h6>
 						<a th:href="@{/mypage/myinfomodify}">회원정보변경</a>
@@ -147,13 +147,14 @@
 							<th>제목</th>
 							<th>글쓴이</th>
 							<th>작성일자</th>
+							<th></th>
 						</tr>
 						<tr th:each="boardList : ${boardList}">
 							<td th:text="${boardList.board_num}"></td>
 							<td><a th:href="@{/mypage/inquiryread(board_num=${boardList.board_num})}" th:text="${boardList.board_title}" style="color: black;"></a></td>
-
 							<td th:text="${boardList.member_id}"></td>
 							<td th:text="${boardList.registration_date}"></td>
+
 						</tr>
 						<tr>
 						<td colspan="4">

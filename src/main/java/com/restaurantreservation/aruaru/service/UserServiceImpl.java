@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -141,6 +142,13 @@ public class UserServiceImpl implements UserService {
 	public int replyDelete(int reply_num) {
 		// TODO Auto-generated method stub
 		int result = dao.replyDelete(reply_num);
+		return result;
+	}
+	
+	//리뷰 객체 저장하기.
+	@Override
+	public int insertReview(Review review) {
+		int result = dao.insertReview(review);
 		return result;
 	}
 

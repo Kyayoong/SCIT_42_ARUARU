@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -62,6 +63,13 @@ public interface UserDao {
 	 * @return 이용내역객체
 	 */
 	Usage_history selectOneUsageHistory(int usageNum);
+	
+	/**
+	 * 리뷰객체 저장하기
+	 * @param review
+	 * @return 성공여부
+	 */
+	int insertReview(Review review);
 
 
 }

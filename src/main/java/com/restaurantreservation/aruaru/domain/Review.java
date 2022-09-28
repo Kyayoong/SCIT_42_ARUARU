@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Review {
-
-	
-    int review_num;				//리뷰번호
+	int review_num;				//리뷰번호
     String member_id;			//회원아이디
     int restaurant_num;			//식당번호									
     int usage_num;				//이용내역번호
@@ -20,4 +18,18 @@ public class Review {
     String review_originalfile;	//리뷰사진(오리지널)
     String review_savedfile;	//리뷰사진(저장)
     String review_suggestion;	//리뷰추천
+
+    public Review(String member_id, int restaurant_num, int usage_num, String title, String contents, int grade) {
+		super();
+		this.member_id = member_id;
+		this.restaurant_num = restaurant_num;
+		this.usage_num = usage_num;
+		this.title = title;
+		this.contents = contents;
+		this.grade = grade;
+	}
 }
+
+
+
+

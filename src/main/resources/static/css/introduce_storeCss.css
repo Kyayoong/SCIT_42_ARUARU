@@ -1,277 +1,299 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-    /*
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap')
+	;
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap')
+	;
+/*
     * 네비게이션 바 높이 조정
     */
+#navbar {
+	height: 4.1vh;
+}
 
-    #navbar {
-        height : 4.1vh;
-    }
-    
-    /*
+/*
     * 알파벳 CI 크기 및 위치 조정
     */
+#RR {
+	position: relative;
+	width: 2.5vw;
+	top: 1.3vh;
+	left: 14.5vw;
+}
 
-    #RR {
-        position :relative;
-        width : 2.5vw;
-        top : 1.3vh;
-        left :	14.5vw;
-    }
-
-    /*
+/*
     * 일본어 CI 크기 및 위치 조정
     */
+#aruaru {
+	position: relative;
+	height: 3vw;
+	top: 1.3vh;
+	left: 14.4vw;
+}
 
-    #aruaru {
-        position : relative;
-        height : 3vw;
-        top : 1.3vh;
-        left : 14.4vw;
-    }
-
-    /*
+/*
     * 지역 검색 창 위치 조정
     */
-    #area-input {
-        position : absolute;
-        top : 6.3vh;
-        left : 26.9vw;
-        width : 13vw;
-    }
-    /*
+#area-input {
+	position: absolute;
+	top: 6.3vh;
+	left: 26.9vw;
+	width: 13vw;
+}
+/*
     * 검색창 키워드 인풋 위치 및 크기 조정
     */
-    #keyword-input {
-        position : absolute;
-        top : 6.3vh;
-        left : 40.1vw;
-        width : 16.4vw;
-    }
-    /*
+#keyword-input {
+	position: absolute;
+	top: 6.3vh;
+	left: 40.1vw;
+	width: 16.4vw;
+}
+/*
     * 날짜 설정 인풋 위치 및 크기 조정
     */
-    #day-input {
-        position : absolute;
-        top : 6.3vh;
-        left : 56.7vw;
-        width : 9.8vw; /*150px;*/
-    }
-    /*
+#day-input {
+	position: absolute;
+	top: 6.3vh;
+	left: 56.7vw;
+	width: 9.8vw; /*150px;*/
+}
+/*
     * 시간 설정 인풋 위치 및 크기 조정
     */
-    #select-time {
-        position :absolute;
-        top:6.3vh;
-        left:66.7vw;
-        width : 6.5vw;
-    }
-    /*
+#select-time {
+	position: absolute;
+	top: 6.3vh;
+	left: 66.7vw;
+	width: 6.5vw;
+}
+/*
     * 인원수 인풋 위치 및 크기 조정
     */
-    #person-input {
-        position: absolute;
-        top:6.3vh;
-        left:73.4vw;
-        width: 6.5vw;
-    }
-    /*
+#person-input {
+	position: absolute;
+	top: 6.3vh;
+	left: 73.4vw;
+	width: 6.5vw;
+}
+/*
     * 검색버튼 위치 조정
     */
-    #search-submit {
-    	position : absolute;
-    	top : 6.3vh;
-    	left : 80.2vw;
-    }
-    
-    /*
+#search-submit {
+	position: absolute;
+	top: 6.3vh;
+	left: 80.2vw;
+}
+
+/*
     * 캐러샐(회전화면) 위치 및 크기 조정
     */
-    #carousel-inner {
-    	
-        width: 91vw;
-        padding-left : 8.5vw;
-        top : 5.5vh;
-    }
-    /*
+#carousel-inner {
+	width: 91vw;
+	padding-left: 8.5vw;
+	top: 5.5vh;
+}
+/*
     * 캐러샐 인디케이터(밑에 누르면 화면 바뀌는 부분) 위치 조정
     */
-    .carousel-indicators
-    {
-    	top: 65vh;
-   	}
-   	/*
+.carousel-indicators {
+	top: 65vh;
+}
+/*
    	*	소개 부분 전체 위치 설정
    	*/
-   	#introduce-area
-   	{
-   		position : relative;
-   		top : 6vh;
-   		font-family : Jua;
-   	}
-   	
-   	/*
+#introduce-area {
+	position: relative;
+	top: 6vh;
+	font-family: Jua;
+}
+
+/*
    	*	위치 소개 깃발 부분 전체 위치 설정
    	*/
-   	#flag-icon
-   	
-   	{	
-   		margin-left : 8vw;
-   		width : 4.5vh;
-   		height : 4.5vh;
-   	}
-   	
-   	/*
+#flag-icon {
+	margin-left: 8vw;
+	width: 4.5vh;
+	height: 4.5vh;
+}
+
+/*
    	*	위치 글씨 부분 위치 설정
    	*/
-   	#location-area {
-   		margin-left : 10.5vw;
-   		margin-top : -4.5vh;
-   	}
-   	
-   	/*
+#location-area {
+	margin-left: 10.5vw;
+	margin-top: -4.5vh;
+}
+
+/*
    	*  음식점 이름 위치 설정
    	*/
-   	#store-name {
-   		margin-left : 8vw;
-   	}
-   	
-   	/*
+#store-name {
+	margin-left: 8vw;
+}
+
+/*
    	* 음식점 소개글 위치 및 크기 설정
    	*/
-   	#store-contents
-   	
-   	{
-   		width: 83.4vw;
-   		margin-left:8vw;
-   	}
-   	
-   	/*
+#store-contents {
+	width: 83.4vw;
+	margin-left: 8vw;
+}
+
+/*
    	* 메뉴 안내 부분 위치 및 크기 설정
    	*/
-   	#menu-area {
-   		margin-left:8vw;
-   		width: 83.4vw;
-   	}
-   	
-   	/*
+#menu-area {
+	margin-left: 8vw;
+	width: 83.4vw;
+}
+
+/*
    	* 그래프 위치 및 크기 설정
    	*/
-   	
-   	#graph-area {
-   		margin-left:8vw;
-   		width: 83.4vw;
-   	}
-   	
-   	/*
+#graph-area {
+	margin-left: 8vw;
+	width: 83.4vw;
+}
+
+/*
    	* 음식점 각종 안내 사항 위치 및 크기 설정
    	*/
-   	#store-information {
-   		margin-left:8vw;
-   		width: 83.4vw;
-   	}
-   	
-   	/*
+#store-information {
+	margin-left: 8vw;
+	width: 83.4vw;
+}
+
+/*
    	* 스토어 태그란 위치 및 크기 설정
    	*/
-   	#store-tags {
-   		margin-left:8vw;
-   		width: 83.4vw;
-   	}
-   	/*
+#store-tags {
+	margin-left: 8vw;
+	width: 83.4vw;
+}
+/*
    	* 스토어 한줄평 위치 및 크기 설정
    	*/
-   	#store-commentary {
-   		margin-left:8vw;
-   		width: 83.4vw;
-   	}
-   	
-   	/*
+#store-commentary {
+	margin-left: 8vw;
+	width: 83.4vw;
+}
+
+/*
    	* 닉네임 위치 설정
    	*/
-   	
-   	.profile-nickname {
-   		position : absolute;
-   		top : 0.5vh;
-   		left : 9vw;
-   	}
-   	
-   	/*
+.profile-nickname {
+	position: absolute;
+	top: 0.5vh;
+	left: 9vw;
+}
+
+/*
    	* 리뷰 팔로워 표시란 위치 설정 
    	*/
-   	
-   	.reviews-followers {
-   		position : absolute;
-   		top : 4.3vh;
-   		left : 9vw;
-   	}
-   	
-   	/*
+.reviews-followers {
+	position: absolute;
+	top: 4.3vh;
+	left: 9vw;
+}
+
+/*
    	*  별 위치 설정
    	*/
-   	
-   	.score-star {
-   		position : absolute;
-   		top: 6.9vh;
-   		left : 9vw;
-   	}
-   	
-   	/*
+.score-star {
+	position: absolute;
+	top: 6.9vh;
+	left: 9vw;
+}
+
+/*
    	*  점수 표시 부분 위치 설정
    	*/
-   	
-   	.score-number {
-   		position : absolute;
-   		top : 7.5vh;
-   		left : 10.7vw;
-   	}
-   	
-   	/*
+.score-number {
+	position: absolute;
+	top: 7.5vh;
+	left: 10.7vw;
+}
+
+/*
    	* 코멘트 부분 위치 및 크기 설정
    	*/
-   	.comment {
-   		position : absolute;
-   		top : 3.5vh;
-   		width : 25vw;
-   		left : -1.8vw;
-   	}
-   	/*
+.comment {
+	position: absolute;
+	top: 3.5vh;
+	width: 25vw;
+	left: -1.8vw;
+}
+/*
    	* 작성일 및 방문일 위치 설정
    	*/
-   	.upload-date {
-   		position : absolute;
-   		margin-left:8.1vw;
-   		
-   	}
-   	
-   	/*
+.upload-date {
+	position: absolute;
+	margin-left: 8.1vw;
+}
+
+/*
    	* bottom 검색 bar 크기 설정
    	*/
-   	#bottom-bar {
- 		position : sticky;
-   		height :10vh;
-   		width : 50vw;
-   		left : 24vw;
-   		margin : 0 auto;
-   		position : fixed;
-   		bottom : 0vh;
-   		background-color :  rgba(255,71,26, 1);
-   		border-radius : 0.5vw;
-   	}
-   	/*
+#bottom-bar {
+	position: sticky;
+	height: 10vh;
+	width: 50vw;
+	left: 24vw;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 0vh;
+	background-color: rgba(255, 71, 26, 1);
+	border-radius: 0.5vw;
+}
+/*
    	* 검색창 부분 위치 설정
    	*/
-   	#input-book-bottom {
-   		position : relative;
-   		bottom : -2vh;
-   		margin : 0 auto;
-   	}
-   	/*
+#input-book-bottom {
+	position: relative;
+	bottom: -2vh;
+	margin: 0 auto;
+}
+/*
    	*	div empty 구역 크기 설정
    	*/
-   	#empty {
-   		height:10vh;
-   	}
-   	
-   	
+#empty {
+	height: 10vh;
+}
+
+#modal.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#modal .modal-window {
+	background-color: rgba(255, 255, 255);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	width: 400px;
+	height: 700px;
+	position: relative;
+	top: 20px;
+}
+
+#modal .content {
+	color: black;
+}
+
+#suggest {
+	position: relative;
+	padding-left: 2vw;
+	font-size: 20px;
+}

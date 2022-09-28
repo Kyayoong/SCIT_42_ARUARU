@@ -236,7 +236,8 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
-
+	
+	//식당메인화면
 	@GetMapping("restaurantMain")
 	public String restaurantMain() {
 		return "/restaurantView/restaurantMain";
@@ -254,11 +255,6 @@ public class MyPageController {
 		return "/restaurantView/restaurantGNMemberMain";
 	}
 
-	// boardMain - 게시글관리창
-	@GetMapping("restaurantBoardMain")
-	public String restaurantBoardMain() {
-		return "/restaurantView/restaurantBoardMain";
-	}
 	
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {

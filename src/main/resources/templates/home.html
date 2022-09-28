@@ -55,8 +55,11 @@
 					class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
 				<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 					class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
-				<li class="nav-item"><a sec:authorize="isAuthenticated()"
-					class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
+				<li class="nav-item"><a th:if="${member.member_role == 'ROLE_USER'}" sec:authorize="isAuthenticated()"
+					class="nav-link" th:href="@{/mypage/}">MYPAGE</a>
+					<a th:if="${member.member_role == 'ROLE_MEMBER'}" sec:authorize="isAuthenticated()"
+					class="nav-link" th:href="@{/mypage/restaurantMain}">MYPAGE</a>
+					</li>
 			</ul>
 		</nav>
 

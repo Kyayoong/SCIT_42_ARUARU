@@ -20,4 +20,5 @@ public class Web_board {
 	int board_notice;			//공지여부
 	String category;			//카테고리
 	String member_role;			//작성자 정보(일반?식당?)
+	int reply_cnt;				//답변 여부(개수)
 }

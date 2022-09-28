@@ -149,7 +149,9 @@ CREATE TABLE usage_history(
     usage_information VARCHAR2(2000) NOT NULL,			--이용 정보
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원 아이디
     restaurant_num NUMBER(10) REFERENCES restaurant_member(restaurant_num), --식당번호
-    reservation_success NUMBER(1)  DEFAULT 0				--실제갔는지확인
+    
+    --실제갔는지확인
+    reservation_success NUMBER(1)  DEFAULT 0
 );
 
 --이용 번호 시퀀스

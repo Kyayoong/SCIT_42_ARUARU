@@ -148,8 +148,8 @@
 								<th>추천횟수</th>
 							</tr>
 							<tr>
-								<td>Lv.1</td>
-								<td>668</td>
+								<td th:text="|LV.${member.member_grade}|"></td>
+								<td th:text="${member.member_score}"></td>
 								<td>1000</td>
 								<td>5</td>
 								<td>4</td>

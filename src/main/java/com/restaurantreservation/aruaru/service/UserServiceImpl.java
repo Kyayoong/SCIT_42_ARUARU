@@ -101,6 +101,21 @@ public class UserServiceImpl implements UserService {
 		return reservationlist;
 	}
 
+	
+	@Override
+	public ArrayList<Reservation> seeAllLastReservation(String member_id) {
+		ArrayList<Reservation> lastreservationlist = dao.seeAllLastReservation(member_id);
+		return lastreservationlist;
+	}
+
+	// 특정 이용내역 받아오기
+	@Override
+	public Usage_history selectOneUsageHistory(int usageNum) {
+		Usage_history usage = dao.selectOneUsageHistory(usageNum);
+		return usage;
+	}
+
+
 	@Override
 	public int insertReply(Web_reply r1) {
 		// TODO Auto-generated method stub
@@ -128,6 +143,7 @@ public class UserServiceImpl implements UserService {
 		int result = dao.replyDelete(reply_num);
 		return result;
 	}
+
 
 
 }

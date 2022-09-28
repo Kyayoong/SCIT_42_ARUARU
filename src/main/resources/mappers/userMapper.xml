@@ -149,52 +149,79 @@
 		member_id
 		, restaurant_name
 		, reservation_people
-		, to_char(registration_date, 'YYYY-MM-DD') registration_date
-		, to_char(reservation_date, 'YYYY-MM-DD') reservation_date
-		, reservation_hours
+		,
+		to_char(registration_date, 'YYYY-MM-DD') registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		,
+		reservation_hours
 		, request
 		, reservation_success
 		FROM
 		reservation
 		WHERE
-		member_id = #{member_id}
+		member_id = #{member_id} AND
+		reservation_date &gt; SYSDATE
+	</select>
+
+	<!-- 지난 예약 내역 조회 -->
+	<select id="seeAllLastReservation" parameterType="String"
+		resultType="Reservation">
+		SELECT
+		member_id
+		, restaurant_name
+		, reservation_people
+		,
+		to_char(registration_date, 'YYYY-MM-DD') registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		,
+		reservation_hours
+		, request
+		, reservation_success
+		FROM
+		reservation
+		WHERE
+		member_id = #{member_id} AND
+		reservation_date &lt; SYSDATE
 	</select>
 
 	<insert id="insertReply" parameterType="Web_reply">
-	INSERT INTO
-	web_reply
-	(
-	reply_num
-	, board_num
-	, member_id
-	, reply_contents
-	)
-	VALUES
-	(
-	web_reply_seq.nextval
-	, #{board_num}
-	, #{member_id}
-	, #{reply_contents}
-	)
+		INSERT INTO
+		web_reply
+		(
+		reply_num
+		, board_num
+		, member_id
+		, reply_contents
+		)
+		VALUES
+		(
+		web_reply_seq.nextval
+		, #{board_num}
+		, #{member_id}
+		, #{reply_contents}
+		)
 	</insert>
-	<select id="readReply" parameterType="Int" resultType="Web_reply">
-	SELECT
-	*
-	FROM
-	web_reply
-	WHERE
-	board_num
-	= #{board_num}
-	ORDER BY
-	reply_num
+	<select id="readReply" parameterType="Int"
+		resultType="Web_reply">
+		SELECT
+		*
+		FROM
+		web_reply
+		WHERE
+		board_num
+		= #{board_num}
+		ORDER BY
+		reply_num
 	</select>
 	<delete id="replyDelete" parameterType="int">
-	DELETE
-	FROM
-	web_reply
-	where
-	reply_num
-	= #{reply_num}
+		DELETE
+		FROM
+		web_reply
+		where
+		reply_num
+		= #{reply_num}
 	</delete>
 
 
@@ -203,6 +230,10 @@
 		resultType="Usage_history">
 		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND
 		RESERVATION_SUCCESS = 1
+	</select>
+	<!-- 특정 이용내역 받아오기 -->
+	<select id="selectOneUsageHistory" parameterType="int" resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE USAGE_NUM = #{usageNum}
 	</select>
 
 </mapper>

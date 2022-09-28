@@ -44,6 +44,9 @@ public interface UserDao {
 
 	// 예약내역 확인
 	public ArrayList<Reservation> seeAllReservation(String member_id);
+	
+	// 지난 예약내역 확인
+	public ArrayList<Reservation> seeAllLastReservation(String member_id);
 
 	/**
 	 * 특정 회원의 이용내역 불러오기
@@ -52,6 +55,13 @@ public interface UserDao {
 	 * @return 이용내역 리스트
 	 */
 	ArrayList<Usage_history> selectAllUsageHistory(String username);
+	
+	/**
+	 * 특정 이용내역 받아오기
+	 * @param usageNum 이용내역번호
+	 * @return 이용내역객체
+	 */
+	Usage_history selectOneUsageHistory(int usageNum);
 
 
 }

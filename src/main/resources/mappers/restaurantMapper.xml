@@ -311,4 +311,24 @@
 		WHERE
 		restaurant_num = #{restaurant_num}
 	</update>
+	
+	<select id="ReservationList" parameterType="int"
+		resultType="Reservation">
+		SELECT
+		member_id
+		, reservation_num
+		, restaurant_name
+		, reservation_people
+		, to_char(registration_date, 'YYYY-MM-DD') registration_date
+		, to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		, reservation_hours
+		, request
+		, reservation_success
+		FROM
+		reservation
+		WHERE
+		restaurant_num = #{restaurant_num}
+		ORDER BY
+		reservation_num DESC
+	</select>
 </mapper>

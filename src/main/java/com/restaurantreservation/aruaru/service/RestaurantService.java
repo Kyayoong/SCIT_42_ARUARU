@@ -78,4 +78,7 @@ public interface RestaurantService {
 	
 	//손님수 조정
 	public int peopleCount(Restaurant_member member);
+	
+	//예약내역조회
+	public ArrayList<Reservation> ReservationList(int restaurant_num);
 }

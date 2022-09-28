@@ -180,6 +180,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.peopleCount(member);
 		return result;
 	}
+	//예약내역조회
+	@Override
+	public ArrayList<Reservation> ReservationList(int restaurant_num) {
+		ArrayList<Reservation> list = dao.ReservationList(restaurant_num);
+		
+		return list;
+	}
 	
 
 }

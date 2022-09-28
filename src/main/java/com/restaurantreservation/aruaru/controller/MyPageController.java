@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -50,6 +51,9 @@ public class MyPageController {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 			log.debug("마이페이지_member:{}", member);
+			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
+			log.debug("리스트에여 : {}",reservationlist);
+			model.addAttribute("reservationlist", reservationlist);
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}

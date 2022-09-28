@@ -143,22 +143,30 @@
 
 
 	<!-- 예약 내역 조회 -->
-	<select id="seeAllReservation" parameterType="Reservation">
+	<select id="seeAllReservation" parameterType="String"
+		resultType="Reservation">
 		SELECT
-		member_id,
-		restaurant_num, restaurant_name, reservation_people,
-		reservation_date,
-		reservation_hours
+		member_id
+		, restaurant_name
+		, reservation_people
+		, to_char(registration_date, 'YYYY-MM-DD') registration_date
+		, to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		, reservation_hours
+		, request
+		, reservation_success
 		FROM
 		reservation
-		WHERE member_id=#{member_id}
+		WHERE
+		member_id = #{member_id}
 	</select>
 
 
-	
+
 	<!-- 이용내역 리스트 불러오기 -->
-	<select id="selectAllUsageHistory" parameterType="String" resultType="Usage_history">
-		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND RESERVATION_SUCCESS = 1
+	<select id="selectAllUsageHistory" parameterType="String"
+		resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND
+		RESERVATION_SUCCESS = 1
 	</select>
 
 </mapper>

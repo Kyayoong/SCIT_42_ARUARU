@@ -54,9 +54,11 @@ public class PageController {
 						,@RequestParam String s_days
 						,@RequestParam String s_time
 						,@RequestParam String s_people
+						,@RequestParam String s_sector
 			,Model model,@AuthenticationPrincipal UserDetails user) {
 		
 		Map<String, String> map = new HashMap<>();
+		map.put("s_sector", s_sector);
 		map.put("s_address", s_address);
 		map.put("s_tags", s_tags);
 		map.put("s_days", s_days);

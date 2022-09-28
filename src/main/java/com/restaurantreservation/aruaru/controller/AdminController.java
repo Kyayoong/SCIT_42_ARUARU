@@ -46,11 +46,27 @@ public class AdminController {
 	//boardMain - 게시글관리창
 	@GetMapping("boardMain")
 	public String boardMain(Model model) {
+		int replyFlag = 1;
+		
 		//모든 게시글 가져와서 뿌리기
 		ArrayList<Web_board> normalList = service.normalBoardList();
 		ArrayList<Web_board> noticeList = service.noticeBoardList();
 		
-		log.debug("넘어온 리스트: {}", normalList);
+		//답변완료된 문의글 리스트 가져오기
+		ArrayList<Web_reply> replyList = service.allReplyList();
+		if(replyList.isEmpty()) {
+			log.debug("댓글이 없습니다.");
+			replyFlag = 0;
+		}
+		//normalList의 web_board 객체 하나하나와 replyList의 web_reply객체를 하나하나 비교하여 답변이 있으면 해당 web_board에 답변여부 넣기
+		for(int j = 0; j < normalList.size(); j++) {
+			for(int i = 0; i < replyList.size(); i++) {
+				if(replyList.get(i).getBoard_num() == normalList.get(j).getBoard_num()) {
+					normalList.get(j).setReply_cnt(normalList.get(j).getReply_cnt() + 1);
+				}
+			}
+		}
+		
 		model.addAttribute("normalList", normalList);
 		model.addAttribute("noticeList", noticeList);
 		
@@ -100,6 +116,22 @@ public class AdminController {
 		ArrayList<Web_board> noticeList = service.noticeBoardList();
 		ArrayList<Web_board> normalList = service.normalBoardList();
 		
+		//답변완료된 문의글 리스트 가져오기
+		ArrayList<Web_reply> replyList = service.allReplyList();
+		if(replyList.isEmpty()) {
+			log.debug("댓글이 없습니다.");
+		}
+		//normalList의 web_board 객체 하나하나와 replyList의 web_reply객체를 하나하나 비교하여 답변이 있으면 해당 web_board에 답변여부 넣기
+		for(int j = 0; j < normalList.size(); j++) {
+			for(int i = 0; i < replyList.size(); i++) {
+				if(replyList.get(i).getBoard_num() == normalList.get(j).getBoard_num()) {
+					normalList.get(j).setReply_cnt(normalList.get(j).getReply_cnt() + 1);
+				}
+			}
+		}
+		
+		
+		
 		list.put("notice", noticeList);
 		list.put("normal", normalList);
 		
@@ -134,4 +166,14 @@ public class AdminController {
 		int result = service.insertReply(reply);
 		return "redirect:/admin/readBoard?boardNum=" + reply.getBoard_num();
 	}
+	
+	//문의글 답변 시, 내용에 따른 등록 버튼 활성화
+	@ResponseBody
+	@PostMapping("contentsValidation")
+	public int chech(String replyContents) {
+		int cnt = 0;
+		cnt = replyContents.length();
+		return cnt;
+	}
+	
 }

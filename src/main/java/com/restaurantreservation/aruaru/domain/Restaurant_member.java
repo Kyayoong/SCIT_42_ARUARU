@@ -22,5 +22,6 @@ public class Restaurant_member {
 	String restaurant_address2; 	// 상세주고
 	String restaurant_addressinfo; 	// 오는길 설명
 	String menu_priceavr;			// 1인당 평균 가격
+	int restaurant_people;			// 수용인원
 	int certification; 				// 허가 여부
 }

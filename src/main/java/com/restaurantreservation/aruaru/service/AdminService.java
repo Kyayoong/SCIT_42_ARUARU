@@ -59,5 +59,11 @@ public interface AdminService {
 	 * @param boardNum 문의글 번호
 	 * @return 댓글 리스트
 	 */
-	ArrayList<Web_reply> selectReplyList(int boardNum); 
+	ArrayList<Web_reply> selectReplyList(int boardNum);
+	
+	/**
+	 * 전체 답변글 가져오기
+	 * @return
+	 */
+	ArrayList<Web_reply> allReplyList(); 
 }

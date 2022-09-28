@@ -16,5 +16,6 @@ public class Usage_history {
     String usage_information;	//이용 정보
     String member_id;			//회원 아이디
     int restaurant_num;			//식당번호
+    String restaurant_name;		//식당 이름(자바단에서 매퍼를 통해 불러와서 결합)
     int reservation_success;	//실제갔는지확인
 }

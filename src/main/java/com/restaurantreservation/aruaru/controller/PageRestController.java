@@ -11,15 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.restaurantreservation.aruaru.domain.Menu;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
@@ -30,7 +34,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("stores")
 @Slf4j
 @Controller
-@ResponseBody
 public class PageRestController {
 	
 	@Value("${spring.servlet.multipart.location}")
@@ -38,6 +41,18 @@ public class PageRestController {
 	
 	@Autowired
 	RestaurantService service;
+	
+	@GetMapping("peoplecount")
+	@ResponseBody
+	public int peoplecount(int restaurant_num){
+		
+		log.debug("바보 {}",restaurant_num);
+		int result = service.selectOne1(restaurant_num).getRestaurant_people();
+		log.debug("result {}",result);
+		
+		return result;
+	}
+	
 	
 	/**
 	 * 보여주기 
@@ -124,4 +139,23 @@ public class PageRestController {
 
 		return "redirect:/";
 	}	
+	
+	
+	@PostMapping("reservationInsert")
+	@ResponseBody
+	public void reservationInsert(Reservation reservation,
+			@RequestParam int restaurant_num,
+			@AuthenticationPrincipal UserDetails user) {
+		
+		Restaurant_member member = service.selectOne1(restaurant_num);
+		reservation.setRestaurant_name(member.getRestaurant_name());
+		reservation.setMember_id(user.getUsername());
+		reservation.setRestaurant_num(restaurant_num);
+		int result = service.reservationInsert(reservation);
+		if(result == 1) {
+			int people = member.getRestaurant_people() - reservation.getReservation_people();
+			member.setRestaurant_people(people);
+			service.peopleCount(member);
+		}
+	}
 }

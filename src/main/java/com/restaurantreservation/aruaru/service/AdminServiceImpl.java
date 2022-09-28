@@ -75,5 +75,13 @@ public class AdminServiceImpl implements AdminService {
 		return list;
 	}
 	
+	//전체 댓글 가져오기
+	@Override
+	public ArrayList<Web_reply> allReplyList() {
+		ArrayList<Web_reply> list = dao.allReplyList();
+		
+		return list;
+	}
+	
 	
 }

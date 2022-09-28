@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -22,9 +23,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+
 import com.restaurantreservation.aruaru.domain.Web_reply;
+import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +40,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MyPageController {
 	@Autowired
 	UserService service;
+	@Autowired
+	RestaurantService restaurantService;
 
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
@@ -56,12 +63,35 @@ public class MyPageController {
 	// 리뷰 작성 화면
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
-
-		if (user != null) {
-			User_member member = service.selectUser(user.getUsername());
-			model.addAttribute("member", member);
+		//계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
+		//모델에 담아 html에 가져간다.
+		if (user == null) {
+			return "redirect:/";
 		}
+		User_member member = service.selectUser(user.getUsername());
+		
+		
+		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
+		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
+		for(int i = 0; i < usageList.size(); i++) {
+			int number = usageList.get(i).getRestaurant_num();
+			Restaurant_member restmember =  restaurantService.selectOne1(number);
+			String restaurantName = restmember.getRestaurant_name();
+			usageList.get(i).setRestaurant_name(restaurantName);
+		}
+		
+		log.debug("00000000000000000000000000{}", member);
+		log.debug("00000000000000000000000000{}", usageList);
+		
+		model.addAttribute("member", member);
+		model.addAttribute("usageList", usageList);
+		
 		return "userView/review";
+	}
+	//리뷰 입력
+	@GetMapping("insertReview")
+		public String insertReview() {
+			return "userView/insertReview";
 	}
 	
 	// 가게 소개 페이지
@@ -216,12 +246,6 @@ public class MyPageController {
 		return "userView/mybenefit";
 	}
 
-	//리뷰 입력
-	@GetMapping("insertReview")
-	public String insertReview() {
-		return "userView/insertReview";
-	}
-
 	@GetMapping("leaveId")
 	public String leaveId(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -238,29 +262,26 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
-
+	
+	//식당메인화면
 	@GetMapping("restaurantMain")
 	public String restaurantMain() {
 		return "/restaurantView/restaurantMain";
 	}
 
-	// restMemberMain - 식당멤버관리창
+	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain() {
+	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
 		return "/restaurantView/restaurantRTMemberMain";
 	}
 
-	// genMemberMain - 일반회원관리창
-	@GetMapping("restaurantGNMemberMain")
-	public String restaurantGNMemberMain() {
-		return "/restaurantView/restaurantGNMemberMain";
+	// rsetreview - 리뷰관리
+	@GetMapping("rsetreview")
+	public String rsetreview() {
+		return "/restaurantView/rsetreview";
 	}
 
-	// boardMain - 게시글관리창
-	@GetMapping("restaurantBoardMain")
-	public String restaurantBoardMain() {
-		return "/restaurantView/restaurantBoardMain";
-	}
 	
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {

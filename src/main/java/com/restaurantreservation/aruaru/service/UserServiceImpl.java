@@ -1,5 +1,6 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
@@ -81,6 +83,13 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		Web_board b = dao.findBoard(board_num);
 		return b;
+	}
+	
+	//특정 회원의 이용 내역 불러오기
+	@Override
+	public ArrayList<Usage_history> selectAllUsageHistory(String username) {
+		ArrayList<Usage_history> list = dao.selectAllUsageHistory(username);
+		return list;
 	}
 
 	@Override

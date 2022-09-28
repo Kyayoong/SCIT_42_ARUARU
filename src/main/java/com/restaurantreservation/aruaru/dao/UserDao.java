@@ -1,9 +1,11 @@
 package com.restaurantreservation.aruaru.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.tabletest;
@@ -30,4 +32,6 @@ public interface UserDao {
 	int insertBoard(Web_board b);
 
 	public Web_board findBoard(int board_num);
+	
+	public ArrayList<Reservation> seeAllReservation();
 }

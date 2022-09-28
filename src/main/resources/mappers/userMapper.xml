@@ -60,6 +60,7 @@
 		WHERE member_name = #{member_name}
 	</select>
 
+	<!-- 개인정보수정 -->
 	<update id="updateUser" parameterType="User_member">
 		UPDATE user_member
 		SET
@@ -73,65 +74,83 @@
 
 		member_phone =
 		#{member_phone},
-		member_address1 = #{member_address1},
+		member_address1 =
+		#{member_address1},
 		member_address2 =
 		#{member_address2},
-		member_birth = #{member_birth},
+		member_birth =
+		#{member_birth},
 		member_tags =
 		#{member_tags}
 		<if test="member_originalfile != null and member_savedfile != null">
 			, member_originalfile = #{member_originalfile}
-			, member_savedfile = #{member_savedfile}
+			,
+			member_savedfile = #{member_savedfile}
 		</if>
 		WHERE member_id = #{member_id}
 	</update>
 
+	<!-- 회원탈퇴 -->
 	<delete id="deleteUser" parameterType="String">
 		DELETE user_member
-		WHERE member_id = #{member_id}
+		WHERE
+		member_id = #{member_id}
 	</delete>
-	<select id="findBoardById" parameterType="String" resultType="Web_board">
-	SELECT
-	*
-	FROM
-	Web_board
-	WHERE
-	member_id = #{member_id}
-	order by
-	board_num
-	desc
+
+	<select id="findBoardById" parameterType="String"
+		resultType="Web_board">
+		SELECT
+		*
+		FROM
+		Web_board
+		WHERE
+		member_id = #{member_id}
+		order by
+		board_num
+		desc
 	</select>
+
 	<insert id="insertBoard" parameterType="Web_board">
-	INSERT INTO 
-	web_board 
-	(
-	board_num 
-	, member_id
-	, board_title
-	, board_contents
-	, category
-	)
-	VALUES
-	( 
-	web_board_seq.nextval
-	, #{member_id}
-	, #{board_title}
-	, #{board_contents}
-	, #{category}
-	)
+		INSERT INTO
+		web_board
+		(
+		board_num
+		, member_id
+		, board_title
+		, board_contents
+		, category
+		)
+		VALUES
+		(
+		web_board_seq.nextval
+		, #{member_id}
+		, #{board_title}
+		, #{board_contents}
+		, #{category}
+		)
 	</insert>
-	<select id="findBoard" parameterType="Int" resultType="Web_board">
-	SELECT
-	*
-	FROM
-	web_board
-	WHERE 
-	board_num
-	= #{board_num}
+
+	<select id="findBoard" parameterType="Int"
+		resultType="Web_board">
+		SELECT
+		*
+		FROM
+		web_board
+		WHERE
+		board_num
+		= #{board_num}
 	</select>
-	
+
+	<!-- 예약 내역 조회 -->
 	<select id="seeAllReservation" parameterType="Reservation">
-	
+		SELECT
+		member_id,
+		restaurant_num, restaurant_name, reservation_people,
+		reservation_date,
+		reservation_hours
+		FROM
+		reservation
+		WHERE member_id=#{member_id}
 	</select>
-	
+
 </mapper>

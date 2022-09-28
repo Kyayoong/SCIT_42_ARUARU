@@ -147,11 +147,12 @@ public class PageRestController {
 			@RequestParam int restaurant_num,
 			@AuthenticationPrincipal UserDetails user) {
 		
+		Restaurant_member member = service.selectOne1(restaurant_num);
+		reservation.setRestaurant_name(member.getRestaurant_name());
 		reservation.setMember_id(user.getUsername());
 		reservation.setRestaurant_num(restaurant_num);
 		int result = service.reservationInsert(reservation);
 		if(result == 1) {
-			Restaurant_member member = service.selectOne1(restaurant_num);
 			int people = member.getRestaurant_people() - reservation.getReservation_people();
 			member.setRestaurant_people(people);
 			service.peopleCount(member);

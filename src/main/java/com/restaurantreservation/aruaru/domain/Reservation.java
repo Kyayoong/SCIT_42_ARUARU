@@ -13,6 +13,7 @@ public class Reservation {
     int reservation_num;		//예약 번호
     String member_id;			//회원아이디
     int restaurant_num;			//식당번호
+    String restaurant_name;		//식당이름
     int reservation_people;		//예약인수
     String registration_date;	//등록일
     String reservation_date;	//예약일

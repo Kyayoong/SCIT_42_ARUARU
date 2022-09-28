@@ -88,8 +88,12 @@ public class MyPageController {
 	}
 	//리뷰 입력
 	@GetMapping("insertReview")
-		public String insertReview() {
-			return "userView/insertReview";
+	public String insertReview(int usageNum, Model model) {
+		//해당 번호의 이용 내역 받아오기
+		Usage_history usage = service.selectOneUsageHistory(usageNum);
+		log.debug(" {} ",usage);
+		model.addAttribute("", usage)
+		return "userView/insertReview";
 	}
 	
 	// 가게 소개 페이지
@@ -272,9 +276,11 @@ public class MyPageController {
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
 		Restaurant_member member = restaurantService.selectOne(user.getUsername());
-		ArrayList<Reservation> reservationList = 
-		
-		log.debug("{} : ",reservationList);
+		/*
+		 * ArrayList<Reservation> reservationList =
+		 * 
+		 * log.debug("{} : ",reservationList);
+		 */
 		
 		return "/restaurantView/restaurantRTMemberMain";
 	}

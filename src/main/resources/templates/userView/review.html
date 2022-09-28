@@ -31,12 +31,12 @@
 
 <script type="text/javascript">
 	let win = null;
-	$(document).ready(function() {
+	/* $(document).ready(function() {
 		$('.btn1').click(openInsertReview);
-	})
+	}) */
 
-	function openInsertReview(){
-		win = window.open('/aruaru/mypage/insertReview', '리뷰입력', 
+	function openInsertReview(usage_num){
+		win = window.open('/aruaru/mypage/insertReview?usageNum='+ usage_num, '리뷰입력', 
 						'width=' + screen.width/2 + 
 						', height=' + screen.height/1.2 + 
 						', left=' + screen.width/3.8 + 
@@ -162,7 +162,7 @@
 							<td th:text="${usage.reservation_num}">10029837</td>
 							<td th:text="${usage.restaurant_name}">용태식당</td>
 							<td th:text="${usage.usage_date}">2022.09.06</td>
-							<td><input type="button" class="btn1 btn btn-outline-primary btn-sm" value="작성" onclick="insertReview()"></td>
+							<td><input type="button" class="btn1 btn btn-outline-primary btn-sm" value="작성" th:onclick="|openInsertReview(${usage.usage_num})|"></td>
 						</tr>
 					</table>
 				</div>

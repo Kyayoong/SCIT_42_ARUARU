@@ -243,16 +243,17 @@ public class MyPageController {
 		return "/restaurantView/restaurantMain";
 	}
 
-	// restMemberMain - 식당멤버관리창
+	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain() {
+	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
 		return "/restaurantView/restaurantRTMemberMain";
 	}
 
-	// genMemberMain - 일반회원관리창
-	@GetMapping("restaurantGNMemberMain")
-	public String restaurantGNMemberMain() {
-		return "/restaurantView/restaurantGNMemberMain";
+	// rsetreview - 리뷰관리
+	@GetMapping("rsetreview")
+	public String rsetreview() {
+		return "/restaurantView/rsetreview";
 	}
 
 	

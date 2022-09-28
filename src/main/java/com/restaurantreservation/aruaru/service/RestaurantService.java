@@ -75,4 +75,7 @@ public interface RestaurantService {
 	
 	//예약내역 저장하기
 	public int reservationInsert(Reservation reservation);
+	
+	//손님수 조정
+	public int peopleCount(Restaurant_member member);
 }

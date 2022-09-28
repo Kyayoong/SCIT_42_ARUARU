@@ -149,8 +149,12 @@ public class PageRestController {
 		
 		reservation.setMember_id(user.getUsername());
 		reservation.setRestaurant_num(restaurant_num);
-		log.debug("뭐해 {}",reservation);
 		int result = service.reservationInsert(reservation);
-		log.debug("뭐해 {}",result);
+		if(result == 1) {
+			Restaurant_member member = service.selectOne1(restaurant_num);
+			int people = member.getRestaurant_people() - reservation.getReservation_people();
+			member.setRestaurant_people(people);
+			service.peopleCount(member);
+		}
 	}
 }

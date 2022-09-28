@@ -28,5 +28,8 @@ public interface AdminDao {
 	
 	//댓글 가져오기
 	ArrayList<Web_reply> selectReplyList(int boardNum);
+	
+	//전체 답변개수
+	ArrayList<Web_reply> allReplyList();
 
 }

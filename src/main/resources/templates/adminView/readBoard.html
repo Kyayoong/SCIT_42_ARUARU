@@ -27,57 +27,107 @@
 		background-color: #afc9f6;
 		color: red;
 	}
+	#counter {
+		position: absolute;
+    	bottom: 11.3rem;
+    	right: 2.9rem;
+    	background:rgba(100,100,100,0.5);
+		border-radius: 0.5em;
+		padding: 0 .5em 0 .5em;
+		font-size: 0.75em;
+	}
 
 </style>
 <script type="text/javascript">
+$(document).ready(function() {
+	let length = $('#replyContens').val().length;
+	$('#submitButton').attr('disabled', true);
+	$('#replyContens').keyup(contentsValidation);
+	$('#counter').html(length + '/800');
 	//등록버튼
 	$(document).on('click', '#submitButton', function(){
 		let form = $('#writeReply');
 		form.submit();
 	})
-	//취소버튼
-	$(document).on('click', '#cancelButton', function(){
-		window.opener.listRefresh();
-		window.close();
-	})
+})
+
+//입력 내용 글자수 확인.	
+function contentsValidation(){
+	let contents = $('#replyContens').val();
+	let limit = 100;
+	$.ajax({
+        url: 'contentsValidation',
+        method: 'post',
+        data: {replyContents : contents},
+        success: function(n){
+        	$('#counter').html(n + '/800');
+        	if(n > limit){
+        		alert("글자 수 초과!");
+        		stopInput(contents, limit);
+        	}
+        	$('#counter').html(n + '/800');
+            if(n == 0){
+                $('#submitButton').attr('disabled', true);
+            } else {
+            	$('#submitButton').attr('disabled', false);
+            }
+            $('#counter').html(n + '/800');
+        },
+        error: function(e){
+        	alert(JSON.stringify(e));
+        }
+    })
+}
+
+//답글 글자수 제한.
+function stopInput(contents, limit){
+	let newStr = contents.substr(0,limit);
+	$('#replyContens').val(newStr);
+}
+
+
+//취소버튼
+$(document).on('click', '#cancelButton', function(){
+	window.opener.listRefresh();
+	window.close();
+})
+
+let boardNum
+function suggestBoard(n){
+	//추천 버튼 눌리면 -> 추천수 올리고 -> 추천수 갱신하여 표기
+	updateSuggestCnt(n);
+}
+//추천수 올리기
+function updateSuggestCnt(n){
+	$.ajax({
+        url: 'suggestVote',
+        type: 'get',
+        data: {boardNum : n}, 
+        success: function(){
+        	suggestRefresh(n);
+        },
+        error: function(e){
+            alert(JSON.stringify(e));
+        }
+   	})
+}
+//추천수 갱신하기
+function suggestRefresh(n){
 	
-	let boardNum
-	function suggestBoard(n){
-		//추천 버튼 눌리면 -> 추천수 올리고 -> 추천수 갱신하여 표기
-		updateSuggestCnt(n);
-	}
-	//추천수 올리기
-	function updateSuggestCnt(n){
-		$.ajax({
-	        url: 'suggestVote',
-	        type: 'get',
-	        data: {boardNum : n}, 
-	        success: function(){
-	        	
-	        	suggestRefresh(n);
-	        },
-	        error: function(e){
-	            alert(JSON.stringify(e));
-	        }
-	   	})
-	}
-	//추천수 갱신하기
-	function suggestRefresh(n){
-		
-		$.ajax({
-	        url: 'suggestRefresh',
-	        type: 'get',
-	        data: {boardNum : n},
-	        dataType: 'json',
-	        success: function(json){
-	        	let index = '추천수 ' + json;
-	        	$('#suggestBtn').html(index)
-	        },
-	        error: function(e){
-	            alert(JSON.stringify(e));
-	        }
-	   	})
-	}
+	$.ajax({
+        url: 'suggestRefresh',
+        type: 'get',
+        data: {boardNum : n},
+        dataType: 'json',
+        success: function(json){
+        	let index = '추천수 ' + json;
+        	$('#suggestBtn').html(index)
+        },
+        error: function(e){
+            alert(JSON.stringify(e));
+        }
+   	})
+}
 </script>
 
 <title>문의글 읽기</title>
@@ -112,20 +162,21 @@
 		
 		<!-- 6. 텍스트 : 기존 답변이 없을 때 나옴 -->
 		<div th:if="${replyFlag} == 0">
-			<form action="insertReply" id="writeReply" method="post">
+			
+			<form action="insertReply" method="post" id="writeReply">
 				<input type="hidden" id="hiddenVa" name="board_num" th:value="${board.board_num}">
 				<div class="d-flex justify-content-center m-3">
-					<textarea name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+					<textarea id="replyContens" name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
 				</div>
-			</form>
-			
+			<span id="counter">11</span>
 			<!-- 7. 버튼 -->
 			<div class="d-flex justify-content-center m-3">
 				<input type="button" style="font-family: IBM Plex Sans KR;"
-				class="btn btn-primary m-1" id="submitButton" value="등록">
+				class="btn btn-primary m-1" id="submitButton" onclick="" value="등록">
 				<input type="button" style="font-family: IBM Plex Sans KR;"
 				class="btn btn-secondary m-1" id="cancelButton" value="취소">
 			</div>
+			</form>
 		</div>
 		
 		<!-- 텍스트 : 기존 답변이 있을 때, 기존 답변을 표기 -->

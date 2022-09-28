@@ -130,4 +130,8 @@
 	= #{board_num}
 	</select>
 	
+	<!-- 이용내역 리스트 불러오기 -->
+	<select id="selectAllUsageHistory" parameterType="String" resultType="Usage_history">
+		SELECT * FROM USAGE_HISTORY WHERE MEMBER_ID=#{username} AND RESERVATION_SUCCESS = 1
+	</select>
 </mapper>

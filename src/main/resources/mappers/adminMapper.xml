@@ -61,4 +61,9 @@
  	<select id="selectReplyList" parameterType="int" resultType="Web_reply">
  		SELECT * FROM WEB_REPLY WHERE BOARD_NUM = #{boardNum}
  	</select>
+ 	
+ 	<!-- 전체 문의글 가져오기 -->
+ 	<select id="allReplyList" resultType="Web_reply">
+ 		SELECT * FROM WEB_REPLY
+ 	</select>
 </mapper>

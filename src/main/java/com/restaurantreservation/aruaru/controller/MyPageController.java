@@ -92,7 +92,7 @@ public class MyPageController {
 		//해당 번호의 이용 내역 받아오기
 		Usage_history usage = service.selectOneUsageHistory(usageNum);
 		log.debug(" {} ",usage);
-		model.addAttribute("", usage)
+		model.addAttribute("usgae", usage);
 		return "userView/insertReview";
 	}
 	

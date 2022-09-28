@@ -135,7 +135,8 @@ CREATE TABLE reservation(
     registration_date DATE DEFAULT SYSDATE, 													--등록일
     reservation_date DATE,																		--예약일
     reservation_hours VARCHAR2(20) NOT NULL	,													--예약시간
-    request VARCHAR2(1000)																		--요청사항
+    request VARCHAR2(1000),
+    reservation_success NUMBER(1)  DEFAULT 0																			--요청사항
 );
 
 --리뷰 번호 시퀀스

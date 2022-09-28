@@ -28,12 +28,8 @@ import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
-<<<<<<< HEAD
-import com.restaurantreservation.aruaru.service.ManageService;
-=======
 
 import com.restaurantreservation.aruaru.domain.Web_reply;
->>>>>>> 432bac460b16f5675a591e6c1105a18429d4dd26
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -81,12 +77,7 @@ public class MyPageController {
 		
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
 		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
-		for(int i = 0; i < usageList.size(); i++) {
-			int number = usageList.get(i).getRestaurant_num();
-			Restaurant_member restmember =  restaurantService.selectOne1(number);
-			String restaurantName = restmember.getRestaurant_name();
-			usageList.get(i).setRestaurant_name(restaurantName);
-		}
+	
 		
 		log.debug("00000000000000000000000000{}", member);
 		log.debug("00000000000000000000000000{}", usageList);
@@ -282,11 +273,9 @@ public class MyPageController {
 	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
 		
 		Restaurant_member member = restaurantService.selectOne(user.getUsername());
-		ArrayList<Reservation> reservationList = 
-		
-		log.debug("{} : ",reservationList);
 		
 		return "/restaurantView/restaurantRTMemberMain";
+		
 	}
 
 	// rsetreview - 리뷰관리

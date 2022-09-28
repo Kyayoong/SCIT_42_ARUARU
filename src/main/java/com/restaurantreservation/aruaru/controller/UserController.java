@@ -83,15 +83,6 @@ public class UserController {
 	}
 
 	// 아이디 중복체크
-//	@ResponseBody
-//	@PostMapping("idcheck")
-//	public int check(String member_id) {
-//		int cnt = 0;
-//		cnt = dao.countMemberid(member_id);
-//		return cnt;
-//	}
-
-	// 아이디 중복체크
 	@GetMapping("idcheck")
 	public String idcheck() {
 		return "/registView/idForm";

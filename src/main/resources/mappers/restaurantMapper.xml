@@ -205,6 +205,8 @@
 		*
 		FROM
 		Restaurant_member
+		WHERE
+		certification = 1
 	</select>
 	
 	<!-- 영업일 가져오기 -->
@@ -233,13 +235,16 @@
 		*
 		FROM
 		Restaurant_member
-		<if test="s_address != '' or s_tags != '' or s_people != ''">
-		<where>
-		<if test="s_address != '' and s_tags == '' and s_people == ''">
-		restaurant_address1 like '%' || #{s_address} || '%'
+		WHERE
+		certification = 1
+		<if test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
+		AND restaurant_sectors like '%' || #{s_sector} || '%'
 		</if>
-		<if test="s_address == '' and s_tags != '' and s_people == ''">
-		restaurant_num IN 
+		<if test="s_address != '' and s_tags == '' and s_people == '' and s_sector == ''">
+		AND restaurant_address1 like '%' || #{s_address} || '%'
+		</if>
+		<if test="s_address == '' and s_tags != '' and s_people == '' and s_sector == ''">
+		AND restaurant_num IN 
 		(SELECT
 		a.restaurant_num
 		FROM
@@ -250,8 +255,8 @@
 		AND
 		a.restaurant_num = b.restaurant_num)
 		</if>
-		<if test="s_address != '' and s_tags != '' and s_people == ''">
-		restaurant_address1 like '%' || #{s_address} || '%'
+		<if test="s_address != '' and s_tags != '' and s_people == '' and s_sector == ''">
+		AND restaurant_address1 like '%' || #{s_address} || '%'
 		AND
 		restaurant_num IN 
 		(SELECT
@@ -263,8 +268,6 @@
 		b.tags_name like '%' || #{s_tags} || '%'
 		AND
 		a.restaurant_num = b.restaurant_num)
-		</if>
-		</where>
 		</if>
 	</select>
 	
@@ -276,4 +279,35 @@
 		WHERE
 		restaurant_file_num = #{restaurant_file_num}
 	</select>
+	
+	<insert id="reservationInsert" parameterType="Reservation">
+		INSERT INTO reservation
+		(reservation_num
+		, member_id
+		, restaurant_num
+		, restaurant_name
+		, reservation_people
+		, reservation_date
+		, reservation_hours
+		, request
+		)
+		VALUES
+		(reservation_seq.nextval
+		, #{member_id}
+		, #{restaurant_num}
+		, #{reservation_people}
+		, #{reservation_date}
+		, #{reservation_hours}
+		, #{request}
+		)
+	</insert>
+	
+	<update id="peopleCount" parameterType="Restaurant_member">
+		UPDATE
+		restaurant_member
+		SET
+		restaurant_people = #{restaurant_people}
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</update>
 </mapper>

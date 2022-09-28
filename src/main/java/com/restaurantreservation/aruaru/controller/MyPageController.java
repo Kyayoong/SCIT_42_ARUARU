@@ -259,29 +259,26 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
-
+	
+	//식당메인화면
 	@GetMapping("restaurantMain")
 	public String restaurantMain() {
 		return "/restaurantView/restaurantMain";
 	}
 
-	// restMemberMain - 식당멤버관리창
+	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain() {
+	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+		
 		return "/restaurantView/restaurantRTMemberMain";
 	}
 
-	// genMemberMain - 일반회원관리창
-	@GetMapping("restaurantGNMemberMain")
-	public String restaurantGNMemberMain() {
-		return "/restaurantView/restaurantGNMemberMain";
+	// rsetreview - 리뷰관리
+	@GetMapping("rsetreview")
+	public String rsetreview() {
+		return "/restaurantView/rsetreview";
 	}
 
-	// boardMain - 게시글관리창
-	@GetMapping("restaurantBoardMain")
-	public String restaurantBoardMain() {
-		return "/restaurantView/restaurantBoardMain";
-	}
 	
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {

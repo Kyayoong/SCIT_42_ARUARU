@@ -21,21 +21,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-$(function() {
-	$('#btn1').click(function(e) {
-		console.log("x");
-		e.preventDefault();
-		$('#btn-modal').click();
-	});
+//ID 중복 확인창 열기
+$(document).ready(function() {
+	
+	
+	
+	console.log($('#restaurant_num').val());
+	
 });
 
-$(function() {
-	$('#btn2').click(function(e) {
-		console.log("x");
-		e.preventDefault();
-		$('#btnAtt').click();
-	});
-});
+
+function reservationFormOpen() {
+	var w = window.open('reservation', 'reservationwin', 'top=200,left=500,width=400,height=500');
+	$('')
+}
+
+
 </script>
 <title>Document</title>
 </head>
@@ -64,9 +65,9 @@ $(function() {
 	<div id="container1">
 
 		<!--알파벳 CI-->
-		<img id="RR" th:src="@{/images/rrmark.png}">
+		<a th:href="@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
 		<!--일본어 CI-->
-		<img id="aruaru" th:src="@{/images/rrjapanesemark.png}">
+		<a th:href="@{/}"><img id="aruaru" th:src="@{/images/rrjapanesemark.png}"></a>
 		<!--검색 부분-->
 
 		<table style="font-family: Jua;">
@@ -169,11 +170,13 @@ $(function() {
 			<table class="table table-hover">
 				<tr>
 					<th>메뉴</th>
-					<th>가격</th>
 					<th>특징</th>
+					<th>가격</th>
+					<th>사진</th>
 				</tr>
 				<tr th:each="menu : ${menuList}">
 					<td th:text="${menu.menu_name}"></td>
+					<td th:text="${menu.menu_content}"></td>
 					<td th:text="|${menu.menu_price}원|"></td>
 					<td><img th:src="|menudis?menu_num=${menu.menu_num}|"
 						style="width: 60px; height: 60px;"></td>
@@ -278,236 +281,56 @@ $(function() {
 				</tr>
 			</table>
 		</div>
+		</div>
 
 		<!-- 밑 부분 bar -->
 		<div id="bottom-bar">
-			<form action="">
+			<form action="" method="get">
 				<table id="input-book-bottom">
 					<tr>
 						<td><input style="width: 10vw;" type="date"
-							class="form-control" id="day-input-bottom"></td>
-						<td><select id="select-time-bottom" class="form-control">
-								<option value="0900">09:00</option>
-								<option value="0930">09:30</option>
-								<option value="1000">10:00</option>
-								<option value="1030">10:30</option>
-								<option value="1100">11:00</option>
-								<option value="1130">11:30</option>
-								<option value="1200">12:00</option>
-								<option value="1230">12:30</option>
-								<option value="1300">13:00</option>
-								<option value="1330">13:30</option>
-								<option value="1400">14:00</option>
-								<option value="1430">14:30</option>
-								<option value="1500">15:00</option>
-								<option value="1530">15:30</option>
-								<option value="1600">16:00</option>
-								<option value="1630">16:30</option>
-								<option value="1700">17:00</option>
-								<option value="1730">17:30</option>
-								<option value="1800">18:00</option>
-								<option value="1830">18:30</option>
-								<option value="1900">19:00</option>
-								<option value="1930">19:30</option>
-								<option value="2000">20:00</option>
-								<option value="2030">20:30</option>
-								<option value="2100">21:00</option>
-								<option value="2130">21:30</option>
-								<option value="2200">22:00</option>
+							class="form-control" id="day-input-bottom" name="rdate"></td>
+						<td><select id="select-time-bottom" class="form-control" name="rhours">
+								<option value="09:00">09:00</option>
+								<option value="09:30">09:30</option>
+								<option value="10:00">10:00</option>
+								<option value="10:30">10:30</option>
+								<option value="11:00">11:00</option>
+								<option value="11:30">11:30</option>
+								<option value="12:00">12:00</option>
+								<option value="12:30">12:30</option>
+								<option value="13:00">13:00</option>
+								<option value="13:30">13:30</option>
+								<option value="14:00">14:00</option>
+								<option value="14:30">14:30</option>
+								<option value="15:00">15:00</option>
+								<option value="15:30">15:30</option>
+								<option value="16:00">16:00</option>
+								<option value="16:30">16:30</option>
+								<option value="17:00">17:00</option>
+								<option value="17:30">17:30</option>
+								<option value="18:00">18:00</option>
+								<option value="18:30">18:30</option>
+								<option value="19:00">19:00</option>
+								<option value="19:30">19:30</option>
+								<option value="20:00">20:00</option>
+								<option value="20:30">20:30</option>
+								<option value="21:00">21:00</option>
+								<option value="21:30">21:30</option>
+								<option value="22:00">22:00</option>
 						</select></td>
 						<td><input type="text" class="form-control"
-							id="person-input-bottom" style="width: 5vw;" placeholder="인원수"></td>
-						<td><button class="btn btn-primary" id="btn1" type="button"
-									style="width: 150px">예약하기</button> <input id="btn-modal"
-								type="button" style="display: none;"></td>
-						<td><input type="hidden" value="시퀀스넘버"></td>
+							id="person-input-bottom" name="rpeople" style="width: 5vw;" placeholder="인원수" ></td>
+							<td><input type="hidden" id="restaurant_num" name="restaurant_num" th:value="${store.restaurant_num}"></td>
+						<td><input class="btn btn-primary" id="btn1" type="button" style="width: 150px" onclick="reservationFormOpen()" value="예약하기"></td>
+						
 					</tr>
 				</table>
 			</form>
-			<!-- 모달창 내부입니다. -->
-			<div id="modal" class="modal-overlay">
-				<div class="modal-window">
-					<div class="content">
-						<div id="registtable2">
-							<h3 id="h3" style="font-family: IBM Plex Sans KR;">메뉴 추가하기</h3>
-							<br> <br>
-							<form id="menuadd" enctype="multipart/form-data" method="post">
-								<table>
-									<tr>
-										<td><label for="menu_name"
-											style="font-family: IBM Plex Sans KR;">메뉴명 </label><br>
-											<input class="form-control" type="text" id="menu_name"
-											name="menu_name" style="width: 350px;"
-											placeholder="메뉴명을 입력하세요.(필수)"></td>
-									</tr>
-									<tr>
-										<td><label for="menu_price"
-											style="font-family: IBM Plex Sans KR;">메뉴가격 </label><br>
-											<input class="form-control" type="text" id="menu_price"
-											name="menu_price" style="width: 350px;"
-											placeholder="메뉴가격을 입력하세요.(필수) - 원"></td>
-									</tr>
-									<tr>
-										<td class="contents2"><label for="menu_content"
-											style="font-family: IBM Plex Sans KR;">상세 설명</label> <br>
-											<textarea placeholder="메뉴에 대해서 설명해주세요." class="form-control"
-												rows="3" cols="10" name="menu_content" id="menu_content"></textarea></td>
-									</tr>
-									<tr>
-									<tr>
-										<td><label for="fffle"
-											style="font-family: IBM Plex Sans KR;">메뉴 사진</label> <span
-											style="font-family: IBM Plex Sans KR;">※(필수)</span> <br>
-											<div id='image_preview'>
-												<button class="btn btn-primary" id="btn2" type="button">사진
-													추가</button>
-												<input id="btnAtt" multiple="multiple" type="file"
-													accept="image/*" name="upload" style="display: none;">
-												<span style="font-family: IBM Plex Sans KR;">※첨부파일은
-													1개만</span>
-												<div id='att_zone'></div>
-											</div> <script type="text/javascript">
-
-							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-							imageView = function imageView(att_zone, btn){
-
-							var attZone = document.getElementById(att_zone);
-							var btnAtt = document.getElementById(btn)
-							var sel_files = [];
-									    
-									    // 이미지와 체크 박스를 감싸고 있는 div 속성
-									    var div_style = 'display:inline-block;position:relative;'
-									                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-									    // 미리보기 이미지 속성
-									    var img_style = 'width:100%;height:100%;z-index:none';
-									    // 이미지안에 표시되는 체크박스의 속성
-									    var chk_style = 'width:30px;height:30px;position:absolute;'
-									                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
-									  
-									    btnAtt.onchange = function(e){
-									      var files = e.target.files;
-									      var fileArr = Array.prototype.slice.call(files)
-									      for(f of fileArr){
-									        imageLoader(f);
-									      }
-									    }  
-									    									    
-									    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-									    imageLoader = function(file){
-									      sel_files.push(file);
-									      var reader = new FileReader();
-									      reader.onload = function(ee){
-									        let img = document.createElement('img')
-									        img.setAttribute('style', img_style)
-									        img.src = ee.target.result;
-									        attZone.appendChild(makeDiv(img, file));
-									      }
-									      
-									      reader.readAsDataURL(file);
-									    }
-									    
-									    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-									    makeDiv = function(img, file){
-									      var div = document.createElement('div')
-									      div.setAttribute('style', div_style)
-									      
-									      var btn = document.createElement('input')
-									      btn.setAttribute('type', 'button')
-									      btn.setAttribute('value', 'x')
-									      btn.setAttribute('delFile', file.name);
-									      btn.setAttribute('style', chk_style);
-									      btn.onclick = function(ev){
-									        var ele = ev.srcElement;
-									        var delFile = ele.getAttribute('delFile');
-									        for(var i=0 ;i<sel_files.length; i++){
-									          if(delFile== sel_files[i].name){
-									            sel_files.splice(i, 1);      
-									          }
-									        }
-									        
-									        dt = new DataTransfer();
-									        for(f in sel_files) {
-									          var file = sel_files[f];
-									          dt.items.add(file);
-									        }
-									        btnAtt.files = dt.files;
-									        var p = ele.parentNode;
-									        attZone.removeChild(p)
-									      }
-									      div.appendChild(img)
-									      div.appendChild(btn)
-									      return div
-									    }
-									  }
-									)('att_zone', 'btnAtt')
-
-							</script></td>
-									</tr>
-									<tr>
-										<td><label id="suggest" class="form-check-label"
-											style="font-family: IBM Plex Sans KR;"> <input
-												type="checkbox" class="form-check-input"
-												name="menu_suggestion" id="menu_suggestio" value="1">추천메뉴
-												선택하기
-										</label></td>
-									</tr>
-									<tr>
-									</tr>
-								</table>
-								<br>
-								<div id="output"></div>
-								<div id="registerbuttondiv2">
-									<input id="modal_close" type="button"
-										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
-										value="취소"> <input type="button"
-										style="font-family: IBM Plex Sans KR;" class="btn btn-primary"
-										id="formButton" onclick="javascript:registformwide()"
-										value="등록">
-								</div>
-								<br>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- 검색창 bar와 내용 겹치지 않게 하기 위한 빈 구역 -->
 		<div id="empty">
 			<p></p>
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-	const modal = document.getElementById("modal")
-	function modalOn() {
-	    modal.style.display = "flex"
-	}
-	function isModalOn() {
-	    return modal.style.display === "flex"
-	}
-	function modalOff() {
-	    modal.style.display = "none"
-	}
-	const btnModal = document.getElementById("btn-modal")
-	btnModal.addEventListener("click", e => {
-	    modalOn()
-	})
-	const closeBtn = document.getElementById("modal_close")
-	closeBtn.addEventListener("click", e => {
-		$("#menuadd")[0].reset(); 
-		$("#att_zone").html(' ');
-	    modalOff()
-	})
-	modal.addEventListener("click", e => {
-	    const evTarget = e.target
-	    if(evTarget.classList.contains("modal-overlay")) {
-	        modalOff()
-	    }
-	})
-	window.addEventListener("keyup", e => {
-	    if(isModalOn() && e.key === "Escape") {
-	        modalOff()
-	    }
-	})
-	</script>
 </html>

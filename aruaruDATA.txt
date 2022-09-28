@@ -1574,6 +1574,168 @@ INSERT INTO restaurant_member
     )
     VALUES
     (restaurant_member_seq.nextval,'kiwon025','이태원숯불구이','한식','고기와 파절이가 맛있는 성시경먹을텐데 이태원 숯불구이 한우맛집','02-797-7777',4.24,'서울 용산구 녹사평대로32길 43','(이태원동)','3~5만원',1,20);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon026','영동설렁탕','한식','3호선 신사 5번 출구','02-543-4716',0,'서울 서초구 강남대로101안길 24','(잠원동)','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon027','토마틸로','양식','2호선 역삼역 12번 출구','02-2112-3883',0,'서울 강남구 테헤란로 152','(역삼동 강남파이낸스센터)','3~5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon028','채근담','한식','2호선 삼성역 3번 출구','02-555-9173',0,'서울 강남구 역삼로98길 23','(일동빌딩)','5만원 이상',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon029','마포숯불갈비','한식','7호선 학동 10번 출구','02-516-1522',0,'서울 강남구 도산대로 232','(논현동 청학아파트) 에이동','2~3만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon030','조개창고 (달마수산)','한식','2호선 상왕십리역 4번 출구 2호선 왕십리역 11번 출구','02-',0,'서울 성동구 왕십리로 331','','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon031','이마스시','일식','3호선 압구정역 3번 출구','02-515-7787',0,'서울 강남구 도산대로37길 5','(신사동)','1~1.5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon032','마츠에라멘','일식','26 호선 합정 2번 출구','02-323-6877',0,'서울 마포구 동교로 126','(서교동 광남벨라스아파트)','1만원 미만',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon033','부산복집','한식','3호선 2호선 을지로3가역 9번 출구','02-2266-3236',0,'서울 중구 마른내로2길 14','(초동)','1~1.5만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon034','내고향식당','한식','4호선 회현 5번 출구','02-752-7954',0,'서울특별시 중구 남대문시장길 18-3','(남창동)','1.5~2만원',0,30);
+INSERT INTO restaurant_member
+    (restaurant_num
+    , member_id
+    , restaurant_name
+    , restaurant_sectors
+    , restaurant_comment
+    , restaurant_phone
+    , restaurant_grade
+    , restaurant_address1
+    , restaurant_address2
+    , menu_priceavr
+    , certification
+    , restaurant_people
+    )
+    VALUES
+    (restaurant_member_seq.nextval,'kiwon035','반포치킨','치킨','9호선 구반포역 3번 출구','02-599-2825',0,'서울 서초구 신반포로 38','(구반포상가) 반포상가 J동 21호','2~3만원',0,30);
+
+
 
 INSERT INTO restaurant_file
 (restaurant_file_num
@@ -2126,8 +2288,6 @@ VALUES
 , 'Y098.jpg','Y098.jpg',25);
 
 
-
-
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2465,7 +2625,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '즉석떡볶이',11,'4000','Y041.jpg','Y041.jpg','',1);
+, '무침군만두',11,'4000','Y041.jpg','Y041.jpg','',1);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2478,7 +2638,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '돌솥 카레 정식',11,'14000','Y041.jpg','Y042.jpg','',1);
+, '즉석떡볶이',11,'14000','Y042.jpg','Y042.jpg','',1);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2751,7 +2911,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '국밥',23,'12000','Y089.jpg','Y089.jpg','',1);
+, '국밥',22,'9000','Y085.jpg','Y085.jpg','',1);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2764,7 +2924,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '모둠수육',23,'15000','Y090.jpg','Y090.jpg','',0);
+, '모둠수육',22,'32000','Y086.jpg','Y086.jpg','',1);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2777,7 +2937,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '원조빈대떡',24,'20000','Y095.jpg','Y095.jpg','',0);
+, '원조빈대떡',23,'12000','Y089.jpg','Y089.jpg','',1);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2790,7 +2950,7 @@ INSERT INTO menu
 )
 VALUES
 (menu_seq.nextval
-, '생굴전',24,'23000','Y096.jpg','Y096.jpg','',1);
+, '생굴전',23,'15000','Y090.jpg','Y090.jpg','',0);
 INSERT INTO menu
 (menu_num
 , menu_name
@@ -2843,6 +3003,8 @@ INSERT INTO menu
 VALUES
 (menu_seq.nextval
 , '특등심',25,'61000','Y100.jpg','Y100.jpg','',1);
+
+
 
 INSERT INTO restaurant_time
 (opentime

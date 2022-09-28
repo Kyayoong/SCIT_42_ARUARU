@@ -205,6 +205,8 @@
 		*
 		FROM
 		Restaurant_member
+		WHERE
+		certification = 1
 	</select>
 	
 	<!-- 영업일 가져오기 -->
@@ -233,12 +235,19 @@
 		*
 		FROM
 		Restaurant_member
-		<if test="s_address != '' or s_tags != '' or s_people != ''">
+		<if test="s_address != '' or s_tags != '' or s_people != '' or s_sector != ''">
 		<where>
-		<if test="s_address != '' and s_tags == '' and s_people == ''">
-		restaurant_address1 like '%' || #{s_address} || '%'
+		<if test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
+		restaurant_sectors like '%' || #{s_sector} || '%'
+		AND
+		certification = 1
 		</if>
-		<if test="s_address == '' and s_tags != '' and s_people == ''">
+		<if test="s_address != '' and s_tags == '' and s_people == '' and s_sector == ''">
+		restaurant_address1 like '%' || #{s_address} || '%'
+		AND
+		certification = 1
+		</if>
+		<if test="s_address == '' and s_tags != '' and s_people == '' and s_sector == ''">
 		restaurant_num IN 
 		(SELECT
 		a.restaurant_num
@@ -249,8 +258,10 @@
 		b.tags_name like '%' || #{s_tags} || '%'
 		AND
 		a.restaurant_num = b.restaurant_num)
+		AND 
+		certification = 1
 		</if>
-		<if test="s_address != '' and s_tags != '' and s_people == ''">
+		<if test="s_address != '' and s_tags != '' and s_people == '' and s_sector == ''">
 		restaurant_address1 like '%' || #{s_address} || '%'
 		AND
 		restaurant_num IN 
@@ -263,6 +274,8 @@
 		b.tags_name like '%' || #{s_tags} || '%'
 		AND
 		a.restaurant_num = b.restaurant_num)
+		AND 
+		certification = 1
 		</if>
 		</where>
 		</if>

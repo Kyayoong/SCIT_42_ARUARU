@@ -10,21 +10,22 @@
 
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+
 <style>
 
 </style>
 <script>
 $(document).ready(function() {
-	
-	$('#submitreplybtn').click(replyInsert);
+	let boardnum = document.getElementById('board_num').value;
 	init();
-	
 });
 
 function replyInsert() {
+	console.log("good");
 	let name = $('#member_id').val();
 	let text = $('#reply_contents').val();
-	let boardnum = $('#board_num').val();
+	let boardnum = document.getElementById('board_num').value;
+	
 	if(text=='' || text.length == 0) {
 		alert('댓글 내용을 입력하세요');
 		return;
@@ -36,9 +37,7 @@ function replyInsert() {
 		data : {board_num: boardnum, member_id:name, reply_contents:text},
 		success : function() {
 			alert('저장되었습니다.');
-			$('#member_id').val();
-			$('#reply_contents').val();
-			$('#board_num').val();
+			$('#reply_contents').val('');
 			init();
 		},
 		error: function() {
@@ -46,29 +45,58 @@ function replyInsert() {
 		}
 	})
 }
-
 function init() {
+	let boardnum = document.getElementById('board_num').value;
 	$.ajax({
 		url : 'replyList',
 		type : 'GET',
+		data : {board_num : boardnum},
 		dataType : 'json',
-		success : output
+		success : //output(list)
+					function(json){
+			output(json);
+		}
 	});
 }
 
-function output(msg) {
+function output(list) {
+	console.log(list.length);
 	var str = '';
-	$.each(msg, function(i, item) {
-		str = '<tr>';
-		str += '<th>' + item.member_id + '</th>';
-		str += '<td>' + item.reply_contents + '</td>;
-		str += '<td><input type="button" class="btn btn-primary" num="'+ item.reply_num +'"></td>';
+	for(let i = 0; i < list.length; i++) {
+		str += '<tr>';
+		str += '<td>' + list[i].member_id + '</td>';
+		str += '<td style="min-width:13rem;">' + list[i].reply_contents + '</td>';
+		str += '<td><input type="button" class="btnDel" onclick="replyDel('+ list[i].reply_num +')" value="삭제"></td>';
 		str += '</tr>';
+	}
+
+	//onclick="replyDel(' + list[i].reply_num + ')
+	$('#table2').html(str);
+	
+}
+
+
+function replyDel(reply_num) {
+	let boardnum = document.getElementById('board_num').value;
+	$.ajax({
+		url: 'replyDelete',
+		type : 'get',
+		data : {reply_num : reply_num},
+		success : function(cnt) {
+			if (cnt == 0) {
+				alert('삭제 실패');
+			} else {
+				alert('삭제되었습니다.');
+				init();
+			}
+		},
+		error:function() {
+			alert('삭제 실패');
+		}
 	});
 }
+
 </script>
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -191,10 +219,8 @@ function output(msg) {
 				
 				<div id="contents">
 					<div id="table-area1">
-						<h4 id="table-area1-caption">문의 사항 읽기</h4>
-						<form th:action="@{/mypage/submitWebBoard/}" th:method="post">		
+						<h4 id="table-area1-caption">문의 사항 읽기</h4>	
 						<table class="table table" id="table1">
-						
 						<tr >
 							<th>제목</th>
 							<td th:text=${board.board_title}></td>
@@ -222,16 +248,22 @@ function output(msg) {
 							</td>
 						</tr>
 						</table>		
-						</form>
-						<table class="table table-hover">
+						<table class="table table-hover" id="table2">
+						
+						
+						</table>
+						<table class="table table-hover" id="table3">
 						<tr>
-						<th th:text="${member.member_id}"><input type="hidden" id="member_id" th:value="${member.member_id}" name="member_id">
-						<input type="hidden" th:value="${board.board_num}" id="board_num" name="board_num"></th>
+						<th>
+						<span th:text="${member.member_id}"></span>
+						<input type="hidden" id="member_id" th:value="${member.member_id}" name="member_id">
+						<input type="hidden" th:value="${board.board_num}" id="board_num" name="board_num">
+						</th>
 						<td>
 						<textarea class="form-control" id="reply_contents" name="reply_contents"></textarea>
 						</td>
 						<td>
-						<input type="submit" class="btn btn-primary" id="submitreplybtn" value="등록">
+						<input type="submit" class="btn btn-primary" onclick="javascript:replyInsert()" id="submitreplybtn" value="등록">
 						</td>
 						</tr>
 						</table>

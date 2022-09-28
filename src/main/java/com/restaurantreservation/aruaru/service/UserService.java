@@ -7,6 +7,7 @@ import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
+import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.domain.tabletest;
 
 public interface UserService {
@@ -41,5 +42,13 @@ public interface UserService {
 	 * @return 이용내역 리스트
 	 */
 	public ArrayList<Usage_history> selectAllUsageHistory(String username);
+
+	public int insertReply(Web_reply r);
+
+	public List<Web_reply> readReply(int board_num);
+
+	public List<Web_reply> readReplyAll(int board_num);
+
+	public int replyDelete(int reply_num);
 
 }

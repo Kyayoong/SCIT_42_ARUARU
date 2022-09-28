@@ -3,6 +3,7 @@ package com.restaurantreservation.aruaru.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -30,9 +31,13 @@ public interface UserService {
 	public int insertBoard(Web_board b);
 
 	public Web_board readBoard(int board_num);
-	
+
+	// 예약내역 확인
+	public ArrayList<Reservation> seeAllReservation(String member_id);
+
 	/**
 	 * 특정 회원의 이용내역 불러오기
+	 * 
 	 * @param 찾을 회원의 id 정보
 	 * @return 이용내역 리스트
 	 */

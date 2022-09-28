@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -84,12 +85,20 @@ public class UserServiceImpl implements UserService {
 		Web_board b = dao.findBoard(board_num);
 		return b;
 	}
-	
-	//특정 회원의 이용 내역 불러오기
+
+	// 특정 회원의 이용 내역 불러오기
 	@Override
 	public ArrayList<Usage_history> selectAllUsageHistory(String username) {
 		ArrayList<Usage_history> list = dao.selectAllUsageHistory(username);
 		return list;
+	}
+
+
+	// 예약내역 확인하기
+	@Override
+	public ArrayList<Reservation> seeAllReservation(String member_id) {
+		ArrayList<Reservation> reservationlist = dao.seeAllReservation(member_id);
+		return reservationlist;
 	}
 
 	@Override

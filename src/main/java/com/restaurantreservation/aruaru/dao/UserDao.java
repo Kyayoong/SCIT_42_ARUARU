@@ -71,5 +71,4 @@ public interface UserDao {
 	 * @return 성공여부
 	 */
 	int insertReview(Review review);
-
 }

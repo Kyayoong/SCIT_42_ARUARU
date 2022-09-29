@@ -41,7 +41,6 @@ public interface UserService {
 
 	/**
 	 * 특정 회원의 이용내역 불러오기
-	 * 
 	 * @param 찾을 회원의 id 정보
 	 * @return 이용내역 리스트
 	 */

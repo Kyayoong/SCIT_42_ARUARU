@@ -203,7 +203,7 @@
 		, #{reply_contents}
 		)
 	</insert>
-	<select id="readReply" parameterType="Int"
+	<select id="readReply" parameterType="Int">
 		resultType="Web_reply">
 		SELECT
 		*
@@ -215,14 +215,6 @@
 		ORDER BY
 		reply_num
 	</select>
-	<delete id="replyDelete" parameterType="int">
-		DELETE
-		FROM
-		web_reply
-		where
-		reply_num
-		= #{reply_num}
-	</delete>
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board

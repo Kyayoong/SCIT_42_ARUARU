@@ -253,5 +253,3 @@
 		VALUES
 		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
 	</insert>
-
-</mapper>

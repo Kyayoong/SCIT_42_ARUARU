@@ -70,5 +70,11 @@ public interface UserService {
 
 	public int updateBoard(Web_board b);
 	
+	/**
+	 * 로그인 유저의 모든 리뷰 내역을 가져온다
+	 * @param username
+	 * @return review list
+	 */
+	public ArrayList<Review> selectAllReview(String username);
 
 }

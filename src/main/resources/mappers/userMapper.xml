@@ -215,7 +215,18 @@
 		ORDER BY
 		reply_num
 	</select>
+<<<<<<< HEAD
 	
+=======
+	<delete id="replyDelete" parameterType="int">
+		DELETE
+		FROM
+		web_reply
+		where
+		reply_num
+		= #{reply_num}
+	</delete>
+>>>>>>> aaa72104deb64f1b6b9a23ebca0e2e43a26d5d4e
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board
@@ -226,6 +237,7 @@
 	WHERE
 	board_num = #{board_num}
 	</update>
+
 
 
 	<!-- 이용내역 리스트 불러오기 -->
@@ -245,5 +257,3 @@
 		VALUES
 		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
 	</insert>
-
-</mapper>

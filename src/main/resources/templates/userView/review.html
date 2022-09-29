@@ -45,6 +45,15 @@
 		
 		//screen.height
 	}
+	
+	function changeReviewBtn(reservation_num){
+		console.log(reservation_num);
+		let input = '<input type="button" th:if="${usage.isReviewed} == 1" class="btn1 btn btn-outline-primary btn-sm"' +
+					'value="작성완료" disabled="disabled">';
+		
+		$('#reviewInsertBtn' + reservation_num).html(input);
+		
+	}
 </script>
 
 
@@ -162,7 +171,10 @@
 							<td th:text="${usage.reservation_num}">10029837</td>
 							<td th:text="${usage.restaurant_name}">용태식당</td>
 							<td th:text="${usage.usage_date}">2022.09.06</td>
-							<td><input type="button" class="btn1 btn btn-outline-primary btn-sm" value="작성" th:onclick="|openInsertReview(${usage.usage_num})|"></td>
+							<td th:id="|reviewInsertBtn${usage.reservation_num}|">
+								<input type="button" th:if="${usage.isReviewed} == 0" class="btn1 btn btn-outline-primary btn-sm" value="작성" th:onclick="|openInsertReview(${usage.usage_num})|">
+								<input type="button" th:if="${usage.isReviewed} == 1" class="btn1 btn btn-outline-primary btn-sm" value="작성완료" disabled="disabled">
+							</td>
 						</tr>
 					</table>
 				</div>

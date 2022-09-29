@@ -151,6 +151,11 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		int result = dao.deleteBoard(board_num);
 		return result;
+
+	public ArrayList<Review> selectAllReview(String username) {
+		ArrayList<Review> list = dao.selectAllReview(username);
+		return list;
+
 	}
 
 

@@ -185,6 +185,8 @@
 		member_id = #{member_id} AND
 		reservation_date &lt; SYSDATE
 	</select>
+
+
 	<select id="readReply" parameterType="Int"
 		resultType="Web_reply">
 		SELECT
@@ -197,6 +199,9 @@
 		ORDER BY
 		reply_num
 	</select>
+
+
+
 
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
@@ -235,4 +240,10 @@
 		board_num
 		= #{board_num}
 	</delete>
+
+
+	<!-- 유저아이디로 리뷰 리스트 가져오기 -->
+	<select id="selectAllReview" parameterType="String" resultType="Review">
+		SELECT * FROM REVIEW WHERE MEMBER_ID = #{username}
+	</select>
 </mapper>

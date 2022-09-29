@@ -387,27 +387,11 @@ public class MyPageController {
 	}
 
 	@ResponseBody
-	@PostMapping("replyInsert")
-	public String replyinsert(Web_reply r) {
-		log.debug("{}", r);
-		int result = service.insertReply(r);
-		return "redirect:/userView/inquiryRead";
-	}
-
-	@ResponseBody
 	@GetMapping("replyList")
 	public List<Web_reply> replyList(int board_num) {
 		log.debug("{}", board_num);
 		List<Web_reply> replyList = service.readReply(board_num);
 		return replyList;
-	}
-
-	@ResponseBody
-	@GetMapping("replyDelete")
-	public int replyDelete(int reply_num) {
-		log.debug("{}", reply_num);
-		int result = service.replyDelete(reply_num);
-		return result;
 	}
 
 	@GetMapping("inquiryupdate")
@@ -428,5 +412,13 @@ public class MyPageController {
 		log.debug("{}", b);
 		int result = service.updateBoard(b);
 		return "redirect:/userView/inquiryRead";
+	}
+	
+	@ResponseBody
+	@GetMapping("inquirydelete")
+	public String inquiryDelete(int board_num) {
+		log.debug("{}", board_num);
+		int result = service.deleteBoard(board_num);
+		return "redirect:/userView/inquiryBoard";
 	}
 }

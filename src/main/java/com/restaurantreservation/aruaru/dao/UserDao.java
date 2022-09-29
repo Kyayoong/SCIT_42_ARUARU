@@ -71,4 +71,11 @@ public interface UserDao {
 	 * @return 성공여부
 	 */
 	int insertReview(Review review);
+	
+	/**
+	 * 로그인 정보를 통해 해당 유저의 전체 리뷰 가져오기
+	 * @param username
+	 * @return 리뷰 리스트
+	 */
+	ArrayList<Review> selectAllReview(String username);
 }

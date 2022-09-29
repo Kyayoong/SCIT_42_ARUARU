@@ -253,4 +253,8 @@
 		VALUES
 		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
 	</insert>
+	<!-- 유저아이디로 리뷰 리스트 가져오기 -->
+	<select id="selectAllReview" parameterType="String" resultType="Review">
+		SELECT * FROM REVIEW WHERE MEMBER_ID = #{username}
+	</select>
 </mapper>

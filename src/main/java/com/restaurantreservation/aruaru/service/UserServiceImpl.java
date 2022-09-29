@@ -160,5 +160,11 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public ArrayList<Review> selectAllReview(String username) {
+		ArrayList<Review> list = dao.selectAllReview(username);
+		return list;
+	}
+
 
 }

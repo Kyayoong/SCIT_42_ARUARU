@@ -78,12 +78,25 @@ public class MyPageController {
 		
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
 		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
+		//해당 아이디의 리뷰리스트를 가져와 Usage_history에 해당 이용내역에 대한 리뷰가 있는지 여부 저장.
+		ArrayList<Review> reviewList = service.selectAllReview(user.getUsername());
+		log.debug("{}",reviewList);
+		for(int j = 0; j < usageList.size(); j++) {
+			for(int i = 0; i < reviewList.size(); i++) {
+				if(reviewList.get(i).getUsage_num() == usageList.get(j).getUsage_num()) {
+					usageList.get(j).setIsReviewed(1);
+					break;
+				}
+			}
+		}
+		
 		
 		model.addAttribute("member", member);
 		model.addAttribute("usageList", usageList);
 		
 		return "userView/review";
 	}
+	
 	//리뷰 입력창
 	@GetMapping("insertReview")
 	public String insertReview(int usageNum, Model model) {
@@ -93,19 +106,6 @@ public class MyPageController {
 		model.addAttribute("usage", usage);
 		return "userView/insertReview";
 	}
-	//리뷰입력 form
-//	@PostMapping("insertReview")
-//	public String insertReview(Review review) {
-//				
-//		String title = "아무 제목";
-//		review.setTitle(title);
-//		
-//		//새로운 리뷰 객체를 저장한다.
-//		int result = service.insertReview(review);
-//		
-//		
-//		return "redirect:/mypage/insertReview?usageNum=" + review.getUsage_num();
-//	}
 	
 	//리뷰입력 ajax
 	@ResponseBody
@@ -116,7 +116,6 @@ public class MyPageController {
 		
 		//새로운 리뷰 객체를 저장한다.
 		int result = service.insertReview(review);
-		
 		
 		return review;
 	}

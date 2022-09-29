@@ -215,9 +215,7 @@
 		ORDER BY
 		reply_num
 	</select>
-<<<<<<< HEAD
-	
-=======
+
 	<delete id="replyDelete" parameterType="int">
 		DELETE
 		FROM
@@ -226,7 +224,6 @@
 		reply_num
 		= #{reply_num}
 	</delete>
->>>>>>> aaa72104deb64f1b6b9a23ebca0e2e43a26d5d4e
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board

@@ -223,7 +223,6 @@
 		reply_num
 		= #{reply_num}
 	</delete>
-<<<<<<< HEAD
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board
@@ -234,7 +233,7 @@
 	WHERE
 	board_num = #{board_num}
 	</update>
-=======
+
 
 
 	<!-- 이용내역 리스트 불러오기 -->
@@ -255,5 +254,4 @@
 		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
 	</insert>
 
->>>>>>> 5525451b26977206d70e88923ad5a467617d02e8
 </mapper>

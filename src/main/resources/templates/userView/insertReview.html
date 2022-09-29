@@ -8,9 +8,9 @@
 	th:href="@{/css/kakaoMapCss/kakaoMapContents.css}">
 
 <!-- jQuery -->
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -40,17 +40,52 @@ let dataPoint = 0;
 	
 	//등록, 취소 버튼	
 	$(document).on('click', '#submitButton', function(){
-		alert(dataPoint);
 		$('#gradeObject').val(dataPoint);
 		let form = $('#writeReview');
-		form.submit();
+		//int grade,String member_id, int usage_num, int restaurant_num, String restaurant_name, String contents
+		let member_id = $('#member_id').val();
+		let usage_num = $('#usage_num').val();
+		let restaurant_num = $('#restaurant_num').val();
+		let contents = $('#contents').val();
+		let grade = dataPoint;
+		let title = " ";
 		
-		console.log(pointedId);
+		let reservation_num = document.getElementById('reservation_num').value;
+		
+		this.title = title;
+		this.contents = contents;
+		this.grade = grade;
+		//form.submit();
+		$.ajax({
+	        url: 'createReview',
+	        method: 'get',
+	        data: {member_id : member_id, 
+	        	   usage_num : usage_num, 
+	        	   title : title,
+	        	   restaurant_num : restaurant_num,
+	        	   contents : contents,
+	        	   grade : grade},
+	       	dataType: 'json',
+	        success: function(review){
+	        	
+	        	closeWindow(reservation_num);
+	        	//$('#contentsBox').html();
+	        },
+	        error: function(e){
+	        	alert(JSON.stringify(e));
+	        }
+	    })
+		
 	});
 	
-	$(document).on('click', '#cancelButton', function(){
+	 $(document).on('click', '#cancelButton', function(){
+		 window.close();
+	 });
+	
+	function closeWindow(reservation_num){
+		window.opener.changeReviewBtn(reservation_num);
 		window.close();
-	})
+	} 
 	
 	
 	//별 채워주고 html상에 표기하는 기능
@@ -98,7 +133,6 @@ let dataPoint = 0;
 	}
 	
 </script>
-
 <title>리뷰 입력 하기</title>
 </head>
 <body>
@@ -107,15 +141,17 @@ let dataPoint = 0;
 	<div class="border shadow rounded-sm m-2" style="font-family: Jua;">
 	<form action="insertReview" method="post" id="writeReview">
 		<input type="hidden" id="gradeObject" name="grade">
-		<input type="hidden" name="member_id" th:value="${usage.member_id}">
-		<input type="hidden" name="usage_num" th:value="${usage.usage_num}">
-		<input type="hidden" name="restaurant_num" th:value="${usage.restaurant_num}">
-		<input type="hidden" name="restaurant_name" th:value="${usage.restaurant_name}">
+		<input type="hidden" id="member_id" name="member_id" th:value="${usage.member_id}">
+		<input type="hidden" id="usage_num" name="usage_num" th:value="${usage.usage_num}">
+		<input type="hidden" id="restaurant_num" name="restaurant_num" th:value="${usage.restaurant_num}">
+		<input type="hidden" id="restaurant_name" name="restaurant_name" th:value="${usage.restaurant_name}">
+		<input type="hidden" id="reservation_num" name="restaurant_name" th:value="${usage.reservation_num}">
 		<div class="p-1" style="background: #afc9f6;">
 			<!-- 1. 가게이름 -->
 			<h1 class="h1 m-3 d-flex justify-content-center"><span th:text="${usage.restaurant_name}">용태식당</span></h1>
 			<!-- 2. 예약/방문일 -->
 			<p class="p1 d-flex justify-content-center"><span th:text="|방문일자 : ${usage.usage_date}|">이용일</span></p>
+			<p class="p1 d-flex justify-content-center"><span th:text="|예약번호 : ${usage.reservation_num}|">예약번호</span></p>
 		</div>
 		<!-- 3. 별점 -->
 		<div id="starPoint" class="d-flex justify-content-center m-3">
@@ -153,8 +189,8 @@ let dataPoint = 0;
 			</div> <span id="msg13"></span>
 		</div>
 		<!-- 5. 텍스트 -->
-		<div class="d-flex justify-content-center m-3">
-			<textarea name="contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+		<div class="d-flex justify-content-center m-3" id="contentsBox">
+			<textarea id="contents" name="contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
 		</div>
 		
 		<!-- 6. 사진 -->

@@ -78,10 +78,6 @@ public class MyPageController {
 		
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername()); 
 		//식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
-	
-		
-		log.debug("00000000000000000000000000{}", member);
-		log.debug("00000000000000000000000000{}", usageList);
 		
 		model.addAttribute("member", member);
 		model.addAttribute("usageList", usageList);
@@ -98,32 +94,31 @@ public class MyPageController {
 		return "userView/insertReview";
 	}
 	//리뷰입력 form
-	@PostMapping("insertReview")
-	public String insertReview(int grade,String member_id, int usage_num, int restaurant_num, String restaurant_name, String contents) {
-		log.debug("{}", grade);
-		log.debug(member_id);
-		log.debug("{}", usage_num);
-		log.debug("{}", restaurant_num);
-		log.debug(restaurant_name);
-		log.debug(contents);
-		
+//	@PostMapping("insertReview")
+//	public String insertReview(Review review) {
+//				
+//		String title = "아무 제목";
+//		review.setTitle(title);
+//		
+//		//새로운 리뷰 객체를 저장한다.
+//		int result = service.insertReview(review);
+//		
+//		
+//		return "redirect:/mypage/insertReview?usageNum=" + review.getUsage_num();
+//	}
+	
+	//리뷰입력 ajax
+	@ResponseBody
+	@GetMapping("createReview")
+	public Review insertReviewAjax(Review review) {
 		String title = "아무 제목";
-		
-		Review review = new Review(member_id, restaurant_num, usage_num, title, contents, grade);
+		review.setTitle(title);
 		
 		//새로운 리뷰 객체를 저장한다.
 		int result = service.insertReview(review);
 		
 		
-		return "redirect:/mypage/review";
-		
-//		int review_num;
-//	    String member_id;
-//	    int restaurant_num;								
-//	    int usage_num;
-//	    String title;
-//	    String contents;
-//	    int grade;
+		return review;
 	}
 	
 	

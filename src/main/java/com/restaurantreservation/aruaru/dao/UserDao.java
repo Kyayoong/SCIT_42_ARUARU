@@ -42,9 +42,7 @@ public interface UserDao {
 
 	int replyDelete(int reply_num);
 
-<<<<<<< HEAD
 	int updateBoard(Web_board b);
-=======
 
 	// 예약내역 확인
 	public ArrayList<Reservation> seeAllReservation(String member_id);
@@ -73,7 +71,4 @@ public interface UserDao {
 	 * @return 성공여부
 	 */
 	int insertReview(Review review);
-
-
->>>>>>> 5525451b26977206d70e88923ad5a467617d02e8
 }

@@ -54,13 +54,10 @@ public interface UserService {
 	 */
 	public Usage_history selectOneUsageHistory(int usageNum);
 
-	public int insertReply(Web_reply r);
-
 	public List<Web_reply> readReply(int board_num);
 
 	public List<Web_reply> readReplyAll(int board_num);
 
-	public int replyDelete(int reply_num);
 	
 	/**
 	 * 리뷰 객체를 저장한다.
@@ -70,5 +67,7 @@ public interface UserService {
 	public int insertReview(Review review);
 
 	public int updateBoard(Web_board b);
+
+	public int deleteBoard(int board_num);
 
 }

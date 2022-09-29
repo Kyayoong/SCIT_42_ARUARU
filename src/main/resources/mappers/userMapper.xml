@@ -185,24 +185,6 @@
 		member_id = #{member_id} AND
 		reservation_date &lt; SYSDATE
 	</select>
-
-	<insert id="insertReply" parameterType="Web_reply">
-		INSERT INTO
-		web_reply
-		(
-		reply_num
-		, board_num
-		, member_id
-		, reply_contents
-		)
-		VALUES
-		(
-		web_reply_seq.nextval
-		, #{board_num}
-		, #{member_id}
-		, #{reply_contents}
-		)
-	</insert>
 	<select id="readReply" parameterType="Int"
 		resultType="Web_reply">
 		SELECT
@@ -215,18 +197,7 @@
 		ORDER BY
 		reply_num
 	</select>
-<<<<<<< HEAD
-	
-=======
-	<delete id="replyDelete" parameterType="int">
-		DELETE
-		FROM
-		web_reply
-		where
-		reply_num
-		= #{reply_num}
-	</delete>
->>>>>>> aaa72104deb64f1b6b9a23ebca0e2e43a26d5d4e
+
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
 	web_board
@@ -257,3 +228,11 @@
 		VALUES
 		(REVIEW_SEQ.NEXTVAL, #{member_id}, #{restaurant_num}, #{usage_num}, #{title}, #{contents}, #{grade})
 	</insert>
+	<delete id="deleteBoard" parameterType="Int">
+		DELETE FROM 
+		Web_board
+		WHERE
+		board_num
+		= #{board_num}
+	</delete>
+</mapper>

@@ -374,13 +374,6 @@ public class MyPageController {
 		return "redirect:/mypage/inquiryboard";
 	}
 	
-	@ResponseBody
-	@PostMapping("replyInsert")
-	public String replyinsert(Web_reply r) {
-		log.debug("{}", r);
-		int result = service.insertReply(r);
-		return "redirect:/userView/inquiryRead";
-	}
 	
 	@ResponseBody
 	@GetMapping("replyList")
@@ -390,14 +383,7 @@ public class MyPageController {
 		return replyList ;
 	}
 	
-	@ResponseBody
-	@GetMapping("replyDelete")
-	public int replyDelete(int reply_num) {
-		log.debug("{}", reply_num);
-		int result = service.replyDelete(reply_num);
-		return result;
-	}
-	
+
 	@GetMapping("inquiryupdate")
 	public String inquiryupdate(int board_num,Model m,@AuthenticationPrincipal UserDetails user) {
 		if(user != null) {
@@ -416,5 +402,13 @@ public class MyPageController {
 		log.debug("{}", b);
 		int result = service.updateBoard(b);
 		return "redirect:/userView/inquiryRead";
+	}
+	
+	@ResponseBody
+	@GetMapping("inquirydelete")
+	public String inquiryDelete(int board_num) {
+		log.debug("{}", board_num);
+		int result = service.deleteBoard(board_num);
+		return "redirect:/userView/inquiryBoard";
 	}
 }

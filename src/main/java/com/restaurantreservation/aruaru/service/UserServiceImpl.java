@@ -118,13 +118,6 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public int insertReply(Web_reply r1) {
-		// TODO Auto-generated method stub
-		int result = dao.insertReply(r1);
-		return result;
-	}
-
-	@Override
 	public List<Web_reply> readReply(int board_num) {
 		// TODO Auto-generated method stub
 		List<Web_reply> replyList = dao.readReply(board_num);
@@ -136,13 +129,6 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		List<Web_reply> replyListAll = dao.readReply(board_num); 
 		return replyListAll;
-	}
-
-	@Override
-	public int replyDelete(int reply_num) {
-		// TODO Auto-generated method stub
-		int result = dao.replyDelete(reply_num);
-		return result;
 	}
 	
 	//리뷰 객체 저장하기.
@@ -157,6 +143,13 @@ public class UserServiceImpl implements UserService {
 	public int updateBoard(Web_board b) {
 		// TODO Auto-generated method stub
 		int result = dao.updateBoard(b);
+		return result;
+	}
+
+	@Override
+	public int deleteBoard(int board_num) {
+		// TODO Auto-generated method stub
+		int result = dao.deleteBoard(board_num);
 		return result;
 	}
 

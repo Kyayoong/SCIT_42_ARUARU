@@ -4,7 +4,7 @@
   'use strict'
 
   feather.replace()
-
+  let test= 1;
   // Graphs
   let ctx1 = document.getElementById('myChart1')
   let ctx2 = document.getElementById('myChart2')
@@ -29,7 +29,7 @@
           203,
           198,
           221,
-          241,
+          test,
         ],
         lineTension: 0,
         backgroundColor: 'transparent',

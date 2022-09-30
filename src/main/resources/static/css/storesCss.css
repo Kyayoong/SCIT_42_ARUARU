@@ -92,8 +92,18 @@
     	top : 14vh;
     	width : 90vw;
     	padding-left : 4vw;
+    	overflow-x : scroll;
     }
+    
+    ::-webkit-scrollbar {
+  	display: none;
+	}
       
+   	#map {
+   		position : absolute;
+   		right : 0;
+   		top:-7vh;
+   	}
     #organize {
     	position : absolute;
     	right : 3vw;

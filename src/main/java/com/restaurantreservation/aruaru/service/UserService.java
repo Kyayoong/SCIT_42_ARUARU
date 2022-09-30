@@ -41,7 +41,6 @@ public interface UserService {
 
 	/**
 	 * 특정 회원의 이용내역 불러오기
-	 * 
 	 * @param 찾을 회원의 id 정보
 	 * @return 이용내역 리스트
 	 */
@@ -54,13 +53,10 @@ public interface UserService {
 	 */
 	public Usage_history selectOneUsageHistory(int usageNum);
 
-	public int insertReply(Web_reply r);
-
 	public List<Web_reply> readReply(int board_num);
 
 	public List<Web_reply> readReplyAll(int board_num);
 
-	public int replyDelete(int reply_num);
 	
 	/**
 	 * 리뷰 객체를 저장한다.
@@ -70,5 +66,14 @@ public interface UserService {
 	public int insertReview(Review review);
 
 	public int updateBoard(Web_board b);
+	
+	/**
+	 * 로그인 유저의 모든 리뷰 내역을 가져온다
+	 * @param username
+	 * @return review list
+	 */
+	public ArrayList<Review> selectAllReview(String username);
+
+	public int deleteBoard(int board_num);
 
 }

@@ -93,11 +93,13 @@
 			</div>
 			<div id="mypage-right" class="col-sm-9">
 				<div id="profile-photo">
-					<img id="p-photo" th:src="|profile?member_num=${member.member_num}|"
+					<img id="p-photo"
+						th:src="|profile?member_num=${member.member_num}|"
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
-					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4. 호에에엥</h4>
+					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4.
+						호에에엥</h4>
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">
@@ -148,9 +150,11 @@
 							</tr>
 							<tr th:each="reservationlist : ${reservationlist}">
 								<td th:text="${reservationlist.restaurant_name}">성준식당</td>
-								<td th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|"></td>
+								<td
+									th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|"></td>
 								<td th:text="${reservationlist.reservation_people}">5</td>
-								<th>N</th>
+								<th th:if="${reservationlist.reservation_success} == 0">N</th>
+								<th th:if="${reservationlist.reservation_success} == 1">Y</th>
 							</tr>
 						</table>
 					</div>

@@ -36,15 +36,9 @@ public interface UserDao {
 
 	public Web_board findBoard(int board_num);
 
-	int insertReply(Web_reply r);
 
 	List<Web_reply> readReply(int board_num);
 
-	int replyDelete(int reply_num);
-
-<<<<<<< HEAD
-	int updateBoard(Web_board b);
-=======
 
 	// 예약내역 확인
 	public ArrayList<Reservation> seeAllReservation(String member_id);
@@ -74,6 +68,18 @@ public interface UserDao {
 	 */
 	int insertReview(Review review);
 
+	int deleteBoard(int board_num);
 
->>>>>>> 5525451b26977206d70e88923ad5a467617d02e8
+
+
+	
+	/**
+	 * 로그인 정보를 통해 해당 유저의 전체 리뷰 가져오기
+	 * @param username
+	 * @return 리뷰 리스트
+	 */
+	ArrayList<Review> selectAllReview(String username);
+
+	int updateBoard(Web_board b);
+
 }

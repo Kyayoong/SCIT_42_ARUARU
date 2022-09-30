@@ -169,7 +169,7 @@ CREATE TABLE review(
     grade NUMBER(1) DEFAULT 0,					--평점
     review_originalfile VARCHAR2(300),					--리뷰사진(오리지널)
     review_savedfile VARCHAR2(300),					--리뷰사진(저장)
-    review_suggestion NUMBER(10) DEFAULT 0				--리뷰추천
+    review_suggestion NUMBER(10) DEFAULT 0				
 );
 
 --리뷰 번호 시퀀스

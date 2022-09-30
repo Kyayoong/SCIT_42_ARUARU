@@ -142,30 +142,38 @@ $('.tag1').change(function(){
 		<!-- 회전화면 부분 -->
 		<div id="container2">
 		<table id="table1">
-			<tr>        
-						<td th:each="tag : ${tagList}">
-							<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
-								<input name="tags_name" 
-								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
-							>[[${tag.tags_name}]]</label>
-							</div>
-						</td>
-						<td>
-							<select id="organize">
-								<option value="1">평점순</option>
-								<option value="2">리뷰갯수순</option>
-								<option value="3">가까운순</option>
-							</select>
-						</td>
-					</tr>
+			<tr>
+				<td th:each="tag : ${tagList}">
+					<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
+						<input name="tags_name" 
+						th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
+					>[[${tag.tags_name}]]</label>
+					</div>
+				</td>
+
+				
+			</tr>
 
 		</table>
 		<hr>
 		</div>
+		<div id="empty" style="height:5vh;">
+		</div>
 		<!-- 랭킹 부분 -->
 		<div id="ranking" class="row">
-
+		
+			<table id="map">
+			<tr>
+			<td>
+					<select id="organize">
+						<option value="1">평점순</option>
+						<option value="2">리뷰갯수순</option>
+						<option value="3">가까운순</option>
+					</select>
+				</td>
+			</tr>
+			</table>
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 			<div class="col" th:each="rlist : ${resList}">
 				<a th:href="|introduce_store?restaurant_num=${rlist.restaurant_num}|">

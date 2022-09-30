@@ -80,4 +80,6 @@ public interface UserDao {
 	 */
 	ArrayList<Review> selectAllReview(String username);
 
+	int updateBoard(Web_board b);
+
 }

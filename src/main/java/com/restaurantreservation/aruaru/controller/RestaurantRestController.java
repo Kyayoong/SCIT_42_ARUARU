@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -44,6 +47,34 @@ public class RestaurantRestController {
 	
 	@Autowired
 	RestaurantService service;
+	
+	
+	@PostMapping("restCheck")
+	@ResponseBody
+	public int restCheck(@RequestParam String restaurant_name,@RequestParam String restaurant_sectors,
+			@RequestParam String restaurant_address1) {
+		log.debug("{}",restaurant_name);
+		log.debug("{}",restaurant_sectors);
+		log.debug("{}",restaurant_address1);
+		
+		
+		Map<String,String> map = new HashMap<>();
+		
+		map.put("restaurant_name", restaurant_name);
+		
+		map.put("restaurant_sectors", restaurant_sectors);
+		
+		map.put("restaurant_address1", restaurant_address1);
+		
+		
+		int result = service.restCheck(map);
+		if(result >= 1) {
+			return 1;
+		}
+		
+		return 0;
+	}
+	
 	
 	@PostMapping("insertmenu")
 	public void insertmenu(MultipartFile upload,Menu menu,@AuthenticationPrincipal UserDetails user) {

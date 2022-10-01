@@ -15,6 +15,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -186,6 +187,31 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Reservation> list = dao.ReservationList(restaurant_num);
 		
 		return list;
+	}
+	@Override
+	public int restCheck(Map<String, String> map) {
+		int result = dao.restCheck(map);
+		return result;
+	}
+	@Override
+	public Reservation reservationSelect(int reservation_num) {
+		Reservation rseult = dao.reservationSelect(reservation_num);
+		return rseult;
+	}
+	@Override
+	public int reservationUpdate(int reservation_num) {
+		int rseult = dao.reservationUpdate(reservation_num);
+		return rseult;
+	}
+	@Override
+	public int reservationDelete(int reservation_num) {
+		int result = dao.reservationDelete(reservation_num);
+		return result;
+	}
+	@Override
+	public int usageInsert(Usage_history usage) {
+		int result = dao.usageInsert(usage);
+		return result;
 	}
 	
 

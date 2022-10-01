@@ -377,4 +377,28 @@
 	,#{restaurant_name}
 	)
 	</insert>
+	
+	<insert id="zzimAdd" parameterType="Restaurant_zzim">
+	INSERT INTO
+	restaurant_zzim
+	(
+	member_num
+	,restaurant_num
+	)
+	VALUES
+	(
+	#{member_num}
+	,#{restaurant_num}
+	)
+	</insert>
+	
+	<delete id="zzimDelete" parameterType="int">
+	DELETE
+	FROM
+	restaurant_zzim
+	WHERE
+	restaurant_num = #{restaurant_num}
+	</delete>
+	
+	<select id=""></select>
 </mapper>

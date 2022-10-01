@@ -26,10 +26,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
-
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
@@ -256,7 +256,6 @@ public class MyPageController {
 	@PostMapping("myinfomodify")
 	public String myinfomodify(User_member member, @AuthenticationPrincipal UserDetails user, MultipartFile upload) {
 		log.debug("수정할 정보 : {}", member);
-
 		/*
 		 * User_member oldmember = null; String oldSavedfile = null; String savedfile =
 		 * null;
@@ -331,7 +330,22 @@ public class MyPageController {
 
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
-	public String rsetreview() {
+	public String rsetreview(Model model,@AuthenticationPrincipal UserDetails user) {
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+
+		
+		ArrayList<Tags> tagList = restaurantService.tagList("맛");
+		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
+		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
+		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
+		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
+		model.addAttribute("tagList",tagList);
+		model.addAttribute("tagList2",tagList2);
+		model.addAttribute("tagList3",tagList3);
+		model.addAttribute("tagList4",tagList4);
+		model.addAttribute("tagList5",tagList5);
+		model.addAttribute("member",member);
+		
 		return "/restaurantView/rsetreview";
 	}
 
@@ -415,4 +429,6 @@ public class MyPageController {
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
 	}
+	
+
 }

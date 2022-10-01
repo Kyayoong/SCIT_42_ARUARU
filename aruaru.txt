@@ -240,7 +240,7 @@ CREATE TABLE restaurant_file(
 CREATE SEQUENCE restaurant_file_seq;
 
 CREATE TABLE restaurant_zzim(
-	member_num VARCHAR2(100) ,		--회원 아이디
+	member_num NUMBER(10) ,		--회원 아이디
     restaurant_num NUMBER(10)         --식당번호
 );
 

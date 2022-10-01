@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Usage_history;
+import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
 
@@ -77,7 +79,7 @@ public class MyPageRestController {
 		int result =  service1.reservationDelete(reservation_num);
 		
 		log.debug("delete 결과 : {}",result);
-		
-		
 	}
+	
+
 }

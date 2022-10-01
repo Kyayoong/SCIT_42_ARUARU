@@ -8,6 +8,7 @@ import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -83,7 +84,6 @@ public interface RestaurantDao {
 	// 예약내역 확인
 	ArrayList<Reservation> ReservationList(int restaurant_num);
 
-
 	// 식당조회
 	int restCheck(Map<String,String> map);
 
@@ -98,4 +98,9 @@ public interface RestaurantDao {
 
 	// 이용내역 등록
 	int usageInsert(Usage_history usage);
+	
+	// 찜 추가
+	int zzimAdd(Restaurant_zzim zzim);
+	// 찜 삭제
+	int zzimDelete(int reservation_num);
 }

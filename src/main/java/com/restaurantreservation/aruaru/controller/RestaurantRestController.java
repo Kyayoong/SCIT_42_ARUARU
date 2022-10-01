@@ -25,8 +25,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Tags;
+import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
+import com.restaurantreservation.aruaru.service.UserService;
 import com.restaurantreservation.aruaru.util.FileService;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -43,7 +46,9 @@ public class RestaurantRestController {
 	
 	@Autowired
 	RestaurantService service;
-
+	
+	@Autowired
+	UserService service1;
 
 	@PostMapping("restCheck")
 	@ResponseBody
@@ -189,5 +194,6 @@ public class RestaurantRestController {
 		log.debug("삭제 결과 {}",result);
 		
 	}
+	
 	
 }

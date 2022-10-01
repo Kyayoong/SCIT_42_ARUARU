@@ -25,6 +25,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
+$(document).ready(function() {
+	
+	
+	$('.img001').click(function zzim1() {
+		
+		$.ajax({
+			url : 'zzimAdd',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+			},
+			success : function(cnt) {
+				
+			},
+			error : function() {
+			}
+		});
+	});
+	$('.img002').click(function zzim2() {
+		
+		$.ajax({
+			url : 'zzimDelete',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+			},
+			success : function(cnt) {
+			},
+			error : function() {
+			}
+		});
+	});
+		
+	});
+
 	$('.tag1').change(function() {
 		if ($('.tag1').is(":checked")) {
 			$.ajax({
@@ -48,33 +83,6 @@
 			});
 		}
 	});
-	function zzim1() {
-		$.ajax({
-			url : 'zzimAdd',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-			},
-			error : function() {
-			}
-		});
-	}
-
-	function zzim2() {
-		$.ajax({
-			url : 'zzimDelete',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-			},
-			error : function() {
-			}
-		});
-	}
 </script>
 <title>Document</title>
 </head>
@@ -222,13 +230,9 @@
 						<br>[[${rlist.restaurant_comment}]]
 					</p>
 				</div>
-				<div class="empty-area">
-					<a href="javascript:zzim1();"><img class="img001"
-						th:src="@{../images/heart111.png}" width=23 height=23
-						th:num="${rlist.restaurant_num}"></a> <a
-						href="javascript:zzim2();"><img class="img002"
-						th:src="@{../images/herat222.png}" width=23 height=23
-						th:num="${rlist.restaurant_num}"></a>
+				<div class="empty-area" id="img0001">
+					<a><img th:src="@{../images/heart111.png}" width=23 height=23 class="img001" th:num="${rlist.restaurant_num}"></a> 
+					<a><img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}"></a>
 				</div>
 			</div>
 			<div class="col">

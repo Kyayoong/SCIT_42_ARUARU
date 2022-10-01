@@ -165,17 +165,21 @@ public class PageRestController {
 		}
 	}
 	
+	
 	@ResponseBody
 	@GetMapping("zzimAdd")
-	public void zzimAdd(@RequestParam int restaurant_num,@AuthenticationPrincipal UserDetails user) {
-		User_member member = service1.selectUser(user.getUsername());
-		Restaurant_zzim zzim = null;
-		zzim.setMember_num(restaurant_num);
-		zzim.setRestaurant_num(member.getMember_num());
+	public void zzimAdd(@RequestParam int restaurant_num,@AuthenticationPrincipal UserDetails user,Restaurant_zzim zzim) {
 		
+		User_member member = service1.selectUser(user.getUsername());
+		log.debug("{}",member);
+		log.debug("{}",restaurant_num);
+		zzim.setMember_num(member.getMember_num());
+		zzim.setRestaurant_num(restaurant_num);
+		log.debug("{}",zzim);
 		int result = service.zzimAdd(zzim);
 		log.debug("{}",result);
 	}
+	
 	
 	@ResponseBody
 	@GetMapping("zzimDelete")
@@ -183,4 +187,5 @@ public class PageRestController {
 		int result = service.zzimDelete(restaurant_num);
 		log.debug("{}",result);
 	}
+	
 }

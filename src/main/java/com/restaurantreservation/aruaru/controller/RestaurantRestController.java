@@ -1,5 +1,4 @@
 package com.restaurantreservation.aruaru.controller;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -10,7 +9,6 @@ import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,9 +28,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.util.FileService;
-
 import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 @RequestMapping("restaurant")
 @Controller
@@ -47,8 +43,8 @@ public class RestaurantRestController {
 	
 	@Autowired
 	RestaurantService service;
-	
-	
+
+
 	@PostMapping("restCheck")
 	@ResponseBody
 	public int restCheck(@RequestParam String restaurant_name,@RequestParam String restaurant_sectors,
@@ -56,26 +52,26 @@ public class RestaurantRestController {
 		log.debug("{}",restaurant_name);
 		log.debug("{}",restaurant_sectors);
 		log.debug("{}",restaurant_address1);
-		
-		
+
+
 		Map<String,String> map = new HashMap<>();
-		
+
 		map.put("restaurant_name", restaurant_name);
-		
+
 		map.put("restaurant_sectors", restaurant_sectors);
-		
+
 		map.put("restaurant_address1", restaurant_address1);
-		
-		
+
+
 		int result = service.restCheck(map);
 		if(result >= 1) {
 			return 1;
 		}
-		
+
 		return 0;
 	}
-	
-	
+
+
 	@PostMapping("insertmenu")
 	public void insertmenu(MultipartFile upload,Menu menu,@AuthenticationPrincipal UserDetails user) {
 		log.debug("업로드 {}",upload);
@@ -147,7 +143,6 @@ public class RestaurantRestController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return "redirect:/";
 	}	
 	

@@ -2,149 +2,19 @@
 <html lang="ko" xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author"
-	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.101.0">
 <title>아루아루 식당관리페이지</title>
-<link rel="canonical"
-	href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
+<link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
 <!-- Bootstrap core CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
-<script type="text/javascript">
-$(document).ready(function() {
-		$("#select").hide();
-		$("#time1").hide();
-		$("#time2").hide();
-		$("#time3").hide();
-		
-});
-
-$(function() {
-	$('#hoilday').click(function(e) {
-		console.log("1");
-		$("#select").show(); // display 속성을 block 으로 바꾼다.
-		
-	});
-});
-
-$(function() {
-	$('#nohoilday').click(function(e) {
-		console.log("1");
-		$("#select").hide(); // display 속성을 none 으로 바꾼다. 
-	});
-});
-$(function() {
-	$('#timeselect1').click(function(e) {
-		console.log("1");
-		$("#time1").show();
-		$("#time2").hide();
-		$("#time3").hide();
-	});
-});
-$(function() {
-	$('#timeselect2').click(function(e) {
-		console.log("1");
-		$("#time1").hide();
-		$("#time2").show();
-		$("#time3").hide();
-	});
-});
-$(function() {
-	$('#timeselect3').click(function(e) {
-		console.log("1");
-		$("#time1").hide();
-		$("#time2").hide();
-		$("#time3").show();
-	});
-});
-
-
-
-function check() {
-	let restaurant_name = document.getElementById('restaurant_name');
-	let restaurant_sectors = document.getElementById('restaurant_sectors');
-	let restaurant_comment = document.getElementById('restaurant_comment');
-	let tag = document.getElementById('restaurant_name');
-	let restaurant_phone = document.getElementById('restaurant_phone');
-	let restaurant_phone1 = document.getElementById('restaurant_phone1');
-	let restaurant_phone2 = document.getElementById('restaurant_phone2');
-	let restaurant_address = document.getElementById('restaurant_address');
-	let restaurant_address1 = document
-			.getElementById('restaurant_address1');
-	let restaurant_address2 = document
-			.getElementById('restaurant_address2');
-
-	restaurant_phone.value = restaurant_phone1.value + "-"
-			+ restaurant_phone2.value;
-
-	if (restaurant_name.value.length < 1) {
-		alert("식당 이름을 입력하세요.");
-		restaurant_name.focus();
-		restaurant_name.select();
-		return false;
-	}
-
-	if (restaurant_ename.value.length < 1) {
-		alert("식당 이름(영어)을 입력하세요.");
-		restaurant_ename.focus();
-		restaurant_ename.select();
-		return false;
-	}
-
-	if (restaurant_comment.value.length < 1) {
-		alert("내용을 입력하세요.");
-		restaurant_comment.focus();
-		restaurant_comment.select();
-		return false;
-	}
-
-	if (restaurant_phone2.value.length < 8) {
-		alert("식당 번호를 입력하세요.");
-		restaurant_phone2.focus();
-		restaurant_phone2.select();
-		return false;
-	}
-
-	if (restaurant_address1.value.length < 1) {
-		alert("식당 주소를 입력하세요.");
-		restaurant_address1.focus();
-		restaurant_address1.select();
-		return false;
-	}
-
-	if (restaurant_address2.value.length < 1) {
-		alert("식당 상세주소를 입력하세요.");
-		restaurant_address2.focus();
-		restaurant_address2.select();
-		return false;
-	}
-	return true;
-}
-
-$(document).ready(function () {
-	$('input.timepicker').timepicker({
-            timeFormat: 'HH:mm',
-            interval: 30,
-            startTime: '00:00',
-            dynamic: false,
-            dropdown: true,
-            scrollbar: true
-        });
-    });
-</script>
 </head>
 <body>
-
-	<nav
-		class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
 		<a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" th:href="@{/}">AruAru</a>
 		<button class="navbar-toggler position-absolute d-md-none collapsed"
 			type="button" data-toggle="collapse" data-target="#sidebarMenu"
@@ -155,11 +25,9 @@ $(document).ready(function () {
 		<input class="form-control form-control-dark w-100" type="text"
 			placeholder="Search" aria-label="Search">
 		<ul class="navbar-nav px-3">
-			<li class="nav-item text-nowrap"><a class="nav-link"
-				th:href="@{/logout}">로그아웃</a></li>
+			<li class="nav-item text-nowrap"><a class="nav-link" th:href="@{/logout}">로그아웃</a></li>
 		</ul>
 	</nav>
-
 	<div class="container-fluid">
 		<div class="row">
 			<!-- 사이드 메뉴 -->
@@ -169,17 +37,17 @@ $(document).ready(function () {
 					<ul class="nav flex-column">
 						<!-- activate : 현재 활성화 된 창 (파란글씨) -->
 						<!-- dapa-feather : 메뉴명 옆의 아이콘 https://feathericons.com/에서 검색 후 이름 적용 -->
-						<li class="nav-item"><a class="nav-link active"
-							th:href="@{/mypage/restaurantMain}"> <span
-								data-feather="home"></span> 식당 마이페이지 <span class="sr-only">(current)</span>
+						<li class="nav-item"><a class="nav-link active" th:href="@{/mypage/restaurantMain}">
+								<span data-feather="home"></span> 식당 마이페이지 <span
+								class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/mypage/restaurantRTMemberMain}"> <span
+						<li class="nav-item"><a class="nav-link" th:href="@{/mypage/restaurantRTMemberMain}"> <span
 								data-feather="user"></span> 식당 관리
 						</a></li>
-						<li class="nav-item"><a class="nav-link"
-							th:href="@{/mypage/rsetreview}"> <span data-feather="users"></span>
-								식당 정보
+						<li class="nav-item"><a class="nav-link" th:href="@{/mypage/restaurantGNMemberMain}"> <span
+								data-feather="users"></span> 태그 동향
+						<li class="nav-item"><a class="nav-link" th:href="@{/mypage/rsetreview}"> <span
+								data-feather="users"></span> 식당 정보
 						</a></li>
 					</ul>
 					<h6
@@ -205,16 +73,17 @@ $(document).ready(function () {
 						</a></li>
 					</ul>
 					<!-- 홈페이지로 이동 -->
-					<span id="homebtn"> <a th:href="@{/}"> <span
-							data-feather="home" id="homeIcon"></span>HOME
-					</a>
+					<span id="homebtn">
+						<a th:href="@{/}">
+							<span data-feather="home" id="homeIcon"></span>HOME
+						</a>
 					</span>
 				</div>
 			</nav>
-
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">리뷰 관리</h1>
 					<h1 class="h2">정보 관리</h1>
 					<div class="btn-toolbar mb-2 mb-md-0">
 						<div class="btn-group mr-2">
@@ -227,553 +96,141 @@ $(document).ready(function () {
 						</button>
 					</div>
 				</div>
-				<table>
-					<tr>
-						<td><label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">식당 명을 입력해주세요.</label><br>
-							<input class="form-control" type="text" id="restaurant_name"
-							name="restaurant_name" style="width: 600px;"
-							placeholder="식당 이름을 입력하세요" th:value="${member.restaurant_name}"></td>
-					</tr>
-					<tr>
-						<td><label for="sectors"
-							style="font-family: IBM Plex Sans KR;">업종선택</label><br> <select
-							class="form-control" id="restaurant_sectors"
-							name="restaurant_sectors" th:vlaue="${member.restaurant_sectors}">
-								<option value="한식">한식(韓食)</option>
-								<option value="중식">중식(中食)</option>
-								<option value="일식">일식(和食)</option>
-								<option value="양식">양식(洋食)</option>
-								<option value="제과제빵">제과제빵(ベーキング)</option>
-								<option value="주점">주점(さかや)</option>
-								<option value="패스트푸드">패스트푸드(ファーストフード)</option>
-								<option value="분식">분식(粉物)</option>
-								<option value="아이스크림/빙수">아이스크림/빙수(アイスクリーム/かき氷)</option>
-								<option value="피자">피자(ピザ)</option>
-								<option value="음료">음료(飲み物)</option>
-								<option value="치킨">치킨(チキン)</option>
-								<option value="커피">커피(コーヒー)</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">업체
-								사진</label><br>
-							<div id='image_preview'>
-								<button class="btn btn-primary" id="btn-upload" type="button">
-									파일추가</button>
-								<input id="btnAtt" multiple="multiple" type="file"
-									accept="image/*" name="upload" style="display: none;">
-								<span style="font-family: IBM Plex Sans KR;">※첨부파일은 최대
-									3개까지 등록이 가능합니다.</span>
-								<div id='att_zone'
-									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
-							</div> <script type="text/javascript">
 
-							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-							imageView = function imageView(att_zone, btn){
+				<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+				<canvas class="my-4 w-100" id="myChart" width="900" height="180"></canvas>
 
-							var attZone = document.getElementById(att_zone);
-							var btnAtt = document.getElementById(btn)
-							var sel_files = [];
-									    
-									    // 이미지와 체크 박스를 감싸고 있는 div 속성
-									    var div_style = 'display:inline-block;position:relative;'
-									                  + 'width:150px;height:120px;margin:5px;border:1px solid #00f;z-index:1';
-									    // 미리보기 이미지 속성
-									    var img_style = 'width:100%;height:100%;z-index:none';
-									    // 이미지안에 표시되는 체크박스의 속성
-									    var chk_style = 'width:30px;height:30px;position:absolute;'
-									                  + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
-									  
-									    btnAtt.onchange = function(e){
-									      var files = e.target.files;
-									      var fileArr = Array.prototype.slice.call(files)
-									      for(f of fileArr){
-									        imageLoader(f);
-									      }
-									    }  
-									    
-									  
-									    // 탐색기에서 드래그앤 드롭 사용
-									    attZone.addEventListener('dragenter', function(e){
-									      e.preventDefault();
-									      e.stopPropagation();
-									    }, false)
-									    
-									    attZone.addEventListener('dragover', function(e){
-									      e.preventDefault();
-									      e.stopPropagation();
-									      
-									    }, false)
-									  
-									    attZone.addEventListener('drop', function(e){
-									      var files = {};
-									      e.preventDefault();
-									      e.stopPropagation();
-									      var dt = e.dataTransfer;
-									      files = dt.files;
-									      for(f of files){
-									        imageLoader(f);
-									      }
-									      
-									    }, false)
-									    
-
-									    
-									    /*첨부된 이미리즐을 배열에 넣고 미리보기 */
-									    imageLoader = function(file){
-									      sel_files.push(file);
-									      var reader = new FileReader();
-									      reader.onload = function(ee){
-									        let img = document.createElement('img')
-									        img.setAttribute('style', img_style)
-									        img.src = ee.target.result;
-									        attZone.appendChild(makeDiv(img, file));
-									      }
-									      
-									      reader.readAsDataURL(file);
-									    }
-									    
-									    /*첨부된 파일이 있는 경우 checkbox와 함께 attZone에 추가할 div를 만들어 반환 */
-									    makeDiv = function(img, file){
-									      var div = document.createElement('div')
-									      div.setAttribute('style', div_style)
-									      
-									      var btn = document.createElement('input')
-									      btn.setAttribute('type', 'button')
-									      btn.setAttribute('value', 'x')
-									      btn.setAttribute('delFile', file.name);
-									      btn.setAttribute('style', chk_style);
-									      btn.onclick = function(ev){
-									        var ele = ev.srcElement;
-									        var delFile = ele.getAttribute('delFile');
-									        for(var i=0 ;i<sel_files.length; i++){
-									          if(delFile== sel_files[i].name){
-									            sel_files.splice(i, 1);      
-									          }
-									        }
-									        
-									        dt = new DataTransfer();
-									        for(f in sel_files) {
-									          var file = sel_files[f];
-									          dt.items.add(file);
-									        }
-									        btnAtt.files = dt.files;
-									        var p = ele.parentNode;
-									        attZone.removeChild(p)
-									      }
-									      div.appendChild(img)
-									      div.appendChild(btn)
-									      return div
-									    }
-									  }
-									)('att_zone', 'btnAtt')
-
-							</script>
-						<td>
-					</tr>
-
-					<tr>
-						<td class="contents"><label for="contents"
-							style="font-family: IBM Plex Sans KR;">업체 설명</label> <br> <textarea
-								placeholder="우리 업체를 고객들에게 상세히 설명해주세요." class="form-control"
-								rows="3" cols="50" name="restaurant_comment"
-								id="restaurant_comment">[[${member.restaurant_comment}]]</textarea></td>
-					</tr>
-					<tr>
-						<td><label for="restaurant_phone"
-							style="font-family: IBM Plex Sans KR;">전화번호를 입력해주세요.</label><br>
-							<div id="form-phone2">
-								<input class="form-control" style="width: 500px;" type="text"
-									id="restaurant_phone" name="restaurant_phone"
-									placeholder="식당 번호 입력(-포함)"
-									th:value="${member.restaurant_phone}">
-							</div></td>
-					</tr>
-					<tr>
-						<td><label for="restaurant_address1"
-							style="font-family: IBM Plex Sans KR;">주소</label><br> <input
-							class="form-control" type="text" id="restaurant_address1"
-							name="restaurant_address1" placeholder="주소를 입력해 주세요"
-							style="width: 350px;" readonly="readonly"
-							th:value="${member.restaurant_address1}">
-							<div id="addressCheckButton">
-								<input style="width: 7vw;" class="form-control" type="button"
-									onclick="sample5_execDaumPostcode()" value="주소 검색">
-							</div>
-							<div id="detailAddress">
-								<input class="form-control" type="text" id="restaurant_address2"
-									name="restaurant_address2" placeholder="상세주소"
-									style="width: 500px;" th:value="${member.restaurant_address2}">
-							</div>
-							<div id="wrap"
-								style="display: none; border: 1px solid; width: 500px; height: 300px; margin: 5px 0; position: relative">
-								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
-									id="btnFoldWrap"
-									style="cursor: pointer; position: absolute; right: 0px; top: -1px; z-index: 1"
-									onclick="foldDaumPostcode()" alt="접기 버튼">
-							</div> <script
-								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-							<script>
-								function sample5_execDaumPostcode() {
-									new daum.Postcode(
-											{
-												oncomplete : function(data) {
-													var addr = data.address; // 최종 주소 변수
-
-													// 주소 정보를 해당 필드에 넣는다.
-													document.getElementById("restaurant_address1").value = addr;
-												}
-											}).open();
-								}
-							</script></td>
-					</tr>
-					<tr>
-						<td><label for="menu_priceavr"
-							style="font-family: IBM Plex Sans KR;">1인당 평균 가격은 얼마정도
-								인가요?</label><br> <select class="form-control" id="menu_priceavr"
-							name="menu_priceavr">
-								<option value="1만원 미만">1만원 미만</option>
-								<option value="1~1.5만원">1~1.5만원</option>
-								<option value="1.5만원">1.5만원</option>
-								<option value="1.5~2만원">1.5~2만원</option>
-								<option value="2~3만원">2~3만원</option>
-								<option value="3~5만원">3~5만원</option>
-								<option value="5만원 이상">5만원 이상</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td style="width: 600px;"><label for="tag1">태그</label><br>
-							<label for="tag1" th:text="${tagList[0].tags_sector}"></label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary"
-									th:for="${tag.tags_num}" th:each="tag : ${tagList}"><input
-									name="tags_name" th:value="${tag.tags_name}" type="checkbox"
-									th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
-							</div> <br> <label for="tag1" th:text="${tagList2[0].tags_sector}"></label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary"
-									th:for="${tag.tags_num}" th:each="tag : ${tagList2}"><input
-									name="tags_name" th:value="${tag.tags_name}" type="checkbox"
-									th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
-							</div> <br> <label for="tag1" th:text="${tagList3[0].tags_sector}"></label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary"
-									th:for="${tag.tags_num}" th:each="tag : ${tagList3}"><input
-									name="tags_name" th:value="${tag.tags_name}" type="checkbox"
-									th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
-							</div> <br> <label for="tag1" th:text="${tagList4[0].tags_sector}"></label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary"
-									th:for="${tag.tags_num}" th:each="tag : ${tagList4}"><input
-									name="tags_name" th:value="${tag.tags_name}" type="checkbox"
-									th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
-							</div> <br> <label for="tag1" th:text="${tagList5[0].tags_sector}"></label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<label class="btn btn-outline-secondary"
-									th:for="${tag.tags_num}" th:each="tag : ${tagList5}"><input
-									name="tags_name" th:value="${tag.tags_name}" type="checkbox"
-									th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
-							</div> <br></td>
-					</tr>
-					<tr>
-						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">메뉴를
-								추가해주세요.</label> <span style="font-family: IBM Plex Sans KR;">※(필수)</span>
-							<br>
-							<button class="btn btn-primary" id="btn1" type="button"
-								style="width: 600px">메뉴추가</button> <input id="btn-modal"
-							type="button" style="display: none;">
-							<div></div></td>
-					</tr>
-					<tr>
-						<tr>
-						<td><label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">휴무일 여부</label><br>
-						<div class="btn-group-toggle" data-toggle="buttons">
-						<label class="btn btn-outline-secondary" for="hoilday"
-									style="width: 300px; height:50px; font-size:25px;"><input
-									name="tags_name" value="hoilday" type="radio" id="hoilday"
-									class="tag1">휴무가 있어요.</label>
-						<label class="btn btn-outline-secondary" for="nohoilday"
-									style="width: 300px; height:50px; font-size:25px;"><input
-									name="tags_name" value="nohoilday" type="radio" id="nohoilday"
-									class="tag1">휴무가 없어요.</label>
-						</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div id="select">
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">정기 휴무일이 있나요??</label><br>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">매달</label><br>
-								<div class="btn-group-toggle" data-toggle="buttons">
-									<label class="btn btn-outline-secondary" for="w1"><input
-										name="w1" type="checkbox" id="w1" class="tag1" value="-1">첫째주</label>
-									<label class="btn btn-outline-secondary" for="w2"><input
-										name="w2" type="checkbox" id="w2" class="tag1" value="6">둘째주</label>
-									<label class="btn btn-outline-secondary" for="w3"><input
-										name="w3" type="checkbox" id="w3" class="tag1" value="13">셋째주</label>
-									<label class="btn btn-outline-secondary" for="w4"><input
-										name="w4" type="checkbox" id="w4" class="tag1" value="19">넷째주</label>
-								</div>
-								<div class="btn-group-toggle" data-toggle="buttons">
-									<label class="btn btn-outline-secondary" for="d1"><input
-										name="d1" type="checkbox" id="d1" class="tag1" value="월요일">월요일</label>
-									<label class="btn btn-outline-secondary" for="d2"><input
-										name="d2" type="checkbox" id="d2" class="tag1" value="화요일">화요일</label>
-									<label class="btn btn-outline-secondary" for="d3"><input
-										name="d3" type="checkbox" id="d3" class="tag1" value="수요일">수요일</label>
-									<label class="btn btn-outline-secondary" for="d4"><input
-										name="d4" type="checkbox" id="d4" class="tag1" value="목요일">목요일</label>
-									<label class="btn btn-outline-secondary" for="d5"><input
-										name="d5" type="checkbox" id="d5" class="tag1" value="금요일">금요일</label>
-									<label class="btn btn-outline-secondary" for="d6"><input
-										name="d6" type="checkbox" id="d6" class="tag1" value="토요일">토요일</label>
-									<label class="btn btn-outline-secondary" for="d7"><input
-										name="d7" type="checkbox" id="d7" class="tag1" value="일요일">일요일</label>
-								</div>
-								<br> <label for="" style="font-family: IBM Plex Sans KR;">공휴일중에
-									쉬는 날이 있나요??</label><br>
-								<div class="btn-group-toggle" data-toggle="buttons">
-									<label class="btn btn-outline-secondary"
-										th:for="${holiday.holidays_num}" th:each="holiday : ${hList}"><input
-										name="holidays" th:value="${holiday.holidays}" type="checkbox"
-										th:id="${holiday.holidays_num}"
-										th:num="${holiday.holidays_num}" class="tag1">[[${holiday.holidays}]]</label>
-								</div>
-							</div></td>
-					</tr>
-					
-					<tr>
-						<td>
-						<label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">영업시간 여부</label><br>
-						<div class="btn-group-toggle" data-toggle="buttons">
-						<label class="btn btn-outline-secondary" for="timeselect1"
-									style="width: 200px; height:45px; font-size:20px;"><input
-									name="tags_name" value="timeselect1" type="radio"
-									id="timeselect1" class="tag1">모든 요일 같아요</label>
-						<label class="btn btn-outline-secondary" for="timeselect2"
-									style="width: 200px; height:45px; font-size:20px;"><input
-									name="tags_name" value="timeselect2" type="radio"
-									id="timeselect2" class="tag1">평일 주말 달라요.</label>
-						<label class="btn btn-outline-secondary" for="timeselect3"
-									style="width: 200px; height:45px; font-size:20px;"><input
-									name="tags_name" value="timeselect3" type="radio"
-									id="timeselect3" class="tag1">요일마다 달라요.</label>
-						</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						<br>
-						<div id="time1">
-						<hr>
-						<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">영업시간</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
-							<div>
-								<input type="text" value="00:00" name="breaktime_start"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="00:00" name="breaktime_end"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-							</div>
-						</div>
-						<div id="time2">
-						<hr>
-						<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;font-size:1.5em;">평일(월~금)</label><br>
-						<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">영업시간</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
-							<div>
-								<input type="text" value="00:00" name="breaktime_start"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="00:00" name="breaktime_end"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-							</div>
-							<br>
-							<hr>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;font-size:1.5em;">주말</label><br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">영업시간</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
-							<div>
-								<input type="text" value="00:00" name="breaktime_start"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="00:00" name="breaktime_end"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-							</div>
-						</div>
-						<div id="time3">
-						<hr>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">영업시간</label><br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">월요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">화요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">수요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">목요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">금요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">토요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-								<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">일요일</label><br>
-							<div class="btn-group-toggle" data-toggle="buttons">
-								<input type="text" value="10:00" name="opentime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="22:00" name="closetime"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>영업시간을 설정해주세요</span>
-							</div>
-							<hr>
-							<br>
-							<label for="restaurant_name"
-									style="font-family: IBM Plex Sans KR;">휴게 시간(필수아님)</label><br>
-							<div>
-								<input type="text" value="00:00" name="breaktime_start"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-								<span>~</span>
-								<input type="text" value="00:00" name="breaktime_end"
-										class="timepicker"
-										style="font-family: IBM Plex Sans KR;width:100px;font-size:20px;">
-							</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p></p>
-						</td>
-					</tr>
-				</table>
+				<h2>Section title</h2>
+				<div class="table-responsive">
+					<table class="table table-striped table-sm">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Header</th>
+								<th>Header</th>
+								<th>Header</th>
+								<th>Header</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1,001</td>
+								<td>random</td>
+								<td>data</td>
+								<td>placeholder</td>
+								<td>text</td>
+							</tr>
+							<tr>
+								<td>1,002</td>
+								<td>placeholder</td>
+								<td>irrelevant</td>
+								<td>visual</td>
+								<td>layout</td>
+							</tr>
+							<tr>
+								<td>1,003</td>
+								<td>data</td>
+								<td>rich</td>
+								<td>dashboard</td>
+								<td>tabular</td>
+							</tr>
+							<tr>
+								<td>1,003</td>
+								<td>information</td>
+								<td>placeholder</td>
+								<td>illustrative</td>
+								<td>data</td>
+							</tr>
+							<tr>
+								<td>1,004</td>
+								<td>text</td>
+								<td>random</td>
+								<td>layout</td>
+								<td>dashboard</td>
+							</tr>
+							<tr>
+								<td>1,005</td>
+								<td>dashboard</td>
+								<td>irrelevant</td>
+								<td>text</td>
+								<td>placeholder</td>
+							</tr>
+							<tr>
+								<td>1,006</td>
+								<td>dashboard</td>
+								<td>illustrative</td>
+								<td>rich</td>
+								<td>data</td>
+							</tr>
+							<tr>
+								<td>1,007</td>
+								<td>placeholder</td>
+								<td>tabular</td>
+								<td>information</td>
+								<td>irrelevant</td>
+							</tr>
+							<tr>
+								<td>1,008</td>
+								<td>random</td>
+								<td>data</td>
+								<td>placeholder</td>
+								<td>text</td>
+							</tr>
+							<tr>
+								<td>1,009</td>
+								<td>placeholder</td>
+								<td>irrelevant</td>
+								<td>visual</td>
+								<td>layout</td>
+							</tr>
+							<tr>
+								<td>1,010</td>
+								<td>data</td>
+								<td>rich</td>
+								<td>dashboard</td>
+								<td>tabular</td>
+							</tr>
+							<tr>
+								<td>1,011</td>
+								<td>information</td>
+								<td>placeholder</td>
+								<td>illustrative</td>
+								<td>data</td>
+							</tr>
+							<tr>
+								<td>1,012</td>
+								<td>text</td>
+								<td>placeholder</td>
+								<td>layout</td>
+								<td>dashboard</td>
+							</tr>
+							<tr>
+								<td>1,013</td>
+								<td>dashboard</td>
+								<td>irrelevant</td>
+								<td>text</td>
+								<td>visual</td>
+							</tr>
+							<tr>
+								<td>1,014</td>
+								<td>dashboard</td>
+								<td>illustrative</td>
+								<td>rich</td>
+								<td>data</td>
+							</tr>
+							<tr>
+								<td>1,015</td>
+								<td>random</td>
+								<td>tabular</td>
+								<td>information</td>
+								<td>text</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</main>
 		</div>
 	</div>
-
-
 	<!-- 창 입장시, 비로그인일 때, 로그인창 -->
 	<!-- <script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -781,7 +238,6 @@ $(document).ready(function () {
 		crossorigin="anonymous"></script>
 	<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
-
 	
 	<!-- 아이콘 https://feathericons.com/에서 검색하여 사용 -->
 	<script

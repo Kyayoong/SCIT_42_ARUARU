@@ -9,6 +9,7 @@ import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -97,4 +98,10 @@ public interface RestaurantService {
 	
 	// 이용내역 등록
 	public int usageInsert(Usage_history usage);
+	
+	// 찜 하기
+	public int zzimAdd(Restaurant_zzim zzim);
+	
+	// 찜 빼기
+	public int zzimDelete(int restaurant_num);
 }

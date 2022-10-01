@@ -14,6 +14,7 @@ import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -68,31 +69,24 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Restaurant_member> resList = dao.resList();
 		return resList;
 	}
-
-
 	// 메뉴 저장하기
 	@Override
 	public int insertmenu(Menu menu) {
 		int result = dao.insertmenu(menu);
 		return result;
 	}
-
 	// 메뉴 전체 조회
 	@Override
 	public ArrayList<Menu> menucheck(int Restaurant_num) {
-
 		ArrayList<Menu> list = dao.menucheck(Restaurant_num);
-
 		return list;
 	}
-
 	// 메뉴 조회
 	@Override
 	public Menu readMenu(int menu_num) {
 		Menu menu = dao.readMenu(menu_num);
 		return menu;
 	}
-
 	// 메뉴 삭제
 	@Override
 	public int menuDel(int menu_num) {
@@ -106,7 +100,6 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.Rupdate(member);
 		return result;
 	}
-
 	// 태그리스트
 	@Override
 	public ArrayList<Tags> tagList(String tags_sector) {
@@ -120,21 +113,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 		Tags tag = dao.tagRead(tags_num);
 		return tag;
 	}
-
 	// 태그 저장
 	@Override
 	public int tagInsert(Tags tag) {
 		int result = dao.tagInsert(tag);
 		return result;
 	}
-
 	// 태그 삭제
 	@Override
 	public int tagDelete(Tags tag) {
 		int result = dao.tagDelete(tag);
 		return result;
 	}
-	
 	//휴무일
 	@Override
 	public ArrayList<Holiday> readHoliday() {
@@ -144,14 +134,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 	//영업일가져오기
 	@Override
 	public ArrayList<Restaurant_time>searchTime(int restaurant_num) {
-		// TODO Auto-generated method stub
 		ArrayList<Restaurant_time> timeTable = dao.readTime(restaurant_num);
 		return timeTable;
 	}
 	//가게태그가져오기
 	@Override
 	public ArrayList<Tags> searchStoreTags(int restaurant_num) {
-		// TODO Auto-generated method stub
 		ArrayList<Tags> storeTags = dao.searchStoreTags(restaurant_num);
 		return storeTags;
 	}
@@ -213,6 +201,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.usageInsert(usage);
 		return result;
 	}
-	
-
+	@Override
+	public int zzimAdd(Restaurant_zzim zzim) {
+		int result = dao.zzimAdd(zzim);
+		return result;
+	}
+	@Override
+	public int zzimDelete(int restaurant_num) {
+		int result = dao.zzimDelete(restaurant_num);
+		return result;
+	}
 }

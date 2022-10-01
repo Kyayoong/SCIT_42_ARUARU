@@ -380,6 +380,12 @@ function numCheck(){
 								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
 							</div>
 							<br>
+							<label for="tag1" th:text="${tagList6[0].tags_sector}"></label><br>
+							<div class="btn-group-toggle" data-toggle="buttons">
+								<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList6}"><input name="tags_name" 
+								th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+							</div>
+							<br>
 							</td>
 					</tr>
 					<tr>

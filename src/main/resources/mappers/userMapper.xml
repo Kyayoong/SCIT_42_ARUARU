@@ -24,6 +24,10 @@
 			, member_originalfile
 			, member_savedfile
 		</if>
+		<if test="member_originalfile == null and member_savedfile == null">
+			, member_originalfile
+			, member_savedfile
+		</if>
 		)
 		VALUES
 		(user_member_seq.nextval
@@ -44,6 +48,10 @@
 		<if test="member_originalfile != null and member_savedfile != null">
 			, #{member_originalfile}
 			, #{member_savedfile}
+		</if>
+		<if test="member_originalfile == null and member_savedfile == null">
+			, 'user_icon.png' 
+			, 'user_icon.png'
 		</if>
 		)
 	</insert>

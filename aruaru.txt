@@ -148,7 +148,7 @@ CREATE SEQUENCE reservation_seq;
 --이용내역 테이블
 CREATE TABLE usage_history(
     usage_num NUMBER(10) PRIMARY KEY,				--이용내역 번호
-    reservation_num NUMBER(10) REFERENCES reservation(reservation_num), --예약내역 번호
+    reservation_num NUMBER(10) REFERENCES reservation(reservation_num) ON DELETE CASCADE, --예약내역 번호
     usage_date DATE DEFAULT SYSDATE,				--이용내역 날짜
     usage_information VARCHAR2(2000) NOT NULL,			--이용 정보
     member_id VARCHAR2(100) REFERENCES user_member(member_id),	--회원 아이디

@@ -328,7 +328,60 @@
 		reservation
 		WHERE
 		restaurant_num = #{restaurant_num}
+		and
+		reservation_success = 0
 		ORDER BY
 		reservation_num DESC
 	</select>
+	
+	<select id="restCheck" parameterType="map" resultType="int">
+	SELECT
+	COUNT(*)
+	FROM
+	restaurant_member
+	WHERE
+	restaurant_name = #{restaurant_name} AND restaurant_address1 = #{restaurant_address1}
+	</select>
+	
+	<select id="reservationSelect" parameterType="int" resultType="Reservation">
+	SELECT
+	*
+	FROM
+	reservation
+	WHERE
+	reservation_num = #{reservation_num}
+	</select>
+	<update id="reservationUpdate" parameterType="int">
+	UPDATE
+	reservation
+	SET
+	reservation_success = 1
+	WHERE
+	reservation_num = #{reservation_num}
+	</update>
+	<delete id="reservationDelete" parameterType="int">
+	DELETE
+	FROM
+	reservation
+	WHERE
+	reservation_num = #{reservation_num}
+	</delete>
+	<insert id="usageInsert" parameterType="Usage_history">
+	INSERT INTO
+	usage_history
+	(usage_num
+	,reservation_num
+	,usage_information
+	,member_id
+	,restaurant_num
+	,restaurant_name)
+	VALUES
+	(usage_history_seq.nextval
+	,#{reservation_num}
+	,#{usage_information}
+	,#{member_id}
+	,#{restaurant_num}
+	,#{restaurant_name}
+	)
+	</insert>
 </mapper>

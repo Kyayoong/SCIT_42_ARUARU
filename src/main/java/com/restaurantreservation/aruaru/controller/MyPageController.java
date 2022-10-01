@@ -323,13 +323,7 @@ public class MyPageController {
 
 	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
-		
-		Restaurant_member member = restaurantService.selectOne(user.getUsername());
-		ArrayList<Reservation> reservationList = restaurantService.ReservationList(member.getRestaurant_num());
-		log.debug("{}", reservationList);
-
-		model.addAttribute("reservationList", reservationList);
+	public String restaurantRTMemberMain() {
 
 		return "/restaurantView/restaurantRTMemberMain";
 

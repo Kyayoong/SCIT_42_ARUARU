@@ -10,6 +10,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 
 public interface RestaurantService {
 	
@@ -81,4 +82,19 @@ public interface RestaurantService {
 	
 	//예약내역조회
 	public ArrayList<Reservation> ReservationList(int restaurant_num);
+	
+	//식당조회
+	public int restCheck(Map<String,String> map);
+	
+	// 예약조회 하나
+	public Reservation reservationSelect(int reservation_num);
+	
+	// 예약 업데이트
+	public int reservationUpdate(int reservation_num);
+	
+	// 예약 삭제
+	public int reservationDelete(int reservation_num);
+	
+	// 이용내역 등록
+	public int usageInsert(Usage_history usage);
 }

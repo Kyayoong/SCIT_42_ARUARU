@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.restaurantreservation.aruaru.domain.Admin_Graphs;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.AdminService;
+import com.restaurantreservation.aruaru.service.HomeService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,9 +27,27 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class AdminController {
 	@Autowired AdminService service;
+	@Autowired HomeService homeService;
 	
 	@GetMapping("main")
-	public String main() {
+	public String main(Model model) {
+		//리뷰 개수, 일일 방문자 수를 가져온다.(오늘 = 0, 어제 = -1 ... -4까지
+		Admin_Graphs graphData1 = homeService.selectData(0);
+		Admin_Graphs graphData2 = homeService.selectData(-1);
+		Admin_Graphs graphData3 = homeService.selectData(-2);
+		Admin_Graphs graphData4 = homeService.selectData(-3);
+		Admin_Graphs graphData5 = homeService.selectData(-4);
+		log.debug("{}", graphData1);
+		log.debug("{}", graphData2);
+		log.debug("{}", graphData3);
+		log.debug("{}", graphData4);
+		log.debug("{}", graphData5);		
+		
+		//리뷰개수 = 리뷰 테이블의 해당 날짜인 거 모두 카운트
+		
+		
+		
+		
 		return "/adminView/adminMain";
 	}
 	

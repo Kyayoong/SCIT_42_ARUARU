@@ -18,10 +18,9 @@
 			, dates
 			, users_cnt
 			, restaurant_cnt
-			, allreview_cnt
 			, visit_cnt
 		) 
-		values (date_id_seq.nextval, to_char(sysdate, 'yy/mm/dd'), 0, 0, 0, 0)
+		values (date_id_seq.nextval, to_char(sysdate, 'yy/mm/dd'), 0, 0, 0)
 	</insert>
 	
 	<!-- 금일의 추이데이터 저장값 + (객체에 +될 변수들에만 1 저장) -->
@@ -31,10 +30,22 @@
 		SET
 			users_cnt = users_cnt + #{users_cnt},
 			restaurant_cnt = restaurant_cnt + #{restaurant_cnt},
-			allreview_cnt = allreview_cnt + #{allreview_cnt},
 			visit_cnt = visit_cnt + #{visit_cnt}
 		WHERE
 			dates = to_char(sysdate, 'yy/mm/dd')
 	</update>
 	
+	<!-- 그래프 그리기에 필요한 데이터 가져오기 -->
+	<select id="selectData" parameterType="int" resultType="Admin_Graphs">
+		SELECT * 
+		FROM ADMIN_GRAPHS 
+		WHERE TO_CHAR(DATES, 'YY/MM/DD') = TO_CHAR(SYSDATE - #{date}, 'YY/MM/DD')
+	</select>
+	
+	<!-- 특정 날짜의 사이트 전체 리뷰 등록 수를 가져온다 -->
+	<select id="selectReviewCntByDate" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM REVIEW 
+		WHERE REVIEWED_DATE = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
+	</select>
 </mapper>

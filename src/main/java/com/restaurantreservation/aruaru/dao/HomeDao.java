@@ -15,4 +15,18 @@ public interface HomeDao {
 	//새로운 데이터 수치 저장소를 만들어주는 매퍼
 	int createNewDate();
 	
+	/**
+	 * 그래프에 표기할 날짜와 데이터를 가져온다.
+	 * @param i 오늘:0, 1일전:-1 , .... , 4일전:-4 까지
+	 * @return
+	 */
+	Admin_Graphs selectData(int i);
+	
+	/**
+	 * 해당 날짜의 리뷰 개수를 가져온다(사이트 전체)
+	 * @param i 오늘:0, 1일전:-1 , .... , 4일전:-4 까지
+	 * @return
+	 */
+	int selectReviewCntByDate(int i);
+	
 }

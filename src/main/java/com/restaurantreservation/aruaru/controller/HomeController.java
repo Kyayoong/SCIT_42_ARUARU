@@ -43,7 +43,7 @@ public class HomeController {
 		//저장소가 있으면 데이터 저장소의 방문자 추이 +1 (쿠키수명 2시간)
 		if(visited == 0) {
 			//방문자 수만 올려주는 객체
-			Admin_Graphs data = new Admin_Graphs(0, 0, 0, 1);
+			Admin_Graphs data = new Admin_Graphs(0, 0, 1);
 			//오늘날자의 데이터저장소가 있는지 확인후 없으면 생성해줌
 			int result = homeService.checkNewDate();
 			//객체를 전달하여 올릴 데이터만 +1해줌 (여기선 방문자만 +1)

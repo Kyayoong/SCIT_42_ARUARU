@@ -29,4 +29,18 @@ public interface HomeDao {
 	 */
 	int selectReviewCntByDate(int i);
 	
+	/**
+	 * 해당 날짜의 일반 가입자 수를 가져온다
+	 * @param i 오늘:0, 1일전:-1 , .... , 4일전:-4 까지
+	 * @return
+	 */
+	int selectUserCntByDate(int i);
+	
+	/**
+	 * 해당 날짜의 식당 가입자 수를 가져온다
+	 * @param i 오늘:0, 1일전:-1 , .... , 4일전:-4 까지
+	 * @return
+	 */
+	int selectRestaurantCntByDate(int i);
+	
 }

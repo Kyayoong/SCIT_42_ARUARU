@@ -87,25 +87,14 @@ $(document).ready(function() {
 				//$('#submitButton').attr('disabled', false);	
 			}
 	});
-			
-/* 	$('#member_name').keyup(function() {
-			let member_name = $(this).val();
-			
-			if (member_name == '') {
-				$('#msg4').html('이름을 입력하세요.').css("color","red");
-				member_name.focus();
-				member_name.select();
-				return;
-			}else {$('#msg4').html('')}
-			}); */
 	
 	$('#member_birth').keyup(function(){
 		if(birthdayCheck.test($('#member_birth').val())){
 			$('#msg5').html('');	
-			$('#submitButton').attr('disabled', false);
+			//$('#submitButton').attr('disabled', false);
 		}else {
 			$('#msg5').html('올바른 생년월일 형식을 입력해주세요.').css("color","red");
-			$('#submitButton').attr('disabled', true);
+			//$('#submitButton').attr('disabled', true);
 			}
 	});
 	
@@ -153,63 +142,71 @@ function validation() {
 	let member_phone = document.getElementById('member_phone');
 	let member_nickname = document.getElementById('member_nickname');
 	
-	if (member_pw.value.length < 3 || member_pw.value.length > 10) {
-		alert("비밀번호는 3~10자로 입력하세요.");
-		return false;
-	}
-	if (member_pw.value != member_pw2.value) {
-		alert("비밀번호가 일치하지 않습니다!");
+	if(member_id.value.length <3 || member_id.value.length > 10) {
+		alert("ID는 3~10자로 입력해 주세요.")
+		$('#member_id').focus();
 		return false;
 	}
 	
-/* 	if (member_gender.value == ''){
-		alert("성별을 선택해 주세요.");
+	if (member_pw.value.length < 3 || member_pw.value.length > 10) {
+		alert("비밀번호는 3~10자로 입력해 주세요.");
+		$('#member_pw').focus();
 		return false;
-	} */
+	}
+	
+	if (member_pw.value != member_pw2.value) {
+		alert("비밀번호가 일치하지 않습니다!");
+		$('#member_pw2').focus();
+		return false;
+	}
 	
 	if (member_name.value == '') {
 		alert("이름을 입력해 주세요.");
-		return false;
-	}
-	
-	if (member_nickname.value.length==0) {
-		alert("닉네임을 입력해 주세요.");
-		return false;
-	}
-	
-	if (member_address1.value.length==0) {
-		alert("주소를 입력해 주세요.");
+		$('#member_name').focus();
 		return false;
 	}
 	
 	if(birthdayCheck.test($('#member_birth').val())){
-	}else {
+	} else {
 		alert("올바른 생년월일 형식을 입력해주세요(YYYYMMDD))");
+		$('#member_birth').focus();
 		return false;
 		}
 	
+	if (member_address1.value.length==0) {
+		alert("주소를 입력해 주세요.");
+		$('#member_address1').focus();
+		return false;
+	}
+	
 	if(emailCheck.test($('#member_email').val())){
-	}else {
+	} else {
 		alert("올바른 이메일 형식을 입력해주세요");
+		$('#member_email').focus();
 		return false;
 		}
 	
 	if(phoneNumberCheck.test($('#member_phone').val())){
-	}else {
+	} else {
 		alert("올바른 전화번호 형식을 입력하세요.");
+		$('#member_phone').focus();
 		return false;
 		}
 	
-   
+	if (member_nickname.value.length==0) {
+		alert("닉네임을 입력해 주세요.");
+		$('#member_nickname').focus();
+		return false;
+	}
+	
 	if(emailNumCheck.value != result){
 		alert("인증번호가 일치하지 않습니다");
+		$('#emailNumCheck').focus();
 		return false;
 	} else{	
 		alert("인증번호 인증에 성공하셨습니다");
 		return true;
 		}
-
-	
 	
 	return true;
 }

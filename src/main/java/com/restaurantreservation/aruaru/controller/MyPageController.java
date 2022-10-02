@@ -49,6 +49,8 @@ public class MyPageController {
 			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
 			log.debug("리스트에여 : {}", reservationlist);
 			model.addAttribute("reservationlist", reservationlist);
+			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			model.addAttribute("cancelReservationList", cancelReservationList);
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -149,9 +151,25 @@ public class MyPageController {
 			model.addAttribute("reservationlist", reservationlist);
 			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
 			model.addAttribute("lastreservationlist", lastreservationlist);
+			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			model.addAttribute("cancelReservationList", cancelReservationList);
 		}
 		return "userView/seereservation";
 	}
+	
+	@GetMapping("seeReservationDetail")
+	public String seeReservationDetail(int reservation_num, Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("넘 : {} ", reservation_num);
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+			Reservation reservation = restaurantService.reservationSelect(reservation_num);
+			log.debug("리스트에여 : {}", reservation);
+			model.addAttribute("reservation", reservation);
+		}
+		return "userView/seeReservationDetail";
+	}
+	
 	// 공지사항
 	@GetMapping("notice")
 	public String notice(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -323,6 +341,16 @@ public class MyPageController {
 		// inputiryboard.html로 가져간다.
 		return "/userView/inquiryRead";
 	}
+	@GetMapping("cancelReservation")
+	public String cancelReservation(int reservation_num) {
+		
+		log.debug("{} : ",reservation_num);
+		int result = restaurantService.cancelReservation(reservation_num);
+		
+		return "redirect:/mypage/";
+	}
+	
+	
 	@PostMapping("submitWebBoard")
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);

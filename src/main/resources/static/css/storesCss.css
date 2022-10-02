@@ -249,3 +249,14 @@
 		color : white;
 		font-size:20px;
 	}
+	.heart {
+		position : absolute;
+		top : 32.2vh;
+		right : 8.3vw;
+	}
+	.heart-number {
+		position :absolute;
+		top : 32.4vh;
+		right : 7.5vw;
+		font-family : Jua;
+	}

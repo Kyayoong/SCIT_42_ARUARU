@@ -230,9 +230,14 @@ $(document).ready(function() {
 						<br>[[${rlist.restaurant_comment}]]
 					</p>
 				</div>
-				<div class="empty-area" id="img0001">
-					<a><img th:src="@{../images/heart111.png}" width=23 height=23 class="img001" th:num="${rlist.restaurant_num}"></a> 
-					<a><img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}"></a>
+				<div class="heart">
+					<img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}">
+				</div>
+				<div class="heart-number">
+					<p>1</p>
+				</div>
+				<div class="empty-area">
+					
 				</div>
 			</div>
 			<div class="col">

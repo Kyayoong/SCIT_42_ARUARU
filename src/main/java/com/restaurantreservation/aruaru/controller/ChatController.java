@@ -19,7 +19,7 @@ public class ChatController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("chat");
 		try {
-			BufferedReader in = new BufferedReader(new FileReader("C:\\upload"));
+			BufferedReader in = new BufferedReader(new FileReader("C:\\upload\\file.txt"));
 			String text = "";
 			String a1;
 			try {

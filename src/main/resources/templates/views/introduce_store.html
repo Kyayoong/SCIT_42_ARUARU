@@ -52,9 +52,6 @@ function reservationFormOpen() {
 			<li sec:authorize="hasRole('ADMIN')" class="nav-item">[관리자] 입니다.</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
-			<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다. -->
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/admin/main}">Admin(임시)</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
 		<li class="nav-item"><a sec:authorize="isAuthenticated()"
 				class="nav-link" th:href="@{/logout}">LOGOUT</a></li>

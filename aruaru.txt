@@ -149,6 +149,7 @@ CREATE TABLE review(
     grade NUMBER(1) DEFAULT 0,					--평점
     review_originalfile VARCHAR2(300),					--리뷰사진(오리지널)
     review_savedfile VARCHAR2(300),					--리뷰사진(저장)
+    reviewed_date DATE DEFAULT SYSDATE,				--리뷰 입력 일자
     review_suggestion NUMBER(10) DEFAULT 0				
 );
 --리뷰 번호 시퀀스
@@ -209,9 +210,8 @@ CREATE TABLE restaurant_zzim(
 CREATE TABLE ADMIN_GRAPHS (
     DATE_ID NUMBER(10) PRIMARY KEY,
     DATES DATE DEFAULT SYSDATE,             -- 날짜
-    USER_CNT NUMBER(10),                    -- 일반 유저 가입 숫자
+    USERS_CNT NUMBER(10),                    -- 일반 유저 가입 숫자
     RESTAURANT_CNT NUMBER(10),              -- 레스토랑 멤버 승인 숫자
-    ALLREVIEW_CNT NUMBER(10),               -- 사이트 전체 리뷰 숫자
     VISIT_CNT NUMBER(10)                    -- 일일 방문자 숫자
 );
 CREATE SEQUENCE DATE_ID_SEQ;

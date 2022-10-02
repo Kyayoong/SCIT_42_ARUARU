@@ -18,6 +18,7 @@ public class Review {
     String review_originalfile;	//리뷰사진(오리지널)
     String review_savedfile;	//리뷰사진(저장)
     String review_suggestion;	//리뷰추천
+    String reviewed_date;		//리뷰 작성일 테이블 수정 필요
 
     public Review(String member_id, int restaurant_num, int usage_num, String title, String contents, int grade) {
 		super();

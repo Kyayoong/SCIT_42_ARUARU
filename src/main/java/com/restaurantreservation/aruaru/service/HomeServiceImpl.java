@@ -1,5 +1,9 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -67,5 +71,52 @@ public class HomeServiceImpl implements HomeService {
 		
 		//체크결과가 1이면 체크 결과 리턴
 		return checkResult;
+	}
+	
+	//그래프에 기입할 데이터 가져오기
+	@Override
+	public Admin_Graphs selectData(int i) {
+		//데이터 불러오기 (해당 날짜)
+		Admin_Graphs graphData = dao.selectData(i);
+		
+		//날짜 포맷 바꾸기 + 해당 날짜의 리뷰개수 가져오기 
+		//+ 해당 날짜의 데이터가 null일 때, 0으로 채워준다.
+		Admin_Graphs processedData = changeData(i, graphData);
+		
+		return processedData;
+	}
+	
+	//불러온 그래프 데이터의 가공
+	public Admin_Graphs changeData(int i, Admin_Graphs graphData) {
+		int allreview_cnt;
+		
+		//데이터가 없으면, 날짜에는 해당 날짜 기입후, 모든 데이터에 0 기입
+		if(graphData == null) {
+			Calendar calendar = new GregorianCalendar();
+			SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
+			
+			calendar.add(Calendar.DATE, i);		
+			String dates = format.format(calendar.getTime());		
+			
+			Admin_Graphs newGraphData = new Admin_Graphs();
+			newGraphData.setDates(dates);
+			newGraphData.setUsers_cnt(0);
+			newGraphData.setRestaurant_cnt(0);
+			
+			//일자별 전체 리뷰 수
+			allreview_cnt = dao.selectReviewCntByDate(i);
+			newGraphData.setAllreview_cnt(allreview_cnt);
+			newGraphData.setVisit_cnt(0);
+			
+			return newGraphData;
+		}
+		//데이터가 있으면 해당 데이터의 날짜 포멧 변경, 리뷰 개수 불러와서 저장 후 리턴
+		//일자 별 전체 리뷰 수
+		allreview_cnt = dao.selectReviewCntByDate(i);
+		String originalDate = graphData.getDates();
+		String newDate = originalDate.substring(2, 10).replace('-', '/');
+		graphData.setDates(newDate);
+		graphData.setAllreview_cnt(allreview_cnt);
+		return graphData;
 	}
 }

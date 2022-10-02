@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ChatController {
-	@GetMapping("chat")
+	@GetMapping("/chat")
 	public ModelAndView chat(Model m, @AuthenticationPrincipal UserDetails user) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("chat");

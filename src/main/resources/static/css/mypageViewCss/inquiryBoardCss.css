@@ -127,3 +127,16 @@ nav {
 	width: 3.5vw;
 	height: 3.5vw;
 }
+
+#chat-icon-area {
+	position : absolute;
+	right : 15vw;
+	bottom : 10vh;
+	font-family : Jua;
+}
+
+#chat-icon {
+	position : absolute;
+	bottom : -0.8vh;
+	right : 8vw;
+}

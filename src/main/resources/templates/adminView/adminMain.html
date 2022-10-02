@@ -14,6 +14,14 @@
 <!-- Custom styles for this template -->
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
 
+<script type="text/javascript" th:inline="javascript">
+let date1 = [[${day1}]];
+let date2 = [[${day2}]];
+let date3 = [[${day3}]];
+let date4 = [[${day4}]];
+let date5 = [[${day5}]];
+</script>
+
 </head>
 <body>
 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -296,8 +304,9 @@
 	<!-- 아이콘 https://feathericons.com/에서 검색하여 사용 -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js">
+		
+	</script>
 	<script th:src="@{/js/adminViewJS/adminPage.js}"></script>
 </body>
 </html>

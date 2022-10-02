@@ -39,7 +39,7 @@
 	<select id="selectData" parameterType="int" resultType="Admin_Graphs">
 		SELECT * 
 		FROM ADMIN_GRAPHS 
-		WHERE TO_CHAR(DATES, 'YY/MM/DD') = TO_CHAR(SYSDATE - #{date}, 'YY/MM/DD')
+		WHERE TO_CHAR(DATES, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
 	</select>
 	
 	<!-- 특정 날짜의 사이트 전체 리뷰 등록 수를 가져온다 -->
@@ -47,5 +47,13 @@
 		SELECT COUNT(*)
 		FROM REVIEW 
 		WHERE REVIEWED_DATE = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
+	</select>
+	
+	<!-- 특정 날짜의 일반 가입자 수를 가져온다. -->
+	<select id="selectUserCntByDate" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM USER_MEMBER 
+		WHERE TO_CHAR(REGISTRATION_DATE, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
+		AND	  MEMBER_ROLE = 'ROLE_USER'
 	</select>
 </mapper>

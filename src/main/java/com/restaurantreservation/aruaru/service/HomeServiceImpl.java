@@ -76,10 +76,10 @@ public class HomeServiceImpl implements HomeService {
 	//그래프에 기입할 데이터 가져오기
 	@Override
 	public Admin_Graphs selectData(int i) {
-		//데이터 불러오기 (해당 날짜)
+		//데이터 불러오기 (해당 날짜의 방문자 수)
 		Admin_Graphs graphData = dao.selectData(i);
 		
-		//날짜 포맷 바꾸기 + 해당 날짜의 리뷰개수 가져오기 
+		//날짜 포맷 바꾸기 + 해당 날짜의 리뷰개수 + 일반유저 + 식당유저 가입량 가져오기 
 		//+ 해당 날짜의 데이터가 null일 때, 0으로 채워준다.
 		Admin_Graphs processedData = changeData(i, graphData);
 		
@@ -88,35 +88,60 @@ public class HomeServiceImpl implements HomeService {
 	
 	//불러온 그래프 데이터의 가공
 	public Admin_Graphs changeData(int i, Admin_Graphs graphData) {
+		int users_cnt;
+		int restaurant_cnt;
 		int allreview_cnt;
 		
-		//데이터가 없으면, 날짜에는 해당 날짜 기입후, 모든 데이터에 0 기입
+		//그래프 테이블에 데이터가 없으면, 새 객체를 만들고 데이터를 넣는다.
 		if(graphData == null) {
+			Admin_Graphs newGraphData = new Admin_Graphs();
+			//날짜 가공 후 넣기
 			Calendar calendar = new GregorianCalendar();
 			SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
-			
 			calendar.add(Calendar.DATE, i);		
 			String dates = format.format(calendar.getTime());		
-			
-			Admin_Graphs newGraphData = new Admin_Graphs();
 			newGraphData.setDates(dates);
-			newGraphData.setUsers_cnt(0);
-			newGraphData.setRestaurant_cnt(0);
 			
-			//일자별 전체 리뷰 수
+			// 일반유저 가입한 숫자
+			users_cnt = dao.selectUserCntByDate(i);
+			newGraphData.setUsers_cnt(users_cnt);
+			
+			// 레스토랑멤버 승인된 숫자
+			restaurant_cnt = 0;
+			newGraphData.setRestaurant_cnt(restaurant_cnt);
+			
+			// 사이트 전체 리뷰 숫자
 			allreview_cnt = dao.selectReviewCntByDate(i);
 			newGraphData.setAllreview_cnt(allreview_cnt);
+			
+			// 일일 방문자 숫자
 			newGraphData.setVisit_cnt(0);
 			
 			return newGraphData;
-		}
-		//데이터가 있으면 해당 데이터의 날짜 포멧 변경, 리뷰 개수 불러와서 저장 후 리턴
-		//일자 별 전체 리뷰 수
-		allreview_cnt = dao.selectReviewCntByDate(i);
+			
+			
+		} 
+		
+		//데이터가 있는 경우 날짜 포맷이 sql 포맷이므로 이 부분만 수정
 		String originalDate = graphData.getDates();
 		String newDate = originalDate.substring(2, 10).replace('-', '/');
 		graphData.setDates(newDate);
+		
+		
+		// 일반유저 가입한 숫자
+		users_cnt = dao.selectUserCntByDate(i);
+		graphData.setUsers_cnt(users_cnt);
+		
+		// 레스토랑멤버 승인된 숫자
+		restaurant_cnt = 0;
+		graphData.setRestaurant_cnt(restaurant_cnt);
+		
+		// 사이트 전체 리뷰 숫자
+		allreview_cnt = dao.selectReviewCntByDate(i);
 		graphData.setAllreview_cnt(allreview_cnt);
+		
+		// 일일 방문자 숫자는 Admin_Graph객체가 null이 아니라면 미리 들어가 있음
 		return graphData;
 	}
+	
 }

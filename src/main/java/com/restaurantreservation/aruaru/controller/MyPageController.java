@@ -58,6 +58,9 @@ public class MyPageController {
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
 		// 계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
+		// UsageHistory에서 num을 참고하여 리뷰리스트를 확인한다. 리뷰 리스트에 해당 넘버가 있으면 작성완료
+		// 없으면 작성
+		
 		// 모델에 담아 html에 가져간다.
 		if (user == null) {
 			return "redirect:/";

@@ -14,7 +14,9 @@
 
 </style>
 <script>
-
+function gochat() {
+	location.href+"/chat";
+}
 </script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -169,7 +171,7 @@
 			</div>
 		</div>
 		<div id="chat-icon-area">
-		<h3>실시간 문의</h3><a th:href="@{/chat}"><img id="chat-icon" th:src="@{/images/chat_icon.png}"></a>
+		<h3 id="chat-caption" ><a th:href="@{/chat}">실시간 문의</a></h3><a th:href="@{/chat}"><img id="chat-icon" th:src="@{/images/chat_icon.png}"></a>
 		</div>
 	</div>
 

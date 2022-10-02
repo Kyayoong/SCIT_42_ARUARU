@@ -19,6 +19,9 @@
 </head>
 <link rel="stylesheet" th:href="@{/css/inquiryChatCss.css}">
 <script type="text/javascript">
+
+
+
 	var ws;
 
 	function wsOpen(){
@@ -63,6 +66,11 @@
 		var msg = $("#chatting").val();
 		ws.send(uN+" : "+msg);
 		$('#chatting').val("");
+	}
+	
+	function name() {
+		let name = document.getElementById('userName').value;
+		console.log(name);
 	}
 </script>
 <body>

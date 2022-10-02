@@ -27,7 +27,7 @@ public class WebSocketHandler extends TextWebSocketHandler{
 		//메시지 발송
 		
 		String msg = message.getPayload();
-		File file = new File("E:\\workspace\\Test_SpringBoot\\file.text");
+		File file = new File("C:\\upload\\file.txt");
 		byte[] binary = msg.getBytes();
 		FileWriter stream;
 		try {

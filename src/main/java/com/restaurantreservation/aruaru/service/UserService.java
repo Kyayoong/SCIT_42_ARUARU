@@ -76,4 +76,6 @@ public interface UserService {
 
 	public int deleteBoard(int board_num);
 
+	
+
 }

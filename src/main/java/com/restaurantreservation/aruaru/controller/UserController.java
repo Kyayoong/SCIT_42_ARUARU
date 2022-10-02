@@ -58,11 +58,13 @@ public class UserController {
 		ArrayList<Tags> tagList3 = service1.tagList("인기");
 		ArrayList<Tags> tagList4 = service1.tagList("가격");
 		ArrayList<Tags> tagList5 = service1.tagList("계절");
-		model.addAttribute("tagList", tagList);
-		model.addAttribute("tagList2", tagList2);
-		model.addAttribute("tagList3", tagList3);
-		model.addAttribute("tagList4", tagList4);
-		model.addAttribute("tagList5", tagList5);
+		ArrayList<Tags> tagList6 = service1.tagList("분위기");
+		model.addAttribute("tagList",tagList);
+		model.addAttribute("tagList2",tagList2);
+		model.addAttribute("tagList3",tagList3);
+		model.addAttribute("tagList4",tagList4);
+		model.addAttribute("tagList5",tagList5);
+		model.addAttribute("tagList6",tagList6);
 		return "/registView/join_as_user";
 	}
 

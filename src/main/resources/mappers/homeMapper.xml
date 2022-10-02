@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="com.restaurantreservation.aruaru.dao.HomeDao">
+	<!-- 금일의 데이터 저장소 있는지 체크 -->
+	<select id="checkNewDate" resultType="int">
+		select Count(*) as result 
+		from admin_graphs 
+		where dates = to_char(sysdate, 'yy/mm/dd')
+	</select>
+	
+	<!-- 금일의 데이터저장소 생성 -->
+	<insert id="createNewDate">
+		insert into admin_graphs(
+			date_id
+			, dates
+			, users_cnt
+			, restaurant_cnt
+			, allreview_cnt
+			, visit_cnt
+		) 
+		values (date_id_seq.nextval, to_char(sysdate, 'yy/mm/dd'), 0, 0, 0, 0)
+	</insert>
+	
+	<!-- 금일의 추이데이터 저장값 + (객체에 +될 변수들에만 1 저장) -->
+	<update id="increaseToday" parameterType="Admin_Graphs">
+		UPDATE
+			admin_graphs
+		SET
+			users_cnt = users_cnt + #{users_cnt},
+			restaurant_cnt = restaurant_cnt + #{restaurant_cnt},
+			allreview_cnt = allreview_cnt + #{allreview_cnt},
+			visit_cnt = visit_cnt + #{visit_cnt}
+		WHERE
+			dates = to_char(sysdate, 'yy/mm/dd')
+	</update>
+	
+</mapper>

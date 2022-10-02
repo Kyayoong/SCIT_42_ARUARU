@@ -154,7 +154,8 @@
 	<select id="seeAllReservation" parameterType="String"
 		resultType="Reservation">
 		SELECT
-		member_id
+		reservation_num
+		, member_id
 		, restaurant_name
 		, reservation_people
 		,
@@ -169,6 +170,7 @@
 		reservation
 		WHERE
 		member_id = #{member_id} AND
+		reservation_success = 1 AND
 		reservation_date &gt; SYSDATE
 	</select>
 

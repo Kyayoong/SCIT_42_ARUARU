@@ -25,30 +25,64 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-
-$('.tag1').change(function(){
+$(document).ready(function() {
 	
-	if($('.tag1').is(":checked")){
-    	console.log("1");
-    	$.ajax({
-    		url : 'tagSearch1',
-    		type : 'get',
-    		data : {tags_num : $(this).attr('num')},
-    		success : function() {
-    		}
-    	});
-    }else{
-    	$.ajax({
-    		url : 'back',
-    		type : 'get',
-    		data : {tags_num : $(this).attr('num')},
-    		success : function() {
-    		}
-    	});
-    }
-});
+	
+	$('.img001').click(function zzim1() {
+		
+		$.ajax({
+			url : 'zzimAdd',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+			},
+			success : function(cnt) {
+				
+			},
+			error : function() {
+			}
+		});
+	});
+	$('.img002').click(function zzim2() {
+		
+		$.ajax({
+			url : 'zzimDelete',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+			},
+			success : function(cnt) {
+			},
+			error : function() {
+			}
+		});
+	});
+		
+	});
 
-
+	$('.tag1').change(function() {
+		if ($('.tag1').is(":checked")) {
+			$.ajax({
+				url : 'tagSearch1',
+				type : 'get',
+				data : {
+					tags_num : $(this).attr('num')
+				},
+				success : function() {
+				}
+			});
+		} else {
+			$.ajax({
+				url : 'back',
+				type : 'get',
+				data : {
+					tags_num : $(this).attr('num')
+				},
+				success : function() {
+				}
+			});
+		}
+	});
 </script>
 <title>Document</title>
 </head>
@@ -59,7 +93,7 @@ $('.tag1').change(function(){
 		<nav id="navbar" class="navbar navbar-expand-sm bg-light">
 			<ul class="navbar-nav">
 				<!-- 로그인 계정이 일반계정인지 관리자인지 나타내줍니다.(임시) -->
-			<li th:if="${member.member_nickname != null}"
+				<li th:if="${member.member_nickname != null}"
 					sec:authorize="hasRole('USER')" class="nav-item"
 					th:text="|${member.member_nickname}님이 로그인하셨습니다.|">[일반 사용자]
 					입니다.</li>
@@ -82,103 +116,99 @@ $('.tag1').change(function(){
 					class="nav-link" th:href="@{/mypage/}">MYPAGE</a></li>
 			</ul>
 		</nav>
-
 		<div id="container1">
-
 			<!--알파벳 CI-->
-
 			<a th:href="@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
 			<!--일본어 CI-->
 			<a th:href="@{/}"><img id="aruaru"
 				th:src="@{/images/rrjapanesemark.png}"></a>
 			<!--검색 부분-->
 			<form th:action="@{/stores/search}" method="get">
-			<table style="font-family: Jua;">
-				<tr>
-					<td><input type="text" class="form-control" id="area-input"
-						placeholder="지역" name="s_address" ></td>
-					<td><input type="text" class="form-control" id="keyword-input"
-						placeholder="키워드(ex)오마카세, 분위기있는)" name="s_tags" ></td>
-					<td><input type="date" class="form-control" id="day-input" name="s_days" ></td>
-					<td><select id="select-time" class="form-control" name="s_time" >
-							<option value="0900">09:00</option>
-							<option value="0930">09:30</option>
-							<option value="1000">10:00</option>
-							<option value="1030">10:30</option>
-							<option value="1100">11:00</option>
-							<option value="1130">11:30</option>
-							<option value="1200">12:00</option>
-							<option value="1230">12:30</option>
-							<option value="1300">13:00</option>
-							<option value="1330">13:30</option>
-							<option value="1400">14:00</option>
-							<option value="1430">14:30</option>
-							<option value="1500">15:00</option>
-							<option value="1530">15:30</option>
-							<option value="1600">16:00</option>
-							<option value="1630">16:30</option>
-							<option value="1700">17:00</option>
-							<option value="1730">17:30</option>
-							<option value="1800">18:00</option>
-							<option value="1830">18:30</option>
-							<option value="1900">19:00</option>
-							<option value="1930">19:30</option>
-							<option value="2000">20:00</option>
-							<option value="2030">20:30</option>
-							<option value="2100">21:00</option>
-							<option value="2130">21:30</option>
-							<option value="2200">22:00</option>
-					</select></td>
-					<td><input type="text" class="form-control" id="person-input"
-						placeholder="인원수" name="s_people" >
-						<input type="hidden" name="s_sector" value="">
-						</td>
-					<td><input type="submit" class="btn btn-primary"
-						id="search-submit" value="검색"></td>
-				</tr>
-			</table>
+				<table style="font-family: Jua;">
+					<tr>
+						<td><input type="text" class="form-control" id="area-input"
+							placeholder="지역" name="s_address"></td>
+						<td><input type="text" class="form-control"
+							id="keyword-input" placeholder="키워드(ex)오마카세, 분위기있는)"
+							name="s_tags"></td>
+						<td><input type="date" class="form-control" id="day-input"
+							name="s_days"></td>
+						<td><select id="select-time" class="form-control"
+							name="s_time">
+								<option value="0900">09:00</option>
+								<option value="0930">09:30</option>
+								<option value="1000">10:00</option>
+								<option value="1030">10:30</option>
+								<option value="1100">11:00</option>
+								<option value="1130">11:30</option>
+								<option value="1200">12:00</option>
+								<option value="1230">12:30</option>
+								<option value="1300">13:00</option>
+								<option value="1330">13:30</option>
+								<option value="1400">14:00</option>
+								<option value="1430">14:30</option>
+								<option value="1500">15:00</option>
+								<option value="1530">15:30</option>
+								<option value="1600">16:00</option>
+								<option value="1630">16:30</option>
+								<option value="1700">17:00</option>
+								<option value="1730">17:30</option>
+								<option value="1800">18:00</option>
+								<option value="1830">18:30</option>
+								<option value="1900">19:00</option>
+								<option value="1930">19:30</option>
+								<option value="2000">20:00</option>
+								<option value="2030">20:30</option>
+								<option value="2100">21:00</option>
+								<option value="2130">21:30</option>
+								<option value="2200">22:00</option>
+						</select></td>
+						<td><input type="text" class="form-control" id="person-input"
+							placeholder="인원수" name="s_people"> <input type="hidden"
+							name="s_sector" value=""></td>
+						<td><input type="submit" class="btn btn-primary"
+							id="search-submit" value="검색"></td>
+					</tr>
+				</table>
 			</form>
 		</div>
 		<!-- 회전화면 부분 -->
 		<div id="container2">
-		<table id="table1">
-			<tr>
-				<td th:each="tag : ${tagList}">
-					<div id="idtag1"class="btn-group-toggle" data-toggle="buttons">
-						<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" style="width:max-content;height:35px;display:inline-block;">
-						<input name="tags_name" 
-						th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1"
-					>[[${tag.tags_name}]]</label>
-					</div>
-				</td>
-
-				
-			</tr>
-
-		</table>
-		<hr>
+			<table id="table1">
+				<tr>
+					<td th:each="tag : ${tagList}">
+						<div id="idtag1" class="btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-outline-secondary" th:for="${tag.tags_num}"
+								style="width: max-content; height: 35px; display: inline-block;">
+								<input name="tags_name" th:value="${tag.tags_name}"
+								type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}"
+								class="tag1">[[${tag.tags_name}]]
+							</label>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
 		</div>
-		<div id="empty" style="height:5vh;">
-		</div>
+		<div id="empty" style="height: 5vh;"></div>
 		<!-- 랭킹 부분 -->
 		<div id="ranking" class="row">
-		
+
 			<table id="map">
-			<tr>
-			<td>
-					<select id="organize">
-						<option value="1">평점순</option>
-						<option value="2">리뷰갯수순</option>
-						<option value="3">가까운순</option>
-					</select>
-				</td>
-			</tr>
+				<tr>
+					<td><select id="organize">
+							<option value="1">평점순</option>
+							<option value="2">리뷰갯수순</option>
+							<option value="3">가까운순</option>
+					</select></td>
+				</tr>
 			</table>
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 			<div class="col" th:each="rlist : ${resList}">
-				<a th:href="|introduce_store?restaurant_num=${rlist.restaurant_num}|">
-				<img class="ranking-img" style="border-radius: 0.5vw;" 
-				th:src="|display?restaurant_num=${rlist.restaurant_num}|"/>
+				<a
+					th:href="|introduce_store?restaurant_num=${rlist.restaurant_num}|">
+					<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="|display?restaurant_num=${rlist.restaurant_num}|" />
 				</a>
 				<div class="name-ranking">
 					<h3 style="text-align: left">[[${rlist.restaurant_name}]]</h3>
@@ -200,33 +230,28 @@ $('.tag1').change(function(){
 						<br>[[${rlist.restaurant_comment}]]
 					</p>
 				</div>
-				<div class="empty-area">
-					
+				<div class="empty-area" id="img0001">
+					<a><img th:src="@{../images/heart111.png}" width=23 height=23 class="img001" th:num="${rlist.restaurant_num}"></a> 
+					<a><img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}"></a>
 				</div>
 			</div>
-			
 			<div class="col">
 				<div class="ranking-img" style="border-radius: 0.5vw;">
-				<div class="name-ranking">
-					<h3 style="text-align: left"></h3>
-				</div>
-				<div class="star-ranking">
-				</div>
-				<div class="rate-ranking">
-				</div>
-				<div class="map-pin-ranking">
-				</div>
-				<div class="location-ranking">
-				</div>
-				<div class="comment-ranking">
-				</div>
-				<div class="empty-area">
+					<div class="name-ranking">
+						<h3 style="text-align: left"></h3>
+					</div>
+					<div class="star-ranking"></div>
+					<div class="rate-ranking"></div>
+					<div class="map-pin-ranking"></div>
+					<div class="location-ranking"></div>
+					<div class="comment-ranking"></div>
+					<div class="empty-area"></div>
 				</div>
 			</div>
-			
+
 			<!-- 더보기 -->
-				
-			</div>
+
+		</div>
 		<br>
 
 		<!-- 카카오 지도 테스트

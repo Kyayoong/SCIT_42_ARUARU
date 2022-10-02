@@ -137,7 +137,7 @@
 				<div id="contents">
 					<div id="table-area1">
 						<h4 id="table-area1-caption">문의 사항 쓰기</h4>
-						<form th:action="@{/mypage/submitWebBoard/}" th:method="post">		
+						<form th:action="@{/mypage/submitWebBoard/}" method="post" enctype="multipart/form-data">		
 						<table class="table table-hover" id="table1">
 						
 						<tr >
@@ -157,6 +157,11 @@
 							<th>내용</th>
 							<td><textarea class="form-control" rows="10"  id="board_contents" name="board_contents"></textarea>
 							<input type="hidden" name="member_id" th:value="${member.member_id}"></td>
+						</tr>
+						<tr>
+							<th>파일</th>
+							<td><input type="file" name="file" >
+							</td>
 						</tr>
 						<tr>
 							<td colspan="2">

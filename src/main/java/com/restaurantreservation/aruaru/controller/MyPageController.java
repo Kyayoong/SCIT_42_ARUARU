@@ -1,12 +1,15 @@
 package com.restaurantreservation.aruaru.controller;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,8 +20,11 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
@@ -28,9 +34,13 @@ import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
+import com.restaurantreservation.aruaru.util.FileService;
+
 import lombok.extern.slf4j.Slf4j;
+
+
 @Slf4j
-@RequestMapping("mypage")
+@RequestMapping("/mypage")
 @Controller
 public class MyPageController {
 	@Autowired
@@ -355,11 +365,29 @@ public class MyPageController {
 	
 	
 	@PostMapping("submitWebBoard")
-	public String submitWebBoard(Web_board b) {
+	public String submitWebBoard(Web_board b, @RequestParam(value="file", required = false) MultipartFile upload) {
 		log.debug("{}", b);
+		
+		
+		if (upload != null && !upload.isEmpty()) {
+			String savedFile = FileService.saveFile(upload, uploadPath);
+
+			// 원 파일명
+			b.setBoard_originalfile(upload.getOriginalFilename());
+			
+			b.setBoard_savedfile(savedFile);
+
+			// 저장된 파일 명	
+		}
+		
+		
+		
+		
 		int result = service.insertBoard(b);
 		return "redirect:/mypage/inquiryboard";
 	}
+	
+	
 	@ResponseBody
 	@GetMapping("replyList")
 	public List<Web_reply> replyList(int board_num) {
@@ -391,5 +419,43 @@ public class MyPageController {
 		log.debug("{}", board_num);
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
+	}
+	
+
+	@RequestMapping(value = "download", method = RequestMethod.GET)
+	public String fileDownload(int boardnum, Model model, HttpServletResponse response) {
+
+		Web_board b = service.readBoard(boardnum);
+
+		// 원래의 파일명으로 저장하기 위한 설정
+		String originalfile = new String(b.getBoard_originalfile());
+		try {
+			response.setHeader("Content-Disposition",
+					" attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		// 저장된 파일 경로
+		String fullPath = uploadPath + "/" + b.getBoard_savedfile();
+
+		// 서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
+		FileInputStream filein = null;
+		ServletOutputStream fileout = null; // 클라이언트쪽으로 출력하는 스트림
+
+		try {
+			filein = new FileInputStream(fullPath);
+			fileout = response.getOutputStream();
+
+			// Spring의 파일 관련 유틸 이용하여 출력
+			FileCopyUtils.copy(filein, fileout);
+
+			filein.close();
+			fileout.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }

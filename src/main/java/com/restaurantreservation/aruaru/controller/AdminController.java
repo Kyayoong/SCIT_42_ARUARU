@@ -88,7 +88,6 @@ public class AdminController {
 				}
 			}
 		}
-		
 		model.addAttribute("normalList", normalList);
 		model.addAttribute("noticeList", noticeList);
 		

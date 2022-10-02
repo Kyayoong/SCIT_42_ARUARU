@@ -69,24 +69,15 @@ public class MyPageController {
 	// 예약내역->리뷰선택창
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
-		// 계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
-		// UsageHistory에서 num을 참고하여 리뷰리스트를 확인한다. 리뷰 리스트에 해당 넘버가 있으면 작성완료
-		// 없으면 작성
-		
-		// 모델에 담아 html에 가져간다.
 		if (user == null) {
 			return "redirect:/";
 		}
 		User_member member = service.selectUser(user.getUsername());
-		
+		// 계정정보를 통해 해당 아이디를 가진 이용내역을 다 가져온다.(실제로 간 기록이 있는 경우의 데이터만)
 		ArrayList<Usage_history> usageList = service.selectAllUsageHistory(user.getUsername());
-		// 식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
-		for(int i = 0; i < usageList.size(); i++) {
-			Restaurant_member restaurantMember = restaurantService.selectOne1(usageList.get(i).getRestaurant_num());
-			usageList.get(i).setRestaurant_name(restaurantMember.getRestaurant_name());
-		}
-		//해당 아이디의 리뷰리스트를 가져와 Usage_history에 해당 이용내역에 대한 리뷰가 있는지 여부 저장.
+		// 해당 아이디의 모든 리뷰를 가져온다
 		ArrayList<Review> reviewList = service.selectAllReview(user.getUsername());
+		// UsageHistory에서 num을 참고하여 리뷰리스트를 확인한다. 리뷰 리스트에 해당 넘버가 있으면 작성완료
 		log.debug("{}",reviewList);
 		for(int j = 0; j < usageList.size(); j++) {
 			for(int i = 0; i < reviewList.size(); i++) {
@@ -94,8 +85,22 @@ public class MyPageController {
 					usageList.get(j).setIsReviewed(1);
 					break;
 				}
+				usageList.get(j).setIsReviewed(0);
 			}
 		}
+		
+		// 없으면 작성 버튼활성화
+		log.debug("사용내역 리스트 : {}", usageList);
+		
+		// 모델에 담아 html에 가져간다.
+		
+		
+		// 식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
+//		for(int i = 0; i < usageList.size(); i++) {
+//			Restaurant_member restaurantMember = restaurantService.selectOne1(usageList.get(i).getRestaurant_num());
+//			usageList.get(i).setRestaurant_name(restaurantMember.getRestaurant_name());
+//		}
+		
 		model.addAttribute("member", member);
 		model.addAttribute("usageList", usageList);
 		return "userView/review";
@@ -233,7 +238,6 @@ public class MyPageController {
 			e.printStackTrace();
 		}
 		return "home";
-//		return "redirect";
 	}
 	// 회원정보변경 화면으로 이동
 	@GetMapping("myinfomodify")

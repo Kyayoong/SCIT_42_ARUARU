@@ -127,6 +127,10 @@
 		, board_title
 		, board_contents
 		, category
+		<if test="board_originalfile != null and board_savedfile != null">
+		, board_originalfile
+		, board_savedfile
+		</if>
 		)
 		VALUES
 		(
@@ -135,6 +139,10 @@
 		, #{board_title}
 		, #{board_contents}
 		, #{category}
+		<if test="board_originalfile != null and board_savedfile != null">
+		, #{board_originalfile}
+		, #{board_savedfile}
+		</if>
 		)
 	</insert>
 

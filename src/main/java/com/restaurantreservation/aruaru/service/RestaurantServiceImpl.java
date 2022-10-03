@@ -212,6 +212,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return result;
 	}
 	@Override
+	public int zzimmselect(Restaurant_zzim zzim) {
+		int result = dao.zzimmselect(zzim);
+		return result;
+	}
+
+  @Override
 	public int cancelReservation(int reservation_num) {
 		int result = dao.cancelReservation(reservation_num);
 		return result;
@@ -221,6 +227,5 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Reservation> list = dao.seeAllCancelReservation(username);
 		return list;
 	}
-	
 	
 }

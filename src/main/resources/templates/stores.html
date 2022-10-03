@@ -26,6 +26,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 $(document).ready(function() {
+	init();
+	
 	
 	
 	$('.img001').click(function zzim1() {
@@ -37,6 +39,7 @@ $(document).ready(function() {
 				restaurant_num : $(this).attr('num')
 			},
 			success : function(cnt) {
+				
 				
 			},
 			error : function() {
@@ -52,6 +55,7 @@ $(document).ready(function() {
 				restaurant_num : $(this).attr('num')
 			},
 			success : function(cnt) {
+				
 			},
 			error : function() {
 			}
@@ -83,6 +87,12 @@ $(document).ready(function() {
 			});
 		}
 	});
+	
+	function init() {
+		
+		
+		
+	};
 </script>
 <title>Document</title>
 </head>
@@ -227,16 +237,18 @@ $(document).ready(function() {
 						<br>[[${rlist.restaurant_comment}]]
 					</p>
 				</div>
-				<div class="heart">
-					<img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}">
+				<div class="heart" id="coooooo1">
+					<!-- <img th:if="" th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}">
+					<img th:if="" th:src="@{../images/herat111.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}"> -->
 				</div>
 				<div class="heart-number">
-					<p>1</p>
+					<!-- <p th:num="${rlist.restaurant_num}" id="coooool"></p> -->
 				</div>
 				<div class="empty-area">
 					
 				</div>
 			</div>
+
 			<div class="col">
 				<div class="ranking-img" style="border-radius: 0.5vw;">
 					<div class="name-ranking">

@@ -376,10 +376,26 @@ public class MyPageController {
 		return "userView/inquiryModify";
 	}
 	@PostMapping("inquirymodifyAction")
-	public String inquirymodifyAction(Web_board b, Model m) {
+	public String inquirymodifyAction(Web_board b, Model m, @RequestParam(value="file", required=false) MultipartFile upload) {
 		log.debug("{}", b);
+		if(upload != null && !upload.isEmpty()) {
+			if(b.getBoard_originalfile() != null) {
+				FileService.deleteFile(
+						uploadPath + "/" + b.getBoard_originalfile());
+				
+				String savedFile = FileService.saveFile(upload, uploadPath);
+				b.setBoard_originalfile(upload.getOriginalFilename());
+				b.setBoard_savedfile(savedFile);
+				
+			} else {
+				
+				String savedFile = FileService.saveFile(upload, uploadPath);
+				b.setBoard_originalfile(upload.getOriginalFilename());
+				b.setBoard_savedfile(savedFile);
+			}
+		}
 		int result = service.updateBoard(b);
-		return "redirect:/userView/inquiryRead";
+		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
 	
 	@ResponseBody
@@ -427,4 +443,6 @@ public class MyPageController {
 
 		return null;
 	}
+	
+	
 }

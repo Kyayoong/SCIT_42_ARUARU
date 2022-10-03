@@ -266,4 +266,36 @@
 	<select id="selectAllReview" parameterType="String" resultType="Review">
 		SELECT * FROM REVIEW WHERE MEMBER_ID = #{username}
 	</select>
+	
+	<select id="myTags" parameterType="String" resultType="String">
+		SELECT
+		member_tags
+		FROM
+		user_member
+		where
+		member_id
+		=#{member_id}
+	</select>
+	
+	<select id="recommend" parameterType="String" resultType="Int">
+		SELECT
+		restaurant_num
+		FROM
+		tags
+		WHERE tags_name like
+		<foreach collection="arg0" item="item" separator="or tags_name like">
+		'%'||#{item}||'%'
+		</foreach>
+	</select> 
+	
+	<select id="recommendStores" parameterType="Integer" resultType="Restaurant_member">
+		SELECT
+		*
+		FROM
+		restaurant_member 
+		WHERE restaurant_num =
+		<foreach collection="arg0" item="item1" separator = "or restaurant_num = ">
+		#{item1}
+		</foreach>
+	</select>
 </mapper>

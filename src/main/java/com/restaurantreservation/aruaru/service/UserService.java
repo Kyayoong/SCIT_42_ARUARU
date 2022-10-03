@@ -2,8 +2,10 @@ package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -75,6 +77,12 @@ public interface UserService {
 	public ArrayList<Review> selectAllReview(String username);
 
 	public int deleteBoard(int board_num);
+
+	String ownTags(String username);
+
+	public List<Integer> recommend(String[] mytags);
+
+	public List<Restaurant_member> recommendStores(int[] stores);
 
 	
 

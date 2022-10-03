@@ -228,6 +228,10 @@
 	board_title = #{board_title}
 	, board_contents = #{board_title}
 	, category = #{category}
+	<if test="board_originalfile != null and board_savedfile != null">
+	, board_originalfile = #{board_originalfile}
+	, board_savedfile = #{board_savedfile}
+	</if>
 	WHERE
 	board_num = #{board_num}
 	</update>

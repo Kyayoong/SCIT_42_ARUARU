@@ -29,40 +29,8 @@ $(document).ready(function() {
 	init();
 	
 	
-	
-	$('.img001').click(function zzim1() {
-		
-		$.ajax({
-			url : 'zzimAdd',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-				
-				
-			},
-			error : function() {
-			}
-		});
-	});
-	$('.img002').click(function zzim2() {
-		
-		$.ajax({
-			url : 'zzimDelete',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-				
-			},
-			error : function() {
-			}
-		});
-	});
-		
-	});
+});
+
 
 	$('.tag1').change(function() {
 		if ($('.tag1').is(":checked")) {

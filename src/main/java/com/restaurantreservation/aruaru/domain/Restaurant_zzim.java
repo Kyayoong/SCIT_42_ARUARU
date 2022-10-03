@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Restaurant_zzim {
 	int restaurant_num;
-	String member_id;	
+	String member_id;
 }

@@ -365,7 +365,7 @@
 		restaurant_num =
 		#{restaurant_num}
 		and
-		reservation_success = 0
+		reservation_success BETWEEN 0 AND 1 
 		ORDER BY
 		reservation_num
 		DESC
@@ -416,6 +416,7 @@
 		SELECT
 		reservation_num
 		, member_id
+		, restaurant_num
 		, restaurant_name
 		,
 		reservation_people

@@ -341,3 +341,7 @@
 		color : white;
 		font-size:20px;
 	}
+	
+	.empty-area {
+		height : 15vh;
+	}

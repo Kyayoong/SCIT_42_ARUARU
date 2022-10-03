@@ -101,6 +101,10 @@ public interface RestaurantDao {
 	
 	// 찜 추가
 	int zzimAdd(Restaurant_zzim zzim);
+	
 	// 찜 삭제
 	int zzimDelete(int reservation_num);
+	
+	// 찜 리스트
+	ArrayList<Restaurant_zzim> zzimmselect(int restaurant_num);
 }

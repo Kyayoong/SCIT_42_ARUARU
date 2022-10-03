@@ -104,4 +104,7 @@ public interface RestaurantService {
 	
 	// 찜 빼기
 	public int zzimDelete(int restaurant_num);
+	
+	// 찜 확인
+	int zzimmselect(Restaurant_zzim zzim);
 }

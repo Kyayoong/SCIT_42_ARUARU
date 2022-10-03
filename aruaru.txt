@@ -203,7 +203,7 @@ CREATE TABLE restaurant_file(
 --식당 파일 시퀀스
 CREATE SEQUENCE restaurant_file_seq;
 CREATE TABLE restaurant_zzim(
-	member_num VARCHAR2(100) ,		--회원 아이디
+	member_id VARCHAR2(100) REFERENCES user_member(member_id),									--회원아이디
     restaurant_num NUMBER(10)         --식당번호
 );
 --일일 방문자, 가입자, 리뷰 추이 테이블

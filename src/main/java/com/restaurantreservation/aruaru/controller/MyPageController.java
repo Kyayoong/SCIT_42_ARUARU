@@ -287,6 +287,9 @@ public class MyPageController {
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
 	public String rsetreview() {
+		
+		
+		
 		return "/restaurantView/rsetreview";
 	}
 	@GetMapping("inquiryboard")

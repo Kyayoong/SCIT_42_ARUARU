@@ -211,4 +211,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.zzimDelete(restaurant_num);
 		return result;
 	}
+	@Override
+	public int zzimmselect(Restaurant_zzim zzim) {
+		int result = dao.zzimmselect(zzim);
+		return result;
+	}
 }

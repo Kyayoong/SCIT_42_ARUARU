@@ -59,7 +59,8 @@ public class PageController {
 						,@RequestParam String s_time
 						,@RequestParam String s_people
 						,@RequestParam String s_sector
-			,Model model,@AuthenticationPrincipal UserDetails user) {
+			,Model model
+			,@AuthenticationPrincipal UserDetails user) {
 		
 		Map<String, String> map = new HashMap<>();
 		map.put("s_sector", s_sector);
@@ -68,6 +69,8 @@ public class PageController {
 		map.put("s_days", s_days);
 		map.put("s_time", s_time);
 		map.put("s_people", s_people);
+		
+		Restaurant_zzim zzim = service.zzimmselect()
 		
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
@@ -79,7 +82,6 @@ public class PageController {
 		
 		ArrayList<Restaurant_member> resList = service.resListSearch(map);
 		log.debug("에에 {}",resList);
-		
 		
 		
 		ArrayList<Tags> tagList = service.tagList("");

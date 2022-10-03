@@ -108,10 +108,13 @@ public interface RestaurantService {
 	// 찜 빼기
 	public int zzimDelete(int restaurant_num);
 	
-
-	// 찜 확인
-	int zzimmselect(Restaurant_zzim zzim);
-
+	// 캔슬 리스트
 	public ArrayList<Reservation> seeAllCancelReservation(String username);
-
+	
+	//찜 숫자
+	public int zzimCount(int restaurant_num);
+	
+	// 찜 숫자
+	public int zzimcheck(Restaurant_zzim zzim);
+	
 }

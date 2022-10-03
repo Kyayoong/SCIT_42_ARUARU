@@ -11,7 +11,7 @@
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 
 <script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -20,24 +20,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-//ID 중복 확인창 열기
-$(document).ready(function() {
-	
-	
-	
-	console.log($('#restaurant_num').val());
-	
-});
 
-
-function reservationFormOpen() {
-	var w = window.open('reservation', 'reservationwin', 'top=200,left=500,width=400,height=500');
-	$('')
-}
-
-
-</script>
 <title>Document</title>
 </head>
 <body>
@@ -159,7 +142,57 @@ function reservationFormOpen() {
 		<!-- 음식점 이름 -->
 		<div id="store-name">
 			<h1 th:text="${store.restaurant_name}"></h1>
+			<div th:if="${result} == 1">
+			<img th:src="@{../images/herat222.png}" id="img01" width=23 height=23 class="img002" th:num="${store.restaurant_num}">
+			<p>[[${count}]]</p>
+			</div>
+			<div th:if="${result} == 0">
+			<img  th:src="@{../images/heart111.png}" id="img02" width=23 height=23 class="img001" th:num="${store.restaurant_num}">
+			<p>[[${count}]]</p>
+			</div>
 		</div>
+		<script>
+$(document).ready(function() {
+	
+	$('.img001').click(function zzim1() {
+		
+		$.ajax({
+			url : 'zzimAdd',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+				
+			},
+			success : function(cnt) {
+				window.location.reload();
+				
+			},
+			error : function() {
+			}
+		});
+	});
+	
+	$('.img002').click(function zzim2() {
+		
+		$.ajax({
+			url : 'zzimDelete',
+			type : 'get',
+			data : {
+				restaurant_num : $(this).attr('num')
+			},
+			success : function(cnt) {
+				window.location.reload();
+				
+			},
+			error : function() {
+			}
+		});
+	});
+		
+	
+});
+
+</script>
 		<!-- 맛집 소개글 -->
 		<div id="store-contents">
 			<p th:text="${store.restaurant_comment}">
@@ -208,7 +241,7 @@ function reservationFormOpen() {
 							<label class="btn btn-outline-secondary" th:for="${tag.tags_num}"
 								style="width: max-content; height: 35px; display: inline-block;">
 								<input name="tags_name" th:value="${tag.tags_name}"
-								type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}"
+								type="hidden" th:id="${tag.tags_num}" th:num="${tag.tags_num}"
 								class="tag1">[[${tag.tags_name}]]
 							</label>
 						</div>

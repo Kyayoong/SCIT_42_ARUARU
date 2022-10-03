@@ -265,7 +265,8 @@
 			restaurant_member a,
 			tags b
 			WHERE
-			b.tags_name like '%' || #{s_tags} || '%'
+			b.tags_name like '%' || #{s_tags} ||
+			'%'
 			AND
 			a.restaurant_num = b.restaurant_num)
 		</if>
@@ -278,11 +279,13 @@
 			a.restaurant_num
 			FROM
 			restaurant_member a,
-			tags b
+			tags
+			b
 			WHERE
 			b.tags_name like '%' || #{s_tags} || '%'
 			AND
-			a.restaurant_num = b.restaurant_num)
+			a.restaurant_num =
+			b.restaurant_num)
 		</if>
 	</select>
 
@@ -342,42 +345,52 @@
 		member_id
 		, reservation_num
 		, restaurant_num
-		, restaurant_name
+		,
+		restaurant_name
 		,
 		reservation_people
-		, to_char(registration_date, 'YYYY-MM-DD')
+		, to_char(registration_date,
+		'YYYY-MM-DD')
 		registration_date
-		, to_char(reservation_date, 'YYYY-MM-DD')
+		, to_char(reservation_date,
+		'YYYY-MM-DD')
 		reservation_date
 		, reservation_hours
 		, request
-		, reservation_success
+		,
+		reservation_success
 		FROM
 		reservation
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 		and
 		reservation_success = 0
 		ORDER BY
-		reservation_num DESC
+		reservation_num
+		DESC
 	</select>
-	
-		<select id="seeAllCancelReservation" parameterType="String"
+
+	<select id="seeAllCancelReservation" parameterType="String"
 		resultType="Reservation">
 		SELECT
 		member_id
 		, reservation_num
 		, restaurant_num
-		, restaurant_name
+		,
+		restaurant_name
 		,
 		reservation_people
-		, to_char(registration_date, 'YYYY-MM-DD')
+		, to_char(registration_date,
+		'YYYY-MM-DD')
 		registration_date
-		, to_char(reservation_date, 'YYYY-MM-DD')
+		, to_char(reservation_date,
+		'YYYY-MM-DD')
 		reservation_date
 		, reservation_hours
 		, request
-		, reservation_success
+		,
+		reservation_success
 		FROM
 		reservation
 		WHERE
@@ -394,7 +407,8 @@
 		FROM
 		restaurant_member
 		WHERE
-		restaurant_name = #{restaurant_name} AND restaurant_address1 = #{restaurant_address1}
+		restaurant_name = #{restaurant_name}
+		AND restaurant_address1 = #{restaurant_address1}
 	</select>
 
 	<select id="reservationSelect" parameterType="int"
@@ -403,11 +417,14 @@
 		reservation_num
 		, member_id
 		, restaurant_name
-		, reservation_people
 		,
-		to_char(registration_date, 'YYYY-MM-DD') registration_date
+		reservation_people
 		,
-		to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		to_char(registration_date, 'YYYY-MM-DD')
+		registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD')
+		reservation_date
 		,
 		reservation_hours
 		, request
@@ -425,6 +442,7 @@
 		WHERE
 		reservation_num = #{reservation_num}
 	</update>
+
 	<update id="cancelReservation" parameterType="int">
 		UPDATE
 		reservation
@@ -464,12 +482,12 @@
 		INSERT INTO
 		restaurant_zzim
 		(
-		member_num
+		member_id
 		,restaurant_num
 		)
 		VALUES
 		(
-		#{member_num}
+		#{member_id}
 		,#{restaurant_num}
 		)
 	</insert>
@@ -482,5 +500,26 @@
 		restaurant_num = #{restaurant_num}
 	</delete>
 
-	<select id=""></select>
+	<select id="zzimCount" parameterType="int" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		restaurant_zzim
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</select>
+	
+	<select id="zzimcheck" parameterType="Restaurant_zzim" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		restaurant_zzim
+		WHERE
+		restaurant_num = #{restaurant_num}
+		AND
+		member_id = #{member_id}
+	</select>
+	
+	
+	
 </mapper>

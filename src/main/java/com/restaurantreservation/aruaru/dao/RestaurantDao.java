@@ -112,6 +112,13 @@ public interface RestaurantDao {
 	// 찜 삭제
 	int zzimDelete(int reservation_num);
 	
-	// 찜 리스트
-	ArrayList<Restaurant_zzim> zzimmselect(int restaurant_num);
+	// 찜 숫자
+	int zzimCount(int restaurant_num);
+	
+	// 찜 숫자
+	int zzimcheck(Restaurant_zzim zzim);
+	
+	
+	
+	
 }

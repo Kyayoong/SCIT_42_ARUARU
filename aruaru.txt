@@ -65,7 +65,7 @@ CREATE TABLE restaurant_member(
     restaurant_address2 VARCHAR2(500), 			        --상세주소
     menu_priceavr VARCHAR2(200) DEFAULT 0,				--1인당 평균 가격
     certification NUMBER(1) DEFAULT 0,					--허가 여부
-    restaurant_people NUMBER(10)						--수용인원 
+    restaurant_people NUMBER(10),						--수용인원 
 );
 --식당 번호 시퀀스
 CREATE SEQUENCE restaurant_member_seq;

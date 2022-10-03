@@ -2,10 +2,12 @@ package com.restaurantreservation.aruaru.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -81,5 +83,13 @@ public interface UserDao {
 	ArrayList<Review> selectAllReview(String username);
 
 	int updateBoard(Web_board b);
+
+
+	String myTags(String username);
+
+	List<Integer> recommend(String[] mytags);
+
+	List<Restaurant_member> recommendStores(int[] a);
+
 
 }

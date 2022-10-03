@@ -2,6 +2,7 @@ package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -157,6 +159,27 @@ public class UserServiceImpl implements UserService {
 		ArrayList<Review> list = dao.selectAllReview(username);
 		return list;
 
+	}
+
+	@Override
+	public String ownTags(String username) {
+		// TODO Auto-generated method stub
+		String mytags = dao.myTags(username);
+		return mytags;
+	}
+
+	@Override
+	public List<Integer> recommend(String[] mytags) {
+		// TODO Auto-generated method stub
+		List<Integer> stores = dao.recommend(mytags);
+		return stores;
+	}
+
+	@Override
+	public List<Restaurant_member> recommendStores(int[] a) {
+		// TODO Auto-generated method stub
+		List<Restaurant_member> rrmm = dao.recommendStores(a);
+		return rrmm;
 	}
 
 

@@ -37,16 +37,18 @@ public class AdminController {
 		Admin_Graphs graphData3 = homeService.selectData(-2);
 		Admin_Graphs graphData4 = homeService.selectData(-3);
 		Admin_Graphs graphData5 = homeService.selectData(-4);
+		
 		log.debug("{}", graphData1);
 		log.debug("{}", graphData2);
 		log.debug("{}", graphData3);
 		log.debug("{}", graphData4);
-		log.debug("{}", graphData5);		
+		log.debug("{}", graphData5);
 		
-		//리뷰개수 = 리뷰 테이블의 해당 날짜인 거 모두 카운트
-		
-		
-		
+		model.addAttribute("day1", graphData1);
+		model.addAttribute("day2", graphData2);
+		model.addAttribute("day3", graphData3);
+		model.addAttribute("day4", graphData4);
+		model.addAttribute("day5", graphData5);
 		
 		return "/adminView/adminMain";
 	}
@@ -86,7 +88,6 @@ public class AdminController {
 				}
 			}
 		}
-		
 		model.addAttribute("normalList", normalList);
 		model.addAttribute("noticeList", noticeList);
 		

@@ -88,11 +88,13 @@
 			</div>
 			<div id="mypage-right" class="col-sm-9">
 				<div id="profile-photo">
-					<img id="p-photo" th:src="|profile?member_num=${member.member_num}|"
+					<img id="p-photo"
+						th:src="|profile?member_num=${member.member_num}|"
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
-					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4. 호에에엥</h4>
+					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4.
+						호에에엥</h4>
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
 				</div>
 				<div id="profile-modify">
@@ -131,25 +133,31 @@
 
 				<div id="table-area1">
 					<h4 id="table-area1-caption">예약 내역</h4>
+					<h6 id="table-area1-all">전체 보기</h6>
 					<table class="table" id="table1">
 						<tr>
 							<th>음식점명</th>
 							<th>예약일자</th>
 							<th>예약인원</th>
 							<th>예약확정여부</th>
+							<th>상세보기</th>
 						</tr>
 						<tr th:each="reservationlist : ${reservationlist}">
-							<td th:text="${reservationlist.restaurant_name}">SCIT식당</td>
-							<td th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|">2022.09.23</td>
+							<td th:text="${reservationlist.restaurant_name}"></td>
+							<td
+								th:text="|${reservationlist.reservation_date} ${reservationlist.reservation_hours}|">2022.09.23</td>
 							<td th:text="${reservationlist.reservation_people}">3</td>
 							<th th:if="${reservationlist.reservation_success} == 0">N</th>
 							<th th:if="${reservationlist.reservation_success} == 1">Y</th>
+							<td><a
+								th:href="@{/mypage/seeReservationDetail(reservation_num=${reservationlist.reservation_num})}">상세보기</a></td>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="table-area2">
 					<h4 id="table-area2-caption">지난 예약 내역</h4>
+					<h6 id="table-area2-all">전체 보기</h6>
 					<table class="table" id="table2">
 						<tr>
 							<th>음식점명</th>
@@ -159,44 +167,36 @@
 						</tr>
 						<tr th:each="lastreservationlist : ${lastreservationlist}">
 							<td th:text="${lastreservationlist.restaurant_name}">떡볶이분식</td>
-							<td th:text="|${lastreservationlist.reservation_date} ${lastreservationlist.reservation_hours}|">2022.09.18</td>
+							<td
+								th:text="|${lastreservationlist.reservation_date} ${lastreservationlist.reservation_hours}|">2022.09.18</td>
 							<td th:text="${lastreservationlist.reservation_people}">3</td>
 							<th th:if="${lastreservationlist.reservation_success} == 0">N</th>
 							<th th:if="${lastreservationlist.reservation_success} == 1">Y</th>
 						</tr>
 					</table>
 				</div>
-				
+
 				<div id="table-area3">
 					<h4 id="table-area3-caption">취소한 예약 내역</h4>
 					<table class="table" id="table3">
 						<tr>
 							<th>음식점명</th>
 							<th>예약일자</th>
-							<th>찜하기</th>
+							<th>가게 정보 보기</th>
 						</tr>
-						<tr>
-							<td>순이네분식</td>
-							<td>2022.09.23</td>
-							<th>찜</th>
+						<tr th:each="cancelReservationList : ${cancelReservationList}">
+							<td th:text="${cancelReservationList.restaurant_name}"></td>
+							<td
+								th:text="|${cancelReservationList.reservation_date} ${cancelReservationList.reservation_hours}|"></td>
+							<td><a
+								th:href="|../stores/introduce_store?restaurant_num=${cancelReservationList.restaurant_num}|">가게
+									정보</a></td>
 						</tr>
-						<tr>
-							<td>파스타식당</td>
-							<td>2022.09.11</td>
-							<th>찜</th>
-						</tr>
-						<tr>
-							<td>라면식당</td>
-							<td>2022.09.04</td>
-							<th>찜</th>
-						</tr>
-					
-					
 					</table>
 				</div>
 
-				
-			
+
+
 			</div>
 		</div>
 	</div>

@@ -293,9 +293,10 @@
 		*
 		FROM
 		restaurant_member 
-		WHERE restaurant_num =
-		<foreach collection="arg0" item="item1" separator = "or restaurant_num = ">
-		#{item1}
+		WHERE
+		restaurant_num =
+		<foreach collection="arg0" item="item1" separator = "or restaurant_num = " >
+		#{item1} 
 		</foreach>
 	</select>
 </mapper>

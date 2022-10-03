@@ -343,10 +343,13 @@ public class MyPageController {
 	}
 	@GetMapping("cancelReservation")
 	public String cancelReservation(int reservation_num) {
-		
 		log.debug("{} : ",reservation_num);
+		Reservation reservation = restaurantService.reservationSelect(reservation_num);
+		Restaurant_member member = restaurantService.selectOne1(reservation.getRestaurant_num());
+		int people = member.getRestaurant_people() + reservation.getReservation_people();
+		member.setRestaurant_people(people);
+		restaurantService.peopleCount(member);
 		int result = restaurantService.cancelReservation(reservation_num);
-		
 		return "redirect:/mypage/";
 	}
 	

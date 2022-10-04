@@ -215,8 +215,8 @@ public class RestaurantServiceImpl implements RestaurantService {
 	}
 	//찜삭제
 	@Override
-	public int zzimDelete(int restaurant_num) {
-		int result = dao.zzimDelete(restaurant_num);
+	public int zzimDelete(Restaurant_zzim zzim) {
+		int result = dao.zzimDelete(zzim);
 		return result;
 	}
 	

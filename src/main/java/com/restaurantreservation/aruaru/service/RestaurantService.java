@@ -106,7 +106,7 @@ public interface RestaurantService {
 	public int zzimAdd(Restaurant_zzim zzim);
 
 	// 찜 빼기
-	public int zzimDelete(int restaurant_num);
+	public int zzimDelete(Restaurant_zzim zzim);
 	
 	// 캔슬 리스트
 	public ArrayList<Reservation> seeAllCancelReservation(String username);

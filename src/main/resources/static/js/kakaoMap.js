@@ -1,8 +1,3 @@
-/**
- * @fileoverview: KakaoMap 외부 API의 Javascript
- * @author: SoungJun Cho
- * @since: 2022.08.31
- */
 /**--------------------------------------------------------------
  * 카카오 맵 테스트용
  * div id="map"을 불러올 때, HTML DOM 형식으로 불러와야한다.
@@ -93,15 +88,13 @@ let callback = function(result, status) {
          *---------------------*/
 		//마커에 표시할 컨텐츠
 		let content = '<div class="overlaybox">' +
-		'    <div class="main">' +
-		'        <div class="restaurant text">모코코</div>' +
-		'    </div>' +
+	//	'    <div class="main">' +
+		'        <div class="restaurant text">' + store.restaurant_name + '</div>' +
+		//'    </div>' +
 		'    <ul>' +
 		'        <li class="tags">' +
 		'            <span class="tagname">종류</span>' +
-		'            <span class="title">#양식</span>' +
-		'            <span class="title">#한식</span>' +
-		'            <span class="title">#일식</span>' +
+		'            <span class="title">#' + store.restaurant_sectors + '</span>' +
 		'        </li>' +
 		'        <li>' +
 		'            <span class="tagname">분위기</span>' +
@@ -120,9 +113,6 @@ let callback = function(result, status) {
 		'            <span class="stars">★★★★★</span>' +
 		'        </li>' +
 		'    </ul>' +
-		'    <div class="reservation">' +
-		'	  	  <span class="reservation">예약하기</span>'
-		'    </div>' +
 		'</div>';
 	 
 	 	// 커스텀 오버레이가 표시될 위치입니다 
@@ -132,19 +122,27 @@ let callback = function(result, status) {
 	 	let customOverlay = new kakao.maps.CustomOverlay({
 			position: position,
 			content: content,
-			xAnchor: 0.28,
-			yAnchor: 1.1
+			xAnchor: 0.45,
+			yAnchor: 1.25
 		});
 		
 		//마커 이벤트 리스너
-		kakao.maps.event.addListener(marker, 'click', function() {
+		kakao.maps.event.addListener(marker, 'mouseover', function() {
 		    customOverlay.setMap(map);
 		});
+		kakao.maps.event.addListener(marker, 'mouseout', function() {
+    		// 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+    		closeOverlay();
+		});
+		
+		function closeOverlay() {
+    		customOverlay.setMap(null);     
+		}
 	}
 }
 
 //받아온 주소 정보를 여기에 넣는다.(코엑스 주소)
-let addr = "서울특별시 강남구 영동대로 513";
+let addr1 = store.restaurant_address1;
 //주소를 넣어 callback함수 호출
-geocoder.addressSearch(addr, callback);
+geocoder.addressSearch(addr1, callback);
 

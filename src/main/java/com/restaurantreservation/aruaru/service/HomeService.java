@@ -29,4 +29,11 @@ public interface HomeService {
 	 * @return 0:없음
 	 */
 	int checkNewDate();
+	
+	/**
+	 * 그래프에 표기할 날짜와 데이터를 가져온다.
+	 * @param i 오늘:0, 1일전:-1 , .... , 4일전:-4 까지
+	 * @return
+	 */
+	Admin_Graphs selectData(int i);
 }

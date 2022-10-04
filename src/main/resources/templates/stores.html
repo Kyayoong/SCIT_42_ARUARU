@@ -26,39 +26,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 $(document).ready(function() {
+	init();
 	
 	
-	$('.img001').click(function zzim1() {
-		
-		$.ajax({
-			url : 'zzimAdd',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-				
-			},
-			error : function() {
-			}
-		});
-	});
-	$('.img002').click(function zzim2() {
-		
-		$.ajax({
-			url : 'zzimDelete',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-			},
-			error : function() {
-			}
-		});
-	});
-		
-	});
+});
+
 
 	$('.tag1').change(function() {
 		if ($('.tag1').is(":checked")) {
@@ -83,6 +55,12 @@ $(document).ready(function() {
 			});
 		}
 	});
+	
+	function init() {
+		
+		
+		
+	};
 </script>
 <title>Document</title>
 </head>
@@ -101,9 +79,6 @@ $(document).ready(function() {
 					입니다.</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
-				<!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다.(임시) -->
-				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin(임시)</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
 				</li>
 				<li class="nav-item"><a sec:authorize="not isAuthenticated()"
@@ -230,16 +205,18 @@ $(document).ready(function() {
 						<br>[[${rlist.restaurant_comment}]]
 					</p>
 				</div>
-				<div class="heart">
-					<img th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}">
+				<div class="heart" id="coooooo1">
+					<!-- <img th:if="" th:src="@{../images/herat222.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}">
+					<img th:if="" th:src="@{../images/herat111.png}" width=23 height=23 class="img002" th:num="${rlist.restaurant_num}"> -->
 				</div>
 				<div class="heart-number">
-					<p>1</p>
+					<!-- <p th:num="${rlist.restaurant_num}" id="coooool"></p> -->
 				</div>
 				<div class="empty-area">
 					
 				</div>
 			</div>
+
 			<div class="col">
 				<div class="ranking-img" style="border-radius: 0.5vw;">
 					<div class="name-ranking">

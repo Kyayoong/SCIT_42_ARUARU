@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.restaurantreservation.aruaru.domain.Admin_Graphs;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.AdminService;
+import com.restaurantreservation.aruaru.service.HomeService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,16 +28,60 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class AdminController {
 	@Autowired AdminService service;
+	@Autowired HomeService homeService;
 	
 	@GetMapping("main")
-	public String main() {
+	public String main(Model model) {
+		//리뷰 개수, 일일 방문자 수를 가져온다.(오늘 = 0, 어제 = -1 ... -4까지
+		Admin_Graphs graphData1 = homeService.selectData(0);
+		Admin_Graphs graphData2 = homeService.selectData(-1);
+		Admin_Graphs graphData3 = homeService.selectData(-2);
+		Admin_Graphs graphData4 = homeService.selectData(-3);
+		Admin_Graphs graphData5 = homeService.selectData(-4);
+		
+		log.debug("{}", graphData1);
+		log.debug("{}", graphData2);
+		log.debug("{}", graphData3);
+		log.debug("{}", graphData4);
+		log.debug("{}", graphData5);
+		
+		model.addAttribute("day1", graphData1);
+		model.addAttribute("day2", graphData2);
+		model.addAttribute("day3", graphData3);
+		model.addAttribute("day4", graphData4);
+		model.addAttribute("day5", graphData5);
+		
 		return "/adminView/adminMain";
 	}
 	
 	//restMemberMain - 식당멤버관리창
 	@GetMapping("restMemberMain")
-	public String restMemberMain() {
+	public String restMemberMain(Model model) {
+		//식당 회원 중, 아직 승인되지 않은 인원의 리스트를 가져간다.
+		ArrayList<Restaurant_member> restaurantList = service.selectNotCertificatedMember();
+		
+		log.debug("{}", restaurantList);
+		model.addAttribute("restaurantList", restaurantList);
+		
 		return "/adminView/adminRTMemberMain";
+	}
+	
+	//식당 승인/거절 버튼 ajax
+	@ResponseBody
+	@PostMapping("changeCertification")
+	public ArrayList<Restaurant_member> changeCertification(int restaurant_num, int isPermited){
+		//1일 때, 승인(1)으로 바꿔주고 0 일때는 거절됨(-1)으로 바꿔준다
+		if(isPermited == 1) {
+			int result = service.acceptCertificationByNum(restaurant_num);
+		} else if(isPermited == 0) {
+			int result = service.rejectCertificationByNum(restaurant_num);
+		}
+		
+		//미승인 리스트 검색
+		ArrayList<Restaurant_member> list = service.selectNotCertificatedMember();
+		
+		//미승인 리스트 리턴
+		return list;
 	}
 	
 	//genMemberMain - 일반회원관리창
@@ -66,7 +113,6 @@ public class AdminController {
 				}
 			}
 		}
-		
 		model.addAttribute("normalList", normalList);
 		model.addAttribute("noticeList", noticeList);
 		

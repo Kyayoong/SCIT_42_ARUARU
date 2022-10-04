@@ -51,7 +51,7 @@
 				 '<td><span>' + list[i].restaurant_phone + '</span></td>' +
 				 '<td>';
 				 if(list[i].restaurant_address1 != null){
-					 t += '<span>' + list[i].restaurant_address1 + '</span>';
+					 t += '<span>' + list[i].restaurant_address1 + ' ' + '</span>';
 				 }
 				 if(list[i].restaurant_address2 != null){
 					 t += '<span>' + list[i].restaurant_address2 + '</span>';
@@ -69,7 +69,7 @@
 				 } else if(list[i].certification == -1){
 					 t += '<td>' +
 					 	  '<span>' +
-					 	  '<input type="button"	class="btn1 btn btn-outline-danger btn-sm" value="거절됨" disabled="disabled">' +
+					 	  '<input type="button"	class="btn1 btn btn-outline-danger btn-sm" onclick="restaurantPermit(' + list[i].restaurant_num + ', -1)" value="거절됨">' + 
 					 	  '</span>' +
 					 	 '</td>';
 				 }
@@ -113,20 +113,12 @@
 								class="sr-only">(current)</span>
 						</a></li>
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/restMemberMain}"> <span
-								data-feather="user"></span> 식당회원관리
+								data-feather="user"></span> 식당등록요청
 						</a>
-							<ul style="list-style: none;">
-								<li>
- 									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
-								</li>
-								<li>
-									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
-								</li>
-							</ul>
 						</li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
+						<!-- <li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
 								data-feather="users"></span> 일반회원관리
-						</a></li>
+						</a></li> -->
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/boardMain}"> <span
 								data-feather="clipboard"></span> 문의글관리
 						</a>
@@ -197,8 +189,9 @@
 								<span>
 									<input 
 										type="button" 
-										class="btn1 btn btn-outline-danger btn-sm" 
-										value="거절됨" disabled="disabled">
+										class="btn1 btn btn-outline-danger btn-sm"
+										th:onclick="|restaurantPermit(${list.restaurant_num}, -1)|"
+										value="거절됨">
 								</span>
 							</td>
 						</tr>

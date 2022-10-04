@@ -105,5 +105,12 @@ public class AdminServiceImpl implements AdminService {
 		return result;
 	}
 	
+	//레스토랑 거절 재고
+	@Override
+	public int reconsiderCertifiacationByNum(int restaurant_num) {
+		int result = dao.reconsiderCertifiacationByNum(restaurant_num);
+		return result;
+	}
+	
 	
 }

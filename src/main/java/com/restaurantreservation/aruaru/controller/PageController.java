@@ -96,6 +96,8 @@ public class PageController {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
+				zzim.setMember_id(user.getUsername());
+				zzim.setRestaurant_num(restaurant_num);
 			}
 			else {
 				model.addAttribute("member_nickname", null);

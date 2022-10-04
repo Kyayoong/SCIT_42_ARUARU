@@ -535,4 +535,15 @@
 	</select>
 	
 
+	<select id="showByRank" resultType="Restaurant_member">
+	SELECT
+	*
+	FROM
+	restaurant_member
+	ORDER BY
+	restaurant_grade DESC
+	</select>
+
+
+
 </mapper>

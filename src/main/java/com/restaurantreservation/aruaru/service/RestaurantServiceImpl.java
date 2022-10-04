@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -246,6 +247,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.zzimcheck(zzim);
 		return result;
 	}
+
+	@Override
+	public List<Restaurant_member> showByRank() {
+		// TODO Auto-generated method stub
+		List<Restaurant_member> byrank = dao.showByRank();
+		return byrank;
+	}
+
 	
 	
 }

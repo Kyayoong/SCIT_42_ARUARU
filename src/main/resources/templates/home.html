@@ -307,7 +307,7 @@
 		</div>
 
 		<!-- 랭킹 부분 -->
-		<h3 sec:authorize = "isAuthenticated()" id="ranking-caption">태그 추천</h3>
+		<h3 sec:authorize = "isAuthenticated()" id="ranking-caption">태그 추천(회원 등록시)</h3>
 		<div sec:authorize = "isAuthenticated()" id="ranking" class="row">
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 			<div class="col" >
@@ -342,7 +342,7 @@
 			<div class="col">
 				<a th:href="|stores/introduce_store?restaurant_num=${recommend[1].restaurant_num}|">
 				<img class="ranking-img" style="border-radius: 0.5vw;"
-					th:src="|display?restaurant_num=${recommend[0].restaurant_num}|"> </a>
+					th:src="|display?restaurant_num=${recommend[1].restaurant_num}|"> </a>
 				<div class="name-ranking">
 					<h3 style="text-align: left">[[${recommend[1].restaurant_name}]]</h3>
 				</div>
@@ -417,8 +417,111 @@
 		</div>
 
 		<!-- 신상맛집 소개 -->
-		<h3 id="new-restaurants-intro">신상맛집</h3>
-		<div id="new-restaurants-images" class="row">
+		<h3 sec:authorize = "not isAuthenticated()" id="new-restaurants-intro">랭킹</h3>
+		<div sec:authorize = "not isAuthenticated()" id="new-restaurants-images" class="row">
+
+			<!-- 첫번째 그림 부분, 글씨부분 -->
+			<div class="col">
+				<a th:href="|stores/introduce_store?restaurant_num=${byRank[0].restaurant_num}|">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="|display?restaurant_num=${byRank[0].restaurant_num}|"> </a>
+				<div class="name-ranking">
+					<h3 style="text-align: left">[[${byRank[0].restaurant_name}]]</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">[[${byRank[0].restaurant_grade}]]</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">[[${byRank[0].restaurant_address1}]]</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>[[${byRank[0].restaurant_comment}]]
+					</p>
+				</div>
+				<div class="empty-area">
+					
+				</div>
+			</div>
+			<div class="col">
+				<a th:href="|stores/introduce_store?restaurant_num=${byRank[1].restaurant_num}|">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="|display?restaurant_num=${byRank[1].restaurant_num}|"> </a>
+				<div class="name-ranking">
+					<h3 style="text-align: left">[[${byRank[1].restaurant_name}]]</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">[[${byRank[1].restaurant_grade}]]</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">[[${byRank[1].restaurant_address1}]]</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>[[${byRank[1].restaurant_comment}]]
+					</p>
+				</div>
+				<div class="empty-area">
+					
+				</div>
+			</div>
+			<div class="col">
+				<a th:href="|stores/introduce_store?restaurant_num=${byRank[2].restaurant_num}|">
+				<img class="ranking-img" style="border-radius: 0.5vw;"
+					th:src="|display?restaurant_num=${byRank[2].restaurant_num}|"> </a>
+				<div class="name-ranking">
+					<h3 style="text-align: left">[[${byRank[2].restaurant_name}]]</h3>
+				</div>
+				<div class="star-ranking">
+					<img th:src="@{/images/star_icon.png}" width=23 height=23>
+				</div>
+				<div class="rate-ranking">
+					<p style="text-align: left">[[${byRank[2].restaurant_grade}]]</p>
+				</div>
+				<div class="map-pin-ranking">
+					<img th:src="@{images/map_flag_icon.png}" width=18 height=18>
+				</div>
+				<div class="location-ranking">
+					<p style="text-align: left">[[${byRank[2].restaurant_address1}]]</p>
+				</div>
+				<div class="comment-ranking">
+					<p style="text-align: left">
+						<br>[[${byRank[2].restaurant_comment}]]
+					</p>
+				</div>
+				<div class="empty-area">
+					
+				</div>
+			</div>
+
+
+			<!-- 더보기 그림 부분, 글씨부분 -->
+			<div class="col">
+				<img style="border-radius: 0.5vw;"
+					th:src="@{/images/new_restaurant4.jpg}" width=300 height=300>
+				<div class="see-more">
+					<h3 style="text-align: center">더 보기</h3>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<h3 sec:authorize = "not isAuthenticated()"  id="new-restaurants-intro">신상맛집</h3>
+		<div sec:authorize = "not isAuthenticated()" id="new-restaurants-images" class="row">
 
 			<!-- 첫번째 그림 부분, 글씨부분 -->
 			<div class="col">

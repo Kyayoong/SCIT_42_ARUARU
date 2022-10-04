@@ -554,5 +554,21 @@
 	ORDER BY
 	registration_date DESC
 	</select>
+  
+	<delete id="deleteRest" parameterType="int">
+	DELETE
+	FROM
+	restaurant_member
+	WHERE
+	restaurant_num = #{restaurant_num}
+	</delete>
+	
+	<insert id="inputTime" parameterType="Restaurant_time">
+	INSERT INTO
+	restaurant_time
+	(opentime,closetime,business_days,restaurant_num)
+	VALUES
+	(#{opentime},#{closetime},#{business_days},#{restaurant_num})
+	</insert>
 
 </mapper>

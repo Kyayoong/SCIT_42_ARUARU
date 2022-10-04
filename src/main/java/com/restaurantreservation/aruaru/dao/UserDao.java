@@ -90,6 +90,7 @@ public interface UserDao {
 	List<Integer> recommend(String[] mytags);
 
 	List<Restaurant_member> recommendStores(int[] a);
-
+	
+	int updateRole(String member_id);
 
 }

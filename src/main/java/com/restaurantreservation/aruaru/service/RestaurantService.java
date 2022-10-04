@@ -127,5 +127,11 @@ public interface RestaurantService {
 	
 	// 찜 숫자
 	public int zzimcheck(Restaurant_zzim zzim);
+	
+	// 식당 삭제
+	public int deleteRest(int restaurant_num);
+	
+	// 시간 입력
+	public int inputTime(Restaurant_time time);
 
 }

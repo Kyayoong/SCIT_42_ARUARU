@@ -110,7 +110,7 @@ let callback = function(result, status) {
 		'        </li>' +
 		'        <li>' +
 		'            <span class="star">별점</span>' +
-		'            <span class="stars">★★★★★</span>' +
+		'            <span class="stars">★' + store.restaurant_grade + '</span>' +
 		'        </li>' +
 		'    </ul>' +
 		'</div>';

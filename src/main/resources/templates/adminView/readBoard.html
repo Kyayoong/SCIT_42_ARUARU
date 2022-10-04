@@ -28,9 +28,6 @@
 		color: red;
 	}
 	#counter {
-		position: absolute;
-    	bottom: 11.3rem;
-    	right: 2.9rem;
     	background:rgba(100,100,100,0.5);
 		border-radius: 0.5em;
 		padding: 0 .5em 0 .5em;
@@ -173,8 +170,8 @@ function suggestRefresh(n){
 				<input type="hidden" id="hiddenVa" name="board_num" th:value="${board.board_num}">
 				<div class="d-flex justify-content-center m-3">
 					<textarea id="replyContens" name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+					<span id="counter">11</span>
 				</div>
-			<span id="counter">11</span>
 			<!-- 7. 버튼 -->
 			<div class="d-flex justify-content-center m-3">
 				<input type="button" style="font-family: IBM Plex Sans KR;"

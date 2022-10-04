@@ -182,6 +182,12 @@ public class UserServiceImpl implements UserService {
 		return rrmm;
 	}
 
+	@Override
+	public int updateRole(String member_id) {
+		int result = dao.updateRole(member_id);
+		return result;
+	}
+
 
 
 

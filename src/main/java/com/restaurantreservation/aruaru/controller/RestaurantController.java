@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.service.RestaurantService;
+import com.restaurantreservation.aruaru.service.UserService;
 import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,9 @@ public class RestaurantController {
 
 	@Autowired
 	RestaurantService service;
+	
+	@Autowired
+	UserService memberService;
 
 	/**
 	 * 식당이 등록되어있는지 확인하는 창
@@ -120,11 +124,57 @@ public class RestaurantController {
 
 	// 평균가격가 업데이트
 	@PostMapping("regist2")
-	public String regist2(Restaurant_member member, @AuthenticationPrincipal UserDetails user) {
+	public String regist2(Restaurant_member member, @AuthenticationPrincipal UserDetails user, Restaurant_time time1
+			,Restaurant_time time2 ,Restaurant_time time3 ,Restaurant_time time4,Restaurant_time time5,Restaurant_time time6
+			,Restaurant_time time7
+			) {
 
 		Restaurant_member member2 = service.selectOne(user.getUsername());
 		member2.setMenu_priceavr(member.getMenu_priceavr());
+		
+		time1.setOpentime("11:00");
+		time1.setClosetime("23:00");
+		time1.setBusiness_days("월요일");
+		time1.setRestaurant_num(member2.getRestaurant_num());
+		
+		time2.setOpentime("11:00");
+		time2.setClosetime("23:00");
+		time2.setBusiness_days("화요일");
+		time2.setRestaurant_num(member2.getRestaurant_num());
+		
+		time3.setOpentime("11:00");
+		time3.setClosetime("23:00");
+		time3.setBusiness_days("수요일");
+		time3.setRestaurant_num(member2.getRestaurant_num());
+		
+		time4.setOpentime("11:00");
+		time4.setClosetime("23:00");
+		time4.setBusiness_days("목요일");
+		time4.setRestaurant_num(member2.getRestaurant_num());
 
+		time5.setOpentime("11:00");
+		time5.setClosetime("23:00");
+		time5.setBusiness_days("금요일");
+		time5.setRestaurant_num(member2.getRestaurant_num());
+		
+		time6.setOpentime("11:00");
+		time6.setClosetime("23:00");
+		time6.setBusiness_days("토요일");
+		time6.setRestaurant_num(member2.getRestaurant_num());
+		
+		time7.setOpentime("11:00");
+		time7.setClosetime("23:00");
+		time7.setBusiness_days("일요일");
+		time7.setRestaurant_num(member2.getRestaurant_num());
+		
+		int result1 = service.inputTime(time1);
+		int result2 = service.inputTime(time2);
+		int result3 = service.inputTime(time3);
+		int result4 = service.inputTime(time4);
+		int result5 = service.inputTime(time5);
+		int result6 = service.inputTime(time6);
+		int result7 = service.inputTime(time7);
+		
 		int result = service.Rupdate(member2);
 
 		log.debug("결과 : {}", result);
@@ -132,5 +182,13 @@ public class RestaurantController {
 		return "redirect:/";
 	}
 	
-
+	@GetMapping("deleteRest")
+	public String deleteRest(int restaurant_num,@AuthenticationPrincipal UserDetails user) {
+		
+		int result = service.deleteRest(restaurant_num);
+		int result1 = memberService.updateRole(user.getUsername());
+		log.debug("result : {}",result);
+		log.debug("result1 : {}",result1);
+		return "redirect:/";
+	}
 }

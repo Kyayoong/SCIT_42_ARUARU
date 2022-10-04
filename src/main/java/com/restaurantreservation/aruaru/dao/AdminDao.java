@@ -39,5 +39,7 @@ public interface AdminDao {
 	int acceptCertificationByNum(int restaurant_num);
 	//레스토랑 미승인
 	int rejectCertificationByNum(int restaurant_num);
+	//레스토랑 거절 재고
+	int reconsiderCertifiacationByNum(int restaurant_num);
 
 }

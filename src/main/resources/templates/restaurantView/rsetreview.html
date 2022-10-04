@@ -9,6 +9,7 @@
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.101.0">
 <title>아루아루 식당관리페이지</title>
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
 <!-- Bootstrap core CSS -->
@@ -17,6 +18,133 @@
 	rel="stylesheet">
 <!-- Custom styles for this template -->
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
+<script>
+$(document).ready(function() {
+	$('#formButton').click(formSubmit);
+	$('#btnDelete').click(function() {
+		  if (!confirm("정말로 탈퇴하시겠습니까?")) {
+			  return false;
+		    } else {
+		    	location.href = '../restaurant/deleteRest?restaurant_num=' + $('#restaurant_num').val();
+		    }
+		
+	});
+	$('.tag1').change(function(){
+		
+		if($('.tag1').is(":checked")){
+        	console.log("1");
+        	$.ajax({
+        		url : 'tagInsert',
+        		type : 'get',
+        		data : {tags_num : $(this).attr('num')},
+        		success : function() {
+        		}
+        	});
+        }else{
+        	$.ajax({
+        		url : 'tagDelete',
+        		type : 'get',
+        		data : {tags_num : $(this).attr('num')},
+        		success : function() {
+        		}
+        	});
+        }
+    });
+});
+function registformwide() {
+	$('#registform').height('150vh');
+	
+}
+function formSubmit() {
+    var form = $('#menuadd')[0];
+    var formData = new FormData(form);
+	$.ajax({
+		url : 'insertmenu',
+		type : 'post',
+		data : formData,
+		success : function() {
+			alert('저장되었습니다.');
+			$("#menuadd")[0].reset(); 
+			$("#att_zone").html(' ');
+			modalOff();
+			init();
+		},
+		error : function() {
+			alert('저장 실패');
+		},
+		cache: false,
+        contentType: false,
+        processData: false
+	});
+};
+
+
+function init() {
+	let s = '';
+	//서버로 Ajax요청을 보내서 댓글 목록을 받아서 반복문으로 화면에 출력 get
+	$.ajax({
+		url : 'menucheck',
+		type : 'post',
+		dataType : 'json',
+		success : output
+	});
+}
+function output(msg) {
+	var suggestion;
+	var str = '<table>';
+	$.each(msg,function(i,item) {
+		if(item.menu_suggestion == 1) {
+			suggestion = '☆';
+		}
+		else {
+			suggestion = ' ';
+		}
+		str += '<tr>';
+		str += '<td class="tdNum" style="width: 100px">' + item.menu_name + '</td>';
+		str += '<td class="tdName" style="width: 175px">' + item.menu_price + '원</td>';
+		str += '<td class="tdImage" style="width: 175px">' + '<img src="display?menu_num=' + item.menu_num + '" width="100px" height="100px" >' + '</td>';
+		str += '<td class="tdText" style="width: 100px">' + suggestion + '</td>';
+		str += '<td><input type="button" class="btn-danger" value="삭제" num="' + item.menu_num + '"></td>';
+		str += '</tr>';
+	});
+	str += '<table>';
+	$('#output').html(str);
+	
+	//삭제이벤트처리하려면 삭제버튼이 생긴이후로 무조건해야한다.
+	
+	 $('.btn-danger').on('click',menuDel); 
+}
+
+function menuDel() {
+	//클릭한 버튼 옆의 댓글 번호를 서버로 보내 삭제해야함
+	$.ajax({
+		url : 'menuDel',
+		type : 'get',
+		data : {menu_num : $(this).attr('num')},
+		success : function(cnt) {
+			init();
+		},
+		error : function() {
+		}
+	});
+}; 
+
+	$(function() {
+		$('#btn1').click(function(e) {
+			console.log("x");
+			e.preventDefault();
+			$('#btn-modal').click();
+		});
+	});
+	
+	$(function() {
+		$('#btn2').click(function(e) {
+			console.log("x");
+			e.preventDefault();
+			$('#btnAtt').click();
+		});
+	});
+</script>
 </head>
 <body>
 	<nav
@@ -41,18 +169,20 @@
 			<nav id="sidebarMenu"
 				class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
 				<div class="sidebar-sticky pt-3">
-						<ul class="nav flex-column">
+					<ul class="nav flex-column">
 						<!-- activate : 현재 활성화 된 창 (파란글씨) -->
 						<!-- dapa-feather : 메뉴명 옆의 아이콘 https://feathericons.com/에서 검색 후 이름 적용 -->
-						<li class="nav-item"><a class="nav-link active" th:href="@{/mypage/restaurantMain}">
-								<span data-feather="home"></span> 식당 마이페이지 <span
-								class="sr-only">(current)</span>
+						<li class="nav-item"><a class="nav-link active"
+							th:href="@{/mypage/restaurantMain}"> <span
+								data-feather="home"></span> 식당 마이페이지 <span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/mypage/restaurantRTMemberMain}"> <span
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/mypage/restaurantRTMemberMain}"> <span
 								data-feather="user"></span> 식당 관리
 						</a></li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/mypage/rsetreview}"> <span
-								data-feather="users"></span> 식당 정보
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/mypage/rsetreview}"> <span data-feather="users"></span>
+								식당 정보
 						</a></li>
 					</ul>
 					<!-- 홈페이지로 이동 -->
@@ -65,7 +195,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">정보 관리</h1>
+					<h1 class="h2">정보 관리<span>     </span><button type="button" class="btn btn-danger" id="btnDelete">회원탈퇴</button></h1>
 					<div class="btn-toolbar mb-2 mb-md-0">
 						<div class="btn-group mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -77,51 +207,52 @@
 						</button>
 					</div>
 				</div>
-					<div id="registtable">
-			<form th:action="@{/restaurant/regist1}"
-				enctype="multipart/form-data" method="post"
-				onsubmit="return check();">
-				<table>
-					<tr>
-						<td><label for="restaurant_name"
-							style="font-family: IBM Plex Sans KR;">식당 명을 입력해주세요.</label><br>
-							<input class="form-control" type="text" id="restaurant_name"
-							name="restaurant_name" style="width: 600px;"
-							placeholder="식당 이름을 입력하세요"></td>
-					</tr>
-					<tr>
-						<td><label for="sectors"
-							style="font-family: IBM Plex Sans KR;">업종선택</label><br> <select
-							class="form-control" id="restaurant_sectors"
-							name="restaurant_sectors">
-								<option value="한식">한식(韓食)</option>
-								<option value="중식">중식(中食)</option>
-								<option value="일식">일식(和食)</option>
-								<option value="양식">양식(洋食)</option>
-								<option value="제과제빵">제과제빵(ベーキング)</option>
-								<option value="주점">주점(さかや)</option>
-								<option value="패스트푸드">패스트푸드(ファーストフード)</option>
-								<option value="분식">분식(粉物)</option>
-								<option value="아이스크림/빙수">아이스크림/빙수(アイスクリーム/かき氷)</option>
-								<option value="피자">피자(ピザ)</option>
-								<option value="음료">음료(飲み物)</option>
-								<option value="치킨">치킨(チキン)</option>
-								<option value="커피">커피(コーヒー)</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td><label for="fffle" style="font-family: IBM Plex Sans KR;">업체
-								사진</label><br>
-							<div id='image_preview'>
-								<button class="btn btn-primary" id="btn-upload" type="button">
-									파일추가</button>
-								<input id="btnAtt" multiple="multiple" type="file"
-									accept="image/*" name="upload" style="display: none;">
-								<span style="font-family: IBM Plex Sans KR;">※첨부파일은 최대
-									5개까지 등록이 가능합니다.</span>
-								<div id='att_zone'
-									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
-							</div> <script type="text/javascript">
+				<div id="registtable">
+					<form th:action="@{/restaurant/regist1}"
+						enctype="multipart/form-data" method="post"
+						onsubmit="return check();">
+						<table>
+							<tr>
+								<td><label for="restaurant_name"
+									style="font-family: IBM Plex Sans KR;">식당 명을 입력해주세요.</label><br>
+									<input type="hidden" id="restaurant_num" th:value="${member.restaurant_num}">
+									<input class="form-control" type="text" id="restaurant_name"
+									name="restaurant_name" style="width: 600px;"
+									placeholder="식당 이름을 입력하세요" th:value="${member.restaurant_name}"></td>
+							</tr>
+							<tr>
+								<td><label for="sectors"
+									style="font-family: IBM Plex Sans KR;">업종선택</label><br> <select
+									class="form-control" id="restaurant_sectors"
+									name="restaurant_sectors" th:value="${member.restaurant_sectors}">
+										<option value="한식">한식(韓食)</option>
+										<option value="중식">중식(中食)</option>
+										<option value="일식">일식(和食)</option>
+										<option value="양식">양식(洋食)</option>
+										<option value="제과제빵">제과제빵(ベーキング)</option>
+										<option value="주점">주점(さかや)</option>
+										<option value="패스트푸드">패스트푸드(ファーストフード)</option>
+										<option value="분식">분식(粉物)</option>
+										<option value="아이스크림/빙수">아이스크림/빙수(アイスクリーム/かき氷)</option>
+										<option value="피자">피자(ピザ)</option>
+										<option value="음료">음료(飲み物)</option>
+										<option value="치킨">치킨(チキン)</option>
+										<option value="커피">커피(コーヒー)</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="fffle"
+									style="font-family: IBM Plex Sans KR;">업체 사진</label><br>
+									<div id='image_preview'>
+										<button class="btn btn-primary" id="btn-upload" type="button">
+											파일추가</button>
+										<input id="btnAtt" multiple="multiple" type="file"
+											accept="image/*" name="upload" style="display: none;">
+										<span style="font-family: IBM Plex Sans KR;">※첨부파일은 최대
+											5개까지 등록이 가능합니다.</span>
+										<div id='att_zone'
+											data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+									</div> <script type="text/javascript">
 
 							( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
 							imageView = function imageView(att_zone, btn){
@@ -224,134 +355,142 @@
 									)('att_zone', 'btnAtt')
 
 							</script>
-						<td>
-					</tr>
+								<td>
+							</tr>
 
-					<tr>
-						<td class="contents"><label for="contents"
-							style="font-family: IBM Plex Sans KR;">업체 설명</label> <br> <textarea
-								placeholder="우리 업체를 고객들에게 상세히 설명해주세요." class="form-control"
-								rows="3" cols="50" name="restaurant_comment"
-								id="restaurant_comment"></textarea></td>
-					</tr>
-					<tr>
-						<td><label for="restaurant_phone"
-							style="font-family: IBM Plex Sans KR;">전화번호를 입력해주세요.</label><br>
-							<input type="hidden" id="restaurant_phone"
-							name="restaurant_phone"> <select class="form-control"
-							id="restaurant_phone1" name="restaurant_phone1"
-							style="width: 100px;">
-								<option value="02">02</option>
-								<option value="031">031</option>
-								<option value="070">070</option>
-						</select>
-							<div id="form-phone2">
-								<input class="form-control" style="width: 500px;" type="text"
-									id="restaurant_phone2" name="restaurant_phone2"
-									placeholder="식당 번호 입력(-포함)">
-							</div></td>
-					</tr>
-					<tr>
-						<td><label for="restaurant_address1"
-							style="font-family: IBM Plex Sans KR;">주소를 입력해주세요</label><br>
-							<input class="form-control"
-							type="text" id="restaurant_address1" name="restaurant_address1"
-							placeholder="주소" style="width: 450px;" readonly="readonly">
-							<div id="b-search-address">
-								<input style="width: 7vw;" class="form-control" type="button"
-									onclick="javascript:sample5_execDaumPostcode(); registformwide();" id="addressSearchButton" value="주소 검색">
-							</div> <input class="form-control" type="text" id="restaurant_address2"
-							name="restaurant_address2" placeholder="상세주소"
-							style="width: 600px;">
-							<div id="map"
-								style="width: 500px; height: 300px; margin-top: 10px; display: none"></div>
+							<tr>
+								<td class="contents"><label for="contents"
+									style="font-family: IBM Plex Sans KR;">업체 설명</label> <br>
+									<textarea placeholder="우리 업체를 고객들에게 상세히 설명해주세요."
+										class="form-control" rows="3" cols="50"
+										name="restaurant_comment" id="restaurant_comment">[[${member.restaurant_comment}]]</textarea></td>
+							</tr>
+							<tr>
+								<td><label for="restaurant_phone"
+									style="font-family: IBM Plex Sans KR;">전화번호를 입력해주세요.</label><br>
+									<input type="text" class="form-control" id="restaurant_phone" name="restaurant_phone"
+									th:value="${member.restaurant_phone}">
+							</tr>
+							<tr>
+								<td><label for="restaurant_address1"
+									style="font-family: IBM Plex Sans KR;">주소를 입력해주세요</label><br>
+									<input class="form-control" type="text"
+									id="restaurant_address1" name="restaurant_address1"
+									placeholder="주소" style="width: 450px;" readonly="readonly" th:value="${member.restaurant_address1}">
+									<div id="b-search-address">
+										<input style="width: 7vw;" class="form-control" type="button"
+											onclick="javascript:sample5_execDaumPostcode(); registformwide();"
+											id="addressSearchButton" value="주소 검색">
+									</div> <input class="form-control" type="text"
+									id="restaurant_address2" name="restaurant_address2"
+									placeholder="상세주소" style="width: 600px;" th:value="${member.restaurant_address2}">
+									<div id="map"
+										style="width: 500px; height: 300px; margin-top: 10px; display: none"></div>
 
-							<script
-								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-							<script
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
-							
-							<script>
-								
-								var mapContainer = document
-										.getElementById('map'), // 지도를 표시할 div
-								mapOption = {
-									center : new daum.maps.LatLng(37.537187,
-											127.005476), // 지도의 중심좌표
-									level : 5
-								// 지도의 확대 레벨
-								};
+									<script
+										src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+									<script
+										src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec51d65c955ff63b6c2b3f36b4898281&libraries=services"></script>
 
-								//지도를 미리 생성
-								var map = new daum.maps.Map(mapContainer,
-										mapOption);
-								//주소-좌표 변환 객체를 생성
-								var geocoder = new daum.maps.services.Geocoder();
-								//마커를 미리 생성
-								var marker = new daum.maps.Marker({
-									position : new daum.maps.LatLng(37.537187,
-											127.005476),
-									map : map
-								});
+									<script>
+									function sample5_execDaumPostcode() {
+										new daum.Postcode(
+												{
+													oncomplete : function(data) {
+														var addr = data.address; // 최종 주소 변수
 
-								function sample5_execDaumPostcode() {
-									new daum.Postcode(
-											{
-												oncomplete : function(data) {
-													var addr = data.address; // 최종 주소 변수
-
-													// 주소 정보를 해당 필드에 넣는다.
-													document
-															.getElementById("restaurant_address1").value = addr;
-													// 주소로 상세 정보를 검색
-													geocoder
-															.addressSearch(
-																	data.address,
-																	function(
-																			results,
-																			status) {
-																		// 정상적으로 검색이 완료됐으면
-																		if (status === daum.maps.services.Status.OK) {
-
-																			var result = results[0]; //첫번째 결과의 값을 활용
-
-																			// 해당 주소에 대한 좌표를 받아서
-																			var coords = new daum.maps.LatLng(
-																					result.y,
-																					result.x);
-																			// 지도를 보여준다.
-																			mapContainer.style.display = "block";
-																			map
-																					.relayout();
-																			// 지도 중심을 변경한다.
-																			map
-																					.setCenter(coords);
-																			// 마커를 결과값으로 받은 위치로 옮긴다.
-																			marker
-																					.setPosition(coords)
-																		}
-																	});
-												}
-											}).open();
-								}
+														// 주소 정보를 해당 필드에 넣는다.
+														document
+																.getElementById("restaurant_address1").value = addr;
+													}
+												}).open();
+									}
 							</script></td>
-					</tr>
-					<tr>
-						<td>
-							<p></p>
-						</td>
-					</tr>
-				</table>
-				<!-- 전송 보낼거임~-->
-				<div id="registerbuttondiv">
-					<input type="submit" style="font-family: IBM Plex Sans KR;"
-						class="btn btn-primary" value="등록">
-				</div>
-				<br>
-			</form>
+							</tr>
+							<tr>
+								<td><label for="menu_priceavr"
+									style="font-family: IBM Plex Sans KR;">1인당 평균 가격은 얼마정도
+										인가요?</label><br> <select class="form-control" id="menu_priceavr"
+									name="menu_priceavr" th:value="${member.menu_priceavr}">
+										<option value="1만원 미만">1만원 미만</option>
+										<option value="1~1.5만원">1~1.5만원</option>
+										<option value="1.5만원">1.5만원</option>
+										<option value="1.5~2만원">1.5~2만원</option>
+										<option value="2~3만원">2~3만원</option>
+										<option value="3~5만원">3~5만원</option>
+										<option value="5만원 이상">5만원 이상</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td style="width: 600px;"><label for="tag1">태그</label><br>
+									<label for="tag1" th:text="${tagList[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br> <label for="tag1"
+									th:text="${tagList2[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList2}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br> <label for="tag1"
+									th:text="${tagList3[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList3}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br> <label for="tag1"
+									th:text="${tagList4[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList4}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br> <label for="tag1"
+									th:text="${tagList5[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList5}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br> <label for="tag1"
+									th:text="${tagList6[0].tags_sector}"></label><br>
+									<div class="btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-outline-secondary"
+											th:for="${tag.tags_num}" th:each="tag : ${tagList6}"><input
+											name="tags_name" th:value="${tag.tags_name}" type="checkbox"
+											th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+									</div> <br></td>
+							</tr>
+							<tr>
+								<td><label for="fffle"
+									style="font-family: IBM Plex Sans KR;">메뉴를 추가해주세요.</label> <span
+									style="font-family: IBM Plex Sans KR;">※(필수)</span> <br>
+									<button class="btn btn-primary" id="btn1" type="button"
+										style="width: 600px">메뉴추가</button> <input id="btn-modal"
+									type="button" style="display: none;">
+									<div></div></td>
+							</tr>
+							<tr>
+								<td>
+									<p></p>
+								</td>
+							</tr>
+						</table>
+						<!-- 전송 보낼거임~-->
+						<div id="registerbuttondiv">
+							<input type="submit" style="font-family: IBM Plex Sans KR;"
+								class="btn btn-primary" value="등록">
+						</div>
+						<br>
+					</form>
 
-		</div>
-				
+				</div>
+
 
 			</main>
 		</div>
@@ -362,4 +501,37 @@
 		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 	<script th:src="@{/js/adminViewJS/adminPage.js}"></script>
 </body>
+	<script type="text/javascript">
+	const modal = document.getElementById("modal")
+	function modalOn() {
+	    modal.style.display = "flex"
+	}
+	function isModalOn() {
+	    return modal.style.display === "flex"
+	}
+	function modalOff() {
+	    modal.style.display = "none"
+	}
+	const btnModal = document.getElementById("btn-modal")
+	btnModal.addEventListener("click", e => {
+	    modalOn()
+	})
+	const closeBtn = document.getElementById("modal_close")
+	closeBtn.addEventListener("click", e => {
+		$("#menuadd")[0].reset(); 
+		$("#att_zone").html(' ');
+	    modalOff()
+	})
+	modal.addEventListener("click", e => {
+	    const evTarget = e.target
+	    if(evTarget.classList.contains("modal-overlay")) {
+	        modalOff()
+	    }
+	})
+	window.addEventListener("keyup", e => {
+	    if(isModalOn() && e.key === "Escape") {
+	        modalOff()
+	    }
+	})
+	</script>
 </html>

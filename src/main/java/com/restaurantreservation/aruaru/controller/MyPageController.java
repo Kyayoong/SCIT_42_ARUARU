@@ -25,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -321,7 +323,28 @@ public class MyPageController {
 	
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
-	public String rsetreview() {
+	public String rsetreview(Model model,@AuthenticationPrincipal UserDetails user) {
+		
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+		ArrayList<Menu> menuList = restaurantService.menucheck(member.getRestaurant_num());
+		
+		ArrayList<Tags> tagList = restaurantService.tagList("맛");
+		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
+		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
+		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
+		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
+		ArrayList<Tags> tagList6 = restaurantService.tagList("분위기");
+		log.debug("맴버 : {}",member);
+		log.debug("메뉴리스트 : {}",menuList);
+		model.addAttribute("tagList", tagList);
+		model.addAttribute("tagList2", tagList2);
+		model.addAttribute("tagList3", tagList3);
+		model.addAttribute("tagList4", tagList4);
+		model.addAttribute("tagList5", tagList5);
+		model.addAttribute("tagList6", tagList6);
+		model.addAttribute("member", member);
+		model.addAttribute("menuList", menuList);
+		
 		
 		
 		
@@ -375,23 +398,8 @@ public class MyPageController {
 	
 	
 	@PostMapping("submitWebBoard")
-	public String submitWebBoard(Web_board b, @RequestParam(value="file", required = false) MultipartFile upload) {
+	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
-		
-		
-		if (upload != null && !upload.isEmpty()) {
-			String savedFile = FileService.saveFile(upload, uploadPath);
-
-			// 원 파일명
-			b.setBoard_originalfile(upload.getOriginalFilename());
-			
-			b.setBoard_savedfile(savedFile);
-
-			// 저장된 파일 명	
-		}
-		
-		
-		
 		
 		int result = service.insertBoard(b);
 		return "redirect:/mypage/inquiryboard";
@@ -417,24 +425,8 @@ public class MyPageController {
 		return "userView/inquiryModify";
 	}
 	@PostMapping("inquirymodifyAction")
-	public String inquirymodifyAction(Web_board b, Model m, @RequestParam(value="file", required=false) MultipartFile upload) {
+	public String inquirymodifyAction(Web_board b, Model m) {
 		log.debug("{}", b);
-		if(upload != null && !upload.isEmpty()) {
-			if(b.getBoard_originalfile() != null) {
-				FileService.deleteFile(
-						uploadPath + "/" + b.getBoard_originalfile());
-				
-				String savedFile = FileService.saveFile(upload, uploadPath);
-				b.setBoard_originalfile(upload.getOriginalFilename());
-				b.setBoard_savedfile(savedFile);
-				
-			} else {
-				
-				String savedFile = FileService.saveFile(upload, uploadPath);
-				b.setBoard_originalfile(upload.getOriginalFilename());
-				b.setBoard_savedfile(savedFile);
-			}
-		}
 		int result = service.updateBoard(b);
 		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
@@ -445,44 +437,6 @@ public class MyPageController {
 		log.debug("{}", board_num);
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
-	}
-	
-
-	@RequestMapping(value = "download", method = RequestMethod.GET)
-	public String fileDownload(int boardnum, Model model, HttpServletResponse response) {
-
-		Web_board b = service.readBoard(boardnum);
-
-		// 원래의 파일명으로 저장하기 위한 설정
-		String originalfile = new String(b.getBoard_originalfile());
-		try {
-			response.setHeader("Content-Disposition",
-					" attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
-		// 저장된 파일 경로
-		String fullPath = uploadPath + "/" + b.getBoard_savedfile();
-
-		// 서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
-		FileInputStream filein = null;
-		ServletOutputStream fileout = null; // 클라이언트쪽으로 출력하는 스트림
-
-		try {
-			filein = new FileInputStream(fullPath);
-			fileout = response.getOutputStream();
-
-			// Spring의 파일 관련 유틸 이용하여 출력
-			FileCopyUtils.copy(filein, fileout);
-
-			filein.close();
-			fileout.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return null;
 	}
 	
 	

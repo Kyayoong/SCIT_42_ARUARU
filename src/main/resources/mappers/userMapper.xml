@@ -218,8 +218,17 @@
 		reply_num
 	</select>
 
-
-
+	
+	<select id="mywishlist" parameterType="String"
+		resultType="Restaurant_zzim">
+	SELECT
+	restaurant_name
+	FROM
+	restaurant_zzim
+	WHERE
+	member_id = #{member_id}	
+	</select>
+	
 
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE

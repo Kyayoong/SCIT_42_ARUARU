@@ -107,8 +107,8 @@ public interface RestaurantService {
 	public int zzimAdd(Restaurant_zzim zzim);
 
 	// 찜 빼기
-
 	public int zzimDelete(int restaurant_num);
+	
 	// 랭크로 추천
 	public List<Restaurant_member> showByRank();
 

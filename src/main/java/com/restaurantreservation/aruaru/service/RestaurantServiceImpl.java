@@ -261,4 +261,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
+  
+	@Override
+	public int zzimDelete(int restaurant_num) {
+		int result = dao.zzimDelete(restaurant_num);
+		return 0;
+	}
+
 }

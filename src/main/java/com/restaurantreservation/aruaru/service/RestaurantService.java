@@ -112,6 +112,11 @@ public interface RestaurantService {
 	// 랭크로 추천
 	public List<Restaurant_member> showByRank();
 
+	
+	// 등록순으로 추천
+	public List<Restaurant_member> showByRegDate();
+
+
 	// 등록순으로 추천
 	public List<Restaurant_member> showByRegDate();
 
@@ -126,6 +131,5 @@ public interface RestaurantService {
 	
 	// 찜 숫자
 	public int zzimcheck(Restaurant_zzim zzim);
-
 
 }

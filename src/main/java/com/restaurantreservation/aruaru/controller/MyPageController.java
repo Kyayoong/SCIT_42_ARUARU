@@ -375,23 +375,8 @@ public class MyPageController {
 	
 	
 	@PostMapping("submitWebBoard")
-	public String submitWebBoard(Web_board b, @RequestParam(value="file", required = false) MultipartFile upload) {
+	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
-		
-		
-		if (upload != null && !upload.isEmpty()) {
-			String savedFile = FileService.saveFile(upload, uploadPath);
-
-			// 원 파일명
-			b.setBoard_originalfile(upload.getOriginalFilename());
-			
-			b.setBoard_savedfile(savedFile);
-
-			// 저장된 파일 명	
-		}
-		
-		
-		
 		
 		int result = service.insertBoard(b);
 		return "redirect:/mypage/inquiryboard";
@@ -417,24 +402,8 @@ public class MyPageController {
 		return "userView/inquiryModify";
 	}
 	@PostMapping("inquirymodifyAction")
-	public String inquirymodifyAction(Web_board b, Model m, @RequestParam(value="file", required=false) MultipartFile upload) {
+	public String inquirymodifyAction(Web_board b, Model m) {
 		log.debug("{}", b);
-		if(upload != null && !upload.isEmpty()) {
-			if(b.getBoard_originalfile() != null) {
-				FileService.deleteFile(
-						uploadPath + "/" + b.getBoard_originalfile());
-				
-				String savedFile = FileService.saveFile(upload, uploadPath);
-				b.setBoard_originalfile(upload.getOriginalFilename());
-				b.setBoard_savedfile(savedFile);
-				
-			} else {
-				
-				String savedFile = FileService.saveFile(upload, uploadPath);
-				b.setBoard_originalfile(upload.getOriginalFilename());
-				b.setBoard_savedfile(savedFile);
-			}
-		}
 		int result = service.updateBoard(b);
 		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
@@ -445,44 +414,6 @@ public class MyPageController {
 		log.debug("{}", board_num);
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
-	}
-	
-
-	@RequestMapping(value = "download", method = RequestMethod.GET)
-	public String fileDownload(int boardnum, Model model, HttpServletResponse response) {
-
-		Web_board b = service.readBoard(boardnum);
-
-		// 원래의 파일명으로 저장하기 위한 설정
-		String originalfile = new String(b.getBoard_originalfile());
-		try {
-			response.setHeader("Content-Disposition",
-					" attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
-		// 저장된 파일 경로
-		String fullPath = uploadPath + "/" + b.getBoard_savedfile();
-
-		// 서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
-		FileInputStream filein = null;
-		ServletOutputStream fileout = null; // 클라이언트쪽으로 출력하는 스트림
-
-		try {
-			filein = new FileInputStream(fullPath);
-			fileout = response.getOutputStream();
-
-			// Spring의 파일 관련 유틸 이용하여 출력
-			FileCopyUtils.copy(filein, fileout);
-
-			filein.close();
-			fileout.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return null;
 	}
 	
 	

@@ -92,7 +92,7 @@ public class PageController {
 	
 	//식당 상세 페이지
 	@GetMapping("introduce_store")
-	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user) {
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user, Restaurant_zzim zzim) {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
@@ -110,12 +110,16 @@ public class PageController {
 		ArrayList<Restaurant_time> timeTable = service.searchTime(restaurant_num);
 		ArrayList<Tags> storeTags = service.searchStoreTags(restaurant_num);
 		ArrayList<Restaurant_file> fileList = service.fileselect(restaurant_num);
+		 int count = service.zzimCount(restaurant_num);
+	      int result = service.zzimcheck(zzim);
 		log.debug("{}",storeTags);
 		model.addAttribute("menuList", menuList);
 		model.addAttribute("store", storeList);
 		model.addAttribute("timeTable", timeTable);
 		model.addAttribute("storeTagList", storeTags);
 		model.addAttribute("fileList", fileList);
+		 model.addAttribute("count", count);
+	      model.addAttribute("result", result);
 		return "views/introduce_store";
 	}
 	

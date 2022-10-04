@@ -1,5 +1,7 @@
 package com.restaurantreservation.aruaru.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.restaurantreservation.aruaru.domain.Admin_Graphs;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.HomeService;
 import com.restaurantreservation.aruaru.service.UserService;
@@ -48,11 +51,21 @@ public class HomeController {
 			int result = homeService.checkNewDate();
 			//객체를 전달하여 올릴 데이터만 +1해줌 (여기선 방문자만 +1)
 			int increseCnt = homeService.increaseToday(data);
+			
 		}
 		
 		if(user != null) {
 		User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			String tags = service.ownTags(user.getUsername());
+			String[] mytags = tags.split("/");
+			List<Integer> a = service.recommend(mytags);
+			int[] stores = a.stream().mapToInt(i->i).toArray();
+			List<Restaurant_member> restaurants = service.recommendStores(stores);
+			
+			System.out.println(restaurants);
+			model.addAttribute("recommend", restaurants);
+			
 		}
 		else {
 			model.addAttribute("member_nickname", null);

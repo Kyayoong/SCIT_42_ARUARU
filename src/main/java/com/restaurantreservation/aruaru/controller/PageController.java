@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
@@ -30,6 +31,7 @@ import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
@@ -59,7 +61,8 @@ public class PageController {
 						,@RequestParam String s_time
 						,@RequestParam String s_people
 						,@RequestParam String s_sector
-			,Model model,@AuthenticationPrincipal UserDetails user) {
+			,Model model
+			,@AuthenticationPrincipal UserDetails user) {
 		
 		Map<String, String> map = new HashMap<>();
 		map.put("s_sector", s_sector);
@@ -81,7 +84,6 @@ public class PageController {
 		log.debug("에에 {}",resList);
 		
 		
-		
 		ArrayList<Tags> tagList = service.tagList("");
 		log.debug("tagList {}",tagList);
 		model.addAttribute("tagList",tagList);
@@ -91,10 +93,14 @@ public class PageController {
 	
 	//식당 상세 페이지
 	@GetMapping("introduce_store")
-	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user) {
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user, Restaurant_zzim zzim) {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
+				zzim.setMember_id(user.getUsername());
+				zzim.setRestaurant_num(restaurant_num);
+				
+				log.debug("1:{}",member);
 			}
 			else {
 				model.addAttribute("member_nickname", null);
@@ -105,12 +111,16 @@ public class PageController {
 		ArrayList<Restaurant_time> timeTable = service.searchTime(restaurant_num);
 		ArrayList<Tags> storeTags = service.searchStoreTags(restaurant_num);
 		ArrayList<Restaurant_file> fileList = service.fileselect(restaurant_num);
+		 int count = service.zzimCount(restaurant_num);
+	      int result = service.zzimcheck(zzim);
 		log.debug("{}",storeTags);
 		model.addAttribute("menuList", menuList);
 		model.addAttribute("store", storeList);
 		model.addAttribute("timeTable", timeTable);
 		model.addAttribute("storeTagList", storeTags);
 		model.addAttribute("fileList", fileList);
+		 model.addAttribute("count", count);
+	      model.addAttribute("result", result);
 		return "views/introduce_store";
 	}
 	
@@ -162,5 +172,22 @@ public class PageController {
 		return "redirect:/";
 	}	
 	
-	
+	@GetMapping("recommendstores")
+	public String recommendStores(Model model, @AuthenticationPrincipal UserDetails user) {
+		if(user != null) {
+			User_member member = service1.selectUser(user.getUsername());
+				model.addAttribute("member", member);
+				String tags = service1.ownTags(user.getUsername());
+				String[] mytags = tags.split("/");
+				List<Integer> a = service1.recommend(mytags);
+				int[] stores = a.stream().mapToInt(i->i).toArray();
+				List<Restaurant_member> restaurants = service1.recommendStores(stores);
+				model.addAttribute("resList", restaurants);
+				
+			}
+			else {
+				model.addAttribute("member_nickname", null);
+			}
+		return "stores";
+	}
 }

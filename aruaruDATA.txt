@@ -11355,4 +11355,685 @@ INSERT INTO holiday
 VALUES
 (holidays_seq.nextval,'기독탄신일','2022-12-25');
 
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon101',1,'가무',10,'2022-09-25','13:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon102',2,'향복집',2,'2022-09-26','13:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon103',3,'루나바인',34,'2022-09-27','14:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon104',4,'이키이키',5,'2022-09-28','14:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon105',5,'강강술래(상계점)',1,'2022-09-29','15:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon106',6,'태림산채정식',2,'2022-09-30','15:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon107',7,'미우야',3,'2022-08-31','16:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon108',8,'도봉산갈비',2,'2022-08-25','16:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon109',9,'채운',3,'2022-08-13','17:00','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon110',10,'장원북어국',4,'2022-08-01','17:30','아이가있어요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon101',1,'가무',5,'2022-09-25','13:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon102',2,'향복집',1,'2022-09-26','13:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon103',3,'루나바인',2,'2022-09-27','14:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon104',4,'이키이키',3,'2022-09-28','14:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon105',5,'강강술래(상계점)',2,'2022-09-29','15:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon106',6,'태림산채정식',3,'2022-09-30','15:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon107',7,'미우야',4,'2022-08-31','16:00','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon108',8,'도봉산갈비',3,'2022-08-25','16:30','커플이에요');
+INSERT INTO reservation
+(reservation_num
+,member_id
+,restaurant_num
+,restaurant_name
+,reservation_people
+,reservation_date
+,reservation_hours
+,request
+)
+VALUES
+(reservation_seq.nextval,'kiwon109',9,'채운',4,'2022-08-13','17:00','커플이에요');
+
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,1,'kkiwoonn','kiwon101','1','가무');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,2,'kkiwoonn','kiwon102','2','향복집');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,3,'kkiwoonn','kiwon103','3','루나바인');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,4,'kkiwoonn','kiwon104','4','이키이키');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,5,'kkiwoonn','kiwon105','5','강강술래(상계점)');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,6,'kkiwoonn','kiwon106','6','태림산채정식');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,7,'kkiwoonn','kiwon107','7','미우야');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,8,'kkiwoonn','kiwon108','8','도봉산갈비');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,9,'kkiwoonn','kiwon109','9','채운');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,10,'kkiwoonn','kiwon110','10','장원북어국');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,1,'kkiwoonn','kiwon110','1','가무');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,2,'kkiwoonn','kiwon109','2','향복집');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,3,'kkiwoonn','kiwon105','3','루나바인');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,4,'kkiwoonn','kiwon108','4','이키이키');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,5,'kkiwoonn','kiwon103','5','강강술래(상계점)');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,6,'kkiwoonn','kiwon107','6','태림산채정식');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,7,'kkiwoonn','kiwon104','7','미우야');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,8,'kkiwoonn','kiwon106','8','도봉산갈비');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,9,'kkiwoonn','kiwon102','9','채운');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,10,'kkiwoonn','kiwon101','10','장원북어국');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,1,'kkiwoonn','kiwon105','1','가무');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,2,'kkiwoonn','kiwon103','2','향복집');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,3,'kkiwoonn','kiwon108','3','루나바인');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,4,'kkiwoonn','kiwon101','4','이키이키');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,5,'kkiwoonn','kiwon102','5','강강술래(상계점)');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,6,'kkiwoonn','kiwon109','6','태림산채정식');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,7,'kkiwoonn','kiwon106','7','미우야');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,8,'kkiwoonn','kiwon104','8','도봉산갈비');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,9,'kkiwoonn','kiwon110','9','채운');
+INSERT INTO
+usage_history
+(usage_num
+,reservation_num
+,usage_information
+,member_id
+,restaurant_num
+,restaurant_name)
+VALUES
+(usage_history_seq.nextval
+,10,'kkiwoonn','kiwon107','10','장원북어국');
+
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon101',1,1,'가무','어머니가 추천해 주셔서 같이 왔는데 분위기도 좋지만 커피도 맛있네요. 핫플레이스 트렌디한 곳보다 여기가 훨씬 좋아요',4.7);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon102',2,2,'향복집','너무 맛없어요.. 고기 양도 적고 비싸고… 다시는 안 갈 것 같아요',3.7);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon103',3,3,'루나바인','퓨전요리 맛집입니다. 강추합니다.',4.2);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon104',4,4,'이키이키','진짜 면 쫄깃함이 다르고 너무 시원해요~',4.5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon105',5,5,'강강술래(상계점)','짱맛탱',4.9);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon106',6,6,'태림산채정식','건강해지는 느낌이었어요. 부모님 모시고 또 오고 싶어요',4.7);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon107',7,7,'미우야','소바 김밥 대박적,, 다른 데에서는 먹을 수 없는 맛!',5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon108',8,8,'도봉산갈비','좋아요 맛있어요',4.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon109',9,9,'채운','코스로 나온 음식들이 전반적으로 짜요',3.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon110',10,10,'장원북어국','캬,, 해장된다,, 미쳤다,, 아침 식사하러 오기도 좋을 것 같아요',4.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon110',1,11,'가무','35년째 다녀요. 늘 좋은 곳입니다.',4.9);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon109',2,12,'향복집','짜지 않고 맛있다!',4.2);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon105',3,13,'루나바인','단골인데 언제나 맛있고 분위기도 좋고 최고입니다',5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon108',4,14,'이키이키','점심시간보다 살짝 빨리 가면 웨이팅 없이 들어갈 수 있어요! 인테리어도 깔끔하고 맛도 깔끔하게 맛있었습니다.',4.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon103',5,15,'강강술래(상계점)','고기가 정말 부드럽고 맛있어요',5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon107',6,16,'태림산채정식','음식들도 정갈하고 직원분들도 친절하셔서 기분 좋게 먹고 나왔어요',4.9);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon104',7,17,'미우야','대체적으로 음식이 좀 짠 거 같지만 맛있어서 다 먹고 왔습니다',4.5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon106',8,18,'도봉산갈비','갈비탕 맛있게 먹었습니다',4.5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon102',9,19,'채운','특이한 메뉴 많아요',4.2);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon101',10,20,'장원북어국','7천 원으로 집밥 먹고 올 수 있어요 짱짱',4.3);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon105',1,21,'가무','굳',4.5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon103',2,22,'향복집','맛있고 점심 정식 괜찮아요.',4.1);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon108',3,23,'루나바인','사장님 정말 친절하시고 안주도 맛있어요!',5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon101',4,24,'이키이키','몇 번째 방문인지도 까먹은 이키이키,, 부타노가쿠니우동 진짜 대박적으로 맛있네여,,',4.9);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon102',5,25,'강강술래(상계점)','이 근방에서 몇 안 되는 좀 고급스러운 고깃집입니다. 회식하기 좋아요',4.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon109',6,26,'태림산채정식','건강한 밥상~ 양이 많지는 않은데 다양한 나물을 먹어서 그런지 배불러요',4.8);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon106',7,27,'미우야','둘이서 메뉴 4개 먹었는데 적당히 배불렀어요',4);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon104',8,28,'도봉산갈비','맛 쏘쏘 위생 그닥',3.5);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon110',9,29,'채운','세 번째 방문입니다. 룸에 모임 하기도 좋고 맛있어요',4.7);"
+"INSERT INTO REVIEW
+(REVIEW_NUM, MEMBER_ID, RESTAURANT_NUM, USAGE_NUM, TITLE, CONTENTS, GRADE)
+VALUES
+(REVIEW_SEQ.NEXTVAL,'kiwon107',10,30,'장원북어국','가성비 좋아요',4.3);"
+
 commit;

@@ -1,12 +1,15 @@
 package com.restaurantreservation.aruaru.controller;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,8 +20,11 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
@@ -28,9 +34,13 @@ import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
+import com.restaurantreservation.aruaru.util.FileService;
+
 import lombok.extern.slf4j.Slf4j;
+
+
 @Slf4j
-@RequestMapping("mypage")
+@RequestMapping("/mypage")
 @Controller
 public class MyPageController {
 	@Autowired
@@ -49,6 +59,8 @@ public class MyPageController {
 			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
 			log.debug("리스트에여 : {}", reservationlist);
 			model.addAttribute("reservationlist", reservationlist);
+			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			model.addAttribute("cancelReservationList", cancelReservationList);
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -157,9 +169,25 @@ public class MyPageController {
 			model.addAttribute("reservationlist", reservationlist);
 			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
 			model.addAttribute("lastreservationlist", lastreservationlist);
+			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			model.addAttribute("cancelReservationList", cancelReservationList);
 		}
 		return "userView/seereservation";
 	}
+	
+	@GetMapping("seeReservationDetail")
+	public String seeReservationDetail(int reservation_num, Model model, @AuthenticationPrincipal UserDetails user) {
+		log.debug("넘 : {} ", reservation_num);
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+			Reservation reservation = restaurantService.reservationSelect(reservation_num);
+			log.debug("리스트에여 : {}", reservation);
+			model.addAttribute("reservation", reservation);
+		}
+		return "userView/seeReservationDetail";
+	}
+	
 	// 공지사항
 	@GetMapping("notice")
 	public String notice(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -294,6 +322,9 @@ public class MyPageController {
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
 	public String rsetreview() {
+		
+		
+		
 		return "/restaurantView/rsetreview";
 	}
 	@GetMapping("inquiryboard")
@@ -330,12 +361,43 @@ public class MyPageController {
 		// inputiryboard.html로 가져간다.
 		return "/userView/inquiryRead";
 	}
+	@GetMapping("cancelReservation")
+	public String cancelReservation(int reservation_num) {
+		log.debug("{} : ",reservation_num);
+		Reservation reservation = restaurantService.reservationSelect(reservation_num);
+		Restaurant_member member = restaurantService.selectOne1(reservation.getRestaurant_num());
+		int people = member.getRestaurant_people() + reservation.getReservation_people();
+		member.setRestaurant_people(people);
+		restaurantService.peopleCount(member);
+		int result = restaurantService.cancelReservation(reservation_num);
+		return "redirect:/mypage/";
+	}
+	
+	
 	@PostMapping("submitWebBoard")
-	public String submitWebBoard(Web_board b) {
+	public String submitWebBoard(Web_board b, @RequestParam(value="file", required = false) MultipartFile upload) {
 		log.debug("{}", b);
+		
+		
+		if (upload != null && !upload.isEmpty()) {
+			String savedFile = FileService.saveFile(upload, uploadPath);
+
+			// 원 파일명
+			b.setBoard_originalfile(upload.getOriginalFilename());
+			
+			b.setBoard_savedfile(savedFile);
+
+			// 저장된 파일 명	
+		}
+		
+		
+		
+		
 		int result = service.insertBoard(b);
 		return "redirect:/mypage/inquiryboard";
 	}
+	
+	
 	@ResponseBody
 	@GetMapping("replyList")
 	public List<Web_reply> replyList(int board_num) {
@@ -355,10 +417,26 @@ public class MyPageController {
 		return "userView/inquiryModify";
 	}
 	@PostMapping("inquirymodifyAction")
-	public String inquirymodifyAction(Web_board b, Model m) {
+	public String inquirymodifyAction(Web_board b, Model m, @RequestParam(value="file", required=false) MultipartFile upload) {
 		log.debug("{}", b);
+		if(upload != null && !upload.isEmpty()) {
+			if(b.getBoard_originalfile() != null) {
+				FileService.deleteFile(
+						uploadPath + "/" + b.getBoard_originalfile());
+				
+				String savedFile = FileService.saveFile(upload, uploadPath);
+				b.setBoard_originalfile(upload.getOriginalFilename());
+				b.setBoard_savedfile(savedFile);
+				
+			} else {
+				
+				String savedFile = FileService.saveFile(upload, uploadPath);
+				b.setBoard_originalfile(upload.getOriginalFilename());
+				b.setBoard_savedfile(savedFile);
+			}
+		}
 		int result = service.updateBoard(b);
-		return "redirect:/userView/inquiryRead";
+		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
 	
 	@ResponseBody
@@ -368,4 +446,44 @@ public class MyPageController {
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
 	}
+	
+
+	@RequestMapping(value = "download", method = RequestMethod.GET)
+	public String fileDownload(int boardnum, Model model, HttpServletResponse response) {
+
+		Web_board b = service.readBoard(boardnum);
+
+		// 원래의 파일명으로 저장하기 위한 설정
+		String originalfile = new String(b.getBoard_originalfile());
+		try {
+			response.setHeader("Content-Disposition",
+					" attachment;filename=" + URLEncoder.encode(originalfile, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		// 저장된 파일 경로
+		String fullPath = uploadPath + "/" + b.getBoard_savedfile();
+
+		// 서버의 파일을 읽을 입력 스트림과 클라이언트에게 전달할 출력스트림
+		FileInputStream filein = null;
+		ServletOutputStream fileout = null; // 클라이언트쪽으로 출력하는 스트림
+
+		try {
+			filein = new FileInputStream(fullPath);
+			fileout = response.getOutputStream();
+
+			// Spring의 파일 관련 유틸 이용하여 출력
+			FileCopyUtils.copy(filein, fileout);
+
+			filein.close();
+			fileout.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	
 }

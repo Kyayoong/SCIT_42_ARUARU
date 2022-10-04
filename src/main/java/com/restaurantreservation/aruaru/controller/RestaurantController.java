@@ -133,20 +133,7 @@ public class RestaurantController {
 		
 		log.debug("결과 : {}",result);
 		
-		return "redirect:/restaurant/join_as_restaurant_time";
-	}
-	/**
-	 * 영업일 설정화면으로 이동합니다~
-	 */
-	@GetMapping("/join_as_restaurant_time")
-	public String join_as_restaurant_time(Model model) {
-		
-		
-		ArrayList<Holiday> hList = service.readHoliday();
-		log.debug("결과 : {}",hList);
-		model.addAttribute("hList", hList);
-		
-		return "/registView/join_as_restaurant_time";
+		return "redirect:/";
 	}
 }
  

@@ -127,6 +127,10 @@
 		, board_title
 		, board_contents
 		, category
+		<if test="board_originalfile != null and board_savedfile != null">
+		, board_originalfile
+		, board_savedfile
+		</if>
 		)
 		VALUES
 		(
@@ -135,6 +139,10 @@
 		, #{board_title}
 		, #{board_contents}
 		, #{category}
+		<if test="board_originalfile != null and board_savedfile != null">
+		, #{board_originalfile}
+		, #{board_savedfile}
+		</if>
 		)
 	</insert>
 
@@ -154,7 +162,8 @@
 	<select id="seeAllReservation" parameterType="String"
 		resultType="Reservation">
 		SELECT
-		member_id
+		reservation_num
+		, member_id
 		, restaurant_name
 		, reservation_people
 		,
@@ -169,6 +178,7 @@
 		reservation
 		WHERE
 		member_id = #{member_id} AND
+		reservation_success BETWEEN 0 AND 1 AND
 		reservation_date &gt; SYSDATE
 	</select>
 
@@ -218,6 +228,10 @@
 	board_title = #{board_title}
 	, board_contents = #{board_title}
 	, category = #{category}
+	<if test="board_originalfile != null and board_savedfile != null">
+	, board_originalfile = #{board_originalfile}
+	, board_savedfile = #{board_savedfile}
+	</if>
 	WHERE
 	board_num = #{board_num}
 	</update>
@@ -251,5 +265,41 @@
 	<!-- 유저아이디로 리뷰 리스트 가져오기 -->
 	<select id="selectAllReview" parameterType="String" resultType="Review">
 		SELECT * FROM REVIEW WHERE MEMBER_ID = #{username}
+	</select>
+	
+	<select id="myTags" parameterType="String" resultType="String">
+		SELECT
+		member_tags
+		FROM
+		user_member
+		where
+		member_id
+		=#{member_id}
+	</select>
+	
+	<select id="recommend" parameterType="String" resultType="Int">
+		SELECT
+		restaurant_num
+		FROM
+		tags
+		WHERE tags_name like
+		<foreach collection="arg0" item="item" separator="or tags_name like">
+		'%'||#{item}||'%'
+		</foreach>
+	</select> 
+	
+	<select id="recommendStores" parameterType="Integer" resultType="Restaurant_member">
+		SELECT
+		*
+		FROM
+		restaurant_member 
+		WHERE
+		restaurant_num =
+		<foreach collection="arg0" item="item1" separator = "or restaurant_num = " >
+		#{item1} 
+		</foreach>
+		<trim prefix="and">
+		ROWNUM  <![CDATA[ <= ]]> 3
+		</trim>
 	</select>
 </mapper>

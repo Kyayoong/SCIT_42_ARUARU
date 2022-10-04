@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.service.RestaurantService;
+import com.restaurantreservation.aruaru.service.UserService;
 import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +35,9 @@ public class RestaurantController {
 
 	@Autowired
 	RestaurantService service;
+	
+	@Autowired
+	UserService memberService;
 
 	/**
 	 * 식당이 등록되어있는지 확인하는 창
@@ -132,5 +135,13 @@ public class RestaurantController {
 		return "redirect:/";
 	}
 	
-
+	@GetMapping("deleteRest")
+	public String deleteRest(int restaurant_num,@AuthenticationPrincipal UserDetails user) {
+		
+		int result = service.deleteRest(restaurant_num);
+		int result1 = memberService.updateRole(user.getUsername());
+		log.debug("result : {}",result);
+		
+		return "redirect:/";
+	}
 }

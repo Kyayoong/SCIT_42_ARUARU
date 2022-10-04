@@ -554,5 +554,14 @@
 	ORDER BY
 	registration_date DESC
 	</select>
+  
+	<delete id="deleteRest" parameterType="int">
+	DELETE
+	FROM
+	restaurant_member
+	WHERE
+	restaurant_num = #{restaurant_num}
+	</delete>
+
 
 </mapper>

@@ -234,11 +234,6 @@ function modify() {
 							</td>
 						</tr>
 						<tr>
-							<th>첨부파일</th>
-							<td><a th:text="@{board.board_originalfile}"
-							th:href="@{download(boardnum=${board.board_num})}"></a></td>
-						</tr>
-						<tr>
 							<td colspan="2" >
 							<a th:href="@{/mypage/inquiryboard}"><input type="button" class="btn btn-primary" value="목록으로"></a>
 							<input  type="button" class="btn btn-primary" onclick="javascript:modify()" value="수정하기">

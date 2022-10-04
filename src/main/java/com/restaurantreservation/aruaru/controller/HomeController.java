@@ -46,6 +46,9 @@ public class HomeController {
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
 	
+	String tags;
+	String[] mytags;
+	
 	//쿠키에 방문자 여부 저장
 	@GetMapping({ "", "/" })
 	public String home(Model model, 
@@ -73,8 +76,8 @@ public class HomeController {
 		if(user != null) {
 		User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
-			String tags = service.ownTags(user.getUsername());
-			String[] mytags = tags.split("/");
+			tags = service.ownTags(user.getUsername());
+			mytags = tags.split("/");
 			List<Integer> a = service.recommend(mytags);
 			int[] stores = a.stream().mapToInt(i->i).toArray();
 			List<Restaurant_member> restaurants = service.recommendStores(stores);
@@ -82,8 +85,7 @@ public class HomeController {
 			System.out.println(restaurants);
 			model.addAttribute("recommend", restaurants);
 			
-		}
-		else {
+		} else if(mytags.length == 0 || user == null) {
 			List<Restaurant_member> byrank = rservice.showByRank();
 			List<Restaurant_member> byregdate = rservice.showByRegDate();
 			model.addAttribute("byRegDate", byregdate);
@@ -107,7 +109,6 @@ public class HomeController {
 		
 		try {
 			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(originalfile, "UTF-8"));
-			response.setContentType("image/jpeg");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

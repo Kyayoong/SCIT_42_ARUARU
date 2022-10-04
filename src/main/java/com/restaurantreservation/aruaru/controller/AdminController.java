@@ -75,6 +75,8 @@ public class AdminController {
 			int result = service.acceptCertificationByNum(restaurant_num);
 		} else if(isPermited == 0) {
 			int result = service.rejectCertificationByNum(restaurant_num);
+		} else if(isPermited == -1) {
+			int result = service.reconsiderCertifiacationByNum(restaurant_num);
 		}
 		
 		//미승인 리스트 검색

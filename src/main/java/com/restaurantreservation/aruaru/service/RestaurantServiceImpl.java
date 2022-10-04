@@ -254,6 +254,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byrank = dao.showByRank();
 		return byrank;
 	}
+
 	//등록순
 	@Override
 	public List<Restaurant_member> showByRegDate() {
@@ -261,6 +262,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
+
 	//찜 해제
 	@Override
 	public int zzimDelete(int restaurant_num) {
@@ -274,6 +276,4 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return result;
 	}
 
-	
-	
 }

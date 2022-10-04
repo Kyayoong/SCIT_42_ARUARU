@@ -81,11 +81,14 @@ public class HomeController {
 			List<Integer> a = service.recommend(mytags);
 			int[] stores = a.stream().mapToInt(i->i).toArray();
 			List<Restaurant_member> restaurants = service.recommendStores(stores);
-			
+			List<Restaurant_member> byrank = rservice.showByRank();
+			List<Restaurant_member> byregdate = rservice.showByRegDate();
+			model.addAttribute("byRegDate", byregdate);
+			model.addAttribute("byRank", byrank);
 			System.out.println(restaurants);
 			model.addAttribute("recommend", restaurants);
 			
-		} else if(mytags.length == 0 || user == null) {
+		} else {
 			List<Restaurant_member> byrank = rservice.showByRank();
 			List<Restaurant_member> byregdate = rservice.showByRegDate();
 			model.addAttribute("byRegDate", byregdate);

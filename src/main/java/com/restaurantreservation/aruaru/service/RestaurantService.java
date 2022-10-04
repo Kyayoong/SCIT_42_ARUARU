@@ -116,10 +116,6 @@ public interface RestaurantService {
 	// 등록순으로 추천
 	public List<Restaurant_member> showByRegDate();
 
-
-	// 등록순으로 추천
-	public List<Restaurant_member> showByRegDate();
-
   
 	public int zzimDelete(Restaurant_zzim zzim);
 	
@@ -134,5 +130,8 @@ public interface RestaurantService {
 	
 	// 식당 삭제
 	public int deleteRest(int restaurant_num);
+	
+	// 시간 입력
+	public int inputTime(Restaurant_time time);
 
 }

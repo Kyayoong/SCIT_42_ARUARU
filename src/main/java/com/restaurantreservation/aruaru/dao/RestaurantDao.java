@@ -3,7 +3,9 @@ package com.restaurantreservation.aruaru.dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
+
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
@@ -120,8 +122,6 @@ public interface RestaurantDao {
 	List<Restaurant_member> showByRegDate();
 	
 
-	List<Restaurant_member> showByRegDate();
-
 	int zzimDelete(Restaurant_zzim zzim);
 	
 	// 찜 숫자
@@ -133,5 +133,7 @@ public interface RestaurantDao {
 	// 식당 삭제
 	int deleteRest(int restaurant_num);
 	
+	// 시간 입력
+	int inputTime(Restaurant_time time);
 	
 }

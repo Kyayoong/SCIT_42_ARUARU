@@ -275,5 +275,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.deleteRest(restaurant_num);
 		return result;
 	}
+	//시간 입력
+	@Override
+	public int inputTime(Restaurant_time time) {
+		int result = dao.inputTime(time);
+		return result;
+	}
+	
 
 }

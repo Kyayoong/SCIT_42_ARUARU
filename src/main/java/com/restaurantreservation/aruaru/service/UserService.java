@@ -83,6 +83,8 @@ public interface UserService {
 	public List<Integer> recommend(String[] mytags);
 
 	public List<Restaurant_member> recommendStores(int[] stores);
+	
+	public int updateRole(String member_id);
 
 	
 

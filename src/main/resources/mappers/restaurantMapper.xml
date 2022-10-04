@@ -408,4 +408,13 @@
 	ORDER BY
 	restaurant_grade DESC
 	</select>
+	
+	<select id="showByRegDate" resultType="Restaurant_member">
+	SELECT
+	*
+	FROM
+	restaurant_member
+	ORDER BY
+	registration_date DESC
+	</select>
 </mapper>

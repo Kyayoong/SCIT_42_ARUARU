@@ -106,4 +106,6 @@ public interface RestaurantDao {
 	int zzimDelete(int reservation_num);
 	//랭크 순
 	List<Restaurant_member> showByRank();
+
+	List<Restaurant_member> showByRegDate();
 }

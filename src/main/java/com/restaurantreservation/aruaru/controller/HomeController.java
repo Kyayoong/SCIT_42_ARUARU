@@ -85,15 +85,18 @@ public class HomeController {
 		}
 		else {
 			List<Restaurant_member> byrank = rservice.showByRank();
-			model.addAttribute("byRank",byrank);
+			List<Restaurant_member> byregdate = rservice.showByRegDate();
+			System.out.println(byregdate);
+			model.addAttribute("byRegDate", byregdate);
+			model.addAttribute("byRank", byrank);
 			model.addAttribute("member_nickname", null);
 		}
 
 		return "home";
 	}
 	
-	@GetMapping("display")
-	public String display(int restaurant_num, Model model, HttpServletResponse response) {
+	@GetMapping("resdis")
+	public String resdis(int restaurant_num, Model model, HttpServletResponse response) {
 		//전달된 글 번호로 글 정보 조회
 		Restaurant_member member = rservice.selectOne1(restaurant_num);
 		
@@ -105,6 +108,7 @@ public class HomeController {
 		
 		try {
 			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(originalfile, "UTF-8"));
+			response.setContentType("image/jpeg");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

@@ -148,5 +148,7 @@ public class RestaurantController {
 		
 		return "/registView/join_as_restaurant_time";
 	}
+	
+
 }
  

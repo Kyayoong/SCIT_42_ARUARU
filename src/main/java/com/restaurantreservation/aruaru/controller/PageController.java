@@ -178,7 +178,20 @@ public class PageController {
 			}
 			else {
 				model.addAttribute("member_nickname", null);
-			}
+			} 
+		return "stores";
+	}
+	
+	@GetMapping("recommendbyrank")
+	public String recommendByRank(Model model) {
+		List<Restaurant_member> byrank = service.showByRank();
+		model.addAttribute("resList", byrank);
+		return "stores";
+	}
+	@GetMapping("recommendbyregdate")
+	public String recommendByRegDate(Model model) {
+		List<Restaurant_member> byRegDate = service.showByRegDate();
+		model.addAttribute("resList", byRegDate);
 		return "stores";
 	}
 }

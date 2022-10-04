@@ -47,6 +47,7 @@ public class WebSecurityConfig {
         		"/mypage/mypage",
         		"/chat",
         		"/chatting",
+        		"/resdis",
         		"/mypage",
         		"/mypage/review",
                 "/css/**",

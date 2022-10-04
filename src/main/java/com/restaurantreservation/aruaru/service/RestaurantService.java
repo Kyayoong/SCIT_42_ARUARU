@@ -127,5 +127,5 @@ public interface RestaurantService {
 	// 찜 숫자
 	public int zzimcheck(Restaurant_zzim zzim);
 
->>>>>>> 904a42969a7fd4da9eb934ac8d7de8c00e582be1
+
 }

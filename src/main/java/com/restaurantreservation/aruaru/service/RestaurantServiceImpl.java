@@ -261,9 +261,4 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
-
-
-	
-	
-
 }

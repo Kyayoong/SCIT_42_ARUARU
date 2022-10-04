@@ -485,11 +485,13 @@
 		(
 		member_id
 		,restaurant_num
+		,restaurant_name
 		)
 		VALUES
 		(
 		#{member_id}
 		,#{restaurant_num}
+		,#{restaurant_name}
 		)
 	</insert>
 

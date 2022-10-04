@@ -169,9 +169,10 @@ public class PageRestController {
 	@ResponseBody
 	@GetMapping("zzimAdd")
 	public void zzimAdd(@RequestParam int restaurant_num,@AuthenticationPrincipal UserDetails user,Restaurant_zzim zzim) {
-		
+		Restaurant_member member = service.selectOne1(restaurant_num);
 		zzim.setMember_id(user.getUsername());
 		zzim.setRestaurant_num(restaurant_num);
+		zzim.setRestaurant_name(member.getRestaurant_name());
 		log.debug("{}",zzim);
 		int result = service.zzimAdd(zzim);
 		log.debug("{}",result);

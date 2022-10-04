@@ -254,11 +254,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byrank = dao.showByRank();
 		return byrank;
 	}
+
 	@Override
 	public List<Restaurant_member> showByRegDate() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
-
 }

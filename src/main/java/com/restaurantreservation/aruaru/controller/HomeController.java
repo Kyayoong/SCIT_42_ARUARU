@@ -107,7 +107,6 @@ public class HomeController {
 		
 		try {
 			response.setHeader("Content-Disposition", " attachment;filename="+ URLEncoder.encode(originalfile, "UTF-8"));
-			response.setContentType("image/jpeg");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

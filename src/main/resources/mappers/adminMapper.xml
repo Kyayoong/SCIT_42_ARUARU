@@ -81,4 +81,9 @@
  	<update id="rejectCertificationByNum" parameterType="int">
  		UPDATE RESTAURANT_MEMBER SET CERTIFICATION = -1 WHERE RESTAURANT_NUM = #{restaurant_num}
  	</update>
+ 	
+ 	<!-- 레스토랑 거절 재고 -->
+ 	<update id="reconsiderCertifiacationByNum" parameterType="int">
+ 		UPDATE RESTAURANT_MEMBER SET CERTIFICATION = 0 WHERE RESTAURANT_NUM = #{restaurant_num}
+ 	</update>
 </mapper>

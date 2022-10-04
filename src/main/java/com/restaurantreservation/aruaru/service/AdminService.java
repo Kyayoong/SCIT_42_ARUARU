@@ -86,5 +86,12 @@ public interface AdminService {
 	 * @param restaurant_num
 	 * @return
 	 */
-	int rejectCertificationByNum(int restaurant_num); 
+	int rejectCertificationByNum(int restaurant_num);
+	
+	/**
+	 * 레스토랑 등록 재고
+	 * @param restaurant_num
+	 * @return
+	 */
+	int reconsiderCertifiacationByNum(int restaurant_num); 
 }

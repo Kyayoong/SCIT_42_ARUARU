@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 
@@ -31,5 +32,12 @@ public interface AdminDao {
 	
 	//전체 답변개수
 	ArrayList<Web_reply> allReplyList();
+	
+	//레스토랑 승인되지 않은 인원들 가져오기
+	ArrayList<Restaurant_member> selectNotCertificatedMember();
+	//레스토랑 승인
+	int acceptCertificationByNum(int restaurant_num);
+	//레스토랑 미승인
+	int rejectCertificationByNum(int restaurant_num);
 
 }

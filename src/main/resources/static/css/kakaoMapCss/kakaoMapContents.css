@@ -3,15 +3,15 @@
 
 .overlaybox {
 	position:relative;
-	width:395px;
-	height:350px;
-	background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png') no-repeat;
+	width:270px;
+	height:180px;
+	background-color: rgba(100,100,100,100.8); /* 이미지 줘도 됨. */
 	padding:15px 10px;
 }
 
 .overlaybox div, ul {
-	overflow:hidden
-	;margin:0;
+	overflow:hidden;
+	margin:0;
 	padding:0;
 }
 
@@ -23,22 +23,18 @@
 	position:relative;
 	width:247px;
 	height:136px;
-	background: url('../../kakaoMapImages/mokoko01.png') no-repeat;
 	margin-bottom:8px;
 }
 
-.main .text {
+.text {
 	color:#fff;
-	font-weight:bold;
 }
 
-.main .restaurant {
-	position:absolute;
+.restaurant {
 	width:100%;
 	bottom:0;
-	background:rgba(0,0,0,0.4);
-	padding:7px 15px;
-	font-size:14px;
+	padding:7px 20px;
+	font-size:20px;
 }
 
 .overlaybox ul {

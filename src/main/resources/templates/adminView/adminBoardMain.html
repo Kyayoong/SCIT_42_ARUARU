@@ -15,6 +15,9 @@
 
 <!-- Custom styles for this template -->
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
+
+
+
 <script type="text/javascript">
 	function readBoard(n){
 		listRefresh();
@@ -126,7 +129,6 @@
 </script>
 </head>
 <body>
-
 	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
 		<a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" th:href="@{/}">AruAru</a>
 		<button class="navbar-toggler position-absolute d-md-none collapsed"
@@ -164,14 +166,6 @@
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/boardMain}"> <span
 								data-feather="clipboard"></span> 문의글관리
 						</a>
-							<ul style="list-style: none;">
-								<li>
- 									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
-								</li>
-								<li>
-									<a class="nav-link" th:href="@{/admin/boardMain}"> - 문의글관리</a>
-								</li>
-							</ul>
 						</li>
 					</ul>
 				</div>

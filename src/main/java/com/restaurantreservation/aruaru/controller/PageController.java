@@ -96,15 +96,12 @@ public class PageController {
 				model.addAttribute("member", member);
 				zzim.setMember_id(user.getUsername());
 				zzim.setRestaurant_num(restaurant_num);
+				
+				log.debug("1:{}",member);
 			}
 			else {
 				model.addAttribute("member_nickname", null);
 			}
-		
-		
-		
-		zzim.setMember_id(user.getUsername());
-		zzim.setRestaurant_num(restaurant_num);
 		
 		Restaurant_member storeList = service.selectOne1(restaurant_num);
 		ArrayList<Menu> menuList = service.menucheck(restaurant_num);

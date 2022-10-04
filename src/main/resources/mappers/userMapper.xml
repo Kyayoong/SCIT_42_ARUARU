@@ -313,11 +313,9 @@
 	</select>
 	
 	<update id="updateRole" parameterType="String">
-	UPDATE
+	UPDATE user_member
 	SET
 	member_role = 'ROLE_USER'
-	FROM
-	User_member
 	WHERE
 	member_id = #{member_id}
 	</update>

@@ -16,11 +16,10 @@ public class Admin_Graphs {
 	int visit_cnt;		// 일일 방문자 숫자 - 홈화면 로드 될때, 쿠키에 방문인수 true --> 카운트 안올라감
 	
 	//데이터 +할 변수들만 1세팅, 나머지는 0세팅하여 sql에서 한번에 올릴 수 있게 한다.
-	public Admin_Graphs(int users_cnt, int restaurant_cnt, int allreview_cnt, int visit_cnt) {
+	public Admin_Graphs(int users_cnt, int restaurant_cnt, int visit_cnt) {
 		super();
 		this.users_cnt = users_cnt;
 		this.restaurant_cnt = restaurant_cnt;
-		this.allreview_cnt = allreview_cnt;
 		this.visit_cnt = visit_cnt;
 	}
 	

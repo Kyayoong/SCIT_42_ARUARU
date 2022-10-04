@@ -66,4 +66,19 @@
  	<select id="allReplyList" resultType="Web_reply">
  		SELECT * FROM WEB_REPLY
  	</select>
+ 	
+ 	<!-- 승인되지 못한 레스토랑 멤버 가져오기 -->
+ 	<select id="selectNotCertificatedMember" resultType="Restaurant_member">
+ 		SELECT * FROM RESTAURANT_MEMBER WHERE CERTIFICATION = 0 OR CERTIFICATION = -1
+ 	</select>
+ 	
+ 	<!-- 레스토랑 승인 -->
+ 	<update id="acceptCertificationByNum" parameterType="int">
+ 		UPDATE RESTAURANT_MEMBER SET CERTIFICATION = 1 WHERE RESTAURANT_NUM = #{restaurant_num}
+ 	</update>
+ 	
+ 	<!-- 레스토랑 거절 -->
+ 	<update id="rejectCertificationByNum" parameterType="int">
+ 		UPDATE RESTAURANT_MEMBER SET CERTIFICATION = -1 WHERE RESTAURANT_NUM = #{restaurant_num}
+ 	</update>
 </mapper>

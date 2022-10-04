@@ -139,7 +139,11 @@ function suggestRefresh(n){
 		<div class="p-1" style="background: #afc9f6; font-family: Jua;">
 			<!-- 1. 글제목 -->
 			<div class="row col-sm-12">
-				<h1 class="col-sm-12 h1 m-3 d-flex justify-content-center" th:text="${board.board_title}">글제목</h1>
+					<span class="col-sm-12 h1 m-3 d-flex justify-content-center">
+					<img th:if="${board.category} == '신고'" th:src="@{/images/sirenMark.png}" style="height:2.3rem;" alt="신고">
+					<img th:if="${board.category} == '문의'" th:src="@{/images/inquiryMark.png}" style="height:2.3rem;" alt="문의">
+					<span th:text="${board.board_title}">글제목</span>
+					</span>
 			</div>
 			<div class="row col-sm-12">
 				<!-- 2. 작성일시 -->
@@ -148,18 +152,20 @@ function suggestRefresh(n){
 				<span class="col-sm-6" style="text-align: right;" th:text="|작성자 : ${board.member_id}|">글쓴이 : 홍길동</span>
 			</div>
 		</div>
+		
 		<!-- 4. 글 내용 -->
 		<div class="row mx-auto m-3 p-4 d-flex justify-content-center">
 			<div class="col-sm-12">
 				<span style="min-height:100px;" th:text="${board.board_contents}">글 내용</span>
 			</div>
 		</div>
+		
 		<!-- 5. 추천수 표기란 -->
-		<div class="d-flex justify-content-center m-3">
+		<!-- <div class="d-flex justify-content-center m-3">
 			<span id="suggestBtn" class="border p-3" style="font-family: Jua;" th:text="|추천수 ${board.board_suggestion}|"
 			th:onclick="|javascript:suggestBoard(${board.board_num})|">추천수</span>
-		</div>
-		
+		</div> -->
+				
 		<!-- 6. 텍스트 : 기존 답변이 없을 때 나옴 -->
 		<div th:if="${replyFlag} == 0">
 			

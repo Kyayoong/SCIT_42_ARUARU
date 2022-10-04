@@ -2,6 +2,7 @@ package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
 
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 
@@ -65,5 +66,25 @@ public interface AdminService {
 	 * 전체 답변글 가져오기
 	 * @return
 	 */
-	ArrayList<Web_reply> allReplyList(); 
+	ArrayList<Web_reply> allReplyList();
+	
+	/**
+	 * 승인되지 않은 레스토랑 멤버 가져오기
+	 * @return
+	 */
+	ArrayList<Restaurant_member> selectNotCertificatedMember();
+	
+	/**
+	 * 레스토랑 승인하기
+	 * @param restaurant_num
+	 * @return
+	 */
+	int acceptCertificationByNum(int restaurant_num);
+	
+	/**
+	 * 레스토랑 거절됨
+	 * @param restaurant_num
+	 * @return
+	 */
+	int rejectCertificationByNum(int restaurant_num); 
 }

@@ -12,7 +12,8 @@
 		FROM
 		restaurant_member
 		WHERE
-		member_id = #{member_id}
+		member_id =
+		#{member_id}
 	</select>
 	<select id="selectOne1" resultType="Restaurant_member"
 		parameterType="int">
@@ -21,7 +22,8 @@
 		FROM
 		restaurant_member
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 	</select>
 	<!-- 식당등록 -->
 	<insert id="regist1" parameterType="Restaurant_member">
@@ -30,10 +32,12 @@
 		, member_id
 		, restaurant_name
 		, restaurant_sectors
-		, restaurant_comment
+		,
+		restaurant_comment
 		, restaurant_phone
 		, restaurant_address1
-		, restaurant_address2
+		,
+		restaurant_address2
 		)
 		VALUES
 		(restaurant_member_seq.nextval
@@ -41,23 +45,27 @@
 		, #{restaurant_name}
 		, #{restaurant_sectors}
 		, #{restaurant_comment}
-		, #{restaurant_phone}
+		,
+		#{restaurant_phone}
 		, #{restaurant_address1}
 		, #{restaurant_address2}
 		)
 	</insert>
 	<!-- 식당 파일 등록 -->
 	<insert id="fileregist" parameterType="Restaurant_file">
-		INSERT INTO restaurant_file
+		INSERT INTO
+		restaurant_file
 		(restaurant_file_num
 		, restaurant_originalfile
-		, restaurant_savedfile
+		,
+		restaurant_savedfile
 		, restaurant_num
 		)
 		VALUES
 		(restaurant_file_seq.nextval
 		, #{restaurant_originalfile}
-		, #{restaurant_savedfile}
+		,
+		#{restaurant_savedfile}
 		, #{restaurant_num}
 		)
 	</insert>
@@ -69,7 +77,8 @@
 		FROM
 		Restaurant_file
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 	</select>
 	<!-- 메뉴 등록 -->
 	<insert id="insertmenu" parameterType="Menu">
@@ -79,7 +88,8 @@
 		, restaurant_num
 		, menu_price
 		, menu_originalfile
-		, menu_savedfile
+		,
+		menu_savedfile
 		, menu_content
 		, menu_suggestion
 		)
@@ -118,7 +128,8 @@
 		FROM
 		menu
 		WHERE
-		menu_num = #{menu_num}
+		menu_num =
+		#{menu_num}
 	</delete>
 	<!-- 식당맴버 평균가격 업데이트 -->
 	<update id="Rupdate" parameterType="Restaurant_member">
@@ -127,7 +138,8 @@
 		SET
 		menu_priceavr = #{menu_priceavr}
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 	</update>
 	<!-- 전체 태그 섹터로 분류 -->
 	<select id="tagList" parameterType="String" resultType="Tags">
@@ -160,13 +172,15 @@
 	<insert id="tagInsert" parameterType="Tags">
 		INSERT INTO tags
 		(tags_num
-		, tags_name
+		,
+		tags_name
 		, restaurant_num
 		, tags_sector
 		)
 		VALUES
 		(tags_seq.nextval
-		, #{tags_name}
+		,
+		#{tags_name}
 		, #{restaurant_num}
 		, #{tags_sector}
 		)
@@ -181,7 +195,7 @@
 		AND
 		tags_name = #{tags_name}
 	</delete>
-	
+
 	<!-- 휴무일 가져오기 -->
 	<select id="readHoliday" resultType="Holiday">
 		SELECT
@@ -191,7 +205,7 @@
 		WHERE
 		restaurant_num IS NULL
 	</select>
-	
+
 	<!-- 식당 리스트 가쟈오기 -->
 	<select id="resList" resultType="Restaurant_member">
 		SELECT
@@ -201,19 +215,22 @@
 		WHERE
 		certification = 1
 	</select>
-	
+
 	<!-- 영업일 가져오기 -->
-	<select id="readTime" parameterType="Int" resultType="Restaurant_time">
+	<select id="readTime" parameterType="Int"
+		resultType="Restaurant_time">
 		SELECT
 		*
 		FROM
 		restaurant_time
 		where
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 	</select>
-	
+
 	<!-- 가게 태그 가져오기 -->
-	<select id="searchStoreTags" parameterType="Int" resultType="Tags">
+	<select id="searchStoreTags" parameterType="Int"
+		resultType="Tags">
 		SELECT
 		*
 		FROM
@@ -221,185 +238,303 @@
 		where
 		restaurant_num = #{restaurant_num}
 	</select>
-	
+
 	<!-- 검색기능 -->
-	<select id="resListSearch" parameterType="map" resultType="Restaurant_member">
+	<select id="resListSearch" parameterType="map"
+		resultType="Restaurant_member">
 		SELECT
 		*
 		FROM
 		Restaurant_member
 		WHERE
 		certification = 1
-		<if test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
-		AND restaurant_sectors like '%' || #{s_sector} || '%'
+		<if
+			test="s_address == '' and s_tags == '' and s_people == '' and s_sector != ''">
+			AND restaurant_sectors like '%' || #{s_sector} || '%'
 		</if>
-		<if test="s_address != '' and s_tags == '' and s_people == '' and s_sector == ''">
-		AND restaurant_address1 like '%' || #{s_address} || '%'
+		<if
+			test="s_address != '' and s_tags == '' and s_people == '' and s_sector == ''">
+			AND restaurant_address1 like '%' || #{s_address} || '%'
 		</if>
-		<if test="s_address == '' and s_tags != '' and s_people == '' and s_sector == ''">
-		AND restaurant_num IN 
-		(SELECT
-		a.restaurant_num
-		FROM
-		restaurant_member a,
-		tags b
-		WHERE
-		b.tags_name like '%' || #{s_tags} || '%'
-		AND
-		a.restaurant_num = b.restaurant_num)
+		<if
+			test="s_address == '' and s_tags != '' and s_people == '' and s_sector == ''">
+			AND restaurant_num IN
+			(SELECT
+			a.restaurant_num
+			FROM
+			restaurant_member a,
+			tags b
+			WHERE
+			b.tags_name like '%' || #{s_tags} ||
+			'%'
+			AND
+			a.restaurant_num = b.restaurant_num)
 		</if>
-		<if test="s_address != '' and s_tags != '' and s_people == '' and s_sector == ''">
-		AND restaurant_address1 like '%' || #{s_address} || '%'
-		AND
-		restaurant_num IN 
-		(SELECT
-		a.restaurant_num
-		FROM
-		restaurant_member a,
-		tags b
-		WHERE
-		b.tags_name like '%' || #{s_tags} || '%'
-		AND
-		a.restaurant_num = b.restaurant_num)
+		<if
+			test="s_address != '' and s_tags != '' and s_people == '' and s_sector == ''">
+			AND restaurant_address1 like '%' || #{s_address} || '%'
+			AND
+			restaurant_num IN
+			(SELECT
+			a.restaurant_num
+			FROM
+			restaurant_member a,
+			tags
+			b
+			WHERE
+			b.tags_name like '%' || #{s_tags} || '%'
+			AND
+			a.restaurant_num =
+			b.restaurant_num)
 		</if>
 	</select>
-	
-	<select id="readFile" parameterType="int" resultType="Restaurant_file">
+
+	<select id="readFile" parameterType="int"
+		resultType="Restaurant_file">
 		SELECT
 		*
 		FROM
 		Restaurant_file
 		WHERE
-		restaurant_file_num = #{restaurant_file_num}
+		restaurant_file_num =
+		#{restaurant_file_num}
 	</select>
-	
+
 	<insert id="reservationInsert" parameterType="Reservation">
-		INSERT INTO reservation
+		INSERT INTO
+		reservation
 		(reservation_num
 		, member_id
 		, restaurant_num
-		, restaurant_name
+		,
+		restaurant_name
 		, reservation_people
 		, reservation_date
-		, reservation_hours
+		,
+		reservation_hours
 		, request
 		)
 		VALUES
 		(reservation_seq.nextval
-		, #{member_id}
+		,
+		#{member_id}
 		, #{restaurant_num}
 		, #{restaurant_name}
-		, #{reservation_people}
+		,
+		#{reservation_people}
 		, #{reservation_date}
 		, #{reservation_hours}
-		, #{request}
+		,
+		#{request}
 		)
 	</insert>
-	
+
 	<update id="peopleCount" parameterType="Restaurant_member">
 		UPDATE
 		restaurant_member
 		SET
 		restaurant_people = #{restaurant_people}
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 	</update>
-	
+
 	<select id="ReservationList" parameterType="int"
 		resultType="Reservation">
 		SELECT
 		member_id
 		, reservation_num
-		, restaurant_name
-		, reservation_people
-		, to_char(registration_date, 'YYYY-MM-DD') registration_date
-		, to_char(reservation_date, 'YYYY-MM-DD') reservation_date
+		, restaurant_num
+		,
+		restaurant_name
+		,
+		reservation_people
+		, to_char(registration_date,
+		'YYYY-MM-DD')
+		registration_date
+		, to_char(reservation_date,
+		'YYYY-MM-DD')
+		reservation_date
 		, reservation_hours
 		, request
-		, reservation_success
+		,
+		reservation_success
 		FROM
 		reservation
 		WHERE
-		restaurant_num = #{restaurant_num}
+		restaurant_num =
+		#{restaurant_num}
 		and
-		reservation_success = 0
+		reservation_success BETWEEN 0 AND 1 
+		ORDER BY
+		reservation_num
+		DESC
+	</select>
+
+	<select id="seeAllCancelReservation" parameterType="String"
+		resultType="Reservation">
+		SELECT
+		member_id
+		, reservation_num
+		, restaurant_num
+		,
+		restaurant_name
+		,
+		reservation_people
+		, to_char(registration_date,
+		'YYYY-MM-DD')
+		registration_date
+		, to_char(reservation_date,
+		'YYYY-MM-DD')
+		reservation_date
+		, reservation_hours
+		, request
+		,
+		reservation_success
+		FROM
+		reservation
+		WHERE
+		member_id = #{member_id}
+		and
+		reservation_success = 2
 		ORDER BY
 		reservation_num DESC
 	</select>
 
 	<select id="restCheck" parameterType="map" resultType="int">
-	SELECT
-	COUNT(*)
-	FROM
-	restaurant_member
-	WHERE
-	restaurant_name = #{restaurant_name} AND restaurant_address1 = #{restaurant_address1}
+		SELECT
+		COUNT(*)
+		FROM
+		restaurant_member
+		WHERE
+		restaurant_name = #{restaurant_name}
+		AND restaurant_address1 = #{restaurant_address1}
 	</select>
 
-	<select id="reservationSelect" parameterType="int" resultType="Reservation">
-	SELECT
-	*
-	FROM
-	reservation
-	WHERE
-	reservation_num = #{reservation_num}
+	<select id="reservationSelect" parameterType="int"
+		resultType="Reservation">
+		SELECT
+		reservation_num
+		, member_id
+		, restaurant_num
+		, restaurant_name
+		,
+		reservation_people
+		,
+		to_char(registration_date, 'YYYY-MM-DD')
+		registration_date
+		,
+		to_char(reservation_date, 'YYYY-MM-DD')
+		reservation_date
+		,
+		reservation_hours
+		, request
+		, reservation_success
+		FROM
+		reservation
+		WHERE
+		reservation_num = #{reservation_num}
 	</select>
 	<update id="reservationUpdate" parameterType="int">
-	UPDATE
-	reservation
-	SET
-	reservation_success = 1
-	WHERE
-	reservation_num = #{reservation_num}
+		UPDATE
+		reservation
+		SET
+		reservation_success = 1
+		WHERE
+		reservation_num = #{reservation_num}
 	</update>
+
+	<update id="cancelReservation" parameterType="int">
+		UPDATE
+		reservation
+		SET
+		reservation_success = 2
+		WHERE
+		reservation_num = #{reservation_num}
+	</update>
+
 	<delete id="reservationDelete" parameterType="int">
-	DELETE
-	FROM
-	reservation
-	WHERE
-	reservation_num = #{reservation_num}
+		DELETE
+		FROM
+		reservation
+		WHERE
+		reservation_num = #{reservation_num}
 	</delete>
 	<insert id="usageInsert" parameterType="Usage_history">
-	INSERT INTO
-	usage_history
-	(usage_num
-	,reservation_num
-	,usage_information
-	,member_id
-	,restaurant_num
-	,restaurant_name)
-	VALUES
-	(usage_history_seq.nextval
-	,#{reservation_num}
-	,#{usage_information}
-	,#{member_id}
-	,#{restaurant_num}
-	,#{restaurant_name}
-	)
+		INSERT INTO
+		usage_history
+		(usage_num
+		,reservation_num
+		,usage_information
+		,member_id
+		,restaurant_num
+		,restaurant_name)
+		VALUES
+		(usage_history_seq.nextval
+		,#{reservation_num}
+		,#{usage_information}
+		,#{member_id}
+		,#{restaurant_num}
+		,#{restaurant_name}
+		)
 	</insert>
-	
+
 	<insert id="zzimAdd" parameterType="Restaurant_zzim">
-	INSERT INTO
-	restaurant_zzim
-	(
-	member_num
-	,restaurant_num
-	)
-	VALUES
-	(
-	#{member_num}
-	,#{restaurant_num}
-	)
+		INSERT INTO
+		restaurant_zzim
+		(
+		member_id
+		,restaurant_num
+		)
+		VALUES
+		(
+		#{member_id}
+		,#{restaurant_num}
+		)
 	</insert>
+
+	<delete id="zzimDelete" parameterType="Restaurant_zzim">
+		DELETE
+		FROM
+		restaurant_zzim
+		WHERE
+		restaurant_num = #{restaurant_num}
+		AND
+		member_id = #{member_id}
+	</delete>
+
+	<select id="zzimCount" parameterType="int" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		restaurant_zzim
+		WHERE
+		restaurant_num = #{restaurant_num}
+	</select>
 	
-	<delete id="zzimDelete" parameterType="int">
-	DELETE
+	<select id="zzimcheck" parameterType="Restaurant_zzim" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		restaurant_zzim
+		WHERE
+		restaurant_num = #{restaurant_num}
+		AND
+		member_id = #{member_id}
+	</select>
+	
+	<select id="zzimList">
+	SELECT
+	*
 	FROM
 	restaurant_zzim
 	WHERE
 	restaurant_num = #{restaurant_num}
-	</delete>
+	AND
+	member_id = #{member_id}	
+	</select>
 	
+
 	<select id="showByRank" resultType="Restaurant_member">
 	SELECT
 	*
@@ -408,6 +543,7 @@
 	ORDER BY
 	restaurant_grade DESC
 	</select>
+<<<<<<< HEAD
 	
 	<select id="showByRegDate" resultType="Restaurant_member">
 	SELECT
@@ -417,4 +553,9 @@
 	ORDER BY
 	registration_date DESC
 	</select>
+=======
+
+
+
+>>>>>>> 904a42969a7fd4da9eb934ac8d7de8c00e582be1
 </mapper>

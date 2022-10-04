@@ -177,51 +177,93 @@ public class RestaurantServiceImpl implements RestaurantService {
 		
 		return list;
 	}
+	
+	//식당조회
 	@Override
 	public int restCheck(Map<String, String> map) {
 		int result = dao.restCheck(map);
 		return result;
 	}
+	//예약조회
 	@Override
 	public Reservation reservationSelect(int reservation_num) {
 		Reservation rseult = dao.reservationSelect(reservation_num);
 		return rseult;
 	}
+	//예약업데이트
 	@Override
 	public int reservationUpdate(int reservation_num) {
 		int rseult = dao.reservationUpdate(reservation_num);
 		return rseult;
 	}
+	//예약삭제
 	@Override
 	public int reservationDelete(int reservation_num) {
 		int result = dao.reservationDelete(reservation_num);
 		return result;
 	}
+	//이용내역등록
 	@Override
 	public int usageInsert(Usage_history usage) {
 		int result = dao.usageInsert(usage);
 		return result;
 	}
+	//찜추가
 	@Override
 	public int zzimAdd(Restaurant_zzim zzim) {
 		int result = dao.zzimAdd(zzim);
 		return result;
 	}
+	//찜삭제
 	@Override
-	public int zzimDelete(int restaurant_num) {
-		int result = dao.zzimDelete(restaurant_num);
+	public int zzimDelete(Restaurant_zzim zzim) {
+		int result = dao.zzimDelete(zzim);
 		return result;
 	}
+	
+	//예약취소
+    @Override
+	public int cancelReservation(int reservation_num) {
+		int result = dao.cancelReservation(reservation_num);
+		return result;
+	}
+    
+    //예약취소내역조회
+	@Override
+	public ArrayList<Reservation> seeAllCancelReservation(String username) {
+		ArrayList<Reservation> list = dao.seeAllCancelReservation(username);
+		return list;
+	}
+	
+	//찜숫자
+	@Override
+	public int zzimCount(int restaurant_num) {
+		int result = dao.zzimCount(restaurant_num);
+		return result;
+	}
+	//찜체크
+	@Override
+	public int zzimcheck(Restaurant_zzim zzim) {
+		int result = dao.zzimcheck(zzim);
+		return result;
+	}
+
 	@Override
 	public List<Restaurant_member> showByRank() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byrank = dao.showByRank();
 		return byrank;
 	}
+<<<<<<< HEAD
 	@Override
 	public List<Restaurant_member> showByRegDate() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
+=======
+
+	
+	
+>>>>>>> 904a42969a7fd4da9eb934ac8d7de8c00e582be1
 }

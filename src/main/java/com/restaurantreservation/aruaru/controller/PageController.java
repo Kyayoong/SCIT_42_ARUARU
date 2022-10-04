@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,16 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.restaurantreservation.aruaru.domain.Menu;
+import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -75,9 +79,7 @@ public class PageController {
 				model.addAttribute("member_nickname", null);
 			}
 		
-		
-		ArrayList<Restaurant_member> resList = service.resList();
-
+		ArrayList<Restaurant_member> resList = service.resListSearch(map);
 		log.debug("에에 {}",resList);
 		
 		
@@ -90,7 +92,7 @@ public class PageController {
 	
 	//식당 상세 페이지
 	@GetMapping("introduce_store")
-	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user,Restaurant_zzim zzim) {
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
@@ -99,29 +101,17 @@ public class PageController {
 				model.addAttribute("member_nickname", null);
 			}
 		
-		
-		
-		zzim.setMember_id(user.getUsername());
-		zzim.setRestaurant_num(restaurant_num);
-		
 		Restaurant_member storeList = service.selectOne1(restaurant_num);
 		ArrayList<Menu> menuList = service.menucheck(restaurant_num);
 		ArrayList<Restaurant_time> timeTable = service.searchTime(restaurant_num);
 		ArrayList<Tags> storeTags = service.searchStoreTags(restaurant_num);
 		ArrayList<Restaurant_file> fileList = service.fileselect(restaurant_num);
-		
-		int count = service.zzimCount(restaurant_num);
-		int result = service.zzimcheck(zzim);
-		
-		log.debug("result : {} ",result);
-		
+		log.debug("{}",storeTags);
 		model.addAttribute("menuList", menuList);
 		model.addAttribute("store", storeList);
 		model.addAttribute("timeTable", timeTable);
 		model.addAttribute("storeTagList", storeTags);
 		model.addAttribute("fileList", fileList);
-		model.addAttribute("count", count);
-		model.addAttribute("result", result);
 		return "views/introduce_store";
 	}
 	

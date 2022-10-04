@@ -20,7 +20,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script>
+	function reservationFormOpen() {
+		var w = window.open('reservation', 'reservationwin',
+				'top=200,left=500,width=400,height=500');
+		$('')
+	}
+</script>
 <title>Document</title>
 </head>
 <body>
@@ -36,7 +42,7 @@
 		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-		<li class="nav-item"><a sec:authorize="isAuthenticated()"
+			<li class="nav-item"><a sec:authorize="isAuthenticated()"
 				class="nav-link" th:href="@{/logout}">LOGOUT</a></li>
 			<li class="nav-item"><a sec:authorize="not isAuthenticated()"
 				class="nav-link" th:href="@{/user/joinselect}">JOIN</a></li>
@@ -49,7 +55,8 @@
 		<!--알파벳 CI-->
 		<a th:href="@{/}"><img id="RR" th:src="@{/images/rrmark.png}"></a>
 		<!--일본어 CI-->
-		<a th:href="@{/}"><img id="aruaru" th:src="@{/images/rrjapanesemark.png}"></a>
+		<a th:href="@{/}"><img id="aruaru"
+			th:src="@{/images/rrjapanesemark.png}"></a>
 		<!--검색 부분-->
 
 		<table style="font-family: Jua;">
@@ -143,56 +150,56 @@
 		<div id="store-name">
 			<h1 th:text="${store.restaurant_name}"></h1>
 			<div th:if="${result} == 1">
-			<img th:src="@{../images/herat222.png}" id="img01" width=23 height=23 class="img002" th:num="${store.restaurant_num}">
-			<p>[[${count}]]</p>
+				<img th:src="@{../images/herat222.png}" id="img01" width=23
+					height=23 class="img002" th:num="${store.restaurant_num}">
+				<p>[[${count}]]</p>
 			</div>
 			<div th:if="${result} == 0">
-			<img  th:src="@{../images/heart111.png}" id="img02" width=23 height=23 class="img001" th:num="${store.restaurant_num}">
-			<p>[[${count}]]</p>
+				<img th:src="@{../images/heart111.png}" id="img02" width=23
+					height=23 class="img001" th:num="${store.restaurant_num}">
+				<p>[[${count}]]</p>
 			</div>
 		</div>
 		<script>
-$(document).ready(function() {
-	
-	$('.img001').click(function zzim1() {
-		
-		$.ajax({
-			url : 'zzimAdd',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-				
-			},
-			success : function(cnt) {
-				window.location.reload();
-				
-			},
-			error : function() {
-			}
-		});
-	});
-	
-	$('.img002').click(function zzim2() {
-		
-		$.ajax({
-			url : 'zzimDelete',
-			type : 'get',
-			data : {
-				restaurant_num : $(this).attr('num')
-			},
-			success : function(cnt) {
-				window.location.reload();
-				
-			},
-			error : function() {
-			}
-		});
-	});
-		
-	
-});
+			$(document).ready(function() {
 
-</script>
+				$('.img001').click(function zzim1() {
+
+					$.ajax({
+						url : 'zzimAdd',
+						type : 'get',
+						data : {
+							restaurant_num : $(this).attr('num')
+
+						},
+						success : function(cnt) {
+							window.location.reload();
+
+						},
+						error : function() {
+						}
+					});
+				});
+
+				$('.img002').click(function zzim2() {
+
+					$.ajax({
+						url : 'zzimDelete',
+						type : 'get',
+						data : {
+							restaurant_num : $(this).attr('num')
+						},
+						success : function(cnt) {
+							window.location.reload();
+
+						},
+						error : function() {
+						}
+					});
+				});
+
+			});
+		</script>
 		<!-- 맛집 소개글 -->
 		<div id="store-contents">
 			<p th:text="${store.restaurant_comment}">
@@ -313,52 +320,56 @@ $(document).ready(function() {
 				</tr>
 			</table>
 		</div>
-		</div>
+	</div>
 
-		<!-- 밑 부분 bar -->
-		<div id="bottom-bar">
-			<form action="" method="get">
-				<table id="input-book-bottom">
-					<tr>
-						<td><input style="width: 10vw;" type="date"
-							class="form-control" id="day-input-bottom" name="rdate"></td>
-						<td><select id="select-time-bottom" class="form-control" name="rhours">
-								<option value="09:00">09:00</option>
-								<option value="09:30">09:30</option>
-								<option value="10:00">10:00</option>
-								<option value="10:30">10:30</option>
-								<option value="11:00">11:00</option>
-								<option value="11:30">11:30</option>
-								<option value="12:00">12:00</option>
-								<option value="12:30">12:30</option>
-								<option value="13:00">13:00</option>
-								<option value="13:30">13:30</option>
-								<option value="14:00">14:00</option>
-								<option value="14:30">14:30</option>
-								<option value="15:00">15:00</option>
-								<option value="15:30">15:30</option>
-								<option value="16:00">16:00</option>
-								<option value="16:30">16:30</option>
-								<option value="17:00">17:00</option>
-								<option value="17:30">17:30</option>
-								<option value="18:00">18:00</option>
-								<option value="18:30">18:30</option>
-								<option value="19:00">19:00</option>
-								<option value="19:30">19:30</option>
-								<option value="20:00">20:00</option>
-								<option value="20:30">20:30</option>
-								<option value="21:00">21:00</option>
-								<option value="21:30">21:30</option>
-								<option value="22:00">22:00</option>
-						</select></td>
-						<td><input type="text" class="form-control"
-							id="person-input-bottom" name="rpeople" style="width: 5vw;" placeholder="인원수" ></td>
-							<td><input type="hidden" id="restaurant_num" name="restaurant_num" th:value="${store.restaurant_num}"></td>
-						<td><input class="btn btn-primary" id="btn1" type="button" style="width: 150px" onclick="reservationFormOpen()" value="예약하기"></td>
-						
-					</tr>
-				</table>
-			</form>
+	<!-- 밑 부분 bar -->
+	<div id="bottom-bar">
+		<form action="" method="get">
+			<table id="input-book-bottom">
+				<tr>
+					<td><input style="width: 10vw;" type="date"
+						class="form-control" id="day-input-bottom" name="rdate"></td>
+					<td><select id="select-time-bottom" class="form-control"
+						name="rhours">
+							<option value="09:00">09:00</option>
+							<option value="09:30">09:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+							<option value="12:00">12:00</option>
+							<option value="12:30">12:30</option>
+							<option value="13:00">13:00</option>
+							<option value="13:30">13:30</option>
+							<option value="14:00">14:00</option>
+							<option value="14:30">14:30</option>
+							<option value="15:00">15:00</option>
+							<option value="15:30">15:30</option>
+							<option value="16:00">16:00</option>
+							<option value="16:30">16:30</option>
+							<option value="17:00">17:00</option>
+							<option value="17:30">17:30</option>
+							<option value="18:00">18:00</option>
+							<option value="18:30">18:30</option>
+							<option value="19:00">19:00</option>
+							<option value="19:30">19:30</option>
+							<option value="20:00">20:00</option>
+							<option value="20:30">20:30</option>
+							<option value="21:00">21:00</option>
+							<option value="21:30">21:30</option>
+							<option value="22:00">22:00</option>
+					</select></td>
+					<td><input type="text" class="form-control"
+						id="person-input-bottom" name="rpeople" style="width: 5vw;"
+						placeholder="인원수"></td>
+					<td><input type="hidden" id="restaurant_num"
+						name="restaurant_num" th:value="${store.restaurant_num}"></td>
+					<td><input class="btn btn-primary" id="btn1" type="button"
+						style="width: 150px" onclick="reservationFormOpen()" value="예약하기"></td>
+
+				</tr>
+			</table>
+		</form>
 		<!-- 검색창 bar와 내용 겹치지 않게 하기 위한 빈 구역 -->
 		<div id="empty">
 			<p></p>

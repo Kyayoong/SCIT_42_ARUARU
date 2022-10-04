@@ -98,6 +98,8 @@ public class PageController {
 				model.addAttribute("member", member);
 				zzim.setMember_id(user.getUsername());
 				zzim.setRestaurant_num(restaurant_num);
+				
+				log.debug("1:{}",member);
 			}
 			else {
 				model.addAttribute("member_nickname", null);

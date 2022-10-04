@@ -127,4 +127,8 @@ public interface RestaurantDao {
 	// 찜 숫자
 	int zzimcheck(Restaurant_zzim zzim);
 
+	// 식당 삭제
+	int deleteRest(int restaurant_num);
+	
+	
 }

@@ -247,24 +247,31 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.zzimcheck(zzim);
 		return result;
 	}
-
+	//별점순
 	@Override
 	public List<Restaurant_member> showByRank() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byrank = dao.showByRank();
 		return byrank;
 	}
-	
+	//등록순
 	@Override
 	public List<Restaurant_member> showByRegDate() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
+	//찜 해제
 	@Override
 	public int zzimDelete(int restaurant_num) {
 		int result = dao.zzimDelete(restaurant_num);
-		return 0;
+		return result;
+	}
+	//식당 삭제
+	@Override
+	public int deleteRest(int restaurant_num) {
+		int result = dao.deleteRest(restaurant_num);
+		return result;
 	}
 
 	

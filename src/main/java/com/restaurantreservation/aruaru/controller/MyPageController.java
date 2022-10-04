@@ -25,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Review;
+import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
@@ -321,7 +323,28 @@ public class MyPageController {
 	
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
-	public String rsetreview() {
+	public String rsetreview(Model model,@AuthenticationPrincipal UserDetails user) {
+		
+		Restaurant_member member = restaurantService.selectOne(user.getUsername());
+		ArrayList<Menu> menuList = restaurantService.menucheck(member.getRestaurant_num());
+		
+		ArrayList<Tags> tagList = restaurantService.tagList("맛");
+		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
+		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
+		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
+		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
+		ArrayList<Tags> tagList6 = restaurantService.tagList("분위기");
+		log.debug("맴버 : {}",member);
+		log.debug("메뉴리스트 : {}",menuList);
+		model.addAttribute("tagList", tagList);
+		model.addAttribute("tagList2", tagList2);
+		model.addAttribute("tagList3", tagList3);
+		model.addAttribute("tagList4", tagList4);
+		model.addAttribute("tagList5", tagList5);
+		model.addAttribute("tagList6", tagList6);
+		model.addAttribute("member", member);
+		model.addAttribute("menuList", menuList);
+		
 		
 		
 		

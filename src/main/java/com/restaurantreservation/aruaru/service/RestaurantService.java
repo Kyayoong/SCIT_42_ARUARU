@@ -111,9 +111,15 @@ public interface RestaurantService {
 	public int zzimDelete(int restaurant_num);
 	// 랭크로 추천
 	public List<Restaurant_member> showByRank();
+
 	
 	// 등록순으로 추천
 	public List<Restaurant_member> showByRegDate();
+
+
+	// 등록순으로 추천
+	public List<Restaurant_member> showByRegDate();
+
   
 	public int zzimDelete(Restaurant_zzim zzim);
 	

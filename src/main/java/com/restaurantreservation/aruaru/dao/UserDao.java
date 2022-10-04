@@ -91,6 +91,6 @@ public interface UserDao {
 
 	List<Restaurant_member> recommendStores(int[] a);
 	
-
+	int updateRole(String member_id);
 
 }

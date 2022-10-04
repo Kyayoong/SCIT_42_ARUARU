@@ -86,7 +86,6 @@ public class HomeController {
 		else {
 			List<Restaurant_member> byrank = rservice.showByRank();
 			List<Restaurant_member> byregdate = rservice.showByRegDate();
-			System.out.println(byregdate);
 			model.addAttribute("byRegDate", byregdate);
 			model.addAttribute("byRank", byrank);
 			model.addAttribute("member_nickname", null);

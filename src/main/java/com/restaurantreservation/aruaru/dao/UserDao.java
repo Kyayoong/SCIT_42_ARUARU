@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -92,5 +93,7 @@ public interface UserDao {
 	List<Restaurant_member> recommendStores(int[] a);
 	
 	int updateRole(String member_id);
+	
+	ArrayList<Restaurant_zzim> mywishlist(String member_id);
 
 }

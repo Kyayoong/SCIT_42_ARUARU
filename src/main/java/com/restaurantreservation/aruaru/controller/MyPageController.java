@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
@@ -176,6 +177,7 @@ public class MyPageController {
 		}
 		return "userView/seereservation";
 	}
+
 	
 	@GetMapping("seeReservationDetail")
 	public String seeReservationDetail(int reservation_num, Model model, @AuthenticationPrincipal UserDetails user) {
@@ -205,6 +207,10 @@ public class MyPageController {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			ArrayList<Restaurant_zzim> mywishlist = service.mywishlist(user.getUsername());
+			log.debug("찜 : {}", mywishlist);
+			model.addAttribute("mywishlist", mywishlist);
+			
 		}
 		return "userView/mywishlist";
 	}

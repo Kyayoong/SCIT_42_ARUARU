@@ -85,7 +85,7 @@ public class HomeController {
 			System.out.println(restaurants);
 			model.addAttribute("recommend", restaurants);
 			
-		} else if(mytags.length == 0 || user == null) {
+		} else {
 			List<Restaurant_member> byrank = rservice.showByRank();
 			List<Restaurant_member> byregdate = rservice.showByRegDate();
 			model.addAttribute("byRegDate", byregdate);

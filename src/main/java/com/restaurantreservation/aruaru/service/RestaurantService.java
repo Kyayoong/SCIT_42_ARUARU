@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.restaurantreservation.aruaru.domain.Holiday;
@@ -104,4 +105,6 @@ public interface RestaurantService {
 	
 	// 찜 빼기
 	public int zzimDelete(int restaurant_num);
+	// 랭크로 추천
+	public List<Restaurant_member> showByRank();
 }

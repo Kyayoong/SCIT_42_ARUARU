@@ -521,6 +521,17 @@
 		member_id = #{member_id}
 	</select>
 	
+	<select id="zzimList">
+	SELECT
+	*
+	FROM
+	restaurant_zzim
+	WHERE
+	restaurant_num = #{restaurant_num}
+	AND
+	member_id = #{member_id}	
+	</select>
+	
 	
 	
 </mapper>

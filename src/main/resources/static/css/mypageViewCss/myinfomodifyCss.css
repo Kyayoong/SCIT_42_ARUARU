@@ -124,3 +124,9 @@ nav {
 	width: 3.5vw;
 	height: 3.5vw;
 }
+
+#addressCheckButton {
+	position : absolute;
+	margin-top : -3.2vh;
+	margin-left : 4.8vw;
+}

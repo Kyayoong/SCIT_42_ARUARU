@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
@@ -162,5 +163,22 @@ public class PageController {
 		return "redirect:/";
 	}	
 	
-	
+	@GetMapping("recommendstores")
+	public String recommendStores(Model model, @AuthenticationPrincipal UserDetails user) {
+		if(user != null) {
+			User_member member = service1.selectUser(user.getUsername());
+				model.addAttribute("member", member);
+				String tags = service1.ownTags(user.getUsername());
+				String[] mytags = tags.split("/");
+				List<Integer> a = service1.recommend(mytags);
+				int[] stores = a.stream().mapToInt(i->i).toArray();
+				List<Restaurant_member> restaurants = service1.recommendStores(stores);
+				model.addAttribute("resList", restaurants);
+				
+			}
+			else {
+				model.addAttribute("member_nickname", null);
+			}
+		return "stores";
+	}
 }

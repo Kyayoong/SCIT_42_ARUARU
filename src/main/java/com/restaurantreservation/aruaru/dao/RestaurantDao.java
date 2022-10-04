@@ -110,7 +110,7 @@ public interface RestaurantDao {
 	int zzimAdd(Restaurant_zzim zzim);
 
 	// 찜 삭제
-	int zzimDelete(int reservation_num);
+	int zzimDelete(Restaurant_zzim zzim);
 	
 	// 찜 숫자
 	int zzimCount(int restaurant_num);

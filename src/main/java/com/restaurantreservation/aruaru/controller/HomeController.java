@@ -62,10 +62,10 @@ public class HomeController {
 			List<Integer> a = service.recommend(mytags);
 			int[] stores = a.stream().mapToInt(i->i).toArray();
 			List<Restaurant_member> restaurants = service.recommendStores(stores);
-			Restaurant_member rrmm = restaurants.get(1);
+			
 			System.out.println(restaurants);
 			model.addAttribute("recommend", restaurants);
-			model.addAttribute("rrmm", rrmm);
+			
 		}
 		else {
 			model.addAttribute("member_nickname", null);

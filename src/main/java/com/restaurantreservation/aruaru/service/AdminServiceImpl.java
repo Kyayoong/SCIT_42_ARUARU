@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurantreservation.aruaru.dao.AdminDao;
+import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 
@@ -81,6 +82,27 @@ public class AdminServiceImpl implements AdminService {
 		ArrayList<Web_reply> list = dao.allReplyList();
 		
 		return list;
+	}
+	
+	//승인되지 않은 레스토랑 인원들 가져오기
+	@Override
+	public ArrayList<Restaurant_member> selectNotCertificatedMember() {
+		ArrayList<Restaurant_member> list = dao.selectNotCertificatedMember();
+		return list;
+	}
+	
+	//레스토랑 승인
+	@Override
+	public int acceptCertificationByNum(int restaurant_num) {
+		int result = dao.acceptCertificationByNum(restaurant_num);
+		return result;
+	}
+	
+	//레스토랑 미승인
+	@Override
+	public int rejectCertificationByNum(int restaurant_num) {
+		int result = dao.rejectCertificationByNum(restaurant_num);
+		return result;
 	}
 	
 	

@@ -180,8 +180,10 @@ public class PageRestController {
 	
 	@ResponseBody
 	@GetMapping("zzimDelete")
-	public void zzimDelete(@RequestParam int restaurant_num,@AuthenticationPrincipal UserDetails user) {
-		int result = service.zzimDelete(restaurant_num);
+	public void zzimDelete(@RequestParam int restaurant_num,@AuthenticationPrincipal UserDetails user,Restaurant_zzim zzim) {
+		zzim.setMember_id(user.getUsername());
+		zzim.setRestaurant_num(restaurant_num);
+		int result = service.zzimDelete(zzim);
 		log.debug("{}",result);
 	}
 	

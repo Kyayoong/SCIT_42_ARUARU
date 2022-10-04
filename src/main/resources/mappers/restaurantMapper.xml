@@ -493,12 +493,14 @@
 		)
 	</insert>
 
-	<delete id="zzimDelete" parameterType="int">
+	<delete id="zzimDelete" parameterType="Restaurant_zzim">
 		DELETE
 		FROM
 		restaurant_zzim
 		WHERE
 		restaurant_num = #{restaurant_num}
+		AND
+		member_id = #{member_id}
 	</delete>
 
 	<select id="zzimCount" parameterType="int" resultType="int">
@@ -532,6 +534,5 @@
 	member_id = #{member_id}	
 	</select>
 	
-	
-	
+
 </mapper>

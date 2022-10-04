@@ -120,7 +120,6 @@ public interface RestaurantDao {
 	List<Restaurant_member> showByRegDate();
 	
 
-	List<Restaurant_member> showByRegDate();
 
 	int zzimDelete(Restaurant_zzim zzim);
 	

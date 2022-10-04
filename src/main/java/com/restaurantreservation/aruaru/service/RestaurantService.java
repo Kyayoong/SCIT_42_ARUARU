@@ -116,10 +116,6 @@ public interface RestaurantService {
 	// 등록순으로 추천
 	public List<Restaurant_member> showByRegDate();
 
-
-	// 등록순으로 추천
-	public List<Restaurant_member> showByRegDate();
-
   
 	public int zzimDelete(Restaurant_zzim zzim);
 	

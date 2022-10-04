@@ -254,16 +254,19 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant_member> byrank = dao.showByRank();
 		return byrank;
 	}
-<<<<<<< HEAD
+	
 	@Override
 	public List<Restaurant_member> showByRegDate() {
 		// TODO Auto-generated method stub
 		List<Restaurant_member> byRegDate = dao.showByRegDate();
 		return byRegDate;
 	}
-=======
+	@Override
+	public int zzimDelete(int restaurant_num) {
+		int result = dao.zzimDelete(restaurant_num);
+		return 0;
+	}
 
 	
 	
->>>>>>> 904a42969a7fd4da9eb934ac8d7de8c00e582be1
 }

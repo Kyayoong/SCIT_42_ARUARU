@@ -543,7 +543,6 @@
 	ORDER BY
 	restaurant_grade DESC
 	</select>
-<<<<<<< HEAD
 	
 	<select id="showByRegDate" resultType="Restaurant_member">
 	SELECT
@@ -553,9 +552,6 @@
 	ORDER BY
 	registration_date DESC
 	</select>
-=======
 
 
-
->>>>>>> 904a42969a7fd4da9eb934ac8d7de8c00e582be1
 </mapper>

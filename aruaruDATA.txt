@@ -2014,7 +2014,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon026','영동설렁탕','한식','3호선 신사 5번 출구','02-543-4716',0,'서울 서초구 강남대로101안길 24','(잠원동)','1.5~2만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon026','영동설렁탕','한식','수육 맛있는 설렁탕 집','02-543-4716',4.26,'서울 서초구 강남대로101안길 24','(잠원동)','1~1.5만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2030,7 +2030,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon027','토마틸로','양식','2호선 역삼역 12번 출구','02-2112-3883',0,'서울 강남구 테헤란로 152','(역삼동 강남파이낸스센터)','3~5만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon027','토마틸로','양식','가볍게 맥주 한 잔 하기 좋은 곳','0507-1310-5785',4.16,'서울 강남구 테헤란로 152','(역삼동 강남파이낸스센터)','3~5만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2046,7 +2046,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon028','채근담','한식','2호선 삼성역 3번 출구','02-555-9173',0,'서울 강남구 역삼로98길 23','(일동빌딩)','5만원 이상',0,30);
+    (restaurant_member_seq.nextval,'kiwon028','채근담','한식','역삼 맛집 회식하기 좋은 한정식집','0507-1304-7165',4.44,'서울 강남구 테헤란로 152','강남파이낸스센터 B1','5만원 이상',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2062,7 +2062,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon029','마포숯불갈비','한식','7호선 학동 10번 출구','02-516-1522',0,'서울 강남구 도산대로 232','(논현동 청학아파트) 에이동','2~3만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon029','마포숯불갈비','한식','강남 논현동 회식장소로 추천하는 고기집맛집','02-516-1522',4.2,'서울 강남구 도산대로 232','(논현동 청학아파트) 에이동','3~5만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2078,7 +2078,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon030','조개창고 (달마수산)','한식','2호선 상왕십리역 4번 출구 2호선 왕십리역 11번 출구','02-',0,'서울 성동구 왕십리로 331','','1.5~2만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon030','교대이층집','한식','교대역 회식하기 괜찮은 곳','02-525-6692',4.59,'서울 서초구 서초대로50길 24','청화빌딩 2층','1.5~2만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2094,7 +2094,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon031','이마스시','일식','3호선 압구정역 3번 출구','02-515-7787',0,'서울 강남구 도산대로37길 5','(신사동)','1~1.5만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon031','이마스시','일식','30년 역사를 가진 일식 레스토랑 이마스시','0507-1448-7826',4.23,'서울 강남구 도산대로37길 5','(신사동)','1~1.5만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2110,7 +2110,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon032','마츠에라멘','일식','26 호선 합정 2번 출구','02-323-6877',0,'서울 마포구 동교로 126','(서교동 광남벨라스아파트)','1만원 미만',0,30);
+    (restaurant_member_seq.nextval,'kiwon032','마츠에라멘','일식','재첩 베이스의 시원한 라멘 ','02-323-6877',4.46,'서울 마포구 동교로 126','(서교동 광남벨라스아파트)','1만원 미만',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2126,7 +2126,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon033','부산복집','한식','3호선 2호선 을지로3가역 9번 출구','02-2266-3236',0,'서울 중구 마른내로2길 14','(초동)','1~1.5만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon033','부산복집','한식','을지로 해장 복지리 맛집','02-2266-3236',4.35,'서울 중구 마른내로2길 14','(초동)','1.5~2만원',0,30);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2142,7 +2142,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon034','내고향식당','한식','4호선 회현 5번 출구','02-752-7954',0,'서울특별시 중구 남대문시장길 18-3','(남창동)','1.5~2만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon034','내고향식당','한식','호남 출신의 주방장이 11년째 주방을 지켜 예나 지금이나 맛이 한결 같은 갈치조림 맛집','02-752-7954',4.32,'서울특별시 중구 남대문시장길 18-3','(남창동)','1.5~2만원',0,20);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -2158,7 +2158,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon035','반포치킨','치킨','9호선 구반포역 3번 출구','02-599-2825',0,'서울 서초구 신반포로 38','(구반포상가) 반포상가 J동 21호','2~3만원',0,30);
+    (restaurant_member_seq.nextval,'kiwon035','반포치킨','치킨','마늘 치킨 레전드, 전설의 반포 치킨','02-599-2825',4.1,'서울 서초구 고무래로8길 5','','1.5~2만원',0,20);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id
@@ -3613,6 +3613,24 @@ INSERT INTO restaurant_file
 )
 VALUES
 (restaurant_file_seq.nextval
+, 'Y071.jpg','Y071.jpg',18);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y072.jpg','Y072.jpg',18);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
 , 'Y073.jpg','Y073.jpg',19);
 INSERT INTO restaurant_file
 (restaurant_file_num
@@ -3623,24 +3641,6 @@ INSERT INTO restaurant_file
 VALUES
 (restaurant_file_seq.nextval
 , 'Y074.jpg','Y074.jpg',19);
-INSERT INTO restaurant_file
-(restaurant_file_num
-, restaurant_originalfile
-, restaurant_savedfile
-, restaurant_num
-)
-VALUES
-(restaurant_file_seq.nextval
-, 'Y079.jpg','Y079.jpg',20);
-INSERT INTO restaurant_file
-(restaurant_file_num
-, restaurant_originalfile
-, restaurant_savedfile
-, restaurant_num
-)
-VALUES
-(restaurant_file_seq.nextval
-, 'Y080.jpg','Y080.jpg',20);
 INSERT INTO restaurant_file
 (restaurant_file_num
 , restaurant_originalfile
@@ -4919,6 +4919,187 @@ INSERT INTO restaurant_file
 VALUES
 (restaurant_file_seq.nextval
 , 'Y230.jpg','Y230.jpg',100);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y231.jpg','Y231.jpg',26);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y232.jpg','Y232.jpg',26);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y233.jpg','Y233.jpg',27);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y234.jpg','Y234.jpg',27);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y235.jpg','Y235.jpg',28);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y236.jpg','Y236.jpg',28);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y237.jpg','Y237.jpg',29);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y238.jpg','Y238.jpg',29);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y239.jpg','Y239.jpg',30);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y240.jpg','Y240.jpg',30);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y241.jpg','Y241.jpg',31);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y242.jpg','Y242.jpg',31);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y243.jpg','Y243.jpg',32);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y244.jpg','Y244.jpg',32);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y245.jpg','Y245.jpg',33);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y246.jpg','Y246.jpg',33);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y247.jpg','Y247.jpg',34);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y248.jpg','Y248.jpg',34);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y249.jpg','Y249.jpg',35);
+INSERT INTO restaurant_file
+(restaurant_file_num
+, restaurant_originalfile
+, restaurant_savedfile
+, restaurant_num
+)
+VALUES
+(restaurant_file_seq.nextval
+, 'Y250.jpg','Y250.jpg',35);
+
 
 INSERT INTO tags
 (tags_num

@@ -121,7 +121,6 @@ public interface RestaurantDao {
 	
 	List<Restaurant_member> showByRegDate();
 	
-
 	int zzimDelete(Restaurant_zzim zzim);
 	
 	// 찜 숫자

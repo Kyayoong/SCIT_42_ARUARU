@@ -28,6 +28,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
@@ -89,7 +90,8 @@ public class PageController {
 	
 	//식당 상세 페이지
 	@GetMapping("introduce_store")
-	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user, Restaurant_zzim zzim) {
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user
+			, Restaurant_zzim zzim, Review review) {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
@@ -102,6 +104,7 @@ public class PageController {
 				model.addAttribute("member_nickname", null);
 			}
 		
+		ArrayList<Review> reviewList = service.reivewAll(restaurant_num);
 		Restaurant_member storeList = service.selectOne1(restaurant_num);
 		ArrayList<Menu> menuList = service.menucheck(restaurant_num);
 		ArrayList<Restaurant_time> timeTable = service.searchTime(restaurant_num);
@@ -117,6 +120,7 @@ public class PageController {
 		model.addAttribute("fileList", fileList);
 		 model.addAttribute("count", count);
 	      model.addAttribute("result", result);
+	      model.addAttribute("reviewList", reviewList);
 		return "views/introduce_store";
 	}
 	

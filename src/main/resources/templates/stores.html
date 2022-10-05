@@ -155,9 +155,10 @@ $(document).ready(function() {
 						<div id="idtag1" class="btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-outline-secondary" th:for="${tag.tags_num}"
 								style="width: max-content; height: 35px; display: inline-block;">
+								<a th:href="|../stores/search?s_address=&s_tags=${tag.tags_name}&s_days=&s_time=0900&s_people=&s_sector=|">
 								<input name="tags_name" th:value="${tag.tags_name}"
 								type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}"
-								class="tag1">[[${tag.tags_name}]]
+								class="tag1">[[${tag.tags_name}]]</a>
 							</label>
 						</div>
 					</td>

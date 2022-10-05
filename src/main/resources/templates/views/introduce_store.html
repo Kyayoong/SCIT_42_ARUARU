@@ -33,7 +33,14 @@
 				'top=200,left=500,width=400,height=500');
 		$('')
 	}
+	
+	$(function(){           
+		$('#demo').carousel({        
+	       interval: 5000 
+	     });
+	});
 </script>
+
 <script th:inline="javascript">
 let store = [[${store}]];
 let fileList= [[${fileList}]];
@@ -118,8 +125,7 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 		</table>
 	</div>
 	<!-- 회전화면 부분 -->
-	<div id="demo" class="carousel slide carousel-fade"
-		data-ride="carousel">
+	<div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
 
 		<!-- 인디케이터 -->
 		<ul class="carousel-indicators">
@@ -136,8 +142,7 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 					alt="pasta"
 					style="width: 1200px; height: 500px; padding-left: 8.5vw; top: 5.5vh;">
 			</div>
-
-			<div class="carousel-item "
+			<div class="carousel-item"
 				th:if="${fileList.get(1).getRestaurant_file_num} != null">
 				<img
 					th:src="|filedis?restaurant_file_num=${fileList.get(1).getRestaurant_file_num}|"

@@ -164,15 +164,15 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 		<!-- 음식점 이름 -->
 		<div id="store-name">
 			<h1 th:text="${store.restaurant_name}"></h1>
-			<div th:if="${result} == 1">
+			<div class="zzimHeart" th:if="${result} == 1">
 				<img th:src="@{../images/herat222.png}" id="img01" width=23
 					height=23 class="img002" th:num="${store.restaurant_num}">
-				<p>[[${count}]]</p>
+				<p class="zzimCount">[[${count}]]</p>
 			</div>
-			<div th:if="${result} == 0">
+			<div class="zzimHeart" th:if="${result} == 0">
 				<img th:src="@{../images/heart111.png}" id="img02" width=23
 					height=23 class="img001" th:num="${store.restaurant_num}">
-				<p>[[${count}]]</p>
+				<p class="zzimCount">[[${count}]]</p>
 			</div>
 		</div>
 		<script>

@@ -149,7 +149,7 @@ function init() {
 				<div id="table-area1">
 					<h4 id="table-area1-caption">예약 내역</h4>
 					<form action="cancelReservation" method="get">
-					<table>
+					<table class="table table-hover">
 						<tr>
 							<th style="width: 100px;">음식점명</th>
 							<td th:text="${reservation.restaurant_name}"
@@ -175,9 +175,9 @@ function init() {
 							<td th:if="${reservation.request} == null">없음</td>
 						</tr>
 						<tr>
-							<td><a th:href="@{/mypage/}"><input type="button" value="확인"></a> 
-							<input type="hidden" name="reservation_num" id="kiwon" th:value="${reservation.reservation_num}">
-							<input type="submit" value="취소" id="cancelReservation"></td>
+							<td colspan="2"><a th:href="@{/mypage/}"><input type="hidden" name="reservation_num" id="kiwon" th:value="${reservation.reservation_num}">
+							<input class="btn btn-primary" type="button" value="확인"></a>
+							<input class="btn btn-primary" type="submit" value="취소" id="cancelReservation"></td>
 						</tr>
 					</table>
 					</form>
@@ -192,6 +192,7 @@ function init() {
 
 				</div>
 			</div>
+		</div>
 		</div>
 </body>
 </html>

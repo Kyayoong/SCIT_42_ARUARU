@@ -133,6 +133,21 @@
 #store-name {
 	margin-left: 8vw;
 }
+/*
+* 찜 하트
+*/
+.zzimHeart {
+	position : absolute;
+	top : 7vh;
+	left : 30vw;
+}
+
+.zzimCount {
+	position : absolute;
+	top : 0.5vh;
+	left : 2vw;
+}
+
 
 /*
    	* 음식점 소개글 위치 및 크기 설정

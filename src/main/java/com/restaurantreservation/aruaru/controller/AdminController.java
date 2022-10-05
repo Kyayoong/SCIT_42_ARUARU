@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.restaurantreservation.aruaru.domain.Admin_Graphs;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.AdminService;
 import com.restaurantreservation.aruaru.service.HomeService;
+import com.restaurantreservation.aruaru.service.RestaurantService;
+import com.restaurantreservation.aruaru.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,6 +32,8 @@ import lombok.extern.slf4j.Slf4j;
 public class AdminController {
 	@Autowired AdminService service;
 	@Autowired HomeService homeService;
+	@Autowired UserService userService;
+	@Autowired RestaurantService restService;
 	
 	@GetMapping("main")
 	public String main(Model model) {
@@ -73,6 +78,8 @@ public class AdminController {
 		//1일 때, 승인(1)으로 바꿔주고 0 일때는 거절됨(-1)으로 바꿔준다
 		if(isPermited == 1) {
 			int result = service.acceptCertificationByNum(restaurant_num);
+			//해당 유저 아이디의 가입일을 sysdate로 갱신
+			result = service.certificatedDate(restaurant_num);
 		} else if(isPermited == 0) {
 			int result = service.rejectCertificationByNum(restaurant_num);
 		} else if(isPermited == -1) {
@@ -121,6 +128,27 @@ public class AdminController {
 		return "/adminView/adminBoardMain";
 	}
 	
+	//공지글 작성 새창
+	@GetMapping("insertNotice")
+	public String insertNotice() {
+		return "/adminView/insertNotice";
+	}
+	//공지글 저장 ajax
+	@ResponseBody
+	@PostMapping("createNotice")
+	public void createNotice(@AuthenticationPrincipal UserDetails user,
+											Web_board notice){
+		//아이디
+		notice.setMember_id(user.getUsername());
+		//공지임을 알리는 인수
+		notice.setBoard_notice(1);
+		log.debug("{}", notice);
+		
+		//저장하기
+		int result = userService.insertNoticeBoard(notice);
+	}
+	
+	
 	//게시글 읽기
 	@GetMapping("readBoard")
 	public String readBoard(@RequestParam(name="boardNum", defaultValue = "0") int boardNum, 
@@ -149,6 +177,7 @@ public class AdminController {
 		
 		//해당 게시글 모델에 넣어 보내기
 		model.addAttribute("board", board);
+		log.debug("{}", board);
 		model.addAttribute("replyList", replyList);
 		model.addAttribute("replyFlag", replyFlag);
 

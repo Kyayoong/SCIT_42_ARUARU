@@ -294,6 +294,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Review> list = dao.reviewAll(restaurant_num);
 		return list;
 	}
+
 	@Override
 	public Review reviewSelect(int review_num) {
 		Review review = dao.reviewSelect(review_num);
@@ -331,6 +332,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		
 		return restaurantData;
 	}
+
 	
 
 }

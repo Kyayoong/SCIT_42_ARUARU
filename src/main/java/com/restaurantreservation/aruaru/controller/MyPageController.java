@@ -209,7 +209,21 @@ public class MyPageController {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 		}
+		List<Web_board> notice = service.noticeBoard();
+		model.addAttribute("notice", notice);
 		return "userView/notice";
+	}
+
+	
+	@GetMapping("noticeread")
+	public String noticeread(int board_num, Model model, @AuthenticationPrincipal UserDetails user) {
+		if (user != null) {
+			User_member member = service.selectUser(user.getUsername());
+			model.addAttribute("member", member);
+		}
+		Web_board noticeRead = service.noticeRead(board_num);
+		model.addAttribute("noticeRead", noticeRead);
+		return "userView/notice2";
 	}
 
 	// 찜

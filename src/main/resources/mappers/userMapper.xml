@@ -316,6 +316,22 @@
 	WHERE
 	member_id = #{member_id}
 	</update>
+	<select id="noticeBoard" resultType="Web_board">
+	SELECT
+	*
+	FROM
+	Web_board
+	WHERE
+	board_notice = 1
+	</select>
+	<select id="noticeRead" parameterType="Int" resultType="Web_board">
+	SELECT
+	*
+	FROM
+	Web_board
+	WHERE
+	board_num = #{board_num}
+	</select>
 	
 	<!-- 공지글 입력 -->
 	<insert id="insertNoticeBoard" parameterType="Web_board">

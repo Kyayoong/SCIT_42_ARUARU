@@ -97,12 +97,8 @@ function gochat() {
 						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
-
 					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|"></h4>
 					<h6>다음레벨까지 ~~~~포인트 남았습니다.</h6>
-
-					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4. 호에에엥</h4>
-					<!-- <h6>다음레벨까지 ~~~~포인트 남았습니다.</h6> -->
 				</div>
 				<div id="profile-modify">
 					<h6>
@@ -145,17 +141,21 @@ function gochat() {
 						<h4 id="table-area1-caption">내 문의 사항</h4>
 						<table class="table table" id="table1">
 						<tr>
-							<th>글번호</th>
-							<th>제목</th>
-							<th>글쓴이</th>
-							<th>작성일자</th>
-							
+							<th>글번호</th><td th:text="${noticeRead.board_num}"></td>
 						</tr>
-						<tr th:each="notice : ${notice}">
-							<td id="board_num" th:text="${notice.board_num}"></td>
-							<td><a th:href="@{/mypage/noticeread(board_num=${notice.board_num})}" th:text="${notice.board_title}" style="color: black;"></a></td>
-							<td th:text="${notice.member_id}"></td>
-							<td th:text="${notice.registration_date}"></td>
+						<tr>
+							<th>작성자</th><td th:text="${noticeRead.member_id}"></td>
+						</tr>
+						<tr>
+							<th>작성일</th><td th:text="${noticeRead.registration_date}"></td>
+						</tr>
+						<tr>
+							<th>내용</th><td th:text="${noticeRead.board_contents}"></td>
+						</tr>
+						<tr>
+						<td colspan="2">
+						<a th:href="@{/mypage/notice}"><input type="button" class="btn btn-primary" value="목록으로"></a>
+						</td>
 						</tr>
 						</table>		
 					</div>

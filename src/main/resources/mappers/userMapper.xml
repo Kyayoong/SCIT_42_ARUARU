@@ -307,9 +307,6 @@
 		<foreach collection="arg0" item="item1" separator = "or restaurant_num = " >
 		#{item1} 
 		</foreach>
-		<trim prefix="and">
-		ROWNUM  <![CDATA[ <= ]]> 3
-		</trim>
 	</select>
 	
 	<update id="updateRole" parameterType="String">

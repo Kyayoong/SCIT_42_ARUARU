@@ -14,7 +14,6 @@ import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
-import com.restaurantreservation.aruaru.domain.tabletest;
 
 @Mapper
 public interface UserDao {

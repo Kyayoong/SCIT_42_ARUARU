@@ -2430,7 +2430,7 @@ INSERT INTO restaurant_member
     , restaurant_people
     )
     VALUES
-    (restaurant_member_seq.nextval,'kiwon052','몬드리안서울이태원 클레오','양식','이태원 지중해식 레스토랑','02-2076-2050',4.53,'서울 용산구 장문로 23','몬드리안서울이태원 1층','3~5만원',1,80);
+    (restaurant_member_seq.nextval,'kiwon052','클레오','양식','이태원 지중해식 레스토랑','02-2076-2050',4.53,'서울 용산구 장문로 23','몬드리안서울이태원 1층','3~5만원',1,80);
 INSERT INTO restaurant_member
     (restaurant_num
     , member_id

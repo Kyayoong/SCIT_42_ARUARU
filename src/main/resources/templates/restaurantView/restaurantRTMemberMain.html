@@ -51,11 +51,16 @@ function output(msg) {
 		str += '<td>' + item.reservation_date + '</td>';
 		str += '<td>' + item.reservation_hours + '</td>';
 		str += '<td>' + item.reservation_people + '</td>';
-		str += '<td>' + item.request + '</td>';
+		if(item.request == null){
+			str += '<td>요청사항없음</td>';
+		} else {
+			str += '<td>' + item.request + '</td>';	
+		}
 		//예약 확인이 아직 안되어있는 경우
 		if(item.reservation_success == 0){
-			str += '<td><input type="button" class="button2" value="확인" num='+ item.reservation_num +
-				   '><input type="button" class="button1" value="취소" style="background-color:red;"num='+ item.reservation_num + '</td>';
+			str += '<td><input type="button" class="button2" value="확인" num='+ item.reservation_num + '>';
+			str += '<input type="button" class="button1" value="취소" num='+ item.reservation_num + '>' +
+					'</td>';
 		} else if(item.reservation_success == 1){
 			str += '<td><input type="button" value="완료" disabled></td>';
 		}
@@ -93,6 +98,7 @@ function usingDelete() {
 		type : 'get',
 		data : {reservation_num : $(this).attr('num')},
 		success : function() {
+			
 			init();
 		},
 		error : function() {

@@ -140,6 +140,7 @@
 								<th>예약일시</th>
 								<th>인원수</th>
 								<th>예약확정여부</th>
+								<th>상세보기</th>
 							</tr>
 							<tr th:each="reservationlist : ${reservationlist}">
 								<td th:text="${reservationlist.restaurant_name}">성준식당</td>
@@ -148,6 +149,8 @@
 								<td th:text="${reservationlist.reservation_people}">5</td>
 								<th th:if="${reservationlist.reservation_success} == 0">N</th>
 								<th th:if="${reservationlist.reservation_success} == 1">Y</th>
+								<td><a
+								th:href="@{/mypage/seeReservationDetail(reservation_num=${reservationlist.reservation_num})}">상세보기</a></td>
 							</tr>
 						</table>
 					</div>

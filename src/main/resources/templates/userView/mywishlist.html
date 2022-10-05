@@ -135,12 +135,14 @@
 						<tr>
 									<th>식당</th>
 									<th>소재지</th>
-									<th>예약여부</th>
+									<th>가게 정보 보기</th>
 								</tr>
 								<tr th:each = "mywishlist : ${mywishlist}">
 									<td th:text = "${mywishlist.restaurant_name}"></td>
 									<td>어쩌고</td>
-									<td>저쩌고</td>
+									<td><a
+								th:href="|../stores/introduce_store?restaurant_num=${mywishlist.restaurant_num}|">가게
+									정보</a></td>
 								
 									<!-- <td><img id="image" th:src="@{/images/photo_icon.png}"
 										alt="사진 들어갈 곳">

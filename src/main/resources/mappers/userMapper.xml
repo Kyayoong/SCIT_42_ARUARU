@@ -222,7 +222,7 @@
 	<select id="mywishlist" parameterType="String"
 		resultType="Restaurant_zzim">
 	SELECT
-	restaurant_name
+	restaurant_name, restaurant_num
 	FROM
 	restaurant_zzim
 	WHERE

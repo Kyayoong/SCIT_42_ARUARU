@@ -137,6 +137,11 @@ public interface RestaurantDao {
 	int inputTime(Restaurant_time time);
 	
 	// 리뷰 불러오기
-	ArrayList<Review> reivewAll(int restaurant_num);
+	ArrayList<Review> reviewAll(int restaurant_num);
+	
+	// 리뷰 가져오기
+	Review reviewSelect(int review_num);
+	
+	
 	
 }

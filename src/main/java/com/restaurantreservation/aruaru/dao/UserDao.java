@@ -73,9 +73,6 @@ public interface UserDao {
 
 	int deleteBoard(int board_num);
 
-
-
-	
 	/**
 	 * 로그인 정보를 통해 해당 유저의 전체 리뷰 가져오기
 	 * @param username
@@ -84,7 +81,6 @@ public interface UserDao {
 	ArrayList<Review> selectAllReview(String username);
 
 	int updateBoard(Web_board b);
-
 
 	String myTags(String username);
 

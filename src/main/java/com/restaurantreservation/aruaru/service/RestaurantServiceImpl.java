@@ -285,9 +285,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 	
 	// 리뷰불러오기
 	@Override
-	public ArrayList<Review> reivewAll(int restaurant_num) {
-		ArrayList<Review> list = dao.reivewAll(restaurant_num);
+	public ArrayList<Review> reviewAll(int restaurant_num) {
+		ArrayList<Review> list = dao.reviewAll(restaurant_num);
 		return list;
+	}
+	@Override
+	public Review reviewSelect(int review_num) {
+		Review review = dao.reviewSelect(review_num);
+		return review;
 	}
 	
 

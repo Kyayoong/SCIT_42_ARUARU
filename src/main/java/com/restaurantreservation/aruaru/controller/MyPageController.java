@@ -20,8 +20,6 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,7 +36,6 @@ import com.restaurantreservation.aruaru.domain.Web_board;
 import com.restaurantreservation.aruaru.domain.Web_reply;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
-import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -282,6 +279,19 @@ public class MyPageController {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 		}
+		ArrayList<Tags> tagList = restaurantService.tagList("맛");
+		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
+		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
+		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
+		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
+		ArrayList<Tags> tagList6 = restaurantService.tagList("분위기");
+		model.addAttribute("tagList", tagList);
+		model.addAttribute("tagList2", tagList2);
+		model.addAttribute("tagList3", tagList3);
+		model.addAttribute("tagList4", tagList4);
+		model.addAttribute("tagList5", tagList5);
+		model.addAttribute("tagList6", tagList6);
+		
 		return "userView/myinfomodify";
 	}
 

@@ -135,8 +135,6 @@ public interface RestaurantService {
 	
 	// 시간 입력
 	public int inputTime(Restaurant_time time);
-
-	public ArrayList<Review> reivewAll(int restaurant_num);
 	
 	/**
 	 * 특정 식당의 일일 데이터 (예약, 리뷰, 찜 개수) 가져오기

@@ -17,9 +17,9 @@
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
 
 <script type="text/javascript">
-	/* 공지/문의글 읽기 */
+	/* 문의글 읽기 */
 	function readBoard(n){
-		listRefresh();
+		listRefreshNormalList();
 		let win = window.open('/aruaru/admin/readBoard?boardNum=' + n, '아루아루 문의글', 
 				'width=' + screen.width/2 + 
 				', height=' + screen.height/1.45 + 
@@ -28,51 +28,23 @@
 				', resizable=no');
 	}
 	
-	/* 공지글 작성 새창 */
-	function openInsertNotice(){
-		win = window.open('/aruaru/admin/insertNotice', '공지입력', 
-						'width=' + screen.width/2 + 
-						', height=' + screen.height/1.2 + 
-						', left=' + screen.width/3.8 + 
-						', top=' + 0 +
-						', resizable=no');
-	}
-	
-	/* 문의/공지글 리스트 새로고침 */
-	function listRefresh(){
+	/* 문의 리스트 새로고침 */
+	function listRefreshNormalList(){
 		//Ajax로 조회수 올리고 다시 화면에 뿌리기
 		$.ajax({
-        url: 'listRefresh',
+        url: 'listRefreshNormalList',
         type: 'get',
-        //controller로부터 넘어온 해쉬맵(공지, 일반)을 ob라는 json타입으로 받는다. 
+        //controller로부터 넘어온 리스트 
         dataType: 'json',
         success: function(json){
-        	console.log(json.normal.length);
-        	console.log(json.normal[0].board_title);
-        	console.log(json.notice.length);
         	let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
 					'<tr class="border-bottom border-dark">' +
 						'<th>글 번호</th>' +
 						'<th>제목</th>' +
 						'<th>작성자</th>' +
-						'<th>추천수</th>' +
 						'<th>조회수</th>' +
 						'<th>작성일</th>' +
 					'</tr>';
-			
-			//공지글 refresh
-            for(let i = 0; i < json.notice.length; ++i){
-                 t += '<tr class="text-danger" style="background-color: oldlace;">';
-                 t += '<td><b>' + json.notice[i].board_num + '</b></td>';
-                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="color:red;">' 
-                 	 + json.notice[i].board_title + '</a></b></td>';
-                 t += '<td><b>' + json.notice[i].member_id + '</b></td>';
-                 t += '<td><b>' + json.notice[i].board_suggestion + '</b></td>';
-                 t += '<td><b>' + json.notice[i].hits + '</b></td>';
-                 t += '<td><b>' + json.notice[i].registration_date + '</b></td>';
-                 t += '</tr>';
-            }
-			
 			//일반글
             for(let i = 0; i < json.normal.length; ++i){          
             	console.log(json.normal[i].member_role);
@@ -94,12 +66,11 @@
 		            		'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>' +
 		            		'<circle cx="12" cy="7" r="4"></circle></svg>' + " " + 
 		            	 '</span>' + '<span>' + ' ' + json.normal[i].member_id + '</span></td>';
-	                t += '<td>' + json.normal[i].board_suggestion + '</td>';
 	                t += '<td>' + json.normal[i].hits + '</td>';
 	                t += '<td>' + json.normal[i].registration_date + '</td>';
 	                t += '</tr>'
+	              
 	              //일반유저일때
-	                                    
             	} else if(json.normal[i].member_role == 'ROLE_USER'){
             		t += '<tr style="color:green;">';
 	                t += 	'<td>' + json.normal[i].board_num + '</td>';
@@ -120,7 +91,6 @@
 	            				'</span>' + 
 	                			'<span>'+ ' ' + json.normal[i].member_id + '</span>' + 
 	                		'</td>';
-	                t += '<td>' + json.normal[i].board_suggestion + '</td>';
 	                t += '<td>' + json.normal[i].hits + '</td>';
 	                t += '<td>' + json.normal[i].registration_date + '</td>';
 	                t += '</tr>'
@@ -170,13 +140,12 @@
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/restMemberMain}"> <span
 								data-feather="user"></span> 식당등록요청
 						</a></li>
-						<!-- <li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
-								data-feather="users"></span> 일반회원관리
-						</a></li> -->
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/boardMain}"> <span
 								data-feather="clipboard"></span> 문의글관리
-						</a>
-						</li>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/boardNoticeMain}"> <span
+								data-feather="bell"></span> 공지글 관리
+						</a></li>
 					</ul>
 				</div>
 				<!-- 홈페이지로 이동 -->
@@ -191,9 +160,6 @@
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">문의 관리</h1>
-					 
-					<input type="button" sec:authorize="isAuthenticated()" th:onclick="openInsertNotice()"
-					class="btn1 btn btn-outline-primary btn-sm float-right" value="공지 글쓰기">
 				</div>
 				<!-- <select name="type" id="type">
 					<option value="all" th:selected="${type} == 'all'">전체</option>
@@ -208,33 +174,8 @@
 							<th>글 번호</th>
 							<th>제목</th>
 							<th>작성자</th>
-							<th>추천수</th>
 							<th>조회수</th>
 							<th>작성일</th>
-						</tr>
-						<tr th:each="notice:${noticeList}" class="text-danger" style="background-color: oldlace;">
-							<td>
-								<b th:text="${notice.board_num}">글번호</b>
-							</td>
-							<td>
-								<!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. -->
-								<b>
-									<span>[공지]</span>
-									<a th:href="|javascript:readBoard(${notice.board_num}, 1)|" th:text="${notice.board_title}" style="color:red;">제목</a>
-								</b>
-							</td>
-							<td>
-								<b th:text="${notice.member_id}">아이디</b>
-							</td>
-							<td>
-								<b th:text="${notice.board_suggestion}">추천수</b>
-							</td>
-							<td>
-								<b th:text="${notice.hits}">조회수</b>
-							</td>
-							<td>
-								<b th:text="${notice.registration_date}">작성일</b>
-							</td>
 						</tr>
 						<tr th:each="normal:${normalList}">
 							<td th:text="${normal.board_num}" th:if="${normal.member_role == 'ROLE_MEMBER'}" style="color:blue;">글 번호</td>
@@ -252,8 +193,6 @@
 								<span data-feather="users" th:if="${normal.member_role} == 'ROLE_USER'"></span>
 								<span th:text="${normal.member_id}" th:if="${normal.member_role} == 'ROLE_USER'" style="color:green;">작성자</span>
 							</td>
-							<td th:text="${normal.board_suggestion}" th:if="${normal.member_role} == 'ROLE_MEMBER'" style="color:blue;">추천수</td>
-							<td th:text="${normal.board_suggestion}" th:if="${normal.member_role} == 'ROLE_USER'" style="color:green;">추천수</td>
 							<td th:text="${normal.hits}" th:if="${normal.member_role} == 'ROLE_MEMBER'" style="color:blue;">조회수</td>
 							<td th:text="${normal.hits}" th:if="${normal.member_role} == 'ROLE_USER'" style="color:green;">조회수</td>
 							<td th:text="${normal.registration_date}" th:if="${normal.member_role} == 'ROLE_MEMBER'" style="color:blue;">작성일</td>

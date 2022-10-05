@@ -106,7 +106,6 @@ public class AdminController {
 		
 		//모든 게시글 가져와서 뿌리기
 		ArrayList<Web_board> normalList = service.normalBoardList();
-		ArrayList<Web_board> noticeList = service.noticeBoardList();
 		
 		//답변완료된 문의글 리스트 가져오기
 		ArrayList<Web_reply> replyList = service.allReplyList();
@@ -123,10 +122,45 @@ public class AdminController {
 			}
 		}
 		model.addAttribute("normalList", normalList);
-		model.addAttribute("noticeList", noticeList);
+		
 		
 		return "/adminView/adminBoardMain";
 	}
+	
+	//공지글 관리 창
+	@GetMapping("boardNoticeMain")
+	public String boardNoticeMain(Model model) {
+		ArrayList<Web_board> noticeList = service.noticeBoardList();
+		model.addAttribute("noticeList", noticeList);
+		return "/adminView/boardNoticeMain";
+	}
+	//공지글 읽기 새창
+	@GetMapping("readNotice")
+	public String readNotice(@RequestParam(name="boardNum", defaultValue = "0") int boardNum, 
+							Model model) {
+		//댓글이 있고 없고(있을 때, 없을 때 html내용이 바뀜)
+		int replyFlag = 1;
+		//번호를 통해 게시글 검색
+		Web_board board = service.selectOneBoard(boardNum);
+		
+		//만약 글이 없을 때
+		if(board == null) {
+			return "redirect:/";
+		}
+		//notice가 있다면 해당 글 조회수++(sql에서)
+		int result = service.updateHitCnt(boardNum);
+		
+		//notice 다시 부르기
+		board = service.selectOneBoard(boardNum);
+		
+		//해당 게시글 모델에 넣어 보내기
+		model.addAttribute("board", board);
+		log.debug("{}", board);
+		model.addAttribute("replyFlag", replyFlag);
+
+		return "adminView/readNotice";
+	}
+	
 	
 	//공지글 작성 새창
 	@GetMapping("insertNotice")
@@ -184,13 +218,12 @@ public class AdminController {
 		return "adminView/readBoard";
 	}
 	
-	//게시글 리프레쉬
+	//일반게시글 리프레쉬
 	@ResponseBody
-	@GetMapping("listRefresh")
-	public HashMap<Object, Object> listRefresh(){
+	@GetMapping("listRefreshNormalList")
+	public HashMap<Object, Object> listRefreshNormalList(){
 		HashMap<Object, Object> list = new HashMap<>();
 		
-		ArrayList<Web_board> noticeList = service.noticeBoardList();
 		ArrayList<Web_board> normalList = service.normalBoardList();
 		
 		//답변완료된 문의글 리스트 가져오기
@@ -207,12 +240,20 @@ public class AdminController {
 			}
 		}
 		
+		list.put("normal", normalList);
+
+		return list;
+	}
+	//게시글 리프레쉬
+	@ResponseBody
+	@GetMapping("listRefreshNotice")
+	public HashMap<Object, Object> listRefreshNotice(){
+		HashMap<Object, Object> list = new HashMap<>();
 		
+		ArrayList<Web_board> noticeList = service.noticeBoardList();
 		
 		list.put("notice", noticeList);
-		list.put("normal", normalList);
-		
-		
+
 		return list;
 	}
 	

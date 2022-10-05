@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.101.0">
+<title>아루아루 관리자페이지</title>
+<link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
+<!-- Bootstrap core CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
+
+<script type="text/javascript">
+	/* 공지/문의글 읽기 */
+	function readBoard(n){
+		listRefreshNotice();
+		let win = window.open('/aruaru/admin/readNotice?boardNum=' + n, '아루아루 공지글', 
+				'width=' + screen.width/2 + 
+				', height=' + screen.height/1.45 + 
+				', left=' + screen.width/3.8 + 
+				', top=' + 0 +
+				', resizable=no');
+	}
+	
+	/* 공지글 작성 새창 */
+	function openInsertNotice(){
+		win = window.open('/aruaru/admin/insertNotice', '공지입력', 
+						'width=' + screen.width/2 + 
+						', height=' + screen.height/1.2 + 
+						', left=' + screen.width/3.8 + 
+						', top=' + 0 +
+						', resizable=no');
+	}
+	
+	/* 문의/공지글 리스트 새로고침 */
+	function listRefreshNotice(){
+		//Ajax로 조회수 올리고 다시 화면에 뿌리기
+		$.ajax({
+        url: 'listRefreshNotice',
+        type: 'get',
+        //controller로부터 넘어온 해쉬맵(공지, 일반)을 ob라는 json타입으로 받는다. 
+        dataType: 'json',
+        success: function(json){
+         	let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
+					'<tr class="border-bottom border-dark">' +
+						'<th>글 번호</th>' +
+						'<th>제목</th>' +
+						'<th>작성자</th>' +
+						'<th>조회수</th>' +
+						'<th>작성일</th>' +
+					'</tr>';
+			
+            for(let i = 0; i < json.notice.length; ++i){
+                 t += '<tr class="text-danger" style="background-color: oldlace;">';
+                 t += '<td><b>' + json.notice[i].board_num + '</b></td>';
+                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="color:red;">' 
+                 	 + json.notice[i].board_title + '</a></b></td>';
+                 t += '<td><b>' + json.notice[i].member_id + '</b></td>';
+                 t += '<td><b>' + json.notice[i].hits + '</b></td>';
+                 t += '<td><b>' + json.notice[i].registration_date + '</b></td>';
+                 t += '</tr>';
+            }
+            t += '</table>';
+            $('#boardList').html(t);
+        },
+        error: function(e){
+            alert(JSON.stringify(e));
+        }
+   		})
+	}
+	
+	
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" th:href="@{/}">AruAru</a>
+		<button class="navbar-toggler position-absolute d-md-none collapsed"
+			type="button" data-toggle="collapse" data-target="#sidebarMenu"
+			aria-controls="sidebarMenu" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<input class="form-control form-control-dark w-100" type="text"
+			placeholder="Search" aria-label="Search">
+		<ul class="navbar-nav px-3">
+			<li class="nav-item text-nowrap"><a class="nav-link" th:href="@{/logout}">로그아웃</a></li>
+		</ul>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<!-- 사이드 메뉴 -->
+			<nav id="sidebarMenu"
+				class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+				<div class="sidebar-sticky pt-3">
+					<ul class="nav flex-column">
+						<!-- activate : 현재 활성화 된 창 (파란글씨) -->
+						<!-- dapa-feather : 메뉴명 옆의 아이콘 https://feathericons.com/에서 검색 후 이름 적용 -->
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/main}">
+								<span data-feather="home"></span> 대시보드 <span
+								class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/restMemberMain}"> <span
+								data-feather="user"></span> 식당등록요청
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/boardMain}"> <span
+								data-feather="clipboard"></span> 문의글관리
+						</a></li>
+						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/boardNoticeMain}"> <span
+								data-feather="bell"></span> 공지글 관리
+						</a></li>
+					</ul>
+				</div>
+				<!-- 홈페이지로 이동 -->
+				<span id="homebtn">
+					<a th:href="@{/}">
+						<span data-feather="home" id="homeIcon"></span>HOME
+					</a>
+				</span>
+			</nav>
+
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+				<div
+					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">공지글 관리</h1>
+					 
+					<input type="button" sec:authorize="isAuthenticated()" th:onclick="openInsertNotice()"
+					class="btn1 btn btn-outline-primary btn-sm float-right" value="공지 글쓰기">
+				</div>
+				<!-- <select name="type" id="type">
+					<option value="all" th:selected="${type} == 'all'">전체</option>
+					<option value="computer" th:selected="${type} == 'inquire'">문의</option>
+					<option value="camera" th:selected="${type} == 'report'">신고</option>
+				</select> -->
+
+				<!-- 이하 글 목록 출력 영역 -->
+				<div id="boardList" class="border shadow rounded-sm m-2 p-1">
+					<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">
+						<tr class="border-bottom border-dark">
+							<th>글 번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>조회수</th>
+							<th>작성일</th>
+						</tr>
+						<tr th:each="notice:${noticeList}" class="text-danger" style="background-color: oldlace;">
+							<td>
+								<b th:text="${notice.board_num}">글번호</b>
+							</td>
+							<td>
+								<!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. -->
+								<b>
+									<span>[공지]</span>
+									<a th:href="|javascript:readBoard(${notice.board_num}, 1)|" th:text="${notice.board_title}" style="color:red;">제목</a>
+								</b>
+							</td>
+							<td>
+								<b th:text="${notice.member_id}">아이디</b>
+							</td>
+							<td>
+								<b th:text="${notice.hits}">조회수</b>
+							</td>
+							<td>
+								<b th:text="${notice.registration_date}">작성일</b>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</main>
+		</div>
+	</div>
+	
+	<!-- 아이콘 https://feathericons.com/에서 검색하여 사용 -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.js"></script>
+	<script th:src="@{/js/adminViewJS/adminPage.js}"></script>
+</body>
+</html>

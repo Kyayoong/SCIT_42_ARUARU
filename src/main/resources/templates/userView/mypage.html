@@ -88,7 +88,9 @@
 			</div>
 			<div id="mypage-right" class="col-sm-9">
 				<div id="profile-photo">
-					<img id="p-photo" th:src="|profile?member_num=${member.member_num}|" class="rounded-circle" alt="프로필 이미지">
+					<img id="p-photo"
+						th:src="|profile?member_num=${member.member_num}|"
+						class="rounded-circle" alt="프로필 이미지">
 				</div>
 				<div id="profile-name">
 					<h4 th:text="|LV${member.member_grade}.${member.member_nickname}|">LV4.
@@ -150,7 +152,7 @@
 								<th th:if="${reservationlist.reservation_success} == 0">N</th>
 								<th th:if="${reservationlist.reservation_success} == 1">Y</th>
 								<td><a
-								th:href="@{/mypage/seeReservationDetail(reservation_num=${reservationlist.reservation_num})}">상세보기</a></td>
+									th:href="@{/mypage/seeReservationDetail(reservation_num=${reservationlist.reservation_num})}">상세보기</a></td>
 							</tr>
 						</table>
 					</div>
@@ -160,28 +162,14 @@
 						<h6 id="table-area2-all">전체 보기</h6>
 						<table class="table" id="table1">
 							<tr>
-								<th>예약가게명</th>
-								<th>예약일시</th>
-								<th>인원수</th>
-								<th>예약여부</th>
+								<th>식당</th>
+								<th>가게 정보 보기</th>
 							</tr>
-							<tr>
-								<td>성준식당</td>
-								<td>2022.09.15</td>
-								<td>5</td>
-								<th>N</th>
-							</tr>
-							<tr>
-								<td>예현식당</td>
-								<td>2022.09.20</td>
-								<td>4</td>
-								<th>Y</th>
-							</tr>
-							<tr>
-								<td>기원식당</td>
-								<td>2022.09.22</td>
-								<td>3</td>
-								<th>N</th>
+							<tr th:each="mywishlist : ${mywishlist}">
+								<td th:text="${mywishlist.restaurant_name}"></td>
+								<td><a
+									th:href="|../stores/introduce_store?restaurant_num=${mywishlist.restaurant_num}|">가게
+										정보</a></td>
 							</tr>
 						</table>
 					</div>

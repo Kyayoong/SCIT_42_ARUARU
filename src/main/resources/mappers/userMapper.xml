@@ -218,8 +218,17 @@
 		reply_num
 	</select>
 
-
-
+	
+	<select id="mywishlist" parameterType="String"
+		resultType="Restaurant_zzim">
+	SELECT
+	restaurant_name, restaurant_num
+	FROM
+	restaurant_zzim
+	WHERE
+	member_id = #{member_id}	
+	</select>
+	
 
 	<update id="updateBoard" parameterType="Web_board">
 	UPDATE
@@ -301,11 +310,9 @@
 	</select>
 	
 	<update id="updateRole" parameterType="String">
-	UPDATE
+	UPDATE user_member
 	SET
 	member_role = 'ROLE_USER'
-	FROM
-	User_member
 	WHERE
 	member_id = #{member_id}
 	</update>
@@ -325,4 +332,27 @@
 	WHERE
 	board_num = #{board_num}
 	</select>
+	
+	<!-- 공지글 입력 -->
+	<insert id="insertNoticeBoard" parameterType="Web_board">
+	INSERT INTO
+		web_board
+		(
+		board_num
+		, member_id
+		, board_title
+		, board_contents
+		, category
+		, board_notice
+		)
+		VALUES
+		(
+		web_board_seq.nextval
+		, #{member_id}
+		, #{board_title}
+		, #{board_contents}
+		, '공지'
+		, #{board_notice}
+		)
+	</insert>
 </mapper>

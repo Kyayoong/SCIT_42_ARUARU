@@ -13,6 +13,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -134,5 +135,13 @@ public interface RestaurantDao {
 	
 	// 시간 입력
 	int inputTime(Restaurant_time time);
+	
+	// 리뷰 불러오기
+	ArrayList<Review> reviewAll(int restaurant_num);
+	
+	// 리뷰 가져오기
+	Review reviewSelect(int review_num);
+	
+	
 	
 }

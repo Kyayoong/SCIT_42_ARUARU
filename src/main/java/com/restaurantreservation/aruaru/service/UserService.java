@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -41,6 +42,9 @@ public interface UserService {
 	// 지난 예약내역 확인
 	public ArrayList<Reservation> seeAllLastReservation(String member_id);
 
+	
+	// 찜리스트
+	public ArrayList<Restaurant_zzim> mywishlist(String member_id);
 	/**
 	 * 특정 회원의 이용내역 불러오기
 	 * @param 찾을 회원의 id 정보
@@ -85,6 +89,13 @@ public interface UserService {
 	public List<Restaurant_member> recommendStores(int[] stores);
 	
 	public int updateRole(String member_id);
+	
+	/**
+	 * 공지글 입력
+	 * @param notice
+	 * @return
+	 */
+	public int insertNoticeBoard(Web_board notice);
 
 	public List<Web_board> noticeBoard();
 

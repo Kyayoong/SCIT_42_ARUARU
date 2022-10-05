@@ -90,19 +90,23 @@ public class RestaurantController {
 		log.debug("파일 정보: {}", upload);
 
 		member.setMember_id(user.getUsername());
-
+		member.setRestaurant_people(30);
 		int result = service.regist1(member);
 
 		Restaurant_member member2 = service.selectOne(user.getUsername());
+		
 
 		for (int i = 0; i < upload.size(); i++) {
-
+			
+			log.debug("upload : {}", upload.get(i));
+			
 			if (!upload.isEmpty()) {
-
+				
 				String savedfile = FileService.saveFile(upload.get(i), uploadPath);
 				file.setRestaurant_num(member2.getRestaurant_num());
 				file.setRestaurant_originalfile(upload.get(i).getOriginalFilename());
 				file.setRestaurant_savedfile(savedfile);
+				
 
 				int result2 = service.fileregist(file);
 				log.debug("결과 : {}", result2);

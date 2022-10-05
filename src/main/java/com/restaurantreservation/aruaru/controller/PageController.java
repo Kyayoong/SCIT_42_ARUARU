@@ -28,7 +28,9 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
+import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
 import com.restaurantreservation.aruaru.service.RestaurantService;
 import com.restaurantreservation.aruaru.service.UserService;
@@ -89,7 +91,8 @@ public class PageController {
 	
 	//식당 상세 페이지
 	@GetMapping("introduce_store")
-	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user, Restaurant_zzim zzim) {
+	public String introduce_store(int restaurant_num, Model model, @AuthenticationPrincipal UserDetails user
+			, Restaurant_zzim zzim) {
 		if(user != null) {
 			User_member member = service1.selectUser(user.getUsername());
 				model.addAttribute("member", member);
@@ -102,21 +105,60 @@ public class PageController {
 				model.addAttribute("member_nickname", null);
 			}
 		
+		
+		ArrayList<Review> reviewList = service.reviewAll(restaurant_num);
+		
+		if(reviewList.size() != 0) {
+			
+			Review review = service.reviewSelect(reviewList.get(0).getReview_num());
+			User_member member = service1.selectUser(reviewList.get(0).getMember_id());
+			Usage_history his = service1.selectOneUsageHistory(review.getUsage_num());
+			review.setReservaiton_date(his.getUsage_date());
+			review.setMember_nickname(member.getMember_nickname());
+			review.setMember_num(member.getMember_num());
+			
+			log.debug(" : {} ", review);
+			
+			
+			Review review1 = service.reviewSelect(reviewList.get(1).getReview_num());
+			User_member member1 = service1.selectUser(reviewList.get(1).getMember_id());
+			Usage_history his1 = service1.selectOneUsageHistory(review1.getUsage_num());
+			review1.setReservaiton_date(his1.getUsage_date());
+			review1.setMember_nickname(member1.getMember_nickname());
+			review1.setMember_num(member1.getMember_num());
+			
+			Review review2 = service.reviewSelect(reviewList.get(2).getReview_num());
+			User_member member2 = service1.selectUser(reviewList.get(2).getMember_id());
+			Usage_history his2 = service1.selectOneUsageHistory(review2.getUsage_num());
+			review2.setReservaiton_date(his2.getUsage_date());
+			review2.setMember_nickname(member2.getMember_nickname());
+			review2.setMember_num(member2.getMember_num());
+			
+			model.addAttribute("review", review);
+			model.addAttribute("review1", review1);
+			model.addAttribute("review2", review2);
+			
+		}
+		
+		
+		
 		Restaurant_member storeList = service.selectOne1(restaurant_num);
 		ArrayList<Menu> menuList = service.menucheck(restaurant_num);
 		ArrayList<Restaurant_time> timeTable = service.searchTime(restaurant_num);
 		ArrayList<Tags> storeTags = service.searchStoreTags(restaurant_num);
 		ArrayList<Restaurant_file> fileList = service.fileselect(restaurant_num);
-		 int count = service.zzimCount(restaurant_num);
-	      int result = service.zzimcheck(zzim);
-		log.debug("{}",storeTags);
+		int count = service.zzimCount(restaurant_num);
+	    int result = service.zzimcheck(zzim);
+	    
 		model.addAttribute("menuList", menuList);
 		model.addAttribute("store", storeList);
 		model.addAttribute("timeTable", timeTable);
 		model.addAttribute("storeTagList", storeTags);
 		model.addAttribute("fileList", fileList);
-		 model.addAttribute("count", count);
-	      model.addAttribute("result", result);
+		model.addAttribute("count", count);
+	    model.addAttribute("result", result);
+	    
+	    
 		return "views/introduce_store";
 	}
 	

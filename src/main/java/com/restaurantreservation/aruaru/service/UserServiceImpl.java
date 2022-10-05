@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.restaurantreservation.aruaru.dao.UserDao;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -186,6 +187,19 @@ public class UserServiceImpl implements UserService {
 	public int updateRole(String member_id) {
 		int result = dao.updateRole(member_id);
 		return result;
+	}
+	
+	//공지글 입력
+	@Override
+	public int insertNoticeBoard(Web_board notice) {
+		int result = dao.insertNoticeBoard(notice);
+		return result;
+	}
+
+	@Override
+	public ArrayList<Restaurant_zzim> mywishlist(String member_id) {
+		ArrayList<Restaurant_zzim> mywishlist = dao.mywishlist(member_id);
+		return mywishlist;
 	}
 
 	@Override

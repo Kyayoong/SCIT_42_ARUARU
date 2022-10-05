@@ -16,9 +16,8 @@
 <!-- Custom styles for this template -->
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
 
-
-
 <script type="text/javascript">
+	/* 공지/문의글 읽기 */
 	function readBoard(n){
 		listRefresh();
 		let win = window.open('/aruaru/admin/readBoard?boardNum=' + n, '아루아루 문의글', 
@@ -29,6 +28,17 @@
 				', resizable=no');
 	}
 	
+	/* 공지글 작성 새창 */
+	function openInsertNotice(){
+		win = window.open('/aruaru/admin/insertNotice', '공지입력', 
+						'width=' + screen.width/2 + 
+						', height=' + screen.height/1.2 + 
+						', left=' + screen.width/3.8 + 
+						', top=' + 0 +
+						', resizable=no');
+	}
+	
+	/* 문의/공지글 리스트 새로고침 */
 	function listRefresh(){
 		//Ajax로 조회수 올리고 다시 화면에 뿌리기
 		$.ajax({
@@ -182,7 +192,8 @@
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">문의 관리</h1>
 					 
-					<input type="button" sec:authorize="isAuthenticated()" class="btn1 btn btn-outline-primary btn-sm float-right" value="공지 글쓰기">
+					<input type="button" sec:authorize="isAuthenticated()" th:onclick="openInsertNotice()"
+					class="btn1 btn btn-outline-primary btn-sm float-right" value="공지 글쓰기">
 				</div>
 				<!-- <select name="type" id="type">
 					<option value="all" th:selected="${type} == 'all'">전체</option>
@@ -209,7 +220,7 @@
 								<!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. -->
 								<b>
 									<span>[공지]</span>
-									<a th:href="|javascript:readBoard(${notice.board_num})|" th:text="${notice.board_title}" style="color:red;">제목</a>
+									<a th:href="|javascript:readBoard(${notice.board_num}, 1)|" th:text="${notice.board_title}" style="color:red;">제목</a>
 								</b>
 							</td>
 							<td>

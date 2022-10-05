@@ -16,6 +16,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -280,6 +281,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public int inputTime(Restaurant_time time) {
 		int result = dao.inputTime(time);
 		return result;
+	}
+	
+	// 리뷰불러오기
+	@Override
+	public ArrayList<Review> reviewAll(int restaurant_num) {
+		ArrayList<Review> list = dao.reviewAll(restaurant_num);
+		return list;
+	}
+	@Override
+	public Review reviewSelect(int review_num) {
+		Review review = dao.reviewSelect(review_num);
+		return review;
 	}
 	
 

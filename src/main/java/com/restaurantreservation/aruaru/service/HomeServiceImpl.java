@@ -107,7 +107,7 @@ public class HomeServiceImpl implements HomeService {
 			newGraphData.setUsers_cnt(users_cnt);
 			
 			// 레스토랑멤버 승인된 숫자
-			restaurant_cnt = 0;
+			restaurant_cnt = dao.selectRestaurantCntByDate(i);
 			newGraphData.setRestaurant_cnt(restaurant_cnt);
 			
 			// 사이트 전체 리뷰 숫자
@@ -133,11 +133,12 @@ public class HomeServiceImpl implements HomeService {
 		graphData.setUsers_cnt(users_cnt);
 		
 		// 레스토랑멤버 승인된 숫자
-		restaurant_cnt = 0;
+		restaurant_cnt = dao.selectRestaurantCntByDate(i);
 		graphData.setRestaurant_cnt(restaurant_cnt);
 		
 		// 사이트 전체 리뷰 숫자
 		allreview_cnt = dao.selectReviewCntByDate(i);
+		System.out.println(newDate + "일 리뷰 개수 " + allreview_cnt + "개");
 		graphData.setAllreview_cnt(allreview_cnt);
 		
 		// 일일 방문자 숫자는 Admin_Graph객체가 null이 아니라면 미리 들어가 있음

@@ -86,4 +86,9 @@
  	<update id="reconsiderCertifiacationByNum" parameterType="int">
  		UPDATE RESTAURANT_MEMBER SET CERTIFICATION = 0 WHERE RESTAURANT_NUM = #{restaurant_num}
  	</update>
+ 	
+ 	<!-- 회원정보의 가입일 갱신(식당승인일) -->
+ 	<update id="certificatedDate" parameterType="int">
+ 		UPDATE RESTAURANT_MEMBER SET REGISTRATION_DATE = SYSDATE WHERE RESTAURANT_NUM = #{member_id}
+ 	</update>
 </mapper>

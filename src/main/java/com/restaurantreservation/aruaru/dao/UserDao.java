@@ -92,5 +92,8 @@ public interface UserDao {
 	List<Restaurant_member> recommendStores(int[] a);
 	
 	int updateRole(String member_id);
+	
+	//공지글 입력
+	int insertNoticeBoard(Web_board notice);
 
 }

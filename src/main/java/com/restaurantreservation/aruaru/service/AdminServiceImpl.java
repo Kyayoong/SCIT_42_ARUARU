@@ -112,5 +112,12 @@ public class AdminServiceImpl implements AdminService {
 		return result;
 	}
 	
+	//레스토랑 승인일
+	@Override
+	public int certificatedDate(int restaurant_num) {
+		int result = dao.certificatedDate(restaurant_num);
+		return result;
+	}
+	
 	
 }

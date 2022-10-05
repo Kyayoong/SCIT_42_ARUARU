@@ -312,4 +312,27 @@
 	WHERE
 	member_id = #{member_id}
 	</update>
+	
+	<!-- 공지글 입력 -->
+	<insert id="insertNoticeBoard" parameterType="Web_board">
+	INSERT INTO
+		web_board
+		(
+		board_num
+		, member_id
+		, board_title
+		, board_contents
+		, category
+		, board_notice
+		)
+		VALUES
+		(
+		web_board_seq.nextval
+		, #{member_id}
+		, #{board_title}
+		, #{board_contents}
+		, '공지'
+		, #{board_notice}
+		)
+	</insert>
 </mapper>

@@ -187,6 +187,13 @@ public class UserServiceImpl implements UserService {
 		int result = dao.updateRole(member_id);
 		return result;
 	}
+	
+	//공지글 입력
+	@Override
+	public int insertNoticeBoard(Web_board notice) {
+		int result = dao.insertNoticeBoard(notice);
+		return result;
+	}
 
 
 

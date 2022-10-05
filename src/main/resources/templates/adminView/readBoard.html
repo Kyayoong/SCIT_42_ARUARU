@@ -135,12 +135,20 @@ function suggestRefresh(n){
 	<div class="border shadow rounded-sm m-1">
 		<div class="p-1" style="background: #afc9f6; font-family: Jua;">
 			<!-- 1. 글제목 -->
-			<div class="row col-sm-12">
-					<span class="col-sm-12 h1 m-3 d-flex justify-content-center">
-					<img th:if="${board.category} == '신고'" th:src="@{/images/sirenMark.png}" style="height:2.3rem;" alt="신고">
-					<img th:if="${board.category} == '문의'" th:src="@{/images/inquiryMark.png}" style="height:2.3rem;" alt="문의">
-					<span th:text="${board.board_title}">글제목</span>
-					</span>
+			<div class="row col-sm-12" th:if="${board.board_notice} == 0">
+				<span class="col-sm-12 h1 m-3 d-flex justify-content-center">
+				<img th:if="${board.category} == '신고'" th:src="@{/images/sirenMark.png}" style="height:2.3rem;" alt="신고">
+				<img th:if="${board.category} == '문의'" th:src="@{/images/inquiryMark.png}" style="height:2.3rem;" alt="문의">
+				<span th:text="${board.board_title}">글제목</span>
+				</span>
+			</div>
+			
+			<div class="row col-sm-12" th:if="${board.board_notice} == 1">
+				<span class="col-sm-12 h1 m-3 d-flex justify-content-center">
+				<img th:if="${board.category} == '신고'" th:src="@{/images/sirenMark.png}" style="height:2.3rem;" alt="신고">
+				<img th:if="${board.category} == '문의'" th:src="@{/images/inquiryMark.png}" style="height:2.3rem;" alt="문의">
+				<span th:text="|[공지글] ${board.board_title}|" th:if="${board.board_notice} == 1">글제목</span>
+				</span>
 			</div>
 			<div class="row col-sm-12">
 				<!-- 2. 작성일시 -->
@@ -150,12 +158,6 @@ function suggestRefresh(n){
 			</div>
 		</div>
 		
-		<!-- 4. 글 내용 -->
-		<div class="row mx-auto m-3 p-4 d-flex justify-content-center">
-			<div class="col-sm-12">
-				<span style="min-height:100px;" th:text="${board.board_contents}">글 내용</span>
-			</div>
-		</div>
 		
 		<!-- 5. 추천수 표기란 -->
 		<!-- <div class="d-flex justify-content-center m-3">
@@ -163,37 +165,64 @@ function suggestRefresh(n){
 			th:onclick="|javascript:suggestBoard(${board.board_num})|">추천수</span>
 		</div> -->
 				
-		<!-- 6. 텍스트 : 기존 답변이 없을 때 나옴 -->
-		<div th:if="${replyFlag} == 0">
-			
-			<form action="insertReply" method="post" id="writeReply">
-				<input type="hidden" id="hiddenVa" name="board_num" th:value="${board.board_num}">
-				<div class="d-flex justify-content-center m-3">
-					<textarea id="replyContens" name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
-					<span id="counter">11</span>
+		<!-- 텍스트 : 기존 답변이 없을 때 나옴 -->
+		<div th:if="${board.board_notice} == 0">
+			<!-- 글 내용 -->
+			<div class="row mx-auto m-3 p-4 d-flex justify-content-center">
+				<div class="col-sm-12">
+					<span style="min-height:100px;" th:text="${board.board_contents}">글 내용</span>
 				</div>
-			<!-- 7. 버튼 -->
-			<div class="d-flex justify-content-center m-3">
-				<input type="button" style="font-family: IBM Plex Sans KR;"
-				class="btn btn-primary m-1" id="submitButton" onclick="" value="등록">
-				<input type="button" style="font-family: IBM Plex Sans KR;"
-				class="btn btn-secondary m-1" id="cancelButton" value="취소">
 			</div>
-			</form>
+			<div th:if="${replyFlag} == 0">
+				<form action="insertReply" method="post" id="writeReply">
+					<input type="hidden" id="hiddenVa" name="board_num" th:value="${board.board_num}">
+					<div class="d-flex justify-content-center m-3">
+						<textarea id="replyContens" name="reply_contents" rows="10" cols="90" style="resize:none;" placeholder="내용을 입력하세요."></textarea>
+					</div>
+					<div style="text-align: right;"><span id="counter" class="m-5">11</span></div>
+				<!-- 7. 버튼 -->
+				<div class="d-flex justify-content-center m-3">
+					<input type="button" style="font-family: IBM Plex Sans KR;"
+					class="btn btn-primary m-1" id="submitButton" onclick="" value="등록">
+					<input type="button" style="font-family: IBM Plex Sans KR;"
+					class="btn btn-secondary m-1" id="cancelButton" value="취소">
+				</div>
+				</form>
+			</div>
+			
+			<!-- 텍스트 : 기존 답변이 있을 때, 기존 답변을 표기 -->
+			<div th:if="${replyFlag} == 1">
+				<div class="row border border-dark d-flex justify-content-center m-3" style="background-color: oldlace">
+					<!-- 작성자, 작성일시 -->
+					<div class="col-sm-6" style="text-align: left;">
+						<span th:text="|작성자: ${replyList[0].member_id}|" style="font-family: Jua;">작성자</span>
+					</div>
+					<div class="col-sm-6" style="text-align: right;">
+						<span th:text="|작성일: ${replyList[0].registration_date}|" style="font-family: Jua;">작성일시</span>
+					</div>
+					<div class="col-sm-12 p-5" style="min-height:16rem;">
+						<span th:text="${replyList[0].reply_contents}">내용</span>
+					</div>
+				</div>
+				<!-- 7. 버튼 -->
+				<div class="d-flex justify-content-center m-3">
+					<input type="button" style="font-family: IBM Plex Sans KR;"
+					class="btn btn-primary m-1" id="cancelButton" value="확인">
+				</div>
+			</div>
 		</div>
-		
-		<!-- 텍스트 : 기존 답변이 있을 때, 기존 답변을 표기 -->
-		<div th:if="${replyFlag} == 1">
+		<!-- 공지글 표시 -->
+		<div th:if="${board.board_notice} == 1">
 			<div class="row border border-dark d-flex justify-content-center m-3" style="background-color: oldlace">
 				<!-- 작성자, 작성일시 -->
-				<div class="col-sm-6" style="text-align: left;">
-					<span th:text="|작성자: ${replyList[0].member_id}|" style="font-family: Jua;">작성자</span>
+				<!-- <div class="col-sm-6" style="text-align: left;">
+					<span th:text="|작성자: ${board.member_id}|" style="font-family: Jua;">작성자</span>
 				</div>
 				<div class="col-sm-6" style="text-align: right;">
-					<span th:text="|작성일: ${replyList[0].registration_date}|" style="font-family: Jua;">작성일시</span>
-				</div>
-				<div class="col-sm-12 p-5" style="min-height:5rem;">
-					<span th:text="${replyList[0].reply_contents}">내용</span>
+					<span th:text="|작성일: ${board.registration_date}|" style="font-family: Jua;">작성일시</span>
+				</div> -->
+				<div class="col-sm-12 p-5" style="min-height:23rem; font-family: Jua;">
+					<span th:text="${board.board_contents}" >내용</span>
 				</div>
 			</div>
 			<!-- 7. 버튼 -->
@@ -202,8 +231,6 @@ function suggestRefresh(n){
 				class="btn btn-primary m-1" id="cancelButton" value="확인">
 			</div>
 		</div>
-	</div>
 	
-					
 </body>
 </html>

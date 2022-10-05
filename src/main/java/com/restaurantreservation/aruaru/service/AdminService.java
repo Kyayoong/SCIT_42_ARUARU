@@ -93,5 +93,12 @@ public interface AdminService {
 	 * @param restaurant_num
 	 * @return
 	 */
-	int reconsiderCertifiacationByNum(int restaurant_num); 
+	int reconsiderCertifiacationByNum(int restaurant_num);
+	
+	/**
+	 * 레스토랑 승인일
+	 * @param restaurant_num
+	 * @return
+	 */
+	int certificatedDate(int restaurant_num); 
 }

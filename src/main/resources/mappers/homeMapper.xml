@@ -46,7 +46,7 @@
 	<select id="selectReviewCntByDate" parameterType="int" resultType="int">
 		SELECT COUNT(*)
 		FROM REVIEW 
-		WHERE REVIEWED_DATE = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
+		WHERE TO_CHAR(REVIEWED_DATE, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
 	</select>
 	
 	<!-- 특정 날짜의 일반 가입자 수를 가져온다. -->
@@ -55,5 +55,12 @@
 		FROM USER_MEMBER 
 		WHERE TO_CHAR(REGISTRATION_DATE, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
 		AND	  MEMBER_ROLE = 'ROLE_USER'
+	</select>
+	
+	<!-- 특정 날짜의 레스토랑 가입자 가져오기 -->
+	<select id="selectRestaurantCntByDate" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM RESTAURANT_MEMBER 
+		WHERE TO_CHAR(REGISTRATION_DATE, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{date}, 'YY/MM/DD')
 	</select>
 </mapper>

@@ -231,7 +231,8 @@ CREATE SEQUENCE restaurant_file_seq;
 CREATE TABLE restaurant_zzim(
 	member_id VARCHAR2(100) REFERENCES user_member(member_id),									--회원아이디
     restaurant_num NUMBER(10),         --식당번호
-  	restaurant_name VARCHAR2(100) NOT NULL												    --가게이름
+  	restaurant_name VARCHAR2(100) NOT NULL	    --가게이름
+  	zzim_date date default sysdate
 );
 
 --일일 방문자, 가입자, 리뷰 추이 테이블

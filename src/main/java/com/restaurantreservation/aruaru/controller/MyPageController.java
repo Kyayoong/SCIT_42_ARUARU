@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_Graphs;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
@@ -68,7 +69,7 @@ public class MyPageController {
 			ArrayList<Restaurant_zzim> mywishlist = service.mywishlist(user.getUsername());
 			log.debug("찜 : {}", mywishlist);
 			model.addAttribute("mywishlist", mywishlist);
-
+			
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -343,7 +344,28 @@ public class MyPageController {
 
 	// 식당메인화면
 	@GetMapping("restaurantMain")
-	public String restaurantMain() {
+	public String restaurantMain(@AuthenticationPrincipal UserDetails user, Model model) {
+		if(user == null) {
+			return "redirect:/";
+		}
+		
+		User_member member = service.selectUser(user.getUsername());
+		Restaurant_member restaurant = restaurantService.selectOne(member.getMember_id());
+		int restaurant_num = restaurant.getRestaurant_num();
+		
+		//예약, 리뷰개수, 찜개수 그래프 데이터
+		Restaurant_Graphs graphData1 = restaurantService.selectRestaurantData(0, restaurant_num);
+		Restaurant_Graphs graphData2 = restaurantService.selectRestaurantData(-1, restaurant_num);
+		Restaurant_Graphs graphData3 = restaurantService.selectRestaurantData(-2, restaurant_num);
+		Restaurant_Graphs graphData4 = restaurantService.selectRestaurantData(-3, restaurant_num);
+		Restaurant_Graphs graphData5 = restaurantService.selectRestaurantData(-4, restaurant_num);
+		
+		model.addAttribute("day1", graphData1);
+		model.addAttribute("day2", graphData2);
+		model.addAttribute("day3", graphData3);
+		model.addAttribute("day4", graphData4);
+		model.addAttribute("day5", graphData5);
+		
 		return "/restaurantView/restaurantMain";
 	}
 

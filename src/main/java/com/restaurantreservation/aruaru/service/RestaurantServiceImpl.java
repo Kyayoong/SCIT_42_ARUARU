@@ -1,6 +1,10 @@
 package com.restaurantreservation.aruaru.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +16,7 @@ import com.restaurantreservation.aruaru.dao.RestaurantDao;
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_Graphs;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -293,6 +298,38 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public Review reviewSelect(int review_num) {
 		Review review = dao.reviewSelect(review_num);
 		return review;
+	}
+	
+	//특정 식당의 일일 데이터 가져오기
+	@Override
+	public Restaurant_Graphs selectRestaurantData(int i, int restaurant_num) {
+		//파라미터를 해쉬 맵으로 해서 보낸다.
+		HashMap<Object, Object> parameter = new HashMap<>();
+		parameter.put("dates", i);
+		parameter.put("restaurant_num", restaurant_num);
+		
+		Restaurant_Graphs restaurantData = new Restaurant_Graphs();
+		
+		//해당하는 날짜 넣기
+		Calendar calendar = new GregorianCalendar();
+		SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
+		calendar.add(Calendar.DATE, i);		
+		String dates = format.format(calendar.getTime());		
+		restaurantData.setDates(dates);
+		
+		//해당하는 날짜의 예약개수 넣기
+		int reservation_cnt = dao.selectReservationData(parameter);
+		restaurantData.setReservation_cnt(reservation_cnt);
+		
+		//해당하는 날짜의 리뷰 개수 넣기
+		int review_cnt = dao.selectReviewData(parameter);
+		restaurantData.setReview_cnt(review_cnt);
+		
+		//해당하는 날짜의 찜 개수 넣기
+		int zzim_cnt = dao.selectRestaurantZzimData(parameter);
+		restaurantData.setZzim_cnt(zzim_cnt);
+		
+		return restaurantData;
 	}
 	
 

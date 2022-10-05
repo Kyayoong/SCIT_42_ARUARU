@@ -285,14 +285,14 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 				<tr>
 					<td>
 						<div class="row">
-							<div class="col" th:each="review : ${reviewList}">
+							<div class="col" th:if="${review != null}">
 								<div id="profile-img">
-									<img th:src="@{/images/pose_ukkari_woman.png}"
+									<img th:src="|../mypage/profile?member_num=${review.member_num}|"
 										class="rounded-circle" alt="프로필사진"
 										style="width: 7vw; height: 7vw;">
 								</div>
 								<div class="profile-nickname">
-									<h4>[[${review.member_id}]]</h4>
+									<h4>[[${review.member_nickname}]]</h4>
 								</div>
 								<div class="score-star">
 									<img th:src="@{/images/star_icon.png}"
@@ -303,6 +303,32 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 									<div class="comment">
 										<h5>[[${review.contents}]]</h5>
 									</div>
+								</div>
+								<div class="upload-date">
+									<h6> 방문일 : [[${review.reservaiton_date}]]</h6>
+								</div>
+							</div>
+							<div class="col" th:if="${review1 != null}">
+								<div id="profile-img">
+									<img th:src="|../mypage/profile?member_num=${review1.member_num}|"
+										class="rounded-circle" alt="프로필사진"
+										style="width: 7vw; height: 7vw;">
+								</div>
+								<div class="profile-nickname">
+									<h4>[[${review1.member_nickname}]]</h4>
+								</div>
+								<div class="score-star">
+									<img th:src="@{/images/star_icon.png}"
+										style="width: 1.5vw; height: 1.5vw;">
+								</div>
+								<div class="score-number">
+									<h5>[[${review1.grade}]]</h5>
+									<div class="comment">
+										<h5>[[${review1.contents}]]</h5>
+									</div>
+								</div>
+								<div class="upload-date">
+									<h6> 방문일 : [[${review1.reservaiton_date}]]</h6>
 								</div>
 							</div>
 						</div>

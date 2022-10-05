@@ -560,13 +560,22 @@
 	(#{opentime},#{closetime},#{business_days},#{restaurant_num})
 	</insert>
 	
-	<select id="reivewAll" parameterType="int" resultType="Review">
+	<select id="reviewAll" parameterType="int" resultType="Review">
 	SELECT
 	*
 	FROM
 	review
 	WHERE
 	restaurant_num = #{restaurant_num}
+	</select>
+	
+	<select id="reviewSelect" parameterType="int" resultType="Review">
+	SELECT
+	*
+	FROM
+	review
+	WHERE
+	review_num = #{review_num}
 	</select>
 	
 </mapper>

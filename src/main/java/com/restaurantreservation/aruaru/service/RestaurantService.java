@@ -134,7 +134,11 @@ public interface RestaurantService {
 	
 	// 시간 입력
 	public int inputTime(Restaurant_time time);
-
-	public ArrayList<Review> reivewAll(int restaurant_num);
+	
+	// 리뷰 리스트
+	public ArrayList<Review> reviewAll(int restaurant_num);
+	
+	// 리뷰 선택
+	public Review reviewSelect(int review_num);
 
 }

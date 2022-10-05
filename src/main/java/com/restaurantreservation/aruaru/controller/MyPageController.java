@@ -65,6 +65,10 @@ public class MyPageController {
 			ArrayList<Reservation> cancelReservationList = restaurantService
 					.seeAllCancelReservation(user.getUsername());
 			model.addAttribute("cancelReservationList", cancelReservationList);
+			ArrayList<Restaurant_zzim> mywishlist = service.mywishlist(user.getUsername());
+			log.debug("찜 : {}", mywishlist);
+			model.addAttribute("mywishlist", mywishlist);
+
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
@@ -184,6 +188,7 @@ public class MyPageController {
 		return "userView/seereservation";
 	}
 
+	// 예약 상세정보
 	@GetMapping("seeReservationDetail")
 	public String seeReservationDetail(int reservation_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		log.debug("넘 : {} ", reservation_num);

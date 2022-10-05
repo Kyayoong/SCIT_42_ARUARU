@@ -10,7 +10,14 @@
 
 <!-- jQuery -->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-
+<script>
+$(function(){           
+	$('#demo').carousel({        
+       interval: 1000  
+     });
+});
+	
+</script>
 <script
    src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script
@@ -397,10 +404,10 @@
          </div>
          
          <div class="col">
-            <a th:href="@{/stores/recommendstores}"><img style="border-radius: 0.5vw;" th:src="@{/images/ranking4.png}"
+            <a th:href="@{/stores/recommendstores}"><img style="border-radius: 0.5vw;" th:src="@{/images/seemorewhite.jpg}"
                width=300 height=300></a>
             <div class="see-more">
-               <h3 style="text-align: center">더 보기</h3>
+              <h3 style="text-align: center;"><a style="color : black;" th:href="@{/stores/recommendstores}">더 보기</a></h3>
             </div>
          </div>
          
@@ -509,9 +516,9 @@
          <!-- 더보기 그림 부분, 글씨부분 -->
          <div class="col">
             <a th:href="@{/stores/recommendbyrank}"><img style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant4.jpg}" width=300 height=300></a>
+               th:src="@{/images/seemorewhite.jpg}" width=300 height=300></a>
             <div class="see-more">
-               <h3 style="text-align: center">더 보기</h3>
+               <h3 style="text-align: center;"><a style="color : black;" th:href="@{/stores/recommendbyrank}">더 보기</a></h3>
             </div>
          </div>
       </div>
@@ -615,9 +622,9 @@
          <!-- 더보기 그림 부분, 글씨부분 -->
          <div class="col">
             <a th:href="@{/stores/recommendbyregdate}"><img style="border-radius: 0.5vw;"
-               th:src="@{/images/new_restaurant4.jpg}" width=300 height=300></a>
+               th:src="@{/images/seemorewhite.jpg}" width=300 height=300></a>
             <div class="see-more">
-               <h3 style="text-align: center">더 보기</h3>
+               <h3 style="text-align: center;"><a style="color : black;" th:href="@{/stores/recommendbyregdate}">더 보기</a></h3>
             </div>
          </div>
       </div>

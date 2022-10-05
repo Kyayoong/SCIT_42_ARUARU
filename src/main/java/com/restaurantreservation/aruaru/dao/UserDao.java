@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 import com.restaurantreservation.aruaru.domain.User_member;
@@ -95,5 +96,6 @@ public interface UserDao {
 	
 	//공지글 입력
 	int insertNoticeBoard(Web_board notice);
-
+  
+	ArrayList<Restaurant_zzim> mywishlist(String member_id);
 }

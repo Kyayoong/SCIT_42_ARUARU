@@ -99,7 +99,7 @@
     * 캐러샐 인디케이터(밑에 누르면 화면 바뀌는 부분) 위치 조정
     */
 .carousel-indicators {
-	top: 65vh;
+	top: 60vh;
 }
 /*
    	*	소개 부분 전체 위치 설정
@@ -133,6 +133,21 @@
 #store-name {
 	margin-left: 8vw;
 }
+/*
+* 찜 하트
+*/
+.zzimHeart {
+	position : absolute;
+	top : 7vh;
+	left : 30vw;
+}
+
+.zzimCount {
+	position : absolute;
+	top : 0.5vh;
+	left : 2vw;
+}
+
 
 /*
    	* 음식점 소개글 위치 및 크기 설정

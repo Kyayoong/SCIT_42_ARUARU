@@ -77,6 +77,9 @@ public class HomeController {
 		User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
 			tags = service.ownTags(user.getUsername());
+			if(tags==null) {
+				tags = "없음";
+			}
 			mytags = tags.split("/");
 			List<Integer> a = service.recommend(mytags);
 			int[] stores = a.stream().mapToInt(i->i).toArray();

@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
+import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
 import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
@@ -40,7 +41,6 @@ import com.restaurantreservation.aruaru.util.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 @Slf4j
 @RequestMapping("/mypage")
 @Controller
@@ -51,6 +51,7 @@ public class MyPageController {
 	RestaurantService restaurantService;
 	@Value("${spring.servlet.multipart.location}")
 	String uploadPath;
+
 	// 마이페이지 메인화면
 	@GetMapping("/")
 	public String mypage(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -61,13 +62,19 @@ public class MyPageController {
 			ArrayList<Reservation> reservationlist = service.seeAllReservation(user.getUsername());
 			log.debug("리스트에여 : {}", reservationlist);
 			model.addAttribute("reservationlist", reservationlist);
-			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			ArrayList<Reservation> cancelReservationList = restaurantService
+					.seeAllCancelReservation(user.getUsername());
 			model.addAttribute("cancelReservationList", cancelReservationList);
+			ArrayList<Restaurant_zzim> mywishlist = service.mywishlist(user.getUsername());
+			log.debug("찜 : {}", mywishlist);
+			model.addAttribute("mywishlist", mywishlist);
+
 		} else {
 			model.addAttribute("member_nickname", "없음");
 		}
 		return "userView/mypage";
 	}
+
 	// 예약내역->리뷰선택창
 	@GetMapping("review")
 	public String review(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -80,33 +87,33 @@ public class MyPageController {
 		// 해당 아이디의 모든 리뷰를 가져온다
 		ArrayList<Review> reviewList = service.selectAllReview(user.getUsername());
 		// UsageHistory에서 num을 참고하여 리뷰리스트를 확인한다. 리뷰 리스트에 해당 넘버가 있으면 작성완료
-		log.debug("{}",reviewList);
-		for(int j = 0; j < usageList.size(); j++) {
-			for(int i = 0; i < reviewList.size(); i++) {
-				if(reviewList.get(i).getUsage_num() == usageList.get(j).getUsage_num()) {
+		log.debug("{}", reviewList);
+		for (int j = 0; j < usageList.size(); j++) {
+			for (int i = 0; i < reviewList.size(); i++) {
+				if (reviewList.get(i).getUsage_num() == usageList.get(j).getUsage_num()) {
 					usageList.get(j).setIsReviewed(1);
 					break;
 				}
 				usageList.get(j).setIsReviewed(0);
 			}
 		}
-		
+
 		// 없으면 작성 버튼활성화
 		log.debug("사용내역 리스트 : {}", usageList);
-		
+
 		// 모델에 담아 html에 가져간다.
-		
-		
+
 		// 식당 번호를 통해 식당이름을 가져와서 각 이용내역 객체에 식당 이름 저장.
 //		for(int i = 0; i < usageList.size(); i++) {
 //			Restaurant_member restaurantMember = restaurantService.selectOne1(usageList.get(i).getRestaurant_num());
 //			usageList.get(i).setRestaurant_name(restaurantMember.getRestaurant_name());
 //		}
-		
+
 		model.addAttribute("member", member);
 		model.addAttribute("usageList", usageList);
 		return "userView/review";
 	}
+
 	// 리뷰 입력창
 	@GetMapping("insertReview")
 	public String insertReview(int usageNum, Model model) {
@@ -116,7 +123,7 @@ public class MyPageController {
 		model.addAttribute("usage", usage);
 		return "userView/insertReview";
 	}
-	//리뷰입력 form
+	// 리뷰입력 form
 //	@PostMapping("insertReview")
 //	public String insertReview(Review review) {
 //				
@@ -129,19 +136,20 @@ public class MyPageController {
 //		
 //		return "redirect:/mypage/insertReview?usageNum=" + review.getUsage_num();
 //	}
-	
-	//리뷰입력 ajax
+
+	// 리뷰입력 ajax
 	@ResponseBody
 	@GetMapping("createReview")
 	public Review insertReviewAjax(Review review) {
 		String title = "아무 제목";
 		review.setTitle(title);
-		
-		//새로운 리뷰 객체를 저장한다.
+
+		// 새로운 리뷰 객체를 저장한다.
 		int result = service.insertReview(review);
-		
+
 		return review;
-   }
+	}
+
 	// 가게 소개 페이지
 	@GetMapping("introduce_store")
 	public String introduceStore(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -151,6 +159,7 @@ public class MyPageController {
 		}
 		return "userView/introduce_store";
 	}
+
 	// 쿠폰
 	@GetMapping("couponandinquiry")
 	public String couponandinqury(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -160,6 +169,7 @@ public class MyPageController {
 		}
 		return "userView/couponandinquiry";
 	}
+
 	// 이용내역확인
 	@GetMapping("seereservation")
 	public String seeresevation(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -171,12 +181,14 @@ public class MyPageController {
 			model.addAttribute("reservationlist", reservationlist);
 			ArrayList<Reservation> lastreservationlist = service.seeAllLastReservation(user.getUsername());
 			model.addAttribute("lastreservationlist", lastreservationlist);
-			ArrayList<Reservation> cancelReservationList = restaurantService.seeAllCancelReservation(user.getUsername());
+			ArrayList<Reservation> cancelReservationList = restaurantService
+					.seeAllCancelReservation(user.getUsername());
 			model.addAttribute("cancelReservationList", cancelReservationList);
 		}
 		return "userView/seereservation";
 	}
-	
+
+	// 예약 상세정보
 	@GetMapping("seeReservationDetail")
 	public String seeReservationDetail(int reservation_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		log.debug("넘 : {} ", reservation_num);
@@ -189,7 +201,7 @@ public class MyPageController {
 		}
 		return "userView/seeReservationDetail";
 	}
-	
+
 	// 공지사항
 	@GetMapping("notice")
 	public String notice(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -199,15 +211,21 @@ public class MyPageController {
 		}
 		return "userView/notice";
 	}
+
 	// 찜
 	@GetMapping("mywishlist")
 	public String mywishlist(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
 			User_member member = service.selectUser(user.getUsername());
 			model.addAttribute("member", member);
+			ArrayList<Restaurant_zzim> mywishlist = service.mywishlist(user.getUsername());
+			log.debug("찜 : {}", mywishlist);
+			model.addAttribute("mywishlist", mywishlist);
+
 		}
 		return "userView/mywishlist";
 	}
+
 	// 프로필 사진 불러오기
 	@GetMapping("profile")
 	public String profile(int member_num, Model model, HttpServletResponse response,
@@ -241,6 +259,7 @@ public class MyPageController {
 		}
 		return "home";
 	}
+
 	// 회원정보변경 화면으로 이동
 	@GetMapping("myinfomodify")
 	public String myinfomodify(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -250,6 +269,7 @@ public class MyPageController {
 		}
 		return "userView/myinfomodify";
 	}
+
 	// 회원정보 수정 처리
 	@PostMapping("myinfomodify")
 	public String myinfomodify(User_member member, @AuthenticationPrincipal UserDetails user, MultipartFile upload) {
@@ -277,6 +297,7 @@ public class MyPageController {
 		 */
 		return "redirect:";
 	}
+
 	// 회원혜택
 	@GetMapping("mybenefit")
 	public String mybenefit(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -287,6 +308,7 @@ public class MyPageController {
 		}
 		return "userView/mybenefit";
 	}
+
 	// 회원탈퇴
 	@GetMapping("leaveId")
 	public String leaveId(Model model, @AuthenticationPrincipal UserDetails user) {
@@ -296,6 +318,7 @@ public class MyPageController {
 		}
 		return "userView/leaveId";
 	}
+
 	// 회원탈퇴
 	@PostMapping("/leaveId")
 	public String leaveId(@AuthenticationPrincipal UserDetails user) {
@@ -303,6 +326,7 @@ public class MyPageController {
 		int result = service.deleteUser(member.getMember_id());
 		return "redirect:/logout";
 	}
+
 	// 식당메인화면
 	@GetMapping("restaurantMain")
 	public String restaurantMain() {
@@ -311,7 +335,7 @@ public class MyPageController {
 
 	// restMemberMain - 식당관리화면
 	@GetMapping("restaurantRTMemberMain")
-	public String restaurantRTMemberMain(Model model,@AuthenticationPrincipal UserDetails user) {
+	public String restaurantRTMemberMain(Model model, @AuthenticationPrincipal UserDetails user) {
 
 		Restaurant_member member = restaurantService.selectOne(user.getUsername());
 		ArrayList<Reservation> reservationList = restaurantService.ReservationList(member.getRestaurant_num());
@@ -320,22 +344,22 @@ public class MyPageController {
 		model.addAttribute("reservationList", reservationList);
 		return "/restaurantView/restaurantRTMemberMain";
 	}
-	
+
 	// rsetreview - 리뷰관리
 	@GetMapping("rsetreview")
-	public String rsetreview(Model model,@AuthenticationPrincipal UserDetails user) {
-		
+	public String rsetreview(Model model, @AuthenticationPrincipal UserDetails user) {
+
 		Restaurant_member member = restaurantService.selectOne(user.getUsername());
 		ArrayList<Menu> menuList = restaurantService.menucheck(member.getRestaurant_num());
-		
+
 		ArrayList<Tags> tagList = restaurantService.tagList("맛");
 		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
 		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
 		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
 		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
 		ArrayList<Tags> tagList6 = restaurantService.tagList("분위기");
-		log.debug("맴버 : {}",member);
-		log.debug("메뉴리스트 : {}",menuList);
+		log.debug("맴버 : {}", member);
+		log.debug("메뉴리스트 : {}", menuList);
 		model.addAttribute("tagList", tagList);
 		model.addAttribute("tagList2", tagList2);
 		model.addAttribute("tagList3", tagList3);
@@ -344,12 +368,10 @@ public class MyPageController {
 		model.addAttribute("tagList6", tagList6);
 		model.addAttribute("member", member);
 		model.addAttribute("menuList", menuList);
-		
-		
-		
-		
+
 		return "/restaurantView/rsetreview";
 	}
+
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -360,6 +382,7 @@ public class MyPageController {
 		model.addAttribute("boardList", writtenByme);
 		return "/userView/inquiryBoard";
 	}
+
 	@GetMapping("inquirywrite")
 	public String inquirywrite(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -368,6 +391,7 @@ public class MyPageController {
 		}
 		return "/userView/inquiryWrite";
 	}
+
 	@GetMapping("inquiryread")
 	public String inquiryread(int board_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		log.debug("{}", board_num);
@@ -384,28 +408,28 @@ public class MyPageController {
 		// inputiryboard.html로 가져간다.
 		return "/userView/inquiryRead";
 	}
+
+	// 예약취소
 	@GetMapping("cancelReservation")
 	public String cancelReservation(int reservation_num) {
-		log.debug("{} : ",reservation_num);
+		log.debug("{} : ", reservation_num);
 		Reservation reservation = restaurantService.reservationSelect(reservation_num);
 		Restaurant_member member = restaurantService.selectOne1(reservation.getRestaurant_num());
 		int people = member.getRestaurant_people() + reservation.getReservation_people();
 		member.setRestaurant_people(people);
 		restaurantService.peopleCount(member);
 		int result = restaurantService.cancelReservation(reservation_num);
-		return "redirect:/mypage/";
+		return "redirect:/mypage/seereservation";
 	}
-	
-	
+
 	@PostMapping("submitWebBoard")
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
-		
+
 		int result = service.insertBoard(b);
 		return "redirect:/mypage/inquiryboard";
 	}
-	
-	
+
 	@ResponseBody
 	@GetMapping("replyList")
 	public List<Web_reply> replyList(int board_num) {
@@ -413,6 +437,7 @@ public class MyPageController {
 		List<Web_reply> replyList = service.readReply(board_num);
 		return replyList;
 	}
+
 	@GetMapping("inquiryupdate")
 	public String inquiryupdate(int board_num, Model m, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -424,13 +449,14 @@ public class MyPageController {
 		m.addAttribute("board", b);
 		return "userView/inquiryModify";
 	}
+
 	@PostMapping("inquirymodifyAction")
 	public String inquirymodifyAction(Web_board b, Model m) {
 		log.debug("{}", b);
 		int result = service.updateBoard(b);
 		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
-	
+
 	@ResponseBody
 	@GetMapping("inquirydelete")
 	public String inquiryDelete(int board_num) {
@@ -438,6 +464,5 @@ public class MyPageController {
 		int result = service.deleteBoard(board_num);
 		return "redirect:/userView/inquiryBoard";
 	}
-	
-	
+
 }

@@ -33,7 +33,14 @@
 				'top=200,left=500,width=400,height=500');
 		$('')
 	}
+	
+	$(function(){           
+		$('#demo').carousel({        
+	       interval: 5000 
+	     });
+	});
 </script>
+
 <script th:inline="javascript">
 let store = [[${store}]];
 let fileList= [[${fileList}]];
@@ -118,8 +125,7 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 		</table>
 	</div>
 	<!-- 회전화면 부분 -->
-	<div id="demo" class="carousel slide carousel-fade"
-		data-ride="carousel">
+	<div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
 
 		<!-- 인디케이터 -->
 		<ul class="carousel-indicators">
@@ -136,8 +142,7 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 					alt="pasta"
 					style="width: 1200px; height: 500px; padding-left: 8.5vw; top: 5.5vh;">
 			</div>
-
-			<div class="carousel-item "
+			<div class="carousel-item"
 				th:if="${fileList.get(1).getRestaurant_file_num} != null">
 				<img
 					th:src="|filedis?restaurant_file_num=${fileList.get(1).getRestaurant_file_num}|"
@@ -164,15 +169,15 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 		<!-- 음식점 이름 -->
 		<div id="store-name">
 			<h1 th:text="${store.restaurant_name}"></h1>
-			<div th:if="${result} == 1">
+			<div class="zzimHeart" th:if="${result} == 1">
 				<img th:src="@{../images/herat222.png}" id="img01" width=23
 					height=23 class="img002" th:num="${store.restaurant_num}">
-				<p>[[${count}]]</p>
+				<p class="zzimCount">[[${count}]]</p>
 			</div>
-			<div th:if="${result} == 0">
+			<div class="zzimHeart" th:if="${result} == 0">
 				<img th:src="@{../images/heart111.png}" id="img02" width=23
 					height=23 class="img001" th:num="${store.restaurant_num}">
-				<p>[[${count}]]</p>
+				<p class="zzimCount">[[${count}]]</p>
 			</div>
 		</div>
 		<script>
@@ -285,62 +290,36 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 				<tr>
 					<td>
 						<div class="row">
-							<div class="col">
+							<div class="col" th:each="review : ${reviewList}">
 								<div id="profile-img">
 									<img th:src="@{/images/pose_ukkari_woman.png}"
 										class="rounded-circle" alt="프로필사진"
 										style="width: 7vw; height: 7vw;">
 								</div>
 								<div class="profile-nickname">
-									<h4>닉네임</h4>
-								</div>
-								<div class="reviews-followers">
-									<h6>리뷰0 팔로워0</h6>
+									<h4>[[${review.member_id}]]</h4>
 								</div>
 								<div class="score-star">
 									<img th:src="@{/images/star_icon.png}"
 										style="width: 1.5vw; height: 1.5vw;">
 								</div>
 								<div class="score-number">
-									<h5>3.5</h5>
+									<h5>[[${review.grade}]]</h5>
 									<div class="comment">
-										<h5>그럭저럭 갈만해요</h5>
+										<h5>[[${review.contents}]]</h5>
 									</div>
-								</div>
-								<div class="upload-date">
-									<h6>작성일 : 2022.09.07 / 방문일 : 2022.08.27</h6>
-								</div>
-							</div>
-							<div class="col">
-								<div class="profile-img">
-									<img th:src="@{/images/pose_ukkari_woman.png}"
-										class="rounded-circle" alt="프로필사진"
-										style="width: 7vw; height: 7vw;">
-								</div>
-								<div class="profile-nickname">
-									<h4>닉네임</h4>
-								</div>
-								<div class="reviews-followers">
-									<h6>리뷰0 팔로워0</h6>
-								</div>
-								<div class="score-star">
-									<img th:src="@{/images/star_icon.png}"
-										style="width: 1.5vw; height: 1.5vw;">
-								</div>
-								<div class="score-number">
-									<h5>3.5</h5>
-									<div class="comment">
-										<h5>그럭저럭 갈만해요</h5>
-									</div>
-								</div>
-								<div class="upload-date">
-									<h6>작성일 : 2022.09.07 / 방문일 : 2022.08.27</h6>
 								</div>
 							</div>
 						</div>
 					</td>
 				</tr>
 			</table>
+			<div id="empty">
+			<p></p>
+		</div>
+		<div id="empty">
+			<p></p>
+		</div>
 		</div>
 	</div>
 

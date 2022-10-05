@@ -11,6 +11,7 @@ import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
 import com.restaurantreservation.aruaru.domain.Restaurant_zzim;
+import com.restaurantreservation.aruaru.domain.Review;
 import com.restaurantreservation.aruaru.domain.Tags;
 import com.restaurantreservation.aruaru.domain.Usage_history;
 
@@ -133,5 +134,7 @@ public interface RestaurantService {
 	
 	// 시간 입력
 	public int inputTime(Restaurant_time time);
+
+	public ArrayList<Review> reivewAll(int restaurant_num);
 
 }

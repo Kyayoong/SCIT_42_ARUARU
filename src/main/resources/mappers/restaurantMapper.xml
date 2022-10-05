@@ -559,5 +559,14 @@
 	VALUES
 	(#{opentime},#{closetime},#{business_days},#{restaurant_num})
 	</insert>
-
+	
+	<select id="reivewAll" parameterType="int" resultType="Review">
+	SELECT
+	*
+	FROM
+	review
+	WHERE
+	restaurant_num = #{restaurant_num}
+	</select>
+	
 </mapper>

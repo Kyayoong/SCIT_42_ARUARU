@@ -93,4 +93,8 @@ public interface UserDao {
 	
 	int updateRole(String member_id);
 
+	List<Web_board> noticeBoard();
+
+	Web_board noticeRead(int board_num);
+
 }

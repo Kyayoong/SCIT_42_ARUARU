@@ -86,6 +86,10 @@ public interface UserService {
 	
 	public int updateRole(String member_id);
 
+	public List<Web_board> noticeBoard();
+
+	public Web_board noticeRead(int board_num);
+
 	
 
 }

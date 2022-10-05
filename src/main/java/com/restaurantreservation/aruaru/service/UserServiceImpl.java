@@ -188,6 +188,20 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public List<Web_board> noticeBoard() {
+		// TODO Auto-generated method stub
+		List<Web_board> notice = dao.noticeBoard();
+		return notice;
+	}
+
+	@Override
+	public Web_board noticeRead(int board_num) {
+		// TODO Auto-generated method stub
+		Web_board noticeRead = dao.noticeRead(board_num);
+		return noticeRead;
+	}
+
 
 
 

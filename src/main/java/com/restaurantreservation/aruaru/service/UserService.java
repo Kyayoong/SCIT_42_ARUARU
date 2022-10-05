@@ -97,6 +97,10 @@ public interface UserService {
 	 */
 	public int insertNoticeBoard(Web_board notice);
 
+	public List<Web_board> noticeBoard();
+
+	public Web_board noticeRead(int board_num);
+
 	
 
 }

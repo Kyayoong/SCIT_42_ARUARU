@@ -73,9 +73,6 @@ public interface UserDao {
 
 	int deleteBoard(int board_num);
 
-
-
-	
 	/**
 	 * 로그인 정보를 통해 해당 유저의 전체 리뷰 가져오기
 	 * @param username
@@ -85,7 +82,6 @@ public interface UserDao {
 
 	int updateBoard(Web_board b);
 
-
 	String myTags(String username);
 
 	List<Integer> recommend(String[] mytags);
@@ -93,6 +89,13 @@ public interface UserDao {
 	List<Restaurant_member> recommendStores(int[] a);
 	
 	int updateRole(String member_id);
+
+
+	List<Web_board> noticeBoard();
+
+	Web_board noticeRead(int board_num);
+
+
 	
 	//공지글 입력
 	int insertNoticeBoard(Web_board notice);

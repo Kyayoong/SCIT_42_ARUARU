@@ -145,5 +145,10 @@ public interface RestaurantService {
 	 * @return
 	 */
 	public Restaurant_Graphs selectRestaurantData(int i, int restaurant_num);
-
+	
+	// 리뷰 리스트
+	public ArrayList<Review> reviewAll(int restaurant_num);
+	
+	// 리뷰 선택
+	public Review reviewSelect(int review_num);
 }

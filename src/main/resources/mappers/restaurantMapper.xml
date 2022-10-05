@@ -560,7 +560,7 @@
 	(#{opentime},#{closetime},#{business_days},#{restaurant_num})
 	</insert>
 	
-	<select id="reivewAll" parameterType="int" resultType="Review">
+	<select id="reviewAll" parameterType="int" resultType="Review">
 	SELECT
 	*
 	FROM
@@ -593,7 +593,13 @@
 			AND TO_CHAR(ZZIM_DATE, 'YY/MM/DD') = TO_CHAR(SYSDATE + #{dates}, 'YY/MM/DD')
 	</select>
 	
-	
-	
+	<select id="reviewSelect" parameterType="int" resultType="Review">
+	SELECT
+	*
+	FROM
+	review
+	WHERE
+	review_num = #{review_num}
+	</select>
 	
 </mapper>

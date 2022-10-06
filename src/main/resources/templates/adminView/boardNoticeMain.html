@@ -48,7 +48,7 @@
         dataType: 'json',
         success: function(json){
          	let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
-					'<tr class="border-bottom border-dark">' +
+					'<tr class="border-bottom border-dark" style="font-family: Jua;">' +
 						'<th>글 번호</th>' +
 						'<th>제목</th>' +
 						'<th>작성자</th>' +
@@ -59,7 +59,7 @@
             for(let i = 0; i < json.notice.length; ++i){
                  t += '<tr class="text-danger" style="background-color: oldlace;">';
                  t += '<td><b>' + json.notice[i].board_num + '</b></td>';
-                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="color:red;">' 
+                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="font-family:Jua; color:red;">' 
                  	 + json.notice[i].board_title + '</a></b></td>';
                  t += '<td><b>' + json.notice[i].member_id + '</b></td>';
                  t += '<td><b>' + json.notice[i].hits + '</b></td>';
@@ -74,7 +74,6 @@
         }
    		})
 	}
-	
 	
 </script>
 </head>
@@ -106,6 +105,9 @@
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/main}">
 								<span data-feather="home"></span> 대시보드 <span
 								class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
+								data-feather="users"></span> 일반회원관리
 						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/restMemberMain}"> <span
 								data-feather="user"></span> 식당등록요청
@@ -143,7 +145,7 @@
 				<!-- 이하 글 목록 출력 영역 -->
 				<div id="boardList" class="border shadow rounded-sm m-2 p-1">
 					<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">
-						<tr class="border-bottom border-dark">
+						<tr class="border-bottom border-dark" style="font-family: Jua;">
 							<th>글 번호</th>
 							<th>제목</th>
 							<th>작성자</th>
@@ -157,8 +159,8 @@
 							<td>
 								<!-- read경로 뒤에 ()를 붙혀 parameter을 보낼 수 있다. -->
 								<b>
-									<span>[공지]</span>
-									<a th:href="|javascript:readBoard(${notice.board_num}, 1)|" th:text="${notice.board_title}" style="color:red;">제목</a>
+									<span style="font-family:Jua;">[공지]</span>
+									<a th:href="|javascript:readBoard(${notice.board_num}, 1)|" th:text="${notice.board_title}" style="font-family:Jua; color:red;">제목</a>
 								</b>
 							</td>
 							<td>

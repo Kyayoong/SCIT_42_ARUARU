@@ -215,6 +215,13 @@ public class UserServiceImpl implements UserService {
 		return noticeRead;
 	}
 
+	//전체유저 가져오기
+	@Override
+	public ArrayList<User_member> selectAllUsers() {
+		ArrayList<User_member> list = dao.selectAllUsers();
+		return list;
+	}
+
 
 
 

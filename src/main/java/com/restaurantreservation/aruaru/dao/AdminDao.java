@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -43,5 +44,7 @@ public interface AdminDao {
 	int reconsiderCertifiacationByNum(int restaurant_num);
 	//레스토랑 승인일
 	int certificatedDate(int restaurant_num);
+	//카테고리로 검색
+	ArrayList<Web_board> normalBoardListByCategory(HashMap<Object, Object> map);
 
 }

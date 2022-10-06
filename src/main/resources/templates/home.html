@@ -52,7 +52,7 @@ $(function(){
          <ul class="navbar-nav ml-auto">
             <!-- 관리자 페이지로 넘어가는 버튼입니다. 임시로 추가해두었고, 나중에는 로그인하면, 자동으로 이쪽으로 넘어가게 할 예정입니다.(임시) -->
             <li class="nav-item"><a class="nav-link"
-               th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin(임시)</a></li>
+               th:href="@{/admin/main}" sec:authorize="hasRole('ADMIN')">Admin</a></li>
             <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a>
             </li>
             <li class="nav-item"><a sec:authorize="not isAuthenticated()"

@@ -44,7 +44,6 @@
 <script th:inline="javascript">
 let store = [[${store}]];
 let fileList= [[${fileList}]];
-console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 </script>
 <title>Document</title>
 
@@ -272,7 +271,6 @@ console.log("파일 리스트 : " + fileList[0].restaurant_originalfile);
 			<!--  js폴더 내, home.html용 js파일 -->
 			<script type="text/javascript" th:src="@{/js/kakaoMap.js}"></script>
 		</div>
-		<br>
 
 
 		<!-- 가게 관련 태그 -->

@@ -37,7 +37,7 @@
 	        data: {board_title : title, board_contents : contents},
 	        success: function(json){
 	        	//원래 창의 리스트 리프레쉬
-	        	window.opener.listRefresh();
+	        	window.opener.listRefreshNotice();
 	    		window.close();
 	        },
 	        error: function(e){

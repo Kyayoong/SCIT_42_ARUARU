@@ -209,7 +209,7 @@ public class PageController {
 
 		return "redirect:/";
 	}	
-	
+	//태그로 가게 추천
 	@GetMapping("recommendstores")
 	public String recommendStores(Model model, @AuthenticationPrincipal UserDetails user) {
 		if(user != null) {
@@ -229,6 +229,7 @@ public class PageController {
 		return "stores";
 	}
 	
+	//랭킹으로 가게 추천
 	@GetMapping("recommendbyrank")
 	public String recommendByRank(Model model, @AuthenticationPrincipal UserDetails user) {
 		if(user != null) {
@@ -241,6 +242,8 @@ public class PageController {
 		return "stores";
 		
 	}
+	
+	//등록일자로 가게 추천
 	@GetMapping("recommendbyregdate")
 	public String recommendByRegDate(Model model, @AuthenticationPrincipal UserDetails user) {
 		if(user != null) {

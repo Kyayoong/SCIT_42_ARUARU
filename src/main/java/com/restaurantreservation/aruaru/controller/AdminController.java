@@ -99,15 +99,33 @@ public class AdminController {
 	
 	//genMemberMain - 일반회원관리창
 	@GetMapping("genMemberMain")
-	public String genMemberMain() {
+	public String genMemberMain(Model model) {
+		ArrayList<User_member> list = userService.selectAllUsers();
+		
+		model.addAttribute("list", list);
 		return "/adminView/adminGNMemberMain";
 	}
+	
+	//권한변경 ajax
+	@ResponseBody
+	@PostMapping("roleChange")
+	public String roleChange(String member_id, String role){
+		log.debug(member_id + role);
+		//받아온 값(예 = 1, 관리자)
+		int result = userService.modifyRole(member_id, role);
+		String resultMsg = "권한 설정변경 성공!";
+		if(result != 1) {
+			resultMsg = "권한 설정 변경실패...";
+		}
+		return resultMsg;
+	}
+	
 	
 	//boardMain - 게시글관리창
 	@GetMapping("boardMain")
 	public String boardMain(Model model) {
 		int replyFlag = 1;
-		
+				
 		//모든 게시글 가져와서 뿌리기
 		ArrayList<Web_board> normalList = service.normalBoardList();
 		
@@ -126,7 +144,6 @@ public class AdminController {
 			}
 		}
 		model.addAttribute("normalList", normalList);
-		
 		
 		return "/adminView/adminBoardMain";
 	}
@@ -225,9 +242,7 @@ public class AdminController {
 	//일반게시글 리프레쉬
 	@ResponseBody
 	@GetMapping("listRefreshNormalList")
-	public HashMap<Object, Object> listRefreshNormalList(){
-		HashMap<Object, Object> list = new HashMap<>();
-		
+	public ArrayList<Web_board> listRefreshNormalList(){
 		ArrayList<Web_board> normalList = service.normalBoardList();
 		
 		//답변완료된 문의글 리스트 가져오기
@@ -243,22 +258,44 @@ public class AdminController {
 				}
 			}
 		}
-		
-		list.put("normal", normalList);
 
-		return list;
+		return normalList;
 	}
+	
 	//게시글 리프레쉬
 	@ResponseBody
 	@GetMapping("listRefreshNotice")
-	public HashMap<Object, Object> listRefreshNotice(){
-		HashMap<Object, Object> list = new HashMap<>();
-		
+	public ArrayList<Web_board> listRefreshNotice(){
 		ArrayList<Web_board> noticeList = service.noticeBoardList();
-		
-		list.put("notice", noticeList);
 
-		return list;
+		return noticeList;
+	}
+	
+	//게시글 옵션에 의한 ajax
+	@ResponseBody
+	@PostMapping("searchItems")
+	public ArrayList<Web_board> searchItems(String category){
+		int replyFlag = 1;
+		
+		//모든 게시글 가져와서 뿌리기
+		ArrayList<Web_board> normalList = service.normalBoardListByCategory(category);
+		
+		//답변완료된 문의글 리스트 가져오기
+		ArrayList<Web_reply> replyList = service.allReplyList();
+		if(replyList.isEmpty()) {
+			log.debug("댓글이 없습니다.");
+			replyFlag = 0;
+		}
+		//normalList의 web_board 객체 하나하나와 replyList의 web_reply객체를 하나하나 비교하여 답변이 있으면 해당 web_board에 답변여부 넣기
+		for(int j = 0; j < normalList.size(); j++) {
+			for(int i = 0; i < replyList.size(); i++) {
+				if(replyList.get(i).getBoard_num() == normalList.get(j).getBoard_num()) {
+					normalList.get(j).setReply_cnt(normalList.get(j).getReply_cnt() + 1);
+				}
+			}
+		}
+		
+		return normalList;
 	}
 	
 	//추천수 올리기 ajax 처리

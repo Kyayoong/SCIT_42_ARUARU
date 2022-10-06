@@ -91,4 +91,33 @@
  	<update id="certificatedDate" parameterType="int">
  		UPDATE RESTAURANT_MEMBER SET REGISTRATION_DATE = SYSDATE WHERE RESTAURANT_NUM = #{member_id}
  	</update>
+ 	
+ 	<!-- 카테고리로 검색 -->
+ 	<select id="normalBoardListByCategory" parameterType="map" resultType="Web_board">
+ 		SELECT B.BOARD_NUM, 
+                B.MEMBER_ID, 
+                B.BOARD_TITLE, 
+                B.BOARD_CONTENTS,
+                B.HITS,
+                B.BOARD_ORIGINALFILE, 
+                B.BOARD_SAVEDFILE, 
+                B.BOARD_SUGGESTION,
+                B.REGISTRATION_DATE, 
+                B.BOARD_NOTICE AS, 
+                B.CATEGORY,
+                M.MEMBER_ROLE
+		FROM WEB_BOARD B, USER_MEMBER M
+		<if test="category != '전체'">
+			<where>
+					B.BOARD_NOTICE = 0 AND B.MEMBER_ID = M.MEMBER_ID
+				AND B.CATEGORY = #{category}
+			</where>
+		</if>
+		<if test="category == '전체'">
+			<where>
+					B.BOARD_NOTICE = 0 AND B.MEMBER_ID = M.MEMBER_ID
+			</where>
+		</if>
+		ORDER BY BOARD_NUM DESC
+	</select>
 </mapper>

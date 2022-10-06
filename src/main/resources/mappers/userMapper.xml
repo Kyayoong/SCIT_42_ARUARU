@@ -356,4 +356,16 @@
 		, #{board_notice}
 		)
 	</insert>
+	
+	<!-- 전체유저 가져오기 -->
+	<select id="selectAllUsers" resultType="User_member">
+		SELECT * FROM USER_MEMBER ORDER BY MEMBER_NUM
+	</select>
+	
+	<!-- 유저권한 선택된 권한으로 하기 -->
+	<update id="modifyRole" parameterType="map">
+		UPDATE USER_MEMBER
+		SET MEMBER_ROLE = #{role}
+		WHERE MEMBER_ID = #{member_id}
+	</update>
 </mapper>

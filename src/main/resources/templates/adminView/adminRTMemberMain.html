@@ -34,7 +34,7 @@
 	function refreshList(list){
 		let t = '';
 		t += 	'<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
-		 		'<tr class="border-bottom border-dark">' +
+		 		'<tr class="border-bottom border-dark" style="font-family: Jua;">' +
 				'<th>식당번호</th>' +
 		 		'<th>식당이름</th>' +
 		 		'<th>종류</th>' +
@@ -46,7 +46,7 @@
 		for(let i = 0; i < list.length; i++){
 			t += '<tr>' +
 				 '<td><span>' + list[i].restaurant_num + '</span></td>' +
-				 '<td><span>' + list[i].restaurant_name + '</span></td>' +
+				 '<td style="font-family: Jua;"><span>' + list[i].restaurant_name + '</span></td>' +
 				 '<td><span>' + list[i].restaurant_sectors + '</span></td>' +
 				 '<td><span>' + list[i].restaurant_phone + '</span></td>' +
 				 '<td>';
@@ -112,13 +112,13 @@
 								<span data-feather="home"></span> 대시보드 <span
 								class="sr-only">(current)</span>
 						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
+								data-feather="users"></span> 일반회원관리
+						</a></li>
 						<li class="nav-item"><a class="nav-link active" th:href="@{/admin/restMemberMain}"> <span
 								data-feather="user"></span> 식당등록요청
 						</a>
 						</li>
-						<!-- <li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
-								data-feather="users"></span> 일반회원관리
-						</a></li> -->
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/boardMain}"> <span
 								data-feather="clipboard"></span> 문의글관리
 						</a></li>
@@ -144,7 +144,7 @@
 				<!-- 승인 창 -->
 				<div id="boardList" class="border shadow rounded-sm m-2 p-1">
 					<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">
-						<tr class="border-bottom border-dark">
+						<tr class="border-bottom border-dark" style="font-family: Jua;">
 							<th>식당번호</th>
 							<th>식당이름</th>
 							<th>종류</th>
@@ -157,7 +157,7 @@
 							<td>
 								<span th:text="${list.restaurant_num}">식당번호</span>
 							</td>
-							<td>
+							<td style="font-family: Jua;">
 								<span th:text="${list.restaurant_name}">식당이름</span>
 							</td>
 							<td>

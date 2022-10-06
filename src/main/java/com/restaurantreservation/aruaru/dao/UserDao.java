@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -100,4 +101,10 @@ public interface UserDao {
 	int insertNoticeBoard(Web_board notice);
   
 	ArrayList<Restaurant_zzim> mywishlist(String member_id);
+	
+	//전체 유저 가져오기
+	ArrayList<User_member> selectAllUsers();
+	
+	//유저 권한 변경(admin창에서)
+	int modifyRole(HashMap<Object, Object> map);
 }

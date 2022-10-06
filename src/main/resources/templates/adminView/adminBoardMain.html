@@ -17,9 +17,12 @@
 <link th:href="@{/css/adminViewCss/adminPage.css}" rel="stylesheet">
 
 <script type="text/javascript">
+$(document).ready(function() {
+	$('#type').change(search);
+})
+	
 	/* 문의글 읽기 */
 	function readBoard(n){
-		listRefreshNormalList();
 		let win = window.open('/aruaru/admin/readBoard?boardNum=' + n, '아루아루 문의글', 
 				'width=' + screen.width/2 + 
 				', height=' + screen.height/1.45 + 
@@ -36,68 +39,8 @@
         type: 'get',
         //controller로부터 넘어온 리스트 
         dataType: 'json',
-        success: function(json){
-        	let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
-					'<tr class="border-bottom border-dark">' +
-						'<th>글 번호</th>' +
-						'<th>제목</th>' +
-						'<th>작성자</th>' + 
-						'<th>조회수</th>' +
-						'<th>작성일</th>' +
-					'</tr>';
-			//일반글
-            for(let i = 0; i < json.normal.length; ++i){          
-            	console.log(json.normal[i].member_role);
-            	//식당일때
-            	if(json.normal[i].member_role == 'ROLE_MEMBER'){
-	                t += '<tr style="color:blue;">';
-	                t += '<td>' + json.normal[i].board_num + '</td>';
-	                t += '<td>'
-                	if(json.normal[i].reply_cnt){
-	                	t += '<span style="font-weight:bolder; color:purple;">' + ' ' + '[답변완료]</span>';
-	                }
-	                
-	                t += '<a href="javascript:readBoard(' + json.normal[i].board_num + ')" style="color:blue;">' + ' ' +
-	                		json.normal[i].board_title + '</a></td>';	
-	                t += '<td><span style="color:black;">' + 
-			                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"' +
-		                	'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">' +
-		                	'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' +
-		            		'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>' +
-		            		'<circle cx="12" cy="7" r="4"></circle></svg>' + " " + 
-		            	 '</span>' + '<span>' + ' ' + json.normal[i].member_id + '</span></td>';
-	                t += '<td>' + json.normal[i].hits + '</td>';
-	                t += '<td>' + json.normal[i].registration_date + '</td>';
-	                t += '</tr>'
-	              
-	              //일반유저일때
-            	} else if(json.normal[i].member_role == 'ROLE_USER'){
-            		t += '<tr style="color:green;">';
-	                t += 	'<td>' + json.normal[i].board_num + '</td>';
-	                t += 	'<td>'
-	       			
-                	if(json.normal[i].reply_cnt){
-	                	t += '<span style="font-weight:bolder; color:purple;">[답변완료]'+ ' ' +'</span>';
-	                }
-	                	                
-	                t +=	'<a href="javascript:readBoard(' + json.normal[i].board_num + ')" style="color:green;">' + json.normal[i].board_title + ' ' +
-	                		'</a>' +
-	                	 	'</td>';	
-	                t += 	'<td><span style="color:black;">' +
-		                			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
-		            				'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">' +
-		            				'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87">' +
-		            				'</path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>' + 
-	            				'</span>' + 
-	                			'<span>'+ ' ' + json.normal[i].member_id + '</span>' + 
-	                		'</td>';
-	                t += '<td>' + json.normal[i].hits + '</td>';
-	                t += '<td>' + json.normal[i].registration_date + '</td>';
-	                t += '</tr>'
-            	}
-           	}
-            t += '</table>';
-            $('#boardList').html(t);
+        success: function(n){
+        	output(n);
         },
         error: function(e){
             alert(JSON.stringify(e));
@@ -105,7 +48,85 @@
    		})
 	}
 	
+	/* 글 목록 옵션 */
+	function search(){
+		let category = $('#type').val();
+		$.ajax({
+			url: 'searchItems',
+			type: 'post',
+			data: {category : category},
+			dataType: 'json',
+			success: function(list){
+				output(list);
+			},
+			error: function(e){
+				alert(JSON.stringify(e));
+			}
+		})
+		
+	}
 	
+	function output(list){
+		let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
+		'<tr class="border-bottom border-dark" style="font-family: Jua;">' +
+			'<th>글 번호</th>' +
+			'<th>제목</th>' +
+			'<th>작성자</th>' + 
+			'<th>조회수</th>' +
+			'<th>작성일</th>' +
+		'</tr>';
+		//일반글
+		for(let i = 0; i < list.length; ++i){          
+			//식당일때
+			if(list[i].member_role == 'ROLE_MEMBER'){
+		        t += '<tr style="color:blue;">';
+		        t += '<td>' + list[i].board_num + '</td>';
+		        t += '<td>'
+		    	if(list[i].reply_cnt){
+		        	t += '<span style="font-family: Jua; font-weight:bolder; color:purple;">' + ' ' + '[답변완료]</span>';
+		        }
+		        
+		        t += '<a href="javascript:readBoard(' + list[i].board_num + ')" style="font-family: Jua; color:blue;">' + ' ' +
+		        list[i].board_title + '</a></td>';	
+		        t += '<td><span style="color:black;">' + 
+		                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"' +
+		            	'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">' +
+		            	'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' +
+		        		'<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>' +
+		        		'<circle cx="12" cy="7" r="4"></circle></svg>' + " " + 
+		        	 '</span>' + '<span>' + ' ' + list[i].member_id + '</span></td>';
+		        t += '<td>' + list[i].hits + '</td>';
+		        t += '<td>' + list[i].registration_date + '</td>';
+		        t += '</tr>'
+		      
+		      //일반유저일때
+			} else if(list[i].member_role == 'ROLE_USER'){
+				t += '<tr style="color:green;">';
+		        t += 	'<td>' + list[i].board_num + '</td>';
+		        t += 	'<td>'
+		    	if(list[i].reply_cnt){
+		        	t += '<span style="font-weight:bolder; color:purple; font-family: Jua;">[답변완료]'+ ' ' +'</span>';
+		        }
+		        
+		        t +=	'<a href="javascript:readBoard(' + list[i].board_num + ')" style="font-family: Jua; color:green;">' + list[i].board_title + ' ' +
+		        		'</a>' +
+		        	 	'</td>';	
+		        t += 	'<td><span style="color:black;">' +
+		            			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+		        				'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">' +
+		        				'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87">' +
+		        				'</path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>' + 
+		    				'</span>' + 
+		        			'<span>'+ ' ' + list[i].member_id + '</span>' + 
+		        		'</td>';
+		        t += '<td>' + list[i].hits + '</td>';
+		        t += '<td>' + list[i].registration_date + '</td>';
+		        t += '</tr>'
+			}
+		}
+		t += '</table>';
+		$('#boardList').html(t);
+	}
 </script>
 </head>
 <body>
@@ -137,6 +158,9 @@
 								<span data-feather="home"></span> 대시보드 <span
 								class="sr-only">(current)</span>
 						</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin/genMemberMain}"> <span
+								data-feather="users"></span> 일반회원관리
+						</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/admin/restMemberMain}"> <span
 								data-feather="user"></span> 식당등록요청
 						</a></li>
@@ -159,7 +183,7 @@
 			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 				<div
 					class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">문의 관리</h1>
+					<h1 class="h2">문의/신고 관리</h1>
 				</div>
 				<!-- <select name="type" id="type">
 					<option value="all" th:selected="${type} == 'all'">전체</option>
@@ -167,10 +191,17 @@
 					<option value="camera" th:selected="${type} == 'report'">신고</option>
 				</select> -->
 
-				<!-- 이하 글 목록 출력 영역 -->
+				<!-- 글 목록 옵션 -->
+				<select name="type" id="type" class="m-2">
+					<option value="전체" th:selected="${type} == '전체'">전체</option>
+					<option value="문의" th:selected="${type} == '문의'">문의</option>
+					<option value="신고" th:selected="${type} == '신고'">신고</option>
+				</select>
+	
+				<!-- 이하 글 출력 목록 -->				
 				<div id="boardList" class="border shadow rounded-sm m-2 p-1">
 					<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">
-						<tr class="border-bottom border-dark">
+						<tr class="border-bottom border-dark" style="font-family: Jua;">
 							<th>글 번호</th>
 							<th>제목</th>
 							<th>작성자</th>
@@ -181,11 +212,11 @@
 							<td th:text="${normal.board_num}" th:if="${normal.member_role == 'ROLE_MEMBER'}" style="color:blue;">글 번호</td>
 							<td th:text="${normal.board_num}" th:if="${normal.member_role == 'ROLE_USER'}" style="color:green;">글 번호</td>
 							<td>
-								<span th:if="${normal.reply_cnt} != 0" th:text="[답변완료]" style="font-weight:bolder; color:purple;"></span>
+								<span th:if="${normal.reply_cnt} != 0" th:text="[답변완료]" style="font-family: Jua; font-weight:bolder; color:purple;"></span>
 								<a th:if="${normal.member_role} == 'ROLE_MEMBER'" th:href="|javascript:readBoard(${normal.board_num})|" 
-								th:text="${normal.board_title}" style="color:blue;">제목</a>
+								th:text="${normal.board_title}" style="font-family: Jua; color:blue;">제목</a>
 								<a th:if="${normal.member_role} == 'ROLE_USER'" th:href="|javascript:readBoard(${normal.board_num})|" 
-								th:text="${normal.board_title}" style="color:green;">제목</a>
+								th:text="${normal.board_title}" style="font-family: Jua; color:green;">제목</a>
 							</td>
 							<td>
 								<span data-feather="user" th:if="${normal.member_role} == 'ROLE_MEMBER'"></span>

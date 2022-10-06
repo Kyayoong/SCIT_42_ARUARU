@@ -119,24 +119,27 @@ public class PageController {
 			
 			log.debug(" : {} ", review);
 			
-			
-			Review review1 = service.reviewSelect(reviewList.get(1).getReview_num());
-			User_member member1 = service1.selectUser(reviewList.get(1).getMember_id());
-			Usage_history his1 = service1.selectOneUsageHistory(review1.getUsage_num());
-			review1.setReservaiton_date(his1.getUsage_date());
-			review1.setMember_nickname(member1.getMember_nickname());
-			review1.setMember_num(member1.getMember_num());
-			
-			Review review2 = service.reviewSelect(reviewList.get(2).getReview_num());
-			User_member member2 = service1.selectUser(reviewList.get(2).getMember_id());
-			Usage_history his2 = service1.selectOneUsageHistory(review2.getUsage_num());
-			review2.setReservaiton_date(his2.getUsage_date());
-			review2.setMember_nickname(member2.getMember_nickname());
-			review2.setMember_num(member2.getMember_num());
+			/*
+			 * Review review1 = service.reviewSelect(reviewList.get(1).getReview_num());
+			 * User_member member1 = service1.selectUser(reviewList.get(1).getMember_id());
+			 * Usage_history his1 = service1.selectOneUsageHistory(review1.getUsage_num());
+			 * review1.setReservaiton_date(his1.getUsage_date());
+			 * review1.setMember_nickname(member1.getMember_nickname());
+			 * review1.setMember_num(member1.getMember_num());
+			 * 
+			 * Review review2 = service.reviewSelect(reviewList.get(2).getReview_num());
+			 * User_member member2 = service1.selectUser(reviewList.get(2).getMember_id());
+			 * Usage_history his2 = service1.selectOneUsageHistory(review2.getUsage_num());
+			 * review2.setReservaiton_date(his2.getUsage_date());
+			 * review2.setMember_nickname(member2.getMember_nickname());
+			 * review2.setMember_num(member2.getMember_num());
+			 */
 			
 			model.addAttribute("review", review);
-			model.addAttribute("review1", review1);
-			model.addAttribute("review2", review2);
+			/*
+			 * model.addAttribute("review1", review1); model.addAttribute("review2",
+			 * review2);
+			 */
 			
 		}
 		

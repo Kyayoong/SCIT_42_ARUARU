@@ -110,7 +110,11 @@ public interface UserService {
 
 	//공지사항 글 읽기
 	public Web_board noticeRead(int board_num);
-
 	
+	//전체 유저 가져오기
+	public ArrayList<User_member> selectAllUsers();
+	
+	//멤버 권한 변경
+	public int modifyRole(String member_id, String role);
 
 }

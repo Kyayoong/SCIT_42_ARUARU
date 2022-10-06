@@ -567,7 +567,8 @@
 	FROM
 	review
 	WHERE
-	restaurant_num = #{restaurant_num}
+	restaurant_num = #{restaurant_num} 
+	ORDER BY REVIEW_NUM DESC
 	</select>
 	
 	<!-- 식당의 일일 예약 데이터 가져오기. 기준일로부터의 날짜인수:"dates", 가게 번호: "restaurant_num" -->

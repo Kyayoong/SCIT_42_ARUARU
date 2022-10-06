@@ -23,9 +23,6 @@ let geocoder = new kakao.maps.services.Geocoder();
 let callback = function(result, status) {
     //service가 잘 작동되고 있을 때.
 	if (status === kakao.maps.services.Status.OK) {
-	    console.log(result);
-	    console.log(result[0].x);
-	    console.log(result[0].y);
 	 	
 	 	/**---------------------------------------------
 	 	* 2. 주소로 얻어낸 좌표 위치를 중심으로 지도를 그리기

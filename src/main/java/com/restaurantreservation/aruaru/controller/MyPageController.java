@@ -117,11 +117,6 @@ public class MyPageController {
 	public String insertReview(int usageNum, Model model) {
 		// 해당 번호의 이용 내역 받아오기
 		Usage_history usage = service.selectOneUsageHistory(usageNum);
-		Restaurant_member member = restaurantService.selectOne1(usage.getRestaurant_num());
-		Review review = restaurantService.reviewSelect(usageNum);
-		double avr = (member.getRestaurant_grade() + review.getGrade()) / 2;
-		member.setRestaurant_grade(avr);
-		int result = restaurantService.updateRest(member);
 		log.debug(" {} ", usage);
 		model.addAttribute("usage", usage);
 		return "userView/insertReview";
@@ -150,6 +145,12 @@ public class MyPageController {
 
 		// 새로운 리뷰 객체를 저장한다.
 		int result = service.insertReview(review);
+		
+		//저장 될때, 해당 가게의 평점 갱신
+		Restaurant_member member = restaurantService.selectOne1(review.getRestaurant_num());
+		double avr = (member.getRestaurant_grade() + review.getGrade()) / 2;
+		member.setRestaurant_grade(avr);
+		result = restaurantService.updateRest(member);
 
 		return review;
 	}

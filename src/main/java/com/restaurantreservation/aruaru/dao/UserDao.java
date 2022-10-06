@@ -100,4 +100,7 @@ public interface UserDao {
 	int insertNoticeBoard(Web_board notice);
   
 	ArrayList<Restaurant_zzim> mywishlist(String member_id);
+	
+	//전체 유저 가져오기
+	ArrayList<User_member> selectAllUsers();
 }

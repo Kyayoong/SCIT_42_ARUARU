@@ -100,5 +100,12 @@ public interface AdminService {
 	 * @param restaurant_num
 	 * @return
 	 */
-	int certificatedDate(int restaurant_num); 
+	int certificatedDate(int restaurant_num);
+	
+	/**
+	 * 카테고리로 문의/신고글 가져오기
+	 * @param category
+	 * @return
+	 */
+	ArrayList<Web_board> normalBoardListByCategory(String category); 
 }

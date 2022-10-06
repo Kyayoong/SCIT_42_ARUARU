@@ -355,4 +355,9 @@
 		, #{board_notice}
 		)
 	</insert>
+	
+	<!-- 전체유저 가져오기 -->
+	<select id="selectAllUsers" resultType="User_member">
+		SELECT * FROM USER_MEMBER ORDER BY MEMBER_NUM
+	</select>
 </mapper>

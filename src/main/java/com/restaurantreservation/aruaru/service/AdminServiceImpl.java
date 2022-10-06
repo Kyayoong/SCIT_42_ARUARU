@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -117,6 +118,15 @@ public class AdminServiceImpl implements AdminService {
 	public int certificatedDate(int restaurant_num) {
 		int result = dao.certificatedDate(restaurant_num);
 		return result;
+	}
+	
+	//카테고리 옵션에 의한 게시글 가져오기
+	@Override
+	public ArrayList<Web_board> normalBoardListByCategory(String category) {
+		HashMap<Object, Object> map = new HashMap<>();
+		map.put("category", category);
+		ArrayList<Web_board> list = dao.normalBoardListByCategory(map);
+		return list;
 	}
 	
 	

@@ -212,7 +212,7 @@ public class MyPageController {
 		return "userView/notice";
 	}
 
-	
+	//공지사항읽기
 	@GetMapping("noticeread")
 	public String noticeread(int board_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -418,6 +418,7 @@ public class MyPageController {
 		return "/restaurantView/rsetreview";
 	}
 
+	//문의사항목록
 	@GetMapping("inquiryboard")
 	public String inquiryboard(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -429,6 +430,7 @@ public class MyPageController {
 		return "/userView/inquiryBoard";
 	}
 
+	//문의사항쓰기
 	@GetMapping("inquirywrite")
 	public String inquirywrite(Model model, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -438,6 +440,7 @@ public class MyPageController {
 		return "/userView/inquiryWrite";
 	}
 
+	//문의사항읽기
 	@GetMapping("inquiryread")
 	public String inquiryread(int board_num, Model model, @AuthenticationPrincipal UserDetails user) {
 		log.debug("{}", board_num);
@@ -468,6 +471,8 @@ public class MyPageController {
 		return "redirect:/mypage/seereservation";
 	}
 
+	
+	//문의사항 등록 Action
 	@PostMapping("submitWebBoard")
 	public String submitWebBoard(Web_board b) {
 		log.debug("{}", b);
@@ -476,6 +481,7 @@ public class MyPageController {
 		return "redirect:/mypage/inquiryboard";
 	}
 
+	//문의사항에 리플목록
 	@ResponseBody
 	@GetMapping("replyList")
 	public List<Web_reply> replyList(int board_num) {
@@ -484,6 +490,7 @@ public class MyPageController {
 		return replyList;
 	}
 
+	//문의사항 수정하기
 	@GetMapping("inquiryupdate")
 	public String inquiryupdate(int board_num, Model m, @AuthenticationPrincipal UserDetails user) {
 		if (user != null) {
@@ -496,6 +503,7 @@ public class MyPageController {
 		return "userView/inquiryModify";
 	}
 
+	//문의사항 수정 Action
 	@PostMapping("inquirymodifyAction")
 	public String inquirymodifyAction(Web_board b, Model m) {
 		log.debug("{}", b);
@@ -503,6 +511,7 @@ public class MyPageController {
 		return "redirect:/userView/inquiryRead?board_num=" + b.getBoard_num();
 	}
 
+	//문의사항 지우기
 	@ResponseBody
 	@GetMapping("inquirydelete")
 	public String inquiryDelete(int board_num) {

@@ -28,11 +28,14 @@ public interface UserService {
 
 	// 회원 탈퇴
 	public int deleteUser(String member_id);
-
+	
+	//문의사항에 자기 아이디로 작성한 글만 보이도록 함
 	public List<Web_board> findBoard(String username);
-
+	
+	//문의사항 등록
 	public int insertBoard(Web_board b);
 
+	//문의사항 읽기
 	public Web_board readBoard(int board_num);
 
 	// 예약내역 확인
@@ -70,6 +73,7 @@ public interface UserService {
 	 */
 	public int insertReview(Review review);
 
+	//문의사항 수정
 	public int updateBoard(Web_board b);
 	
 	/**
@@ -79,12 +83,16 @@ public interface UserService {
 	 */
 	public ArrayList<Review> selectAllReview(String username);
 
+	//문의사항 삭제
 	public int deleteBoard(int board_num);
 
+	//DB에 등록한 태그 불러옴
 	String ownTags(String username);
-
+    
+	//태그로 검색했을 때 해당하는 레스토랑의 등록번호
 	public List<Integer> recommend(String[] mytags);
 
+	//레스토랑 등록번호를 토대로 한 추천 레스토랑들
 	public List<Restaurant_member> recommendStores(int[] stores);
 	
 	public int updateRole(String member_id);
@@ -94,10 +102,13 @@ public interface UserService {
 	 * @param notice
 	 * @return
 	 */
+	
 	public int insertNoticeBoard(Web_board notice);
 
+	//공지사항 목록 읽어오기
 	public List<Web_board> noticeBoard();
 
+	//공지사항 글 읽기
 	public Web_board noticeRead(int board_num);
 
 	

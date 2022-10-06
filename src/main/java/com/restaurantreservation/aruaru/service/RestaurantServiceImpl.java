@@ -150,7 +150,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		ArrayList<Tags> storeTags = dao.searchStoreTags(restaurant_num);
 		return storeTags;
 	}
-	//가개리스트 검색
+	//가게리스트 검색
 	@Override
 	public ArrayList<Restaurant_member> resListSearch(Map<String, String> map) {
 		ArrayList<Restaurant_member> resList = dao.resListSearch(map);

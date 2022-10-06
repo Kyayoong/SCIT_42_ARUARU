@@ -18,21 +18,20 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.type').change(function(){
-		let member_num = $(this).attr('data-num');
+		let member_id = $(this).attr('data-userId');
 		let role = $(this).val();
-		
-		roleChange(member_num, role);
+		roleChange(member_id, role);
 	});
 })
 
-function roleChange(member_num, role){
+function roleChange(member_id, role){
 	$.ajax({
 		url: 'roleChange',
 		type: 'post',
-		data: {member_num : member_num, role : role},
-		dataType: 'json',
-		success: function(list){
-			output(list);
+		data: {member_id : member_id, role : role},
+		dataType: 'text',
+		success: function(n){
+			alert(n);
 		},
 		error: function(e){
 			alert(JSON.stringify(e));
@@ -135,10 +134,10 @@ function search(){
 							<td th:text="${list.member_gender}">성별</td>
 							<td>
 								<span style="font-family: Jua;">
-									<select name="type" class="type m-2" th:data-num="${list.member_num}">
-										<option value="일반" th:selected="${list.member_role} == 'ROLE_USER'">일반</option>
-										<option value="식당" th:selected="${list.member_role} == 'ROLE_MEMBER'">식당</option>
-										<option value="관리자" th:selected="${list.member_role} == 'ROLE_ADMIN'">관리자</option>
+									<select name="type" class="type m-2" th:data-userId="${list.member_id}">
+										<option value="ROLE_USER" th:selected="${list.member_role} == 'ROLE_USER'">일반</option>
+										<option value="ROLE_MEMBER" th:selected="${list.member_role} == 'ROLE_MEMBER'">식당</option>
+										<option value="ROLE_ADMIN" th:selected="${list.member_role} == 'ROLE_ADMIN'">관리자</option>
 									</select>								
 								</span>
 							</td>

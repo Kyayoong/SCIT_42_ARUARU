@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -220,6 +221,15 @@ public class UserServiceImpl implements UserService {
 	public ArrayList<User_member> selectAllUsers() {
 		ArrayList<User_member> list = dao.selectAllUsers();
 		return list;
+	}
+
+	@Override
+	public int modifyRole(String member_id, String role) {
+		HashMap<Object, Object> map = new HashMap<>();
+		map.put("member_id", member_id);
+		map.put("role", role);
+		int result = dao.modifyRole(map);
+		return result;
 	}
 
 

@@ -55,6 +55,7 @@ public class WebSecurityConfig {
                 "/js/jquery-3.6.0.min.js",
                 "/ckeditor/**",
                 "/kakaoMapImages/**",
+                "/error",
                 //관리자페이지 임시로 풀어놨습니다. - 성준
                 "/admin/**",
                 //오라클 연결 테스트용입니다.

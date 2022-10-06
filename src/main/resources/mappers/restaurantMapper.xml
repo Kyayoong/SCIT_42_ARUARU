@@ -603,7 +603,14 @@
 	review_num = #{review_num}
 	</select>
 	
-	<update id="updateRest" parameterType="Restaurant_member">
+	<!-- 식당 승인시, user->member로 role 업데이트 -->
+	<update id="updateRoleAsMember" parameterType="string">
+		UPDATE USER_MEMBER
+		SET MEMBER_ROLE = 'ROLE_MEMBER'
+		WHERE MEMBER_ID = #{member_id}
+	</update>
+
+<update id="updateRest" parameterType="Restaurant_member">
 	UPDATE
 	restaurant_member
 	SET
@@ -611,5 +618,4 @@
 	WHERE
 	restaurant_num = #{restaurant_num}
 	</update>
-	
 </mapper>

@@ -149,8 +149,14 @@ public interface RestaurantService {
 	
 	// 리뷰 선택
 	public Review reviewSelect(int review_num);
+	
+	/**
+	 * 레스토랑 승인 시, Role을 user에서 member로 올려준다
+	 * @param member_id
+	 * @return
+	 */
+	public int updateRoleAsMember(String member_id);
 
 	// 평점 업데이트
 	public int updateRest(Restaurant_member member);
-
 }

@@ -80,6 +80,10 @@ public class AdminController {
 			int result = service.acceptCertificationByNum(restaurant_num);
 			//해당 유저 아이디의 가입일을 sysdate로 갱신
 			result = service.certificatedDate(restaurant_num);
+			
+			//해당 유저의 role을 member로 수정
+			Restaurant_member restMem = restService.selectOne1(restaurant_num);
+			result = restService.updateRoleAsMember(restMem.getMember_id());
 		} else if(isPermited == 0) {
 			int result = service.rejectCertificationByNum(restaurant_num);
 		} else if(isPermited == -1) {

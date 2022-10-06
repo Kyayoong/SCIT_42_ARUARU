@@ -156,4 +156,7 @@ public interface RestaurantDao {
 	//특정 식당의 일일 찜 데이터 가져오기
 	int selectRestaurantZzimData(HashMap<Object, Object> parameter);
 	
+	// 식당 승인 시, user->member로 업데이트
+	int updateRoleAsMember(String member_id);
+	
 }

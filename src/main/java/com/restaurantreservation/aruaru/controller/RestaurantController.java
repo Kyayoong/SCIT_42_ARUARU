@@ -91,6 +91,8 @@ public class RestaurantController {
 
 		member.setMember_id(user.getUsername());
 		member.setRestaurant_people(30);
+		log.debug("{} : ",member);
+		
 		int result = service.regist1(member);
 
 		Restaurant_member member2 = service.selectOne(user.getUsername());

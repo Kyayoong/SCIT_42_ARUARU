@@ -300,6 +300,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		Review review = dao.reviewSelect(review_num);
 		return review;
 	}
+	@Override
+	public int updateRest(Restaurant_member member) {
+		int result = dao.updateRest(member);
+		return result;
+	}
 	
 	//특정 식당의 일일 데이터 가져오기
 	@Override

@@ -332,6 +332,13 @@ public class RestaurantServiceImpl implements RestaurantService {
 		
 		return restaurantData;
 	}
+	
+	//식당 승인 시, role 업데이트 (user -> member)
+	@Override
+	public int updateRoleAsMember(String member_id) {
+		int result = dao.updateRoleAsMember(member_id);
+		return result;
+	}
 
 	
 

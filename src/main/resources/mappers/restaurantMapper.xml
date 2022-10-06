@@ -602,4 +602,10 @@
 	review_num = #{review_num}
 	</select>
 	
+	<!-- 식당 승인시, user->member로 role 업데이트 -->
+	<update id="updateRoleAsMember" parameterType="string">
+		UPDATE USER_MEMBER
+		SET MEMBER_ROLE = 'ROLE_MEMBER'
+		WHERE MEMBER_ID = #{member_id}
+	</update>
 </mapper>

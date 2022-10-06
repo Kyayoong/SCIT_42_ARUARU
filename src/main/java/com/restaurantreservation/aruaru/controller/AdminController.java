@@ -106,6 +106,21 @@ public class AdminController {
 		return "/adminView/adminGNMemberMain";
 	}
 	
+	//권한변경 ajax
+	@ResponseBody
+	@PostMapping("roleChange")
+	public String roleChange(String member_id, String role){
+		log.debug(member_id + role);
+		//받아온 값(예 = 1, 관리자)
+		int result = userService.modifyRole(member_id, role);
+		String resultMsg = "권한 설정변경 성공!";
+		if(result != 1) {
+			resultMsg = "권한 설정 변경실패...";
+		}
+		return resultMsg;
+	}
+	
+	
 	//boardMain - 게시글관리창
 	@GetMapping("boardMain")
 	public String boardMain(Model model) {

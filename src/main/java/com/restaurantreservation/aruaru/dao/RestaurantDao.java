@@ -1,6 +1,7 @@
 package com.restaurantreservation.aruaru.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_Graphs;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -146,5 +148,12 @@ public interface RestaurantDao {
 	int updateRest(Restaurant_member member);
 	
 	
+	
+	//특정 식당의 일일 예약 데이터 가져오기
+	int selectReservationData(HashMap<Object, Object> parameter);
+	//특정 식당의 일일 리뷰 데이터 가져오기
+	int selectReviewData(HashMap<Object, Object> parameter);
+	//특정 식당의 일일 찜 데이터 가져오기
+	int selectRestaurantZzimData(HashMap<Object, Object> parameter);
 	
 }

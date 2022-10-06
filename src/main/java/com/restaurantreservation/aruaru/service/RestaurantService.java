@@ -7,6 +7,7 @@ import java.util.Map;
 import com.restaurantreservation.aruaru.domain.Holiday;
 import com.restaurantreservation.aruaru.domain.Menu;
 import com.restaurantreservation.aruaru.domain.Reservation;
+import com.restaurantreservation.aruaru.domain.Restaurant_Graphs;
 import com.restaurantreservation.aruaru.domain.Restaurant_file;
 import com.restaurantreservation.aruaru.domain.Restaurant_member;
 import com.restaurantreservation.aruaru.domain.Restaurant_time;
@@ -135,12 +136,20 @@ public interface RestaurantService {
 	// 시간 입력
 	public int inputTime(Restaurant_time time);
 	
+	/**
+	 * 특정 식당의 일일 데이터 (예약, 리뷰, 찜 개수) 가져오기
+	 * @param i : 가져올 데이터의 일자
+	 * @param restaurant_num : 가져올 식당의 번호
+	 * @return
+	 */
+	public Restaurant_Graphs selectRestaurantData(int i, int restaurant_num);
+	
 	// 리뷰 리스트
 	public ArrayList<Review> reviewAll(int restaurant_num);
 	
 	// 리뷰 선택
 	public Review reviewSelect(int review_num);
-	
+
 	// 평점 업데이트
 	public int updateRest(Restaurant_member member);
 

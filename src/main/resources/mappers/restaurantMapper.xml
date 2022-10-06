@@ -37,7 +37,8 @@
 		, restaurant_phone
 		, restaurant_address1
 		,
-		restaurant_address2
+		restaurant_address2,
+		restaurant_people
 		)
 		VALUES
 		(restaurant_member_seq.nextval
@@ -49,6 +50,7 @@
 		#{restaurant_phone}
 		, #{restaurant_address1}
 		, #{restaurant_address2}
+		, #{restaurant_people}
 		)
 	</insert>
 	<!-- 식당 파일 등록 -->
@@ -335,8 +337,7 @@
 		SET
 		restaurant_people = #{restaurant_people}
 		WHERE
-		restaurant_num =
-		#{restaurant_num}
+		restaurant_num = #{restaurant_num}
 	</update>
 
 	<select id="ReservationList" parameterType="int"
@@ -607,5 +608,14 @@
 		UPDATE USER_MEMBER
 		SET MEMBER_ROLE = 'ROLE_MEMBER'
 		WHERE MEMBER_ID = #{member_id}
+	</update>
+
+<update id="updateRest" parameterType="Restaurant_member">
+	UPDATE
+	restaurant_member
+	SET
+	restaurant_grade = #{restaurant_grade}
+	WHERE
+	restaurant_num = #{restaurant_num}
 	</update>
 </mapper>

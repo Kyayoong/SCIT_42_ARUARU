@@ -156,4 +156,7 @@ public interface RestaurantService {
 	 * @return
 	 */
 	public int updateRoleAsMember(String member_id);
+
+	// 평점 업데이트
+	public int updateRest(Restaurant_member member);
 }

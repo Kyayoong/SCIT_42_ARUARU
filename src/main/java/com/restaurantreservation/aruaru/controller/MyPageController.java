@@ -117,9 +117,15 @@ public class MyPageController {
 	public String insertReview(int usageNum, Model model) {
 		// 해당 번호의 이용 내역 받아오기
 		Usage_history usage = service.selectOneUsageHistory(usageNum);
+		Restaurant_member member = restaurantService.selectOne1(usage.getRestaurant_num());
+		Review review = restaurantService.reviewSelect(usageNum);
+		double avr = (member.getRestaurant_grade() + review.getGrade()) / 2;
+		member.setRestaurant_grade(avr);
+		int result = restaurantService.updateRest(member);
 		log.debug(" {} ", usage);
 		model.addAttribute("usage", usage);
 		return "userView/insertReview";
+		
 	}
 	// 리뷰입력 form
 //	@PostMapping("insertReview")

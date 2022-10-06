@@ -16,7 +16,7 @@ public class Restaurant_member {
 	String restaurant_sectors; 		// 업종선택
 	String restaurant_comment; 		// 상세설명
 	String restaurant_phone; 		// 가게번호
-	int restaurant_grade; 			// 평점
+	double restaurant_grade; 		// 평점
 	String registration_date;		// 등록일
 	String restaurant_address1; 	// 도로명
 	String restaurant_address2; 	// 상세주고

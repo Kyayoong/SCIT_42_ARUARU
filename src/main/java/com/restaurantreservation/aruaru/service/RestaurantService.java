@@ -140,5 +140,8 @@ public interface RestaurantService {
 	
 	// 리뷰 선택
 	public Review reviewSelect(int review_num);
+	
+	// 평점 업데이트
+	public int updateRest(Restaurant_member member);
 
 }

@@ -294,6 +294,11 @@ public class RestaurantServiceImpl implements RestaurantService {
 		Review review = dao.reviewSelect(review_num);
 		return review;
 	}
+	@Override
+	public int updateRest(Restaurant_member member) {
+		int result = dao.updateRest(member);
+		return result;
+	}
 	
 
 }

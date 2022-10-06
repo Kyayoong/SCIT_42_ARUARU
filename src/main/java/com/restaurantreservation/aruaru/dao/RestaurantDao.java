@@ -142,6 +142,9 @@ public interface RestaurantDao {
 	// 리뷰 가져오기
 	Review reviewSelect(int review_num);
 	
+	// 평점 업데이트
+	int updateRest(Restaurant_member member);
+	
 	
 	
 }

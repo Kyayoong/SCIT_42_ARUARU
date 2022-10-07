@@ -332,7 +332,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		restaurantData.setReview_cnt(review_cnt);
 		
 		//해당하는 날짜의 찜 개수 넣기
-		int zzim_cnt = dao.selectRestaurantZzimData(parameter);
+		int zzim_cnt = dao.selectRestaurantZzimData(parameter);		
 		restaurantData.setZzim_cnt(zzim_cnt);
 		
 		return restaurantData;

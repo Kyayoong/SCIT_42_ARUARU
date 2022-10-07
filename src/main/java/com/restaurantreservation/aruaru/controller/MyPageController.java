@@ -115,6 +115,20 @@ public class MyPageController {
 	// 리뷰 입력창
 	@GetMapping("insertReview")
 	public String insertReview(int usageNum, Model model) {
+		
+		ArrayList<Tags> tagList = restaurantService.tagList("맛");
+		ArrayList<Tags> tagList2 = restaurantService.tagList("서비스");
+		ArrayList<Tags> tagList3 = restaurantService.tagList("인기");
+		ArrayList<Tags> tagList4 = restaurantService.tagList("가격");
+		ArrayList<Tags> tagList5 = restaurantService.tagList("계절");
+		ArrayList<Tags> tagList6 = restaurantService.tagList("분위기");
+		model.addAttribute("tagList", tagList);
+		model.addAttribute("tagList2", tagList2);
+		model.addAttribute("tagList3", tagList3);
+		model.addAttribute("tagList4", tagList4);
+		model.addAttribute("tagList5", tagList5);
+		model.addAttribute("tagList6", tagList6);
+		
 		// 해당 번호의 이용 내역 받아오기
 		Usage_history usage = service.selectOneUsageHistory(usageNum);
 		log.debug(" {} ", usage);
@@ -369,7 +383,8 @@ public class MyPageController {
 		User_member member = service.selectUser(user.getUsername());
 		Restaurant_member restaurant = restaurantService.selectOne(member.getMember_id());
 		int restaurant_num = restaurant.getRestaurant_num();
-		
+		log.debug("{}", restaurant_num);
+		log.debug("{}", member);
 		//예약, 리뷰개수, 찜개수 그래프 데이터
 		Restaurant_Graphs graphData1 = restaurantService.selectRestaurantData(0, restaurant_num);
 		Restaurant_Graphs graphData2 = restaurantService.selectRestaurantData(-1, restaurant_num);

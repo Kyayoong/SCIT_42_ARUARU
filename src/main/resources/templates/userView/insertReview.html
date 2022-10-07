@@ -24,6 +24,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script type="text/javascript">
+
 let dataPoint = 0;
 	//별 이미지 클릭시
 	$(document).on('click', '#point1', drawStars);
@@ -132,6 +133,8 @@ let dataPoint = 0;
 		dataPoint = point;
 	}
 	
+
+	
 </script>
 <title>리뷰 입력 하기</title>
 </head>
@@ -163,29 +166,39 @@ let dataPoint = 0;
 		</div>
 		<!-- 4. 태그 (서비스, 맛)-->
 		<div class="row mx-auto m-1 p-3">
-			<div class="btn-group-toggle" data-toggle="buttons">
-			<label class="btn btn-outline-secondary" for="tag1"><input
-				name="member_tags" value="한식" type="checkbox" id="tag1">한식</label>
-			</div>
-			<div id="idtag2" class="btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-outline-secondary" for="tag2"><input
-					name="member_tags" value="양식" type="checkbox" id="tag2">양식</label>
-			</div>
-			<div id="idtag3" class="btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-outline-secondary" for="tag3"><input
-					name="member_tags" value="일식" type="checkbox" id="tag3">일식</label>
-			</div>
-			<div id="idtag4" class="btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-outline-secondary" for="tag4"><input
-					name="member_tags" value="중식" type="checkbox" id="tag4">중식</label>
-			</div>
-			<div id="idtag5" class="btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-outline-secondary" for="tag5"><input
-					name="member_tags" value="동남아요리" type="checkbox" id="tag5">동남아요리</label>
-			</div>
-			<div id="idtag6" class="btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-outline-secondary" for="tag6"><input
-					name="member_tags" value="뷔페" type="checkbox" id="tag6">뷔페</label>
+				<label style="width: 500px;" for="tag1" th:text="${tagList[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				
+				<label style="width:500px; margin-top: 10px;" for="tag1" th:text="${tagList2[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList2}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				<label style="width:500px; margin-top: 10px;" for="tag1" th:text="${tagList3[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList3}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				<label style="width:500px; margin-top: 10px;" for="tag1" th:text="${tagList4[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList4}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				<label style="width:500px; margin-top: 10px;" for="tag1" th:text="${tagList5[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList5}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				<br>
+				<label style="width:500px; margin-top: 10px;" for="tag1" th:text="${tagList6[0].tags_sector}"></label><br>
+				<div class="btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-secondary" th:for="${tag.tags_num}" th:each="tag : ${tagList6}"><input name="tags_name" 
+					th:value="${tag.tags_name}" type="checkbox" th:id="${tag.tags_num}" th:num="${tag.tags_num}" class="tag1">[[${tag.tags_name}]]</label>
+				</div>
+				<br>
 			</div> <span id="msg13"></span>
 		</div>
 		<!-- 5. 텍스트 -->

@@ -20,7 +20,7 @@ public class Review {
     String review_suggestion;	//리뷰추천
     String reviewed_date;		//리뷰 작성일 테이블 수정 필요
     String member_nickname;		//맴버네임
-    String reservaiton_date;	//예약날자
+    String reservation_date;	//예약날자
     int member_num;				//맴버넘버
 
     public Review(String member_id, int restaurant_num, int usage_num, String title, String contents, int grade) {

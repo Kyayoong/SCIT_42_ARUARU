@@ -46,7 +46,7 @@
         type: 'get',
         //controller로부터 넘어온 해쉬맵(공지, 일반)을 ob라는 json타입으로 받는다. 
         dataType: 'json',
-        success: function(json){
+        success: function(notice){
          	let t = '<table class="table-sm boardList col-sm-12 text-center" style="background-color: oldlace;">' +
 					'<tr class="border-bottom border-dark" style="font-family: Jua;">' +
 						'<th>글 번호</th>' +
@@ -56,14 +56,14 @@
 						'<th>작성일</th>' +
 					'</tr>';
 			
-            for(let i = 0; i < json.notice.length; ++i){
+            for(let i = 0; i < notice.length; ++i){
                  t += '<tr class="text-danger" style="background-color: oldlace;">';
-                 t += '<td><b>' + json.notice[i].board_num + '</b></td>';
-                 t += '<td><b><span>[공지]</span> <a href="javascript:readBoard(' + json.notice[i].board_num + ')" style="font-family:Jua; color:red;">' 
-                 	 + json.notice[i].board_title + '</a></b></td>';
-                 t += '<td><b>' + json.notice[i].member_id + '</b></td>';
-                 t += '<td><b>' + json.notice[i].hits + '</b></td>';
-                 t += '<td><b>' + json.notice[i].registration_date + '</b></td>';
+                 t += '<td><b>' + notice[i].board_num + '</b></td>';
+                 t += '<td><b><span style="font-family: Jua;">[공지]</span> <a href="javascript:readBoard(' + notice[i].board_num + ')" style="font-family:Jua; color:red;">' 
+                 	 + notice[i].board_title + '</a></b></td>';
+                 t += '<td><b>' + notice[i].member_id + '</b></td>';
+                 t += '<td><b>' + notice[i].hits + '</b></td>';
+                 t += '<td><b>' + notice[i].registration_date + '</b></td>';
                  t += '</tr>';
             }
             t += '</table>';

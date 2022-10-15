@@ -267,7 +267,6 @@ public class AdminController {
 	@GetMapping("listRefreshNotice")
 	public ArrayList<Web_board> listRefreshNotice(){
 		ArrayList<Web_board> noticeList = service.noticeBoardList();
-
 		return noticeList;
 	}
 	

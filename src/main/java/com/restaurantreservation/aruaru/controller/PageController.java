@@ -211,7 +211,7 @@ public class PageController {
 		}
 
 		return "redirect:/";
-	}	
+	
 	//태그로 가게 추천
 	@GetMapping("recommendstores")
 	public String recommendStores(Model model, @AuthenticationPrincipal UserDetails user) {

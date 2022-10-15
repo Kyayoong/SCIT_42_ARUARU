@@ -307,6 +307,7 @@
 		<foreach collection="arg0" item="item1" separator = "or restaurant_num = " >
 		#{item1} 
 		</foreach>
+		
 	</select>
 	
 	<update id="updateRole" parameterType="String">
